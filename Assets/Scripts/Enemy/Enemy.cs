@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         Controller = GetComponent<CharacterController>();
         ForceReceiver = GetComponent<ForceReceiver>();
 
-        //stateMachine = new EnermyStateMachine(this);
+        stateMachine = new EnemyStateMachine(this);
     }
 
     private void Start()
