@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class Player : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
     public PlayerInput Input { get; private set; }
-    public CharacterController Controller { get; private set; }
+    public PlayerController Controller { get; private set; }
     public ForceReceiver ForceReceiver { get; private set; }
 
    // [field: SerializeField] public Weapon Weapon { get; private set; }
@@ -27,8 +28,9 @@ public class Player : MonoBehaviour
         //AnimationData.Initialize();
         //Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
-        Controller = GetComponent<CharacterController>();
+        Rigidbody = GetComponent<Rigidbody>();  
         ForceReceiver = GetComponent<ForceReceiver>();
+        Controller = GetComponent<PlayerController>();
         //Health = GetComponent<Health>();
 
         stateMachine = new PlayerStateMachine(this);

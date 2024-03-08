@@ -15,14 +15,17 @@ public class PlayerStateMachine : StateMachine
 
     // 
     public Vector2 MovementInput { get; set; }
-    public float MovementSpeed { get; private set; }
+
+    public Vector2 LookInput { get; set; }
     public float RotationDamping { get; private set; }
     public float MovementSpeedModifier { get; set; } = 1f;
+    public float MovementSpeed { get; private set; } = 5f;
 
     public float JumpForce { get; set; }
 
     public bool IsAttacking { get; set; }
     public int ComboIndex { get; set; }
+
 
     public Transform MainCameraTransform { get; set; }
 

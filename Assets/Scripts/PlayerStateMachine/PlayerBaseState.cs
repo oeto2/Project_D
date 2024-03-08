@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
@@ -29,6 +30,7 @@ public class PlayerBaseState : IState
     public virtual void HandleInput()
     {
         ReadMovementInput();
+        ReadLookInput();
     }
 
     public virtual void PhysicsUpdate()
@@ -39,34 +41,37 @@ public class PlayerBaseState : IState
     public virtual void Update()
     {
         Move();
+        Look();
     }
 
     protected virtual void AddInputActionsCallback()
     {
         PlayerInput input = stateMachine.Player.Input;
-        input.playerActions.Move.canceled += OnMovementCanceled;
+        input.playerActions.Move.canceled += OnMoveCanceled;
         input.playerActions.Run.started += OnRunStarted;
+        input.playerActions.Look.canceled += OnLookCanceled;
 
         stateMachine.Player.Input.playerActions.Jump.started += OnJumpStarted;
-
-        stateMachine.Player.Input.playerActions.Attack.performed += OnAttackPerformed;
-        stateMachine.Player.Input.playerActions.Attack.canceled += OnAttackCanceled;
-
+        
+        //stateMachine.Player.Input.playerActions.Attack.performed += OnAttackPerformed;
+        //stateMachine.Player.Input.playerActions.Attack.canceled += OnAttackCanceled;
+        //
         //stateMachine.Player.Input.playerActions.Potion.started += OnPotionStarted;
     }
 
+    
 
     protected virtual void RemoveInputActionsCallback()
     {
         PlayerInput input = stateMachine.Player.Input;
-        input.playerActions.Move.canceled -= OnMovementCanceled;
+        input.playerActions.Move.canceled -= OnMoveCanceled;
         input.playerActions.Run.started -= OnRunStarted;
-
+        
         stateMachine.Player.Input.playerActions.Jump.started -= OnJumpStarted;
-
-        stateMachine.Player.Input.playerActions.Attack.performed -= OnAttackPerformed;
-        stateMachine.Player.Input.playerActions.Attack.canceled -= OnAttackCanceled;
-
+        
+        //stateMachine.Player.Input.playerActions.Attack.performed -= OnAttackPerformed;
+        //stateMachine.Player.Input.playerActions.Attack.canceled -= OnAttackCanceled;
+        //
         //stateMachine.Player.Input.playerActions.Potion.started -= OnPotionStarted;
     }
 
@@ -75,7 +80,12 @@ public class PlayerBaseState : IState
 
     }
 
-    protected virtual void OnMovementCanceled(InputAction.CallbackContext context)
+    protected virtual void OnMoveCanceled(InputAction.CallbackContext context)
+    {
+
+    }
+
+    private void OnLookCanceled(InputAction.CallbackContext context)
     {
 
     }
@@ -105,28 +115,38 @@ public class PlayerBaseState : IState
         stateMachine.MovementInput = stateMachine.Player.Input.playerActions.Move.ReadValue<Vector2>();
     }
 
+    private void ReadLookInput()
+    {
+        stateMachine.LookInput = stateMachine.Player.Input.playerActions.Look.ReadValue<Vector2>();
+    }
+
     private void Move()
     {
-        Vector3 movementDirection = GetMovementDirection();
+        Vector3 movementDirection = GetMovementDirection() * GetMovementSpeed();
 
-        Rotate(movementDirection);
+        stateMachine.Player.Rigidbody.velocity = movementDirection;
+    }
 
-        Move(movementDirection);
+    private void Look()
+    {
+        var controller = stateMachine.Player.Controller;
+        controller.camCurXRot += stateMachine.LookInput.y * controller.lookSensitivity;
+        controller.camCurXRot = Mathf.Clamp(controller.camCurXRot, controller.minXLook, controller.maxXLook);
+        stateMachine.MainCameraTransform.localEulerAngles = new Vector3(-controller.camCurXRot, 0, 0);
+
+        Transform playerTransform = stateMachine.Player.transform;
+        playerTransform.eulerAngles += new Vector3(0, stateMachine.LookInput.x * controller.lookSensitivity, 0) ;
     }
 
     protected void ForceMove()
     {
-        stateMachine.Player.Controller.Move(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
+       //stateMachine.Player.(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
     }
 
     private Vector3 GetMovementDirection()
     {
-        Vector3 forward = stateMachine.MainCameraTransform.forward;
-        Vector3 right = stateMachine.MainCameraTransform.right;
-
-        // y °ª Á¦°ÅÇØ¾ß ¶¥¹Ù´Ú ¾È º½
-        forward.y = 0;
-        right.y = 0;
+        Vector3 forward = stateMachine.Player.transform.forward;
+        Vector3 right = stateMachine.Player.transform.right;
 
         forward.Normalize();
         right.Normalize();
@@ -134,13 +154,6 @@ public class PlayerBaseState : IState
         return forward * stateMachine.MovementInput.y + right * stateMachine.MovementInput.x;
     }
 
-    private void Move(Vector3 movementDirection)
-    {
-        float movementSpeed = GetMovemenetSpeed();
-        stateMachine.Player.Controller.Move(
-            ((movementDirection * movementSpeed) + stateMachine.Player.ForceReceiver.Movement) * Time.deltaTime
-            );
-    }
 
     private void Rotate(Vector3 movementDirection)
     {
@@ -152,7 +165,7 @@ public class PlayerBaseState : IState
         }
     }
 
-    private float GetMovemenetSpeed()
+    private float GetMovementSpeed()
     {
         float movementSpeed = stateMachine.MovementSpeed * stateMachine.MovementSpeedModifier;
         return movementSpeed;

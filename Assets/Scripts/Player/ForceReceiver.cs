@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ForceReceiver : MonoBehaviour
 {
-    [SerializeField] private CharacterController controller;
     [SerializeField] private float drag = 0.3f;
 
     private Vector3 dampingVelocity;
@@ -15,7 +14,7 @@ public class ForceReceiver : MonoBehaviour
 
     void Update()
     {
-        if (verticalVelocity < 0f && controller.isGrounded)
+        if (verticalVelocity < 0f)
         {
             // Physics.gravity.y = - 9.7
             verticalVelocity = Physics.gravity.y * Time.deltaTime;

@@ -29,11 +29,11 @@ public class PlayerJumpState : PlayerAirState
     {
         base.PhysicsUpdate();
 
-        // 떨어지는 시점이 될 때
-        if (stateMachine.Player.Controller.velocity.y <= 0)
-        {
-            stateMachine.ChangeState(stateMachine.FallState);
-            return;
-        }
+        //// 떨어지는 시점이 될 때
+        //if (stateMachine.Player.velocity.y <= 0)
+        //{
+        //    stateMachine.ChangeState(stateMachine.FallState);
+        //    return;
+        //}
     }
 }
