@@ -51,7 +51,6 @@ public class EnemyBaseState : IState
     private void Move()
     {
         Vector3 movementDirection = GetMovementDirection();
-
         Rotate(movementDirection);
         Move(movementDirection);
     }
@@ -61,7 +60,7 @@ public class EnemyBaseState : IState
         stateMachine.Enemy.Controller.Move(stateMachine.Enemy.ForceReceiver.Movement * Time.deltaTime);
     }
 
-    // 
+    // 이동 방향 구하기
     private Vector3 GetMovementDirection()
     {
         return (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).normalized;
@@ -91,7 +90,6 @@ public class EnemyBaseState : IState
     protected float GetMovementSpeed()
     {
         float movementSpeed = stateMachine.MovementSpeed * stateMachine.MovementSpeedModifier;
-
         return movementSpeed;
     }
 
@@ -114,9 +112,9 @@ public class EnemyBaseState : IState
         }
     }
 
-    //
     protected bool IsInChaseRange()
     {
+        //Debug.Log($"플레이어 위치 : {stateMachine.Target.transform.position}");
         // if (stateMachine.Target.IsDead) { return false; }
 
         //제곱을 푸는 연산보다 한번 더 곱하는 연산이 메모리상 좋음

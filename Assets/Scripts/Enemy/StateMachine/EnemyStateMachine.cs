@@ -13,7 +13,6 @@ public class EnemyStateMachine : StateMachine
     public EnemyChasingState ChasingState { get; }
     public EnemyAttackState AttackState { get; }
 
-    
     public Vector2 MovementInput { get; set; }
     public float MovementSpeed { get; private set; }
     public float RotationDamping { get; private set; }
@@ -24,7 +23,7 @@ public class EnemyStateMachine : StateMachine
         Enemy = enemy;
 
         //나중에는 수정하기
-        Target = GameObject.FindGameObjectWithTag("Player").transform;
+        Target = GameManager.instance.playerObject.transform;
 
         IdlingState = new EnemyIdleState(this);
         ChasingState = new EnemyChasingState(this);

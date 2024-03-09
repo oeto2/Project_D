@@ -32,16 +32,19 @@ public class EnemyAttackState : EnemyBaseState
         base.Update();
 
         ForceMove();
-
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
+
+        Debug.Log(normalizedTime);
+
         if (normalizedTime < 1f)
         {
+            //Debug.Log("공격 애니메이션 실행");
             if (normalizedTime >= stateMachine.Enemy.Data.ForceTransitionTime)
                 TryApplyForce();
-
         }
         else
         {
+            Debug.Log("애니메이션 종료");
             if (IsInChaseRange())
             {
                 stateMachine.ChangeState(stateMachine.ChasingState);
@@ -53,7 +56,6 @@ public class EnemyAttackState : EnemyBaseState
                 return;
             }
         }
-
     }
 
     private void TryApplyForce()
@@ -64,6 +66,5 @@ public class EnemyAttackState : EnemyBaseState
         stateMachine.Enemy.ForceReceiver.Reset();
 
         stateMachine.Enemy.ForceReceiver.AddForce(stateMachine.Enemy.transform.forward * stateMachine.Enemy.Data.Force);
-
     }
 }

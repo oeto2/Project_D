@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
 
     private EnemyStateMachine stateMachine;
 
-
     void Awake()
     {
         //애니메이션 데이터 할당

@@ -22,7 +22,7 @@ public class SingletoneBase<T> : MonoBehaviour where T : MonoBehaviour
             return _instance;
         }
     }
-    
+
     public virtual void Init()
     {
         Debug.Log(transform.name + "is Init");
