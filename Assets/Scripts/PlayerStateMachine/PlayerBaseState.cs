@@ -125,7 +125,7 @@ public class PlayerBaseState : IState
     {
         Vector3 movementDirection = GetMovementDirection() * GetMovementSpeed();
 
-        stateMachine.Player.Rigidbody.velocity = movementDirection;
+        stateMachine.Player.Rigidbody.velocity = (movementDirection + stateMachine.Player.ForceReceiver.Movement);
     }
 
     private void Look()

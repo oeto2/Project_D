@@ -8,30 +8,33 @@ public class ForceReceiver : MonoBehaviour
 
     private Vector3 dampingVelocity;
     private Vector3 impact;
-    private float verticalVelocity;
-
-    private Rigidbody _rigidbody;
+    public float verticalVelocity;
+    private Player Player;
 
     public Vector3 Movement => impact + Vector3.up * verticalVelocity;
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        Player = GetComponent<Player>();
     }
 
     void Update()
     {
-        //if (verticalVelocity < 0f)
-        //{
-        //    // Physics.gravity.y = - 9.7
-        //    verticalVelocity = Physics.gravity.y * Time.deltaTime;
-        //}
-        //else
-        //{
-        //    verticalVelocity += Physics.gravity.y * Time.deltaTime;
-        //}
-        //
-        //impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
+        if (Player.stateMachine.GetCurrentState() == Player.stateMachine.FallState)
+        {
+            verticalVelocity = Physics.gravity.y * 0.3f;
+        }
+        else if (verticalVelocity < 0f)
+        {
+            // Physics.gravity.y = - 9.7
+            verticalVelocity = Physics.gravity.y * Time.deltaTime;
+        }
+        else
+        {
+            verticalVelocity += Physics.gravity.y * Time.deltaTime;
+        }
+        
+        impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
     }
 
     public void Reset()
@@ -47,6 +50,7 @@ public class ForceReceiver : MonoBehaviour
 
     public void Jump(float jumpForce)
     {
-        _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        verticalVelocity += jumpForce;
+        // 위로 10만큼 캐릭터 y 0=>10
     }
 }

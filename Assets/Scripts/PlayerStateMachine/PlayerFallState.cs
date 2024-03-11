@@ -25,12 +25,12 @@ public class PlayerFallState : PlayerAirState
     public override void Update()
     {
         base.Update();
-
+        Debug.Log("폴스테이트");
         if (isGround())
         {
-            stateMachine.Player.Rigidbody.velocity = Vector3.zero;
             stateMachine.ChangeState(stateMachine.IdleState);
             return;
         }
+        //stateMachine.Player.Rigidbody.velocity += new Vector3(0, Physics.gravity.y, 0);
     }
 }

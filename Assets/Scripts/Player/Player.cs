@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     //public Health Health { get; private set; }
 
-    private PlayerStateMachine stateMachine;
+    public PlayerStateMachine stateMachine;
 
     private void Awake()
     {
