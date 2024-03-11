@@ -6,59 +6,26 @@ using UnityEngine.UI;
 
 public class Portal : MonoBehaviour, IInteractable
 {
+
     private float _time;
-    public Slider loadingBar;
-    //private void Start()
-    //{
-    //    loadingBar = GameObject.Find("LoadingBar").GetComponent<Slider>();
-    //}
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("TriggerOn");
-    //    portalUI.SetActive(true);
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        portalUI.SetActive(true);
-    //    }
-    //}
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (Input.GetKey(KeyCode.E))
-    //    {
-    //        _time += Time.deltaTime;
-    //        loadingBar.value = _time / 3;
-    //        Debug.Log(_time);
-    //        if (_time >= 3)
-    //        {
-    //            //플레이어 씬이동
+    private Slider _loadingBar;
 
-    //        }
-    //    }
-    //    else
-    //    {
-    //        _time = 0;
-    //        loadingBar.value = _time / 3;
-
-    //    }
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    Debug.Log("ExitTrigger");
-    //    _time = 0;
-    //    loadingBar.value = _time / 3;
-    //    portalUI.SetActive(false);
-    //}
+    private void Start()
+    {
+        _loadingBar = UIManager.instance.loadingBar;
+    }
 
     string IInteractable.GetInteractPrompt()
     {
+        _time = 0;
         return string.Format("Use Portal");
     }
 
     void IInteractable.OnInteract()
     {
-        loadingBar.gameObject.SetActive(true);
+        _loadingBar.gameObject.SetActive(true);
         _time += Time.deltaTime;
-        loadingBar.value = _time / 3;
+        _loadingBar.value = _time / 3;
         if (_time >= 3)
         {
             //플레이어 씬이동
@@ -67,8 +34,8 @@ public class Portal : MonoBehaviour, IInteractable
     }
     void IInteractable.CancelInteract()
     {
-        loadingBar.gameObject.SetActive(false);
+        _loadingBar.gameObject.SetActive(false);
         _time = 0;
-        loadingBar.value = _time / 3;
+        _loadingBar.value = _time / 3;
     }
 }
