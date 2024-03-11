@@ -8,6 +8,7 @@ public class PlayerAirState : PlayerBaseState
     {
     }
 
+
     public override void Enter()
     {
         base.Enter();
@@ -18,5 +19,17 @@ public class PlayerAirState : PlayerBaseState
     {
         base.Exit();
         //StopAnimation(stateMachine.Player.AnimationData.AirParameterHash);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (stateMachine.Player.Rigidbody.velocity.y < 0)
+        {
+            stateMachine.ChangeState(stateMachine.FallState);
+        }
+
+        stateMachine.Player.Rigidbody.velocity += new Vector3(0, Physics.gravity.y, 0);
     }
 }

@@ -12,7 +12,6 @@ public class PlayerJumpState : PlayerAirState
     {
         stateMachine.JumpForce = stateMachine.Player.Data.AirData.JumpForce;
         stateMachine.Player.ForceReceiver.Jump(stateMachine.JumpForce);
-
         base.Enter();
 
         //StartAnimation(stateMachine.Player.AnimationData.JumpParameterHash);
@@ -29,11 +28,5 @@ public class PlayerJumpState : PlayerAirState
     {
         base.PhysicsUpdate();
 
-        //// 떨어지는 시점이 될 때
-        //if (stateMachine.Player.velocity.y <= 0)
-        //{
-        //    stateMachine.ChangeState(stateMachine.FallState);
-        //    return;
-        //}
     }
 }

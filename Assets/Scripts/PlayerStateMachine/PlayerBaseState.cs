@@ -42,6 +42,7 @@ public class PlayerBaseState : IState
     {
         Move();
         Look();
+
     }
 
     protected virtual void AddInputActionsCallback()
@@ -154,17 +155,6 @@ public class PlayerBaseState : IState
         return forward * stateMachine.MovementInput.y + right * stateMachine.MovementInput.x;
     }
 
-
-    private void Rotate(Vector3 movementDirection)
-    {
-        if (movementDirection != Vector3.zero)
-        {
-            Transform playerTransform = stateMachine.Player.transform;
-            Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
-            playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, stateMachine.RotationDamping * Time.deltaTime);
-        }
-    }
-
     private float GetMovementSpeed()
     {
         float movementSpeed = stateMachine.MovementSpeed * stateMachine.MovementSpeedModifier;
@@ -198,5 +188,28 @@ public class PlayerBaseState : IState
         {
             return 0f;
         }
+    }
+
+    protected bool isGround()
+    {
+        var transform = stateMachine.Player.transform;
+
+        Ray[] rays = new Ray[4]
+        {
+            new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+        };
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 0.1f, stateMachine.Player.Controller.groundLayerMask))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

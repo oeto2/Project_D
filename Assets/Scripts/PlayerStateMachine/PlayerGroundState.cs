@@ -13,6 +13,7 @@ public class PlayerGroundState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("ground");
         //StartAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
     }
 
@@ -37,12 +38,11 @@ public class PlayerGroundState : PlayerBaseState
     {
         base.PhysicsUpdate();
 
-        //if (!stateMachine.Player.Controller.isGrounded
-        //&& stateMachine.Player.Controller.velocity.y < Physics.gravity.y * Time.fixedDeltaTime)
-        //{
-        //    stateMachine.ChangeState(stateMachine.FallState);
-        //    return;
-        //}
+        if (!isGround() && stateMachine.Player.Rigidbody.velocity.y < Physics.gravity.y * Time.fixedDeltaTime)
+        {
+            stateMachine.ChangeState(stateMachine.FallState);
+            return;
+        }
     }
 
     protected override void OnMoveCanceled(InputAction.CallbackContext context)
@@ -64,28 +64,7 @@ public class PlayerGroundState : PlayerBaseState
             stateMachine.ChangeState(stateMachine.JumpState);
     }
 
-    private bool isGround()
-    {
-        var transform = stateMachine.Player.transform;
-
-        Ray[] rays = new Ray[4]
-        {
-            new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
-            new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
-            new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
-            new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
-        };
-
-        for (int i = 0; i < rays.Length; i++)
-        {
-            if (Physics.Raycast(rays[i], 0.1f, stateMachine.Player.Controller.groundLayerMask))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    
 
     protected virtual void OnMove()
     {

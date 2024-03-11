@@ -11,7 +11,7 @@ public class PlayerFallState : PlayerAirState
     public override void Enter()
     {
         base.Enter();
-
+        Debug.Log("fall");
         //StartAnimation(stateMachine.Player.AnimationData.fallParameterHash);
     }
 
@@ -26,10 +26,11 @@ public class PlayerFallState : PlayerAirState
     {
         base.Update();
 
-        //if (stateMachine.Player.Controller.isGrounded)
-        //{
-        //    stateMachine.ChangeState(stateMachine.IdleState);
-        //    return;
-        //}
+        if (isGround())
+        {
+            stateMachine.Player.Rigidbody.velocity = Vector3.zero;
+            stateMachine.ChangeState(stateMachine.IdleState);
+            return;
+        }
     }
 }

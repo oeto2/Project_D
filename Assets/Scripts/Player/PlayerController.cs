@@ -11,5 +11,6 @@ public class PlayerController : MonoBehaviour
     public float maxXLook;
     public float lookSensitivity;
 
+    [Header("Jump")]
     public LayerMask groundLayerMask;
 }
