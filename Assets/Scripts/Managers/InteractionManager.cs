@@ -29,12 +29,13 @@ public class InteractionManager : MonoBehaviour
     private Camera camera;
 
     private bool _isInteract= false;
-
+    private GameObject _loadingBar;
 
     // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main;
+        _loadingBar = UIManager.instance.loadingBar.gameObject;
     }
 
     // Update is called once per frame
@@ -58,6 +59,8 @@ public class InteractionManager : MonoBehaviour
             }
             else
             {
+                _loadingBar.SetActive(false);
+                _isInteract = false;
                 curInteractGameObject = null;
                 curInteractable = null;
                 promptText.gameObject.SetActive(false);
