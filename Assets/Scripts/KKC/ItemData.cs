@@ -28,15 +28,15 @@ public class ItemData
     public string item_Description => Item_Description;
     public string item_Image => Item_Image;
 
-    private Sprite _sprite;
+    private Sprite sprite;
     public Sprite Sprite
     {
         get
         {
             Debug.Log("ÀÐÀ½");
-            _sprite = Resources.Load<Sprite>(item_Image);
+            sprite = Resources.Load<Sprite>(item_Image);
 
-            return _sprite;
+            return sprite;
         }
     }
 }

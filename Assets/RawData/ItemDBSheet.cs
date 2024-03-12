@@ -6,5 +6,5 @@ using UnityEngine;
 [ExcelAsset]
 public class ItemDBSheet : ScriptableObject
 {
-	public List<ItemData> Item_Table; // Replace 'EntityType' to an actual type that is serializable.
+	public List<ItemData> Item_Table;// replace 'entitytype' to an actual type that is serializable.
 }
