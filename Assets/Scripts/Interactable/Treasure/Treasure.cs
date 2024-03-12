@@ -21,7 +21,7 @@ public class Treasure : MonoBehaviour,IInteractable
         else
         {
             //πÃπÕµÓ¿Â
-            //Instantiate("", transform.position, transform.rotation);
+            
         }
     }
     void IInteractable.CancelInteract()

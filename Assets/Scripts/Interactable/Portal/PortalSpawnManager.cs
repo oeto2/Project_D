@@ -9,10 +9,31 @@ public class PortalSpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 3; i++)
+        int randomNum1 = Random.Range(0,portalSpawnPoint.Length);
+        int randomNum2 = Random.Range(0, portalSpawnPoint.Length);
+        int randomNum3 = Random.Range(0, portalSpawnPoint.Length);
+        while (randomNum1 == randomNum2 || randomNum2 == randomNum3 || randomNum3==randomNum1)
         {
-            int randomNum = Random.Range(0, portalSpawnPoint.Length);
-            Instantiate(portal, portalSpawnPoint[randomNum].transform.position, portalSpawnPoint[randomNum].transform.rotation);
+            if(randomNum1 == randomNum2)
+            {
+                randomNum2 = Random.Range(0, portalSpawnPoint.Length);
+            }
+            else if(randomNum1 == randomNum3)
+            {
+                randomNum3 = Random.Range(0, portalSpawnPoint.Length);
+            }
+            else if( randomNum2 == randomNum3)
+            {
+                randomNum3 = Random.Range(0, portalSpawnPoint.Length);
+            }
+            else
+            {
+                randomNum2 = Random.Range(0, portalSpawnPoint.Length);
+                randomNum3 = Random.Range(0, portalSpawnPoint.Length);
+            }
         }
+        Instantiate(portal, portalSpawnPoint[randomNum1].transform.position, portalSpawnPoint[randomNum1].transform.rotation);
+        Instantiate(portal, portalSpawnPoint[randomNum2].transform.position, portalSpawnPoint[randomNum2].transform.rotation);
+        Instantiate(portal, portalSpawnPoint[randomNum3].transform.position, portalSpawnPoint[randomNum3].transform.rotation);
     }
 }

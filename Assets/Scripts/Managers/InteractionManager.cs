@@ -22,19 +22,20 @@ public class InteractionManager : MonoBehaviour
     public float maxCheckDistance;
     public LayerMask layerMask;
 
-    private GameObject curInteractGameObject;
-    private IInteractable curInteractable;
+    private GameObject _curInteractGameObject;
+    private IInteractable _curInteractable;
 
-    public TextMeshProUGUI promptText;
-    private Camera camera;
+    private Camera _camera;
 
     private bool _isInteract= false;
     private GameObject _loadingBar;
+    private TextMeshProUGUI _promptText;
 
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        _camera = Camera.main;
+        _promptText = UIManager.instance.promptText;
         _loadingBar = UIManager.instance.loadingBar.gameObject;
     }
 
@@ -45,15 +46,15 @@ public class InteractionManager : MonoBehaviour
         {
             lastCheckTime = Time.time;
 
-            Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
             {
-                if (hit.collider.gameObject != curInteractGameObject)
+                if (hit.collider.gameObject != _curInteractGameObject)
                 {
-                    curInteractGameObject = hit.collider.gameObject;
-                    curInteractable = hit.collider.GetComponent<IInteractable>();
+                    _curInteractGameObject = hit.collider.gameObject;
+                    _curInteractable = hit.collider.GetComponent<IInteractable>();
                     SetPromptText();
                 }
             }
@@ -61,28 +62,28 @@ public class InteractionManager : MonoBehaviour
             {
                 _loadingBar.SetActive(false);
                 _isInteract = false;
-                curInteractGameObject = null;
-                curInteractable = null;
-                promptText.gameObject.SetActive(false);
+                _curInteractGameObject = null;
+                _curInteractable = null;
+                _promptText.gameObject.SetActive(false);
             }
         }
-        if (_isInteract && curInteractable != null)
+        if (_isInteract && _curInteractable != null)
         {
-            curInteractable.OnInteract();
+            _curInteractable.OnInteract();
         }
     }
 
     private void SetPromptText()
     {
-        promptText.gameObject.SetActive(true);
-        promptText.text = string.Format("<b>[E]</b> {0}", curInteractable.GetInteractPrompt());
+        _promptText.gameObject.SetActive(true);
+        _promptText.text = string.Format("<b>[E]</b> {0}", _curInteractable.GetInteractPrompt());
         
     }
 
     //매프레임 입력을 받지 않음
     public void OnIteractInput(InputAction.CallbackContext callbackcontext)
     {
-        if (callbackcontext.phase == InputActionPhase.Started && curInteractable != null)
+        if (callbackcontext.phase == InputActionPhase.Started && _curInteractable != null)
         {
             _isInteract = true;
             //curInteractable.OnInteract();
@@ -90,10 +91,10 @@ public class InteractionManager : MonoBehaviour
             //curInteractable = null;
             //promptText.gameObject.SetActive(false);
         }
-        else if (callbackcontext.phase == InputActionPhase.Canceled && curInteractable != null)
+        else if (callbackcontext.phase == InputActionPhase.Canceled && _curInteractable != null)
         {
             _isInteract = false;
-            curInteractable.CancelInteract();
+            _curInteractable.CancelInteract();
         }
     }
 }
