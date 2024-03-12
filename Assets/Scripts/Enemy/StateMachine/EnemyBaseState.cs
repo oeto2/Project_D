@@ -47,6 +47,10 @@ public class EnemyBaseState : IState
         stateMachine.Enemy.Animator.SetBool(animationHash, false);
     }
 
+    protected void SetTriggerAnimation(int animationHash)
+    {
+        stateMachine.Enemy.Animator.SetTrigger(animationHash);
+    }
     //이동
     private void Move()
     {
@@ -78,7 +82,6 @@ public class EnemyBaseState : IState
     //적 회전
     private void Rotate(Vector3 direction)
     {
-        Debug.Log("회전하기");
         if (direction != Vector3.zero)
         {
             direction.y = 0;
@@ -123,6 +126,4 @@ public class EnemyBaseState : IState
 
         return playerDistanceSqr <= stateMachine.Enemy.Data.EnemyChasingRange * stateMachine.Enemy.Data.EnemyChasingRange;
     }
-    
-    
 }

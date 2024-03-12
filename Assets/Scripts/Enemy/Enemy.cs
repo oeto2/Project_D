@@ -79,6 +79,11 @@ public class Enemy : MonoBehaviour, IDamagable
         stateMachine.HandleInput();
 
         stateMachine.Update();
+
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            TakePhysicalDamage(100);
+        }
     }
 
     private void FixedUpdate()
@@ -94,7 +99,7 @@ public class Enemy : MonoBehaviour, IDamagable
         if(Data.EnemyHealth <= 0)
         {
             Debug.Log("¸ó½ºÅÍ »ç¸Á");
-            Animator.SetBool(stateMachine.Enemy.AnimationData.DieParameterHash, true);
+            stateMachine.ChangeState(stateMachine.DeadState);
         }
     }
 

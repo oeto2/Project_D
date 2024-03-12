@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class EnemyStateMachine : StateMachine
@@ -13,6 +14,7 @@ public class EnemyStateMachine : StateMachine
     public EnemyChasingState ChasingState { get; }
     public EnemyAttackState AttackState { get; }
     public EnemyWanderingState WanderingState { get; }
+    public EnemyDeadState DeadState { get; }
 
     public Vector2 MovementInput { get; set; }
     public float MovementSpeed { get; private set; }
@@ -30,6 +32,7 @@ public class EnemyStateMachine : StateMachine
         ChasingState = new EnemyChasingState(this);
         AttackState = new EnemyAttackState(this);
         WanderingState = new EnemyWanderingState(this);
+        DeadState = new EnemyDeadState(this);
 
         MovementSpeed = enemy.Data.GroundedData.BaseSpeed;
         RotationDamping = enemy.Data.GroundedData.BaseRotationDamping;

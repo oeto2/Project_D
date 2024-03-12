@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyDeadState : MonoBehaviour
+public class EnemyDeadState : EnemyBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemyDeadState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    }
+    public override void Enter()
     {
-        
+        Debug.Log("몬스터 사망 상태 진입");
+
+        stateMachine.MovementSpeedModifier = 0f;
+        base.Enter();
+        StartAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);
+        SetTriggerAnimation(stateMachine.Enemy.AnimationData.DeadParameterHash);
     }
 }
