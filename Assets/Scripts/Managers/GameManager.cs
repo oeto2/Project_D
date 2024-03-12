@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletoneBase<GameManager>
 {
-    public static GameManager instance;
-
     public GameObject playerObject;
 
+    //나중에 수정하기
     private void Awake()
     {
-        instance = this;
+        playerObject = GameObject.FindWithTag("Player");
     }
 }

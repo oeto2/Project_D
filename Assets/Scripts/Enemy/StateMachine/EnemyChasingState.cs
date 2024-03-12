@@ -7,9 +7,10 @@ public class EnemyChasingState : EnemyBaseState
     public EnemyChasingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
     }
-
+    
     public override void Enter()
     {
+        Debug.Log("추적 상태 진입");
         stateMachine.MovementSpeedModifier = 1;
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);
@@ -39,6 +40,7 @@ public class EnemyChasingState : EnemyBaseState
         }
     }
 
+    //공격 범위
     private bool IsInAttackRange()
     {
         //if (stateMachine.Target.IsDead) { return false; }

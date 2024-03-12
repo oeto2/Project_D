@@ -13,6 +13,7 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Enter()
     {
+        Debug.Log("공격 상태 진입");
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
@@ -33,18 +34,13 @@ public class EnemyAttackState : EnemyBaseState
 
         ForceMove();
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
-
-        Debug.Log(normalizedTime);
-
         if (normalizedTime < 1f)
         {
-            //Debug.Log("공격 애니메이션 실행");
             if (normalizedTime >= stateMachine.Enemy.Data.ForceTransitionTime)
                 TryApplyForce();
         }
         else
         {
-            Debug.Log("애니메이션 종료");
             if (IsInChaseRange())
             {
                 stateMachine.ChangeState(stateMachine.ChasingState);

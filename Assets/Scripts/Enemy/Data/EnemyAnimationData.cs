@@ -13,6 +13,8 @@ public class EnemyAnimationData
     [SerializeField] private string airParameterName = "@Air";
     [SerializeField] private string attackParameterName = "@Attack";
     [SerializeField] private string baseAttackParameterName = "BaseAttack";
+    [SerializeField] private string dieParameterName = "Die";
+
 
     public int GroundParameterHash { get; private set; }
     public int IdleParameterHash { get; private set; }
@@ -21,7 +23,8 @@ public class EnemyAnimationData
     public int AirParameterHash { get; private set; }
     public int AttackParameterHash { get; private set; }
     public int BaseAttackParameterHash { get; private set; }
-
+    public int DieParameterHash { get; private set; }
+    
     //해쉬 값 할당
     public void Initialize()
     {
@@ -31,5 +34,6 @@ public class EnemyAnimationData
         RunParameterHash = Animator.StringToHash(runParameterName);
         AirParameterHash = Animator.StringToHash(airParameterName);
         AttackParameterHash = Animator.StringToHash(attackParameterName);
+        DieParameterHash = Animator.StringToHash(dieParameterName);
     }
 }

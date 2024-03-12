@@ -35,7 +35,6 @@ public class EnemyBaseState : IState
 
     public virtual void PhysicsUpdate()
     {
-
     }
 
     protected void StartAnimation(int animationHash)
@@ -48,6 +47,7 @@ public class EnemyBaseState : IState
         stateMachine.Enemy.Animator.SetBool(animationHash, false);
     }
 
+    //이동
     private void Move()
     {
         Vector3 movementDirection = GetMovementDirection();
@@ -60,7 +60,7 @@ public class EnemyBaseState : IState
         stateMachine.Enemy.Controller.Move(stateMachine.Enemy.ForceReceiver.Movement * Time.deltaTime);
     }
 
-    // 이동 방향 구하기
+    // 이동 방향 구하기 = 적 위치
     private Vector3 GetMovementDirection()
     {
         return (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).normalized;
@@ -78,6 +78,7 @@ public class EnemyBaseState : IState
     //적 회전
     private void Rotate(Vector3 direction)
     {
+        Debug.Log("회전하기");
         if (direction != Vector3.zero)
         {
             direction.y = 0;
@@ -122,4 +123,6 @@ public class EnemyBaseState : IState
 
         return playerDistanceSqr <= stateMachine.Enemy.Data.EnemyChasingRange * stateMachine.Enemy.Data.EnemyChasingRange;
     }
+    
+    
 }

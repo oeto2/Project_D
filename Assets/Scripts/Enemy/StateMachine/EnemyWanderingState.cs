@@ -8,13 +8,13 @@ public class EnemyWanderingState : EnemyBaseState
 {
     private NavMeshAgent NaveMeshAgent;
 
-
     public EnemyWanderingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
     }
 
     public override void Enter()
     {
+        //Debug.Log("새로운 좌표로 이동시작");
         NaveMeshAgent = stateMachine.Enemy.NavMeshAgent;
 
         stateMachine.MovementSpeedModifier = 1f;
@@ -24,7 +24,6 @@ public class EnemyWanderingState : EnemyBaseState
         StartAnimation(stateMachine.Enemy.AnimationData.WalkParameterHash);
         
         stateMachine.Enemy.NavMeshAgent.SetDestination(GetWanderLocation());
-        //stateMachine.Enemy.NavMeshAgent.angularSpeed = 3f;
         stateMachine.Enemy.CurWanderDestination_index++;
     }
 
@@ -38,7 +37,7 @@ public class EnemyWanderingState : EnemyBaseState
     //이동할 목적지 구하기
     Vector3 GetWanderLocation()
     {
-        return stateMachine.Enemy.MonsterWanderDestination[stateMachine.Enemy.CurWanderDestination_index];
+        return stateMachine.Enemy.MonsterWanderDestination[stateMachine.Enemy.CurWanderDestination_index].position;
     }
 
     //랜덤한 이동 목적지 구하기
@@ -72,9 +71,17 @@ public class EnemyWanderingState : EnemyBaseState
 
     public override void Update()
     {
+        //일정 범위내로 들어왔으면 플레이어 추적 하기
+        if (IsInChaseRange())
+        {
+            stateMachine.ChangeState(stateMachine.ChasingState);
+            return;
+        }
+
         //목적지에 가까워 졌으면 기본 상태로 돌아가기
         if (HasArrived())
         {
+            //Debug.Log("목적지 도착");
             stateMachine.ChangeState(stateMachine.IdlingState);
         }
     }

@@ -24,7 +24,7 @@ public class EnemyStateMachine : StateMachine
         Enemy = enemy;
 
         //나중에는 수정하기
-        Target = GameManager.instance.playerObject.transform;
+        Target = GameManager.Instance.playerObject.transform;
 
         IdlingState = new EnemyIdleState(this);
         ChasingState = new EnemyChasingState(this);

@@ -48,7 +48,7 @@ public class EnemyIdleState : EnemyBaseState
             isWaiting = false;
         }
 
-        //플레이어 추적 상태
+        //일정 범위내로 들어왔으면 플레이어 추적 하기
         if (IsInChaseRange())
         {
             stateMachine.ChangeState(stateMachine.ChasingState);
