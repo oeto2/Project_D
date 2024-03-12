@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -124,8 +125,14 @@ public class PlayerBaseState : IState
     private void Move()
     {
         Vector3 movementDirection = GetMovementDirection() * GetMovementSpeed();
-
-        stateMachine.Player.Rigidbody.velocity = (movementDirection + stateMachine.Player.ForceReceiver.Movement);
+        //if (OnSlope())
+        //{
+        //    stateMachine.Player.Rigidbody.velocity = (GetSlopeMoveDirection(movementDirection) + stateMachine.Player.ForceReceiver.Movement);
+        //}
+        //else
+        {
+            stateMachine.Player.Rigidbody.velocity = (movementDirection + stateMachine.Player.ForceReceiver.Movement);
+        }
     }
 
     private void Look()
@@ -212,4 +219,23 @@ public class PlayerBaseState : IState
 
         return false;
     }
+
+    // 경사 확인
+    private bool OnSlope()
+    {
+        var slopeHit = stateMachine.Player.Controller.slopeHit;
+        if (Physics.Raycast(stateMachine.Player.transform.position, Vector3.down, out slopeHit, 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < stateMachine.Player.Controller.maxSlopeAngle && angle != 0;
+        }
+        return false;
+    }
+
+    private Vector3 GetSlopeMoveDirection(Vector3 moveDirection)
+    {
+        return Vector3.ProjectOnPlane(moveDirection, stateMachine.Player.Controller.slopeHit.normal).normalized;
+    }
+
+    
 }

@@ -13,4 +13,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump")]
     public LayerMask groundLayerMask;
+
+    [Header("Slope")]
+    public float maxSlopeAngle;
+    public RaycastHit slopeHit;
+    public float stepHeight;
+    public float stepSmooth;
 }

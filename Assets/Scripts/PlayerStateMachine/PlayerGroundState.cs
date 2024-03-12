@@ -13,7 +13,6 @@ public class PlayerGroundState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("ground");
         //StartAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
     }
 
@@ -38,7 +37,7 @@ public class PlayerGroundState : PlayerBaseState
     {
         base.PhysicsUpdate();
 
-        if (!isGround() && stateMachine.Player.Rigidbody.velocity.y < Physics.gravity.y * Time.fixedDeltaTime)
+        if (!isGround() && stateMachine.Player.Rigidbody.velocity.y < 0)
         {
             stateMachine.ChangeState(stateMachine.FallState);
             return;
