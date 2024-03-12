@@ -9,13 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44a0e841eb452cf4a806a3f085fad02e, type: 3}
+  m_Script: {fileID: 11500000, guid: e69481aca1f9c6d4da441e3cbe02b5d1, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  <_name>k__BackingField: "\uC2A4\uCF08\uB808\uD1A4"
-  <_level>k__BackingField: 1
-  <_hp>k__BackingField: 100
-  <_def>k__BackingField: 0
-  <_atk>k__BackingField: 5
-  <_atkSpeed>k__BackingField: 1.5
-  <_speed>k__BackingField: 10
+  EnemyPatrolLocation_number: 1
+  EnemyHealth: 10
+  <EnemyChasingRange>k__BackingField: 10
+  <AttackRange>k__BackingField: 1.5
+  <ForceTransitionTime>k__BackingField: 0.2
+  <Force>k__BackingField: 2
+  <Damage>k__BackingField: 5
+  <Dealing_Start_TransitionTime>k__BackingField: 0.25
+  <Dealing_End_TransitionTime>k__BackingField: 0.35
+  <GroundedData>k__BackingField:
+    <BaseSpeed>k__BackingField: 3
+    <BaseRotationDamping>k__BackingField: 15
+    <WalkSpeedModifier>k__BackingField: 0.225
+    <RunSpeedModifier>k__BackingField: 1
