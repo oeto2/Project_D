@@ -51,6 +51,7 @@ public class EnemyBaseState : IState
     {
         stateMachine.Enemy.Animator.SetTrigger(animationHash);
     }
+
     //¿Ãµø
     private void Move()
     {
