@@ -6,8 +6,6 @@ using UnityEngine.AI;
 
 public class EnemyWanderingState : EnemyBaseState
 {
-    private NavMeshAgent NaveMeshAgent;
-
     public EnemyWanderingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
     }
@@ -15,8 +13,6 @@ public class EnemyWanderingState : EnemyBaseState
     public override void Enter()
     {
         //Debug.Log("새로운 좌표로 이동시작");
-        NaveMeshAgent = stateMachine.Enemy.NavMeshAgent;
-
         stateMachine.MovementSpeedModifier = 1f;
 
         base.Enter();
@@ -66,7 +62,8 @@ public class EnemyWanderingState : EnemyBaseState
     public bool HasArrived()
     {
         //경로 계산이 완료 되었을 때만 남은거리 계산하기.
-        return !NaveMeshAgent.pathPending && stateMachine.Enemy.NavMeshAgent.remainingDistance <= stateMachine.Enemy.NavMeshAgent.stoppingDistance;
+        return !stateMachine.Enemy.NavMeshAgent.pathPending 
+            && stateMachine.Enemy.NavMeshAgent.remainingDistance <= stateMachine.Enemy.NavMeshAgent.stoppingDistance;
     }
 
     public override void Update()

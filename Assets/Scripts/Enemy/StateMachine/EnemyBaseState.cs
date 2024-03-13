@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyBaseState : IState
 {
     protected EnemyStateMachine stateMachine;
-
     protected readonly EnemyGroundData groundData;
+    protected bool isMove = true;
+
     public EnemyBaseState(EnemyStateMachine ememyStateMachine)
     {
         stateMachine = ememyStateMachine;
@@ -15,22 +16,20 @@ public class EnemyBaseState : IState
 
     public virtual void Enter()
     {
-
     }
 
     public virtual void Exit()
     {
-
     }
 
     public virtual void HandleInput()
     {
-
     }
 
     public virtual void Update()
     {
-        Move();
+        if (isMove)
+            Move();
     }
 
     public virtual void PhysicsUpdate()
@@ -71,14 +70,12 @@ public class EnemyBaseState : IState
         return (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).normalized;
     }
 
-
     //적 이동에 관한 로직
     private void Move(Vector3 direction)
     {
         float movementSpeed = GetMovementSpeed();
         stateMachine.Enemy.Controller.Move(((direction * movementSpeed) + stateMachine.Enemy.ForceReceiver.Movement) * Time.deltaTime);
     }
-
 
     //적 회전
     private void Rotate(Vector3 direction)

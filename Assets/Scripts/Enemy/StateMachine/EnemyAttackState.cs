@@ -36,8 +36,9 @@ public class EnemyAttackState : EnemyBaseState
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
         if (normalizedTime < 1f)
         {
-            if (normalizedTime >= stateMachine.Enemy.Data.ForceTransitionTime)
-                TryApplyForce();
+            //밀치기 공격
+            //if (normalizedTime >= stateMachine.Enemy.Data.ForceTransitionTime)
+            //    TryApplyForce();
         }
         else
         {

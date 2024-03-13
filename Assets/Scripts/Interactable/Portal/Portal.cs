@@ -29,7 +29,6 @@ public class Portal : MonoBehaviour, IInteractable
         if (_time >= 3)
         {
             //플레이어 씬이동
-
         }
     }
     void IInteractable.CancelInteract()

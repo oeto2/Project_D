@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour, IDamagable
     //현재 이동할 목적지 좌표의 인덱스
     private int _curWanderDestination_index = 0;
 
+    [SerializeField] private GameObject enemyInteration_Object;
     public int CurWanderDestination_index
     {
         get
@@ -100,6 +101,7 @@ public class Enemy : MonoBehaviour, IDamagable
         {
             Debug.Log("몬스터 사망");
             stateMachine.ChangeState(stateMachine.DeadState);
+            enemyInteration_Object.SetActive(true);
         }
     }
 
