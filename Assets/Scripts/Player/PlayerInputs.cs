@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInputs : MonoBehaviour
 {
     public PlayerInputaction inputActions { get; private set; }
     public PlayerInputaction.PlayerActions playerActions { get; private set; }

@@ -43,7 +43,7 @@ public class PlayerBaseState : IState
 
     protected virtual void AddInputActionsCallback()
     {
-        PlayerInput input = stateMachine.Player.Input;
+        PlayerInputs input = stateMachine.Player.Input;
         input.playerActions.Move.canceled += OnMovementCanceled;
         input.playerActions.Run.started += OnRunStarted;
 
@@ -58,7 +58,7 @@ public class PlayerBaseState : IState
 
     protected virtual void RemoveInputActionsCallback()
     {
-        PlayerInput input = stateMachine.Player.Input;
+        PlayerInputs input = stateMachine.Player.Input;
         input.playerActions.Move.canceled -= OnMovementCanceled;
         input.playerActions.Run.started -= OnRunStarted;
 
