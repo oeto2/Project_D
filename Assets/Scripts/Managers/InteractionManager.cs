@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
 
 
 public interface IInteractable
@@ -86,10 +85,7 @@ public class InteractionManager : MonoBehaviour
         if (callbackcontext.phase == InputActionPhase.Started && _curInteractable != null)
         {
             _isInteract = true;
-            //curInteractable.OnInteract();
-            //curInteractGameObject = null;
-            //curInteractable = null;
-            //promptText.gameObject.SetActive(false);
+
         }
         else if (callbackcontext.phase == InputActionPhase.Canceled && _curInteractable != null)
         {
