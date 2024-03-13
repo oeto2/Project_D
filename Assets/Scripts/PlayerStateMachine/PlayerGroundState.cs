@@ -59,7 +59,7 @@ public class PlayerGroundState : PlayerBaseState
 
     protected override void OnJumpStarted(InputAction.CallbackContext context)
     {
-        if (isGround())
+        if (true)
             stateMachine.ChangeState(stateMachine.JumpState);
     }
 

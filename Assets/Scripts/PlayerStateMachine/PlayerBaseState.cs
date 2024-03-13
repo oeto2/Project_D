@@ -44,7 +44,7 @@ public class PlayerBaseState : IState
     {
         Move();
         Look();
-
+        Debug.Log(stateMachine.GetCurrentState());
     }
 
     protected virtual void AddInputActionsCallback()
@@ -54,7 +54,7 @@ public class PlayerBaseState : IState
         input.playerActions.Run.started += OnRunStarted;
         input.playerActions.Look.canceled += OnLookCanceled;
 
-        stateMachine.Player.Input.playerActions.Jump.started += OnJumpStarted;
+        input.playerActions.Jump.started += OnJumpStarted;
         
         //stateMachine.Player.Input.playerActions.Attack.performed += OnAttackPerformed;
         //stateMachine.Player.Input.playerActions.Attack.canceled += OnAttackCanceled;
@@ -69,8 +69,8 @@ public class PlayerBaseState : IState
         PlayerInput input = stateMachine.Player.Input;
         input.playerActions.Move.canceled -= OnMoveCanceled;
         input.playerActions.Run.started -= OnRunStarted;
-        
-        stateMachine.Player.Input.playerActions.Jump.started -= OnJumpStarted;
+
+        input.playerActions.Jump.started -= OnJumpStarted;
         
         //stateMachine.Player.Input.playerActions.Attack.performed -= OnAttackPerformed;
         //stateMachine.Player.Input.playerActions.Attack.canceled -= OnAttackCanceled;
