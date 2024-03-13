@@ -17,12 +17,16 @@ public class EnemyAttack : MonoBehaviour
     //플레이어 공격
     public void StartAttack()
     {
-        //Debug.DrawRay(transform.position, _playerObject.position, Color.red);
-        Ray ray = new Ray(transform.position, transform.forward);
+        Debug.DrawRay(transform.position, _playerObject.position, Color.red);
+        Ray ray = new Ray(transform.position, (_playerObject.position - transform.position).normalized);
         RaycastHit hitData;
 
         //레이캐스트 사용
         Physics.Raycast(ray, out hitData, _enemy.Data.AttackRange);
-        hitData.transform?.GetComponent<IDamagable>().TakePhysicalDamage(_enemy.Data.Damage);
+
+        if(hitData.transform?.tag == "Player")
+        {
+            hitData.transform?.GetComponent<IDamagable>().TakePhysicalDamage(_enemy.Data.Damage);
+        }
     }
 }

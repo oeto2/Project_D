@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 10
   <EnemyChasingRange>k__BackingField: 10
-  <AttackRange>k__BackingField: 3
+  <AttackRange>k__BackingField: 10
   <ForceTransitionTime>k__BackingField: 0.2
   <Force>k__BackingField: 2
   <Damage>k__BackingField: 5
