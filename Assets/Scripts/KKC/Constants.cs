@@ -11,4 +11,12 @@ namespace Constants
         Consume,
         Material
     }
+
+    public enum ItemGrade
+    {
+        Common,
+        UnCommon,
+        Rare,
+        Unique
+    }
 }

@@ -12,9 +12,9 @@ public class ItemData
     [SerializeField] private int Item_Price;
     [SerializeField] private float Item_Atk;
     [SerializeField] private float Item_Def;
-    [SerializeField] private int Item_Max_Stack;
-    [SerializeField] private int Item_Grade;
     [SerializeField] private string Item_Description;
+    [SerializeField] private int Item_Max_Stack;
+    [SerializeField] private ItemGrade Item_Grade;
     [SerializeField] private string Item_Image;
 
     public int id => Id;
@@ -23,9 +23,9 @@ public class ItemData
     public int item_Price => Item_Price;
     public float item_Atk => Item_Atk;
     public float item_Def => Item_Def;
-    public int item_Max_Stack => Item_Max_Stack;
-    public int item_Grade => Item_Grade;
     public string item_Description => Item_Description;
+    public int item_Max_Stack => Item_Max_Stack;
+    public ItemGrade item_Grade => Item_Grade;
     public string item_Image => Item_Image;
 
     private Sprite sprite;
