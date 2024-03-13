@@ -37,11 +37,11 @@ public class PlayerGroundState : PlayerBaseState
     {
         base.PhysicsUpdate();
 
-        if (!isGround() && stateMachine.Player.Rigidbody.velocity.y < 0)
-        {
-            stateMachine.ChangeState(stateMachine.FallState);
-            return;
-        }
+        //if (!isGround() && stateMachine.Player.Rigidbody.velocity.y < 0)
+        //{
+        //    stateMachine.ChangeState(stateMachine.FallState);
+        //    return;
+        //}
     }
 
     protected override void OnMoveCanceled(InputAction.CallbackContext context)

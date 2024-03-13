@@ -25,10 +25,10 @@ public class PlayerAirState : PlayerBaseState
     {
         base.Update();
 
-        if (stateMachine.Player.Rigidbody.velocity.y < 0 && !isGround())
-        {
-            stateMachine.ChangeState(stateMachine.FallState);
-        }
+        //if (stateMachine.Player.Rigidbody.velocity.y < 0 && !isGround())
+        //{
+        //    stateMachine.ChangeState(stateMachine.FallState);
+        //}
 
     }
 }
