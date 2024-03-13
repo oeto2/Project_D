@@ -10,7 +10,6 @@ public class EnemyChasingState : EnemyBaseState
     
     public override void Enter()
     {
-        Debug.Log("추적 상태 진입");
         stateMachine.Enemy.NavMeshAgent.Stop();
         stateMachine.MovementSpeedModifier = 1;
 
