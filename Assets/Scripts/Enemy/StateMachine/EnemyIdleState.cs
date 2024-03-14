@@ -21,6 +21,8 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Enter()
     {
+        //Debug.Log("기본 상태 진입");
+
         //기다리는 시간 설정값 초기화
         isWaiting = true;
         elapsedTime = 0f;

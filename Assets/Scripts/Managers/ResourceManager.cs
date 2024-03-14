@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ResourceManager : SingletoneBase<ResourceManager>
 {
-
     public Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>();
 
     public T Load<T>(string path) where T : Object
