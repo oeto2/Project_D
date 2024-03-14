@@ -17,7 +17,6 @@ public class EnemyAttack : MonoBehaviour
     //플레이어 공격
     public void StartAttack()
     {
-        Debug.DrawRay(transform.position, _playerObject.position, Color.red);
         Ray ray = new Ray(transform.position, (_playerObject.position - transform.position).normalized);
         RaycastHit hitData;
 

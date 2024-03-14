@@ -12,7 +12,7 @@ public class EnemyWanderingState : EnemyBaseState
 
     public override void Enter()
     {
-        Debug.Log("방황 상태 진입");
+        //Debug.Log("방황 상태 진입");
         stateMachine.Enemy.NavMeshAgent.Resume();
         //Debug.Log("새로운 좌표로 이동시작");
         stateMachine.MovementSpeedModifier = 1f;

@@ -7,7 +7,6 @@ public class EnemyDeadState : EnemyBaseState
 {
     public EnemyDeadState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
-
     }
 
     public override void Enter()

@@ -13,7 +13,7 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Enter()
     {
-        Debug.Log("공격 상태 진입");
+        //Debug.Log("공격 상태 진입");
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
