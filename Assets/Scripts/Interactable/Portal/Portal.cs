@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        _loadingBar = UIManager.instance.loadingBar;
+        _loadingBar = UIManager.Instance.loadingBar;
     }
 
     string IInteractable.GetInteractPrompt()
