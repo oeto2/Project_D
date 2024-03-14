@@ -30,6 +30,8 @@ public class InteractionManager : MonoBehaviour
     private GameObject _loadingBar;
     private TextMeshProUGUI _promptText;
 
+    private string _interactionKey;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +77,7 @@ public class InteractionManager : MonoBehaviour
     private void SetPromptText()
     {
         _promptText.gameObject.SetActive(true);
-        _promptText.text = string.Format("<b>[E]</b> {0}", _curInteractable.GetInteractPrompt());
+        _promptText.text = string.Format($"<b>[{_interactionKey}]</b> {_curInteractable.GetInteractPrompt()}");
         
     }
 
