@@ -8,11 +8,6 @@ public class UIManager : SingletoneBase<UIManager>
 {
     public TextMeshProUGUI promptText;
     public Slider loadingBar;
-
-    private static UIManager _singleton = new UIManager();
-    public static UIManager Get() { return _singleton; }
-    public static bool Has() { return _singleton != null; }
-
     private List<UIPopup> popups = new List<UIPopup>();
 
     //팝업 불러오기
