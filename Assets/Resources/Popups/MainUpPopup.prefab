@@ -270,7 +270,6 @@ GameObject:
   - component: {fileID: 8305901541295353586}
   - component: {fileID: 6259157930709260556}
   - component: {fileID: 85835410296118741}
-  - component: {fileID: 8785200000992029126}
   m_Layer: 5
   m_Name: MainUpPopup
   m_TagString: Untagged
@@ -362,25 +361,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8785200000992029126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832939868442067915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d4708be449b9b4d94c4203376cca5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnClose: {fileID: 0}
-  _optionButton: {fileID: 0}
-  _shopButton: {fileID: 0}
-  _dungeonButton: {fileID: 0}
-  _stateButton: {fileID: 0}
-  _inventoryButton: {fileID: 0}
-  _classButton: {fileID: 0}
 --- !u!1 &892034477281975200
 GameObject:
   m_ObjectHideFlags: 0
