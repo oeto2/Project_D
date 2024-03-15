@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 5211227954850595856}
   - component: {fileID: 8448755921508558117}
   - component: {fileID: 7681268282669315224}
+  - component: {fileID: 8704379892419297396}
   m_Layer: 0
   m_Name: StatePopup
   m_TagString: Untagged
@@ -316,3 +317,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8704379892419297396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964421165776666092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46e6188ee70e834683d6bf174634d36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
