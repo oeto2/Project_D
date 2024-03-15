@@ -21,32 +21,35 @@ public class PlayerAttackState : PlayerBaseState
         ForceMove();
 
         float normalizedTime = GetNormalizedTime(stateMachine.Player.Animator, "Attack");
-        //if (normalizedTime < 1f)
-        //{
-        //    if (normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).ForceTransitionTime)
-        //        TryApplyForce();
-        //
-        //    if (!alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_Start_TransitionTime)
-        //    {
-        //        stateMachine.Player.Weapon.SetAttack(stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Damage,
-        //            stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Force);
-        //        stateMachine.Player.Weapon.gameObject.SetActive(true);
-        //        alreadyAppliedDealing = true;
-        //    }
-        //
-        //    if (alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_End_TransitionTime)
-        //    {
-        //        stateMachine.Player.Weapon.gameObject.SetActive(false);
-        //    }
-        //
-        //}
+        if (normalizedTime < 1f)
+        {
+            if (normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).ForceTransitionTime)
+            {
+                TryApplyForce();
+                Debug.Log($"{stateMachine.ComboIndex}번 공격");
+            }
+        
+            if (!alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_Start_TransitionTime)
+            {
+                //stateMachine.Player.Weapon.SetAttack(stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Damage,
+                //    stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Force);
+                //stateMachine.Player.Weapon.gameObject.SetActive(true);
+                alreadyAppliedDealing = true;
+            }
+            
+            if (alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_End_TransitionTime)
+            {
+                //stateMachine.Player.Weapon.gameObject.SetActive(false);
+            }
+        
+        }
     }
 
     private void TryApplyForce()
     {
-        //if (alreadyAppliedForce) return;
-        //alreadyAppliedForce = true;
-        //
+        if (alreadyAppliedForce) return;
+        alreadyAppliedForce = true;
+        
         //stateMachine.Player.ForceReceiver.Reset();
         //
         //stateMachine.Player.ForceReceiver.AddForce(stateMachine.Player.transform.forward *
@@ -61,14 +64,14 @@ public class PlayerAttackState : PlayerBaseState
 
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
-
-        //StartAnimation(stateMachine.Player.AnimationData.AttackParameterHash);
+        Debug.Log("어택");
+        StartAnimation(stateMachine.Player.AnimationData.AttackParameterHash);
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        //StopAnimation(stateMachine.Player.AnimationData.AttackParameterHash);
+        StopAnimation(stateMachine.Player.AnimationData.AttackParameterHash);
     }
 }

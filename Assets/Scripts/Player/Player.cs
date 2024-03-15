@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.XR;
 public class Player : MonoBehaviour
 {
     [field: Header("Animations")]
-   // [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
+    [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
 
     [field: Header("References")]
     [field: SerializeField] public PlayerSO Data { get; private set; }
@@ -27,8 +27,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        //AnimationData.Initialize();
-        //Animator = GetComponentInChildren<Animator>();
+        AnimationData.Initialize();
+        Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInput>();
         //Rigidbody = GetComponent<Rigidbody>();  
         //ForceReceiver = GetComponent<ForceReceiver>();

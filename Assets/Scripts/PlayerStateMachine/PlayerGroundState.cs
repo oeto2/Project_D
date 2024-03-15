@@ -72,6 +72,6 @@ public class PlayerGroundState : PlayerBaseState
 
     protected virtual void OnAttack()
     {
-
+        stateMachine.ChangeState(stateMachine.ComboAttackState);
     }
 }

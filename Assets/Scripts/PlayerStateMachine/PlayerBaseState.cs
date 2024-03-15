@@ -44,7 +44,7 @@ public class PlayerBaseState : IState
     {
         Move();
         Look();
-        Debug.Log(stateMachine.GetCurrentState());
+        //Debug.Log(stateMachine.GetCurrentState());
     }
 
     protected virtual void AddInputActionsCallback()
@@ -55,10 +55,10 @@ public class PlayerBaseState : IState
         input.playerActions.Look.canceled += OnLookCanceled;
 
         input.playerActions.Jump.started += OnJumpStarted;
+
+        input.playerActions.Attack.performed += OnAttackPerformed;
+        input.playerActions.Attack.canceled += OnAttackCanceled;
         
-        //stateMachine.Player.Input.playerActions.Attack.performed += OnAttackPerformed;
-        //stateMachine.Player.Input.playerActions.Attack.canceled += OnAttackCanceled;
-        //
         //stateMachine.Player.Input.playerActions.Potion.started += OnPotionStarted;
     }
 
@@ -71,10 +71,10 @@ public class PlayerBaseState : IState
         input.playerActions.Run.started -= OnRunStarted;
 
         input.playerActions.Jump.started -= OnJumpStarted;
+
+        input.playerActions.Attack.performed -= OnAttackPerformed;
+        input.playerActions.Attack.canceled -= OnAttackCanceled;
         
-        //stateMachine.Player.Input.playerActions.Attack.performed -= OnAttackPerformed;
-        //stateMachine.Player.Input.playerActions.Attack.canceled -= OnAttackCanceled;
-        //
         //stateMachine.Player.Input.playerActions.Potion.started -= OnPotionStarted;
     }
 
@@ -98,12 +98,12 @@ public class PlayerBaseState : IState
 
     }
 
-    protected virtual void OnAttackPerformed(InputAction.CallbackContext obj)
+    protected virtual void OnAttackPerformed(InputAction.CallbackContext context)
     {
         stateMachine.IsAttacking = true;
     }
 
-    protected virtual void OnAttackCanceled(InputAction.CallbackContext obj)
+    protected virtual void OnAttackCanceled(InputAction.CallbackContext context)
     {
         stateMachine.IsAttacking = false;
     }
@@ -135,11 +135,11 @@ public class PlayerBaseState : IState
         //    stateMachine.Player.Rigidbody.velocity = (movementDirection + stateMachine.Player.ForceReceiver.Movement);
         //}
         Vector3 destination = stateMachine.Player.transform.position + GetMovementDirection();
-        //stateMachine.Player.NavMeshAgent.destination = destination;
-        stateMachine.Player.NavMeshAgent.SetDestination(destination);
+        stateMachine.Player.NavMeshAgent.destination = destination;
+        //stateMachine.Player.NavMeshAgent.SetDestination(destination);
     }
 
-    private void Look()
+    protected void Look()
     {
         var controller = stateMachine.Player.Controller;
         controller.camCurXRot += stateMachine.LookInput.y * controller.lookSensitivity;
@@ -155,7 +155,7 @@ public class PlayerBaseState : IState
        //stateMachine.Player.(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
     }
 
-    private Vector3 GetMovementDirection()
+    protected Vector3 GetMovementDirection()
     {
         Vector3 forward = stateMachine.Player.transform.forward;
         Vector3 right = stateMachine.Player.transform.right;
@@ -200,7 +200,7 @@ public class PlayerBaseState : IState
             return 0f;
         }
     }
-
+    // Áö¿ì±â
     protected bool isGround()
     {
         var transform = stateMachine.Player.transform;
