@@ -11,7 +11,6 @@ public class PlayerFallState : PlayerAirState
     public override void Enter()
     {
         base.Enter();
-
         //StartAnimation(stateMachine.Player.AnimationData.fallParameterHash);
     }
 
@@ -25,8 +24,7 @@ public class PlayerFallState : PlayerAirState
     public override void Update()
     {
         base.Update();
-
-        if (stateMachine.Player.Controller.isGrounded)
+        if (isGround())
         {
             stateMachine.ChangeState(stateMachine.IdleState);
             return;

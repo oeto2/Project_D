@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
@@ -29,6 +32,7 @@ public class PlayerBaseState : IState
     public virtual void HandleInput()
     {
         ReadMovementInput();
+        ReadLookInput();
     }
 
     public virtual void PhysicsUpdate()
@@ -39,34 +43,38 @@ public class PlayerBaseState : IState
     public virtual void Update()
     {
         Move();
+        Look();
+        //Debug.Log(stateMachine.GetCurrentState());
     }
 
     protected virtual void AddInputActionsCallback()
     {
-        PlayerInputs input = stateMachine.Player.Input;
-        input.playerActions.Move.canceled += OnMovementCanceled;
+        PlayerInput input = stateMachine.Player.Input;
+        input.playerActions.Move.canceled += OnMoveCanceled;
         input.playerActions.Run.started += OnRunStarted;
+        input.playerActions.Look.canceled += OnLookCanceled;
 
-        stateMachine.Player.Input.playerActions.Jump.started += OnJumpStarted;
+        input.playerActions.Jump.started += OnJumpStarted;
 
-        stateMachine.Player.Input.playerActions.Attack.performed += OnAttackPerformed;
-        stateMachine.Player.Input.playerActions.Attack.canceled += OnAttackCanceled;
-
+        input.playerActions.Attack.performed += OnAttackPerformed;
+        input.playerActions.Attack.canceled += OnAttackCanceled;
+        
         //stateMachine.Player.Input.playerActions.Potion.started += OnPotionStarted;
     }
 
+    
 
     protected virtual void RemoveInputActionsCallback()
     {
-        PlayerInputs input = stateMachine.Player.Input;
-        input.playerActions.Move.canceled -= OnMovementCanceled;
+        PlayerInput input = stateMachine.Player.Input;
+        input.playerActions.Move.canceled -= OnMoveCanceled;
         input.playerActions.Run.started -= OnRunStarted;
 
-        stateMachine.Player.Input.playerActions.Jump.started -= OnJumpStarted;
+        input.playerActions.Jump.started -= OnJumpStarted;
 
-        stateMachine.Player.Input.playerActions.Attack.performed -= OnAttackPerformed;
-        stateMachine.Player.Input.playerActions.Attack.canceled -= OnAttackCanceled;
-
+        input.playerActions.Attack.performed -= OnAttackPerformed;
+        input.playerActions.Attack.canceled -= OnAttackCanceled;
+        
         //stateMachine.Player.Input.playerActions.Potion.started -= OnPotionStarted;
     }
 
@@ -75,7 +83,12 @@ public class PlayerBaseState : IState
 
     }
 
-    protected virtual void OnMovementCanceled(InputAction.CallbackContext context)
+    protected virtual void OnMoveCanceled(InputAction.CallbackContext context)
+    {
+
+    }
+
+    private void OnLookCanceled(InputAction.CallbackContext context)
     {
 
     }
@@ -85,12 +98,12 @@ public class PlayerBaseState : IState
 
     }
 
-    protected virtual void OnAttackPerformed(InputAction.CallbackContext obj)
+    protected virtual void OnAttackPerformed(InputAction.CallbackContext context)
     {
         stateMachine.IsAttacking = true;
     }
 
-    protected virtual void OnAttackCanceled(InputAction.CallbackContext obj)
+    protected virtual void OnAttackCanceled(InputAction.CallbackContext context)
     {
         stateMachine.IsAttacking = false;
     }
@@ -105,28 +118,47 @@ public class PlayerBaseState : IState
         stateMachine.MovementInput = stateMachine.Player.Input.playerActions.Move.ReadValue<Vector2>();
     }
 
+    private void ReadLookInput()
+    {
+        stateMachine.LookInput = stateMachine.Player.Input.playerActions.Look.ReadValue<Vector2>();
+    }
+
     private void Move()
     {
-        Vector3 movementDirection = GetMovementDirection();
+        //Vector3 movementDirection = GetMovementDirection() * GetMovementSpeed();
+        //if (OnSlope())
+        //{
+        //    stateMachine.Player.Rigidbody.velocity = (GetSlopeMoveDirection(movementDirection) + stateMachine.Player.ForceReceiver.Movement);
+        //}
+        //else
+        //{
+        //    stateMachine.Player.Rigidbody.velocity = (movementDirection + stateMachine.Player.ForceReceiver.Movement);
+        //}
+        Vector3 destination = stateMachine.Player.transform.position + GetMovementDirection();
+        stateMachine.Player.NavMeshAgent.destination = destination;
+        //stateMachine.Player.NavMeshAgent.SetDestination(destination);
+    }
 
-        Rotate(movementDirection);
+    protected void Look()
+    {
+        var controller = stateMachine.Player.Controller;
+        controller.camCurXRot += stateMachine.LookInput.y * controller.lookSensitivity;
+        controller.camCurXRot = Mathf.Clamp(controller.camCurXRot, controller.minXLook, controller.maxXLook);
+        stateMachine.MainCameraTransform.localEulerAngles = new Vector3(-controller.camCurXRot, 0, 0);
 
-        Move(movementDirection);
+        Transform playerTransform = stateMachine.Player.transform;
+        playerTransform.eulerAngles += new Vector3(0, stateMachine.LookInput.x * controller.lookSensitivity, 0) ;
     }
 
     protected void ForceMove()
     {
-        stateMachine.Player.Controller.Move(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
+       //stateMachine.Player.(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
     }
 
-    private Vector3 GetMovementDirection()
+    protected Vector3 GetMovementDirection()
     {
-        Vector3 forward = stateMachine.MainCameraTransform.forward;
-        Vector3 right = stateMachine.MainCameraTransform.right;
-
-        // y °ª Á¦°ÅÇØ¾ß ¶¥¹Ù´Ú ¾È º½
-        forward.y = 0;
-        right.y = 0;
+        Vector3 forward = stateMachine.Player.transform.forward;
+        Vector3 right = stateMachine.Player.transform.right;
 
         forward.Normalize();
         right.Normalize();
@@ -134,25 +166,7 @@ public class PlayerBaseState : IState
         return forward * stateMachine.MovementInput.y + right * stateMachine.MovementInput.x;
     }
 
-    private void Move(Vector3 movementDirection)
-    {
-        float movementSpeed = GetMovemenetSpeed();
-        stateMachine.Player.Controller.Move(
-            ((movementDirection * movementSpeed) + stateMachine.Player.ForceReceiver.Movement) * Time.deltaTime
-            );
-    }
-
-    private void Rotate(Vector3 movementDirection)
-    {
-        if (movementDirection != Vector3.zero)
-        {
-            Transform playerTransform = stateMachine.Player.transform;
-            Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
-            playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRotation, stateMachine.RotationDamping * Time.deltaTime);
-        }
-    }
-
-    private float GetMovemenetSpeed()
+    private float GetMovementSpeed()
     {
         float movementSpeed = stateMachine.MovementSpeed * stateMachine.MovementSpeedModifier;
         return movementSpeed;
@@ -185,5 +199,28 @@ public class PlayerBaseState : IState
         {
             return 0f;
         }
+    }
+    // Áö¿ì±â
+    protected bool isGround()
+    {
+        var transform = stateMachine.Player.transform;
+
+        Ray[] rays = new Ray[4]
+        {
+            new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+        };
+
+        for (int i = 0; i < rays.Length; i++)
+        {
+            if (Physics.Raycast(rays[i], 0.1f, stateMachine.Player.Controller.groundLayerMask))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

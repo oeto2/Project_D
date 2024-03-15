@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class ForceReceiver : MonoBehaviour
 {
-    [SerializeField] private CharacterController controller;
     [SerializeField] private float drag = 0.3f;
 
     private Vector3 dampingVelocity;
     private Vector3 impact;
-    private float verticalVelocity;
+    public float verticalVelocity;
+    private Player Player;
 
     public Vector3 Movement => impact + Vector3.up * verticalVelocity;
 
+    private void Awake()
+    {
+        Player = GetComponent<Player>();
+    }
+
     void Update()
     {
-        if (verticalVelocity < 0f && controller.isGrounded)
+        if (Player.stateMachine.GetCurrentState() == Player.stateMachine.FallState)
+        {
+            verticalVelocity = Physics.gravity.y * 0.3f;
+        }
+        else if (verticalVelocity < 0f)
         {
             // Physics.gravity.y = - 9.7
             verticalVelocity = Physics.gravity.y * Time.deltaTime;
@@ -24,7 +33,7 @@ public class ForceReceiver : MonoBehaviour
         {
             verticalVelocity += Physics.gravity.y * Time.deltaTime;
         }
-
+        
         impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
     }
 
@@ -42,5 +51,6 @@ public class ForceReceiver : MonoBehaviour
     public void Jump(float jumpForce)
     {
         verticalVelocity += jumpForce;
+        // 위로 10만큼 캐릭터 y 0=>10
     }
 }
