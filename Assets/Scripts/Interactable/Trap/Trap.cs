@@ -19,7 +19,7 @@ public class Trap : MonoBehaviour
             _iDamagable = other.gameObject.GetComponent<IDamagable>();
             ////메모리 잡아먹음
             //InvokeRepeating("DealDamage", 0, damageRate);
-            StartCoroutine("DealDamage");
+            StartCoroutine(DealDamage());
         }
     }
     private void OnTriggerExit(Collider other)
@@ -28,7 +28,7 @@ public class Trap : MonoBehaviour
         {
             _iDamagable =null;
             //CancelInvoke("DealDamage");
-            StopCoroutine("DealDamage");
+            StopCoroutine(DealDamage());
         }
     }
     IEnumerator DealDamage()

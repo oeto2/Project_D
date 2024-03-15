@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class UIManager : SingletoneBase<UIManager>
 {
-    public TextMeshProUGUI promptText;
-    public Slider loadingBar;
     private List<UIPopup> popups = new List<UIPopup>();
 
     //팝업 불러오기
