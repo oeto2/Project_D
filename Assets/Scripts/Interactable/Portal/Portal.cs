@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        _loadingBar = UIManager.instance.loadingBar;
+        _loadingBar = UIManager.Instance.loadingBar;
     }
 
     string IInteractable.GetInteractPrompt()
@@ -29,7 +29,6 @@ public class Portal : MonoBehaviour, IInteractable
         if (_time >= 3)
         {
             //플레이어 씬이동
-
         }
     }
     void IInteractable.CancelInteract()
