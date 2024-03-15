@@ -35,8 +35,8 @@ public class InteractionManager : MonoBehaviour
     void Start()
     {
         _camera = Camera.main;
-        _promptText = UIManager.instance.promptText;
-        _loadingBar = UIManager.instance.loadingBar.gameObject;
+        _promptText = UIManager.Instance.promptText;
+        _loadingBar = UIManager.Instance.loadingBar.gameObject;
     }
 
     // Update is called once per frame
