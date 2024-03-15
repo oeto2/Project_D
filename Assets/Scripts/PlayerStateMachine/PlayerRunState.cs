@@ -12,12 +12,12 @@ public class PlayerRunState : PlayerGroundState
     {
         stateMachine.MovementSpeedModifier = groundData.RunSpeedModifier;
         base.Enter();
-        //StartAnimation(stateMachine.Player.AnimationData.RunParameterHash);
+        StartAnimation(stateMachine.Player.AnimationData.RunParameterHash);
     }
 
     public override void Exit()
     {
         base.Exit();
-        //StopAnimation(stateMachine.Player.AnimationData.RunParameterHash);
+        StopAnimation(stateMachine.Player.AnimationData.RunParameterHash);
     }
 }
