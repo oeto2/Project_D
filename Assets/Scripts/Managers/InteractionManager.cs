@@ -16,6 +16,7 @@ public interface IInteractable
 
 public class InteractionManager : MonoBehaviour
 {
+    public InputActionReference interactionRef;
     public float checkRate = 0.05f;
     private float lastCheckTime;
     public float maxCheckDistance;
@@ -29,8 +30,6 @@ public class InteractionManager : MonoBehaviour
     private bool _isInteract= false;
     private GameObject _loadingBar;
     private TextMeshProUGUI _promptText;
-
-    private string _interactionKey;
 
     // Start is called before the first frame update
     void Start()
@@ -77,11 +76,10 @@ public class InteractionManager : MonoBehaviour
     private void SetPromptText()
     {
         _promptText.gameObject.SetActive(true);
-        _promptText.text = string.Format($"<b>[{_interactionKey}]</b> {_curInteractable.GetInteractPrompt()}");
+        _promptText.text = string.Format($"<b>[{interactionRef.action.GetBindingDisplayString()}]</b> {_curInteractable.GetInteractPrompt()}");
         
     }
 
-    //매프레임 입력을 받지 않음
     public void OnIteractInput(InputAction.CallbackContext callbackcontext)
     {
         if (callbackcontext.phase == InputActionPhase.Started && _curInteractable != null)
