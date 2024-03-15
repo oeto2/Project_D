@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,15 +8,10 @@ public class UIManager : SingletoneBase<UIManager>
 {
     public TextMeshProUGUI promptText;
     public Slider loadingBar;
-
-    private static UIManager _singleton = new UIManager();
-    public static UIManager Get() { return _singleton; }
-    public static bool Has() { return _singleton != null; }
-
     private List<UIPopup> popups = new List<UIPopup>();
 
     //팝업 불러오기
-    public UIPopup ShowPopup(string popupname)
+    public UIPopup ShowPopup(string popupname, Transform parents = null)
     {
         var obj = Resources.Load("Popups/" + popupname, typeof(GameObject)) as GameObject;
         if (!obj)
@@ -23,7 +19,7 @@ public class UIManager : SingletoneBase<UIManager>
             Debug.LogWarning($"Failed to ShowPopup({popupname})");
             return null;
         }
-        return ShowPopupWithPrefab(obj, popupname);
+        return ShowPopupWithPrefab(obj, popupname, parents);
     }
 
     public T ShowPopup<T>() where T : UIPopup
@@ -31,9 +27,11 @@ public class UIManager : SingletoneBase<UIManager>
         return ShowPopup(typeof(T).Name) as T;
     }
 
-    public UIPopup ShowPopupWithPrefab(GameObject prefab, string popupName)
+    public UIPopup ShowPopupWithPrefab(GameObject prefab, string popupName , Transform parents = null)
     {
-        var obj = Instantiate(prefab);
+        string name = popupName;
+        var obj = Instantiate(prefab, parents);
+        obj.name = name;
         return ShowPopup(obj, popupName);
     }
 
