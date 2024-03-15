@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour, IDamagable
     public CharacterController Controller { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
 
+    [field : SerializeField] private int EnemyPatrolLocation_number;
+
     private EnemyStateMachine stateMachine;
 
     //몬스터 이동 타입 (고정 or 정찰)
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour, IDamagable
     //현재 이동할 목적지 좌표의 인덱스
     private int _curWanderDestination_index = 0;
 
+    [SerializeField] private GameObject enemyInteration_Object;
     public int CurWanderDestination_index
     {
         get
@@ -66,7 +69,7 @@ public class Enemy : MonoBehaviour, IDamagable
         NavMeshAgent = GetComponent<NavMeshAgent>();
 
         //순찰 장소
-        SetPatrolLocation(Data.EnemyPatrolLocation_number);
+        SetPatrolLocation(EnemyPatrolLocation_number);
     }
 
     private void Start()
@@ -100,6 +103,7 @@ public class Enemy : MonoBehaviour, IDamagable
         {
             Debug.Log("몬스터 사망");
             stateMachine.ChangeState(stateMachine.DeadState);
+            enemyInteration_Object.SetActive(true);
         }
     }
 
@@ -112,6 +116,12 @@ public class Enemy : MonoBehaviour, IDamagable
                 //몬스터 순찰 위치 동적할당
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint0").transform);
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint1").transform);
+                break;
+
+            case 2:
+                //몬스터 순찰 위치 동적할당
+                MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint2").transform);
+                MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint3").transform);
                 break;
         }
     }
