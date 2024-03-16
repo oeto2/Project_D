@@ -18,7 +18,7 @@ MonoBehaviour:
     <WalkSpeedModifier>k__BackingField: 0.225
     <RunSpeedModifier>k__BackingField: 1
   <AirData>k__BackingField:
-    <JumpForce>k__BackingField: 5
+    <JumpForce>k__BackingField: 3
   <AttackData>k__BackingField:
     <AttackInfoDatas>k__BackingField:
     - <AttackName>k__BackingField: "\uD3C9\uD0C0 1\uD0C0"
