@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Portal : MonoBehaviour, IInteractable
 {
-
     private float _time;
     private Slider _loadingBar;
 

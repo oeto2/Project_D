@@ -6,6 +6,8 @@ public class MainSceneUI : MonoBehaviour
 {
     private void Awake()
     {
-        UIManager.Instance.ShowPopup("MainSceneUp_Canvas", transform);
+        //부모 UI로 설정
+        UIManager.Instance.parentsUI = transform;
+        UIManager.Instance.ShowPopup("MainUpPopup", transform);
     }
 }

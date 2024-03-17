@@ -292,7 +292,7 @@ RectTransform:
   m_Children:
   - {fileID: 6775107953174530299}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -374,6 +374,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6f71f942fac114396eeac0b7386464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btnClose: {fileID: 0}
+  _optionButton: {fileID: 9156497784417625877}
+  _shopButton: {fileID: 7625167123747275037}
+  _enterDungeonButton: {fileID: 765274565573544206}
+  _stateButton: {fileID: 7346845984774005727}
+  _inventroyButton: {fileID: 8850248129068340616}
+  _classButton: {fileID: 7440593950917926972}
 --- !u!1 &892034477281975200
 GameObject:
   m_ObjectHideFlags: 0

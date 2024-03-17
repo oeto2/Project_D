@@ -6,14 +6,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
-
 public interface IInteractable
 {
     string GetInteractPrompt();
     void OnInteract();
     void CancelInteract();
 }
-
 
 public class InteractionManager : MonoBehaviour
 {
