@@ -3,16 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using Constants;
 
-public class MonsterData : MonoBehaviour
+[System.Serializable]
+public class MonsterData
 {
-    [SerializeField] private int Id;
-    [SerializeField] private string Monster_Name;
-    [SerializeField] private float Monster_HP;
-    [SerializeField] private float Monster_MP;
-    [SerializeField] private float Monster_Atk;
-    [SerializeField] private float Monster_Atk_Spd;
-    [SerializeField] private float Monster_Def;
-    [SerializeField] private float Monster_Speed;
-    [SerializeField] private int Monster_Max_Root;
-    
+    [SerializeField] private int _id;
+    [SerializeField] private string _monsterName;
+    [SerializeField] private float _monsterHp;
+    [SerializeField] private float _monsterAtk;
+    [SerializeField] private float _monsterAtkSpd;
+    [SerializeField] private float _monsterAtkRng;
+    [SerializeField] private float _monsterDef;
+    [SerializeField] private float _monsterWalk;
+    [SerializeField] private float _monsterRun;
+    [SerializeField] private float _monsterStiff;
+    [SerializeField] private int _monsterMaxRoot;
+    [SerializeField] private string _commonDropPer;
+    [SerializeField] private string _uncommonDropPer;
+    [SerializeField] private string _rareDropPer;
+    [SerializeField] private string _uniqueDropPer;
+
+    public int id => _id;
+    public string monsterName => _monsterName;
+    public float monsterHp => _monsterHp;
+    public float monsterAtk => _monsterAtk;
+    public float monsterAtkSpd => _monsterAtkSpd;
+    public float monsterAtkRng => _monsterAtkRng;
+    public float monsterDef => _monsterDef;
+    public float monsterWalk => _monsterWalk;
+    public float monsterRun => _monsterRun;
+    public float monsterStiff => _monsterStiff;
+    public int monsterMaxRoot => _monsterMaxRoot;
+
 }
