@@ -1,30 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMain : UIBase
+public class UIMain : MonoBehaviour
 {
-    [SerializeField] private Button btnInventory;
-    [SerializeField] private Button btnRanking;
-    [SerializeField] private Button btnMission;
-
-    void Start()
+    private void Awake()
     {
-        //btninventory.onclick.addlistener(() =>
-        //{
-        //    var ui = uimanager.instance.openui<uipopup>();
-        //    ui.setpopup("open inventory ?? ", () => { uimanager.instance.openui<uiinventory>(); });
-        //});
-
-        //btnranking.onclick.addlistener(() =>
-        //{
-        //    var ui = uimanager.instance.openui<uipopup>();
-        //    ui.setpopup("open ranking ?? ", () => { uimanager.instance.openui<uiranking>(); });
-        //});
-
-        //btnmission.onclick.addlistener(() =>
-        //{
-        //    var ui = uimanager.instance.openui<uipopup>();
-        //    ui.setpopup("open mission ?? ", () => { uimanager.instance.openui<uimission>(); });
-        //});
+        UIManager.Instance.parentsUI = transform;
     }
 }

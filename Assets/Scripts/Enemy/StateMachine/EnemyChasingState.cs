@@ -10,6 +10,7 @@ public class EnemyChasingState : EnemyBaseState
     
     public override void Enter()
     {
+        //Debug.Log("추적상태 진입");
         stateMachine.Enemy.NavMeshAgent.Stop();
         stateMachine.MovementSpeedModifier = 1;
 
@@ -48,7 +49,6 @@ public class EnemyChasingState : EnemyBaseState
         // 인식거리가 100미터면 전방도 100, 후방도 100
         // 뒤는 거리가 좁았으면 좋겠음. 플레이어 포지션 - 몬스터 포지션의 제곱
         float playerDistanceSqr = (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
-
         return playerDistanceSqr <= stateMachine.Enemy.Data.AttackRange * stateMachine.Enemy.Data.AttackRange;
     }
 }

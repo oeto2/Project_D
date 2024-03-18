@@ -14,7 +14,7 @@ public class Player : MonoBehaviour, IDamagable
 
     //public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
-    public PlayerInput Input { get; private set; }
+    public PlayerInputs Input { get; private set; }
     public PlayerController Controller { get; private set; }
     //public ForceReceiver ForceReceiver { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour, IDamagable
     {
         AnimationData.Initialize();
         Animator = GetComponentInChildren<Animator>();
-        Input = GetComponent<PlayerInput>();
+        Input = GetComponent<PlayerInputs>();
         //Rigidbody = GetComponent<Rigidbody>();  
         //ForceReceiver = GetComponent<ForceReceiver>();
         Controller = GetComponent<PlayerController>();

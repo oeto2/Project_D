@@ -786,9 +786,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9069599859662154069}
   - component: {fileID: 4575558447355709847}
-  - component: {fileID: 8427796248573331158}
   - component: {fileID: 6622343251216464585}
   - component: {fileID: 6574321977830748417}
+  - component: {fileID: 8845364038010135682}
   m_Layer: 0
   m_Name: SKELETON2
   m_TagString: Untagged
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a7fff41e1f6784ba033653f45de3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Data>k__BackingField: {fileID: 11400000, guid: fe5785bdf0ef36640bcaedea88e201c1,
+  <Data>k__BackingField: {fileID: 11400000, guid: 8395138df3199884f849b4e8e7ac1715,
     type: 2}
   <AnimationData>k__BackingField:
     groundParameterName: '@Ground'
@@ -840,20 +840,6 @@ MonoBehaviour:
   <MonsterMoveType>k__BackingField: 1
   MonsterWanderDestination: []
   enemyInteration_Object: {fileID: 5568658159655328557}
---- !u!114 &8427796248573331158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3437675760937220031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7152468ac76deb946afd0575a014277d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 6622343251216464585}
-  drag: 0.3
 --- !u!143 &6622343251216464585
 CharacterController:
   m_ObjectHideFlags: 0
@@ -902,6 +888,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8845364038010135682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3437675760937220031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b554ff6f147a84b840628dbdff9b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3444869943419054572
 GameObject:
   m_ObjectHideFlags: 0
