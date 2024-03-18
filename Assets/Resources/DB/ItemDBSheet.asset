@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ItemDBSheet
   m_EditorClassIdentifier: 
   Item_Table:
-  - Id: 10000001
-    Item_Name: "\uAC80"
-    Item_Type: 0
-    Item_Price: 200
-    Item_Atk: 100
-    Item_Def: 0
-    Item_Description: "\uB0A1\uC740 \uAC80\uC774\uB2E4"
-    Item_Max_Stack: 1
-    Item_Grade: 0
-    Item_Image: 
+  - _id: 10000001
+    _itemName: "\uAC80"
+    _itemType: 0
+    _itemPrice: 200
+    _itemAtk: 100
+    _itemDef: 0
+    _itemDescription: "\uB0A1\uC740 \uAC80\uC774\uB2E4"
+    _itemMaxStack: 1
+    _itemGrade: 0
+    _itemSprite: 
