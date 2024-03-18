@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMain : UIBase
+public class UIMain : MonoBehaviour
 {
-    [SerializeField] private Button btnInventory;
-    [SerializeField] private Button btnRanking;
-    [SerializeField] private Button btnMission;
+    private void Awake()
+    {
+        UIManager.Instance.parentsUI = transform;
+    }
 }

@@ -32,14 +32,23 @@ public class InteractionManager : MonoBehaviour
 
     public static InteractionManager instance;
 
+    private UIManager _uiManager;
+    private interationPopup _interationPopup;
+
     private void Awake()
     {
         instance = this;
+        _uiManager = UIManager.Instance;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        _interationPopup = _uiManager.ShowPopup<interationPopup>(_uiManager.parentsUI);
+
+        loadingBar = _interationPopup.LoadingBar;
+        promptText = _interationPopup.PromptText;
+
         _camera = Camera.main;
         //_promptText = ;
         //_loadingBar = ;

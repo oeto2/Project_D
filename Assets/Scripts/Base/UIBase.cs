@@ -14,7 +14,10 @@ public abstract class UIBase : MonoBehaviour
 
     protected virtual void CloseUI()
     {
-        btnClose.onClick.AddListener(() => CloseUI());
-        gameObject.SetActive(false);
+        if (btnClose != null)
+        {
+            btnClose.onClick.AddListener(() => CloseUI());
+            gameObject.SetActive(false);
+        }
     }
 }
