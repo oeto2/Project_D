@@ -1,16 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Portal : MonoBehaviour, IInteractable
 {
+    private UIManager _uiManager;
+    private interationPopup _interationPopup;
     private float _time;
     private Slider _loadingBar;
+
+    private void Awake()
+    {
+        _uiManager = UIManager.Instance;
+    }
+
     private void Start()
     {
-        _loadingBar = InteractionManager.instance.loadingBar;
+        _interationPopup = _uiManager.GetPopup(nameof(interationPopup)).GetComponent<interationPopup>();
+
+        _loadingBar = _interationPopup.LoadingBar;
     }
 
     string IInteractable.GetInteractPrompt()
