@@ -5,9 +5,10 @@ using UnityEngine;
 public class Treasure : MonoBehaviour,IInteractable
 {
     private int _percentage;
+    private string _open = "Open";
     string IInteractable.GetInteractPrompt()
     {
-        return string.Format("Open");
+        return _open;
     }
 
     void IInteractable.OnInteract()

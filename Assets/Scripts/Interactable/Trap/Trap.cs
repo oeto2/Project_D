@@ -9,28 +9,40 @@ public class Trap : MonoBehaviour
     public float damageRate;
     public LayerMask player;
 
-    //private IDamagable _iDamagable;
+    private IDamagable _iDamagable;
 
     private void OnTriggerEnter(Collider other)
     {
         if(player.value == (player.value| (1<<other.gameObject.layer)))
         {
             //_iDamageable에 플레이어의 IDamagable저장
-
-            InvokeRepeating("DealDamage", 0, damageRate);
+            _iDamagable = other.gameObject.GetComponent<IDamagable>();
+            ////메모리 잡아먹음
+            //InvokeRepeating("DealDamage", 0, damageRate);
+            StartCoroutine(DealDamage());
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (player.value == (player.value | (1 << other.gameObject.layer)))
         {
-            //_iDamagable =null;
-            CancelInvoke("DealDamage");
+            _iDamagable =null;
+            //CancelInvoke("DealDamage");
+            StopCoroutine(DealDamage());
         }
     }
-    private void DealDamage()
+    IEnumerator DealDamage()
     {
-        //_iDamagable에서 대미지주는 함수를 불러옴.
-
+        while(true)
+        {
+            _iDamagable.TakePhysicalDamage(damage);
+            yield return new WaitForSeconds(damageRate);
+        }
+        
     }
+    //private void DealDamage()
+    //{
+    //    //_iDamagable에서 대미지주는 함수를 불러옴.
+    //    _iDamagable.TakePhysicalDamage(damage);
+    //}
 }

@@ -12,7 +12,7 @@ public class EnemyInteration : MonoBehaviour, IInteractable
     public string GetInteractPrompt()
     {
         //»óÈ£ÀÛ¿ë ±Û¾¾
-        return string.Format("[E] ½ºÄÌ·¹Åæ");
+        return string.Format("½ºÄÌ·¹Åæ");
     }
 
     public void OnInteract()

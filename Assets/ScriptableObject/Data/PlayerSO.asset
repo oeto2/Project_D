@@ -18,6 +18,30 @@ MonoBehaviour:
     <WalkSpeedModifier>k__BackingField: 0.225
     <RunSpeedModifier>k__BackingField: 1
   <AirData>k__BackingField:
-    <JumpForce>k__BackingField: 4
+    <JumpForce>k__BackingField: 5
   <AttackData>k__BackingField:
-    <AttackInfoDatas>k__BackingField: []
+    <AttackInfoDatas>k__BackingField:
+    - <AttackName>k__BackingField: "\uD3C9\uD0C0 1\uD0C0"
+      <ComboStateIndex>k__BackingField: 1
+      <ComboTransitionTime>k__BackingField: 0.8
+      <ForceTransitionTime>k__BackingField: 0.1
+      <Force>k__BackingField: 1
+      <Dealing_Start_TransitionTime>k__BackingField: 0.5
+      <Dealing_End_TransitionTime>k__BackingField: 0.5
+      <Damage>k__BackingField: 5
+    - <AttackName>k__BackingField: "\uD3C9\uD0C0 2\uD0C0"
+      <ComboStateIndex>k__BackingField: 2
+      <ComboTransitionTime>k__BackingField: 0.8
+      <ForceTransitionTime>k__BackingField: 0.1
+      <Force>k__BackingField: 1
+      <Dealing_Start_TransitionTime>k__BackingField: 0.5
+      <Dealing_End_TransitionTime>k__BackingField: 0.5
+      <Damage>k__BackingField: 5
+    - <AttackName>k__BackingField: "\uD3C9\uD0C0 3\uD0C0"
+      <ComboStateIndex>k__BackingField: 3
+      <ComboTransitionTime>k__BackingField: 0.8
+      <ForceTransitionTime>k__BackingField: 0.1
+      <Force>k__BackingField: 1
+      <Dealing_Start_TransitionTime>k__BackingField: 0.5
+      <Dealing_End_TransitionTime>k__BackingField: 0.5
+      <Damage>k__BackingField: 5

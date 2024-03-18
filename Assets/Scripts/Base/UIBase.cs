@@ -7,8 +7,17 @@ public abstract class UIBase : MonoBehaviour
 {
     [SerializeField] private Button btnClose;
 
-    private void CloseUI()
+    private void Awake()
     {
-        gameObject.SetActive(false);
+        CloseUI();
+    }
+
+    protected virtual void CloseUI()
+    {
+        if (btnClose != null)
+        {
+            btnClose.onClick.AddListener(() => CloseUI());
+            gameObject.SetActive(false);
+        }
     }
 }

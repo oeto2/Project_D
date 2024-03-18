@@ -13,7 +13,6 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Enter()
     {
-        //Debug.Log("공격 상태 진입");
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
@@ -25,7 +24,6 @@ public class EnemyAttackState : EnemyBaseState
         base.Exit();
         StopAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
         StopAnimation(stateMachine.Enemy.AnimationData.BaseAttackParameterHash);
-
     }
 
     public override void Update()
@@ -37,8 +35,8 @@ public class EnemyAttackState : EnemyBaseState
         if (normalizedTime < 1f)
         {
             //밀치기 공격
-            //if (normalizedTime >= stateMachine.Enemy.Data.ForceTransitionTime)
-            //    TryApplyForce();
+            //if (normalizedtime >= statemachine.enemy.data.forcetransitiontime)
+            //    tryapplyforce();
         }
         else
         {

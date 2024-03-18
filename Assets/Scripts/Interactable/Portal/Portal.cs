@@ -6,13 +6,11 @@ using UnityEngine.UI;
 
 public class Portal : MonoBehaviour, IInteractable
 {
-
     private float _time;
     private Slider _loadingBar;
-
     private void Start()
     {
-        _loadingBar = UIManager.Instance.loadingBar;
+        _loadingBar = InteractionManager.instance.loadingBar;
     }
 
     string IInteractable.GetInteractPrompt()

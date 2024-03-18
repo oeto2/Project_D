@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,15 +37,14 @@ public class PlayerGroundState : PlayerBaseState
     {
         base.PhysicsUpdate();
 
-        if (!stateMachine.Player.Controller.isGrounded
-        && stateMachine.Player.Controller.velocity.y < Physics.gravity.y * Time.fixedDeltaTime)
-        {
-            stateMachine.ChangeState(stateMachine.FallState);
-            return;
-        }
+        //if (!isGround() && stateMachine.Player.Rigidbody.velocity.y < 0)
+        //{
+        //    stateMachine.ChangeState(stateMachine.FallState);
+        //    return;
+        //}
     }
 
-    protected override void OnMovementCanceled(InputAction.CallbackContext context)
+    protected override void OnMoveCanceled(InputAction.CallbackContext context)
     {
         // 입력이 안 들어왔다면 리턴
         if (stateMachine.MovementInput == Vector2.zero)
@@ -54,13 +54,16 @@ public class PlayerGroundState : PlayerBaseState
 
         stateMachine.ChangeState(stateMachine.IdleState);
 
-        base.OnMovementCanceled(context);
+        base.OnMoveCanceled(context);
     }
 
     protected override void OnJumpStarted(InputAction.CallbackContext context)
     {
-        stateMachine.ChangeState(stateMachine.JumpState);
+        if (true)
+            stateMachine.ChangeState(stateMachine.JumpState);
     }
+
+    
 
     protected virtual void OnMove()
     {
@@ -69,6 +72,6 @@ public class PlayerGroundState : PlayerBaseState
 
     protected virtual void OnAttack()
     {
-
+        stateMachine.ChangeState(stateMachine.ComboAttackState);
     }
 }
