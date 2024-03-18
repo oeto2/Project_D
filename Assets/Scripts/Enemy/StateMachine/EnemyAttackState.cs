@@ -13,7 +13,6 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Enter()
     {
-        //Debug.Log("공격 상태 진입");
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
@@ -25,20 +24,19 @@ public class EnemyAttackState : EnemyBaseState
         base.Exit();
         StopAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
         StopAnimation(stateMachine.Enemy.AnimationData.BaseAttackParameterHash);
-
     }
 
     public override void Update()
     {
         base.Update();
 
-        //ForceMove();
+        ForceMove();
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
         if (normalizedTime < 1f)
         {
             //밀치기 공격
-            //if (normalizedTime >= stateMachine.Enemy.Data.ForceTransitionTime)
-            //    TryApplyForce();
+            //if (normalizedtime >= statemachine.enemy.data.forcetransitiontime)
+            //    tryapplyforce();
         }
         else
         {
@@ -55,13 +53,13 @@ public class EnemyAttackState : EnemyBaseState
         }
     }
 
-    //private void TryApplyForce()
-    //{
-    //    if (alreadyAppliedForce) return;
-    //    alreadyAppliedForce = true;
+    private void TryApplyForce()
+    {
+        if (alreadyAppliedForce) return;
+        alreadyAppliedForce = true;
 
-    //    stateMachine.Enemy.ForceReceiver.Reset();
+        stateMachine.Enemy.ForceReceiver.Reset();
 
-    //    stateMachine.Enemy.ForceReceiver.AddForce(stateMachine.Enemy.transform.forward * stateMachine.Enemy.Data.Force);
-    //}
+        stateMachine.Enemy.ForceReceiver.AddForce(stateMachine.Enemy.transform.forward * stateMachine.Enemy.Data.Force);
+    }
 }
