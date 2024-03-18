@@ -15,10 +15,4 @@ public class PlayerController : MonoBehaviour
     public bool isJump;
     public float gravity;
     public Vector3 velocity;
-
-    [Header("Slope")]
-    public float maxSlopeAngle;
-    public RaycastHit slopeHit;
-    public float stepHeight;
-    public float stepSmooth;
 }

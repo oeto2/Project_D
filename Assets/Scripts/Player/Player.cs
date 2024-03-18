@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem.XR;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable
 {
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
@@ -68,4 +68,8 @@ public class Player : MonoBehaviour
         enabled = false;
     }
 
+    public void TakePhysicalDamage(int damageAmount)
+    {
+        Debug.Log(damageAmount);
+    }
 }
