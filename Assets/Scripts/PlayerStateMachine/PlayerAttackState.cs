@@ -26,7 +26,7 @@ public class PlayerAttackState : PlayerBaseState
             if (normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).ForceTransitionTime)
             {
                 TryApplyForce();
-                Debug.Log($"{stateMachine.ComboIndex}번 공격");
+                //Debug.Log($"{stateMachine.ComboIndex}번 공격");
             }
         
             if (!alreadyAppliedDealing && normalizedTime >= stateMachine.Player.Data.AttackData.GetAttackInfo(stateMachine.ComboIndex).Dealing_Start_TransitionTime)
@@ -64,7 +64,7 @@ public class PlayerAttackState : PlayerBaseState
 
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
-        Debug.Log("어택");
+        //Debug.Log("어택");
         StartAnimation(stateMachine.Player.AnimationData.AttackParameterHash);
     }
 

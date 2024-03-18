@@ -14,27 +14,31 @@ public class Player : MonoBehaviour
 
     //public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
-    public PlayerInput Input { get; private set; }
+    public PlayerInputs Input { get; private set; }
     public PlayerController Controller { get; private set; }
     //public ForceReceiver ForceReceiver { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
+    public PlayerController PlayerController { get; private set; }
 
    // [field: SerializeField] public Weapon Weapon { get; private set; }
 
     //public Health Health { get; private set; }
 
     public PlayerStateMachine stateMachine;
+    public Transform playerTransform;
 
     private void Awake()
     {
         AnimationData.Initialize();
         Animator = GetComponentInChildren<Animator>();
-        Input = GetComponent<PlayerInput>();
+        Input = GetComponent<PlayerInputs>();
         //Rigidbody = GetComponent<Rigidbody>();  
         //ForceReceiver = GetComponent<ForceReceiver>();
         Controller = GetComponent<PlayerController>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         //Health = GetComponent<Health>();
+        PlayerController = GetComponent<PlayerController>();
+        playerTransform = GetComponent<Transform>();
 
         stateMachine = new PlayerStateMachine(this);
     }

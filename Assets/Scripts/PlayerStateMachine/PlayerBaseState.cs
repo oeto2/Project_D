@@ -49,7 +49,7 @@ public class PlayerBaseState : IState
 
     protected virtual void AddInputActionsCallback()
     {
-        PlayerInput input = stateMachine.Player.Input;
+        PlayerInputs input = stateMachine.Player.Input;
         input.playerActions.Move.canceled += OnMoveCanceled;
         input.playerActions.Run.started += OnRunStarted;
         input.playerActions.Look.canceled += OnLookCanceled;
@@ -66,7 +66,7 @@ public class PlayerBaseState : IState
 
     protected virtual void RemoveInputActionsCallback()
     {
-        PlayerInput input = stateMachine.Player.Input;
+        PlayerInputs input = stateMachine.Player.Input;
         input.playerActions.Move.canceled -= OnMoveCanceled;
         input.playerActions.Run.started -= OnRunStarted;
 
@@ -201,26 +201,26 @@ public class PlayerBaseState : IState
         }
     }
     // Áö¿ì±â
-    protected bool isGround()
-    {
-        var transform = stateMachine.Player.transform;
-
-        Ray[] rays = new Ray[4]
-        {
-            new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
-            new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
-            new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
-            new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
-        };
-
-        for (int i = 0; i < rays.Length; i++)
-        {
-            if (Physics.Raycast(rays[i], 0.1f, stateMachine.Player.Controller.groundLayerMask))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    //protected bool isGround()
+    //{
+    //    var transform = stateMachine.Player.transform;
+    //
+    //    Ray[] rays = new Ray[4]
+    //    {
+    //        new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
+    //        new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
+    //        new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+    //        new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
+    //    };
+    //
+    //    for (int i = 0; i < rays.Length; i++)
+    //    {
+    //        if (Physics.Raycast(rays[i], 0.1f, stateMachine.Player.Controller.groundLayerMask))
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //
+    //    return false;
+    //}
 }

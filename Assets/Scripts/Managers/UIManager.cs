@@ -6,12 +6,10 @@ using UnityEngine.UI;
 
 public class UIManager : SingletoneBase<UIManager>
 {
-    public TextMeshProUGUI promptText;
-    public Slider loadingBar;
-
     //부모 UI
     public Transform parentsUI = null;
     private Dictionary<string,UIBase> popups = new Dictionary<string,UIBase>();
+    private List<UIPopup> popups = new List<UIPopup>();
 
     //팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
