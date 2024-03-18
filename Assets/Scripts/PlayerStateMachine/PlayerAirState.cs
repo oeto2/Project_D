@@ -9,14 +9,12 @@ public class PlayerAirState : PlayerBaseState
     {
     }
 
-    protected float gravity;
-    protected Transform trans;
-    protected Vector3 velocity;
-    protected bool isJump;
 
     public override void Enter()
     {
         base.Enter();
+        if (!stateMachine.Player.PlayerController.isJump)
+            Jump();
         StartAnimation(stateMachine.Player.AnimationData.AirParameterHash);
     }
 
@@ -28,30 +26,29 @@ public class PlayerAirState : PlayerBaseState
 
     public override void Update()
     {
-        base.Update();
-        //Look();
-        //
-        //velocity.y += gravity * Time.deltaTime;
-        //// 레이캐스트로 점프 진행 방향에 벽 등이 없을 때만 이동되도록
-        //RaycastHit ray;
-        //if (!Physics.Raycast(trans.position, GetMovementDirection(), out ray, 1f))
-        //{
-        //    velocity += GetMovementDirection() * Time.deltaTime * 3.5f;
-        //}
-        //trans.position = velocity;
-        //gravity -= 0.2f;
+        //base.Update();
+        Look();
+
+        stateMachine.Player.PlayerController.velocity.y += stateMachine.Player.PlayerController.gravity * Time.deltaTime;
+        // 레이캐스트로 점프 진행 방향에 벽 등이 없을 때만 이동되도록
+        RaycastHit ray;
+        if (!Physics.Raycast(stateMachine.Player.playerTransform.position, GetMovementDirection(), out ray, 1f))
+        {
+            stateMachine.Player.PlayerController.velocity += GetMovementDirection() * Time.deltaTime * 3.5f;
+        }
+        stateMachine.Player.playerTransform.position = stateMachine.Player.PlayerController.velocity;
+        stateMachine.Player.PlayerController.gravity -= 0.2f;
 
         
     }
 
     protected void Jump()
     {
-        gravity = stateMachine.JumpForce;
-        isJump = true;
-
-        trans = stateMachine.Player.gameObject.transform;
-        velocity = trans.position;
-        stateMachine.Player.NavMeshAgent.ResetPath();
+        stateMachine.Player.PlayerController.isJump = true;
+        stateMachine.Player.PlayerController.gravity = stateMachine.JumpForce;
+        stateMachine.Player.PlayerController.velocity = stateMachine.Player.playerTransform.position;
+        if (stateMachine.Player.NavMeshAgent.enabled)
+            stateMachine.Player.NavMeshAgent.ResetPath();
         stateMachine.Player.NavMeshAgent.enabled = false;
     }
 }

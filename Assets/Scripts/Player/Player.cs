@@ -18,12 +18,14 @@ public class Player : MonoBehaviour
     public PlayerController Controller { get; private set; }
     //public ForceReceiver ForceReceiver { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
+    public PlayerController PlayerController { get; private set; }
 
    // [field: SerializeField] public Weapon Weapon { get; private set; }
 
     //public Health Health { get; private set; }
 
     public PlayerStateMachine stateMachine;
+    public Transform playerTransform;
 
     private void Awake()
     {
@@ -35,6 +37,8 @@ public class Player : MonoBehaviour
         Controller = GetComponent<PlayerController>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         //Health = GetComponent<Health>();
+        PlayerController = GetComponent<PlayerController>();
+        playerTransform = GetComponent<Transform>();
 
         stateMachine = new PlayerStateMachine(this);
     }

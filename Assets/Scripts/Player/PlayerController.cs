@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     public float lookSensitivity;
 
     [Header("Jump")]
-    public LayerMask groundLayerMask;
+    public bool isJump;
+    public float gravity;
+    public Vector3 velocity;
 
     [Header("Slope")]
     public float maxSlopeAngle;

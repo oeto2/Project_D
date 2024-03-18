@@ -15,7 +15,7 @@ public class PlayerJumpState : PlayerAirState
     {
         stateMachine.JumpForce = stateMachine.Player.Data.AirData.JumpForce;
         //stateMachine.Player.ForceReceiver.Jump(stateMachine.JumpForce);
-        Jump();
+        //Jump();
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.JumpParameterHash);
     }
@@ -29,32 +29,11 @@ public class PlayerJumpState : PlayerAirState
 
     public override void Update()
     {
-        Look();
-
-        velocity.y += gravity * Time.deltaTime;
-        // 레이캐스트로 점프 진행 방향에 벽 등이 없을 때만 이동되도록
-        RaycastHit ray;
-        if (!Physics.Raycast(trans.position, GetMovementDirection(), out ray, 1f))
+        base.Update();
+        if (stateMachine.Player.PlayerController.gravity <= 0)
         {
-            velocity += GetMovementDirection() * Time.deltaTime * 3.5f;
+            stateMachine.ChangeState(stateMachine.FallState);
         }
-        trans.position = velocity;
-        gravity -= 0.2f;
-
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(trans.position, out hit, 0.1f, NavMesh.AllAreas) && gravity <= 0)
-        {
-            gravity = 0f;
-            trans.position = hit.position;
-            isJump = false;
-            stateMachine.Player.NavMeshAgent.enabled = true;
-            stateMachine.ChangeState(stateMachine.IdleState);
-        }
-
-        //if (gravity <= 0)
-        //{
-        //    stateMachine.ChangeState(stateMachine.FallState);
-        //}
     }
 
     public override void PhysicsUpdate()
