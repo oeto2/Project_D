@@ -7,16 +7,22 @@ public class EnterDungeonPopup : UIBase
 {
     [SerializeField] private Button _enterBtn;
 
+    private GameObject lobbyUpPopup_Object;
+
     private void Awake()
     {
-        base.CloseUI();
-        SetButtons();
+        lobbyUpPopup_Object = UIManager.Instance.GetPopup(nameof(LobbyUpPopup));
+        btnClose.onClick.AddListener(() => CloseUI());
     }
 
-    //버튼 세팅
-    private void SetButtons()
+    private void OnEnable()
     {
-        //씬 연결
-        //_enterBtn.onClick.AddListener(() => )
+        lobbyUpPopup_Object.SetActive(false);
+    }
+
+    protected override void CloseUI()
+    {
+        lobbyUpPopup_Object.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
