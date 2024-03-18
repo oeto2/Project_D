@@ -32,7 +32,7 @@ public class EnemyAttackState : EnemyBaseState
     {
         base.Update();
 
-        ForceMove();
+        //ForceMove();
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
         if (normalizedTime < 1f)
         {
@@ -55,13 +55,13 @@ public class EnemyAttackState : EnemyBaseState
         }
     }
 
-    private void TryApplyForce()
-    {
-        if (alreadyAppliedForce) return;
-        alreadyAppliedForce = true;
+    //private void TryApplyForce()
+    //{
+    //    if (alreadyAppliedForce) return;
+    //    alreadyAppliedForce = true;
 
-        stateMachine.Enemy.ForceReceiver.Reset();
+    //    stateMachine.Enemy.ForceReceiver.Reset();
 
-        stateMachine.Enemy.ForceReceiver.AddForce(stateMachine.Enemy.transform.forward * stateMachine.Enemy.Data.Force);
-    }
+    //    stateMachine.Enemy.ForceReceiver.AddForce(stateMachine.Enemy.transform.forward * stateMachine.Enemy.Data.Force);
+    //}
 }
