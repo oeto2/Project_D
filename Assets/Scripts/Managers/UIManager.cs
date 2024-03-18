@@ -10,6 +10,15 @@ public class UIManager : SingletoneBase<UIManager>
     public Transform parentsUI = null;
     private Dictionary<string,UIBase> popups = new Dictionary<string,UIBase>();
 
+    public GameObject GetPopup(string popupName)
+    {
+        if (!popups.ContainsKey(popupName))
+        {
+            ShowPopup(popupName);
+        }
+        return popups[popupName].gameObject;
+    }
+
     //팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
     {
@@ -17,6 +26,7 @@ public class UIManager : SingletoneBase<UIManager>
         if(popups.ContainsKey(popupname))
         {
             ShowPopup(popups[popupname].gameObject);
+            Debug.Log("null 반환");
             return null;
         }
 

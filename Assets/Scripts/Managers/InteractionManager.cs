@@ -30,28 +30,21 @@ public class InteractionManager : MonoBehaviour
     public Slider loadingBar;
     public TextMeshProUGUI promptText;
 
-    public static InteractionManager instance;
-
     private UIManager _uiManager;
-    private interationPopup _interationPopup;
+    public interationPopup _interationPopup;
 
     private void Awake()
     {
-        instance = this;
         _uiManager = UIManager.Instance;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _interationPopup = _uiManager.ShowPopup<interationPopup>(_uiManager.parentsUI);
-
-        loadingBar = _interationPopup.LoadingBar;
-        promptText = _interationPopup.PromptText;
-
         _camera = Camera.main;
-        //_promptText = ;
-        //_loadingBar = ;
+        _interationPopup = _uiManager.GetPopup(nameof(interationPopup)).GetComponent<interationPopup>();
+        loadingBar = _interationPopup.LoadingBar;
+        promptText = _interationPopup.PromptText;        
     }
 
     // Update is called once per frame
