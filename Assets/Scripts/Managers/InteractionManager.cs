@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public interface IInteractable
@@ -28,8 +29,15 @@ public class InteractionManager : MonoBehaviour
     private Camera _camera;
 
     private bool _isInteract= false;
-    private GameObject _loadingBar;
-    private TextMeshProUGUI _promptText;
+    public Slider loadingBar;
+    public TextMeshProUGUI promptText;
+
+    public static InteractionManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +54,7 @@ public class InteractionManager : MonoBehaviour
         {
             lastCheckTime = Time.time;
 
-            Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width *0.5f, Screen.height *0.5f, 0));
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
@@ -60,11 +68,11 @@ public class InteractionManager : MonoBehaviour
             }
             else
             {
-                _loadingBar.SetActive(false);
+                loadingBar.gameObject.SetActive(false);
                 _isInteract = false;
                 _curInteractGameObject = null;
                 _curInteractable = null;
-                _promptText.gameObject.SetActive(false);
+                promptText.gameObject.SetActive(false);
             }
         }
         if (_isInteract && _curInteractable != null)
@@ -75,8 +83,8 @@ public class InteractionManager : MonoBehaviour
 
     private void SetPromptText()
     {
-        _promptText.gameObject.SetActive(true);
-        _promptText.text = string.Format($"<b>[{interactionRef.action.GetBindingDisplayString()}]</b> {_curInteractable.GetInteractPrompt()}");
+        promptText.gameObject.SetActive(true);
+        promptText.text = string.Format($"<b>[{interactionRef.action.GetBindingDisplayString()}]</b> {_curInteractable.GetInteractPrompt()}");
         
     }
 
