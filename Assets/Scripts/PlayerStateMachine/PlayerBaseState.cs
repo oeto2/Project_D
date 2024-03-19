@@ -45,10 +45,6 @@ public class PlayerBaseState : IState
         Move();
         Look();
         //Debug.Log(stateMachine.GetCurrentState());
-        if (Input.GetKey(KeyCode.X))
-        {
-            DiePlayer();
-        }
     }
 
     protected virtual void AddInputActionsCallback()
@@ -205,11 +201,6 @@ public class PlayerBaseState : IState
         }
     }
 
-    public void DiePlayer()
-    {
-        stateMachine.ChangeState(stateMachine.DieState);
-        stateMachine.Player.Animator.SetTrigger(stateMachine.Player.AnimationData.DieParameterHash);
-    }
 
     // Áö¿ì±â
     //protected bool isGround()

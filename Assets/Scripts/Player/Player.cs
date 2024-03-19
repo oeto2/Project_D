@@ -70,6 +70,13 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakePhysicalDamage(int damageAmount)
     {
-        Debug.Log(damageAmount);
+        Data.Health -= damageAmount;
+        Debug.Log($"남은 플레이어 체력 : {Data.Health}");
+        if (Data.Health <= 0)
+        {
+            // 죽었을 때 이벤트 액션으로 나중에 바꾸기
+            stateMachine.ChangeState(stateMachine.DieState);
+            Animator.SetTrigger(stateMachine.Player.AnimationData.DieParameterHash);
+        }
     }
 }
