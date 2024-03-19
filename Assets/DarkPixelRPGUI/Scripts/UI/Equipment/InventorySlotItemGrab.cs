@@ -20,7 +20,7 @@ namespace DarkPixelRPGUI.Scripts.UI.Equipment
         public void OnEndDrag(PointerEventData eventData)
         {
             DragItemHolder.Instance.DropItem();
-            //inventory.RemoveBlanks();
+            inventory.RemoveBlanks();
         }
 
         public void OnDrag(PointerEventData eventData)
