@@ -11,6 +11,6 @@ public class LoadingSceneUI : MonoBehaviour
         LoadingMainPopup loadingMainPopup = UIManager.Instance.ShowPopup<LoadingMainPopup>(transform);
 
         LoadingSceneController loadingSceneController = ResourceManager.Instance.Instantiate("Manager/LodingSceneManager").GetComponent<LoadingSceneController>();
-        //loadingSceneController.LoadingBar = loadingMainPopup.
+        loadingSceneController.LoadingBar = loadingMainPopup.loadingBar;
     }
 }

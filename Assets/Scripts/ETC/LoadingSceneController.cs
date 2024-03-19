@@ -19,25 +19,19 @@ public class LoadingSceneController : MonoBehaviour
         AsyncOperation loadScene = SceneManager.LoadSceneAsync(dungeonScene);
         loadScene.allowSceneActivation = false;
 
-        float timer = 0f;
-        while (!loadScene.isDone)
+        float elapsedTime = 0f;
+        float targetTime = 7f;
+        while (!loadScene.isDone && !loadScene.allowSceneActivation)
         {
-            yield return null;
+            elapsedTime += Time.unscaledDeltaTime;
+            LoadingBar.value = Mathf.Clamp01(elapsedTime / targetTime);
 
-            if (loadScene.progress < 0.5f)
+            if (LoadingBar.value >= 1f)
             {
-                LoadingBar.value = loadScene.progress;
+                loadScene.allowSceneActivation = true;
             }
-            else
-            {
-                timer += Time.unscaledDeltaTime;
-                LoadingBar.value = Mathf.Lerp(0.5f, 1f, timer);
-                if (LoadingBar.value >= 1f)
-                {
-                    loadScene.allowSceneActivation = true;
-                    yield break;
-                }
-            }
+            
+            yield return null;
         }
         yield return null;
     }
