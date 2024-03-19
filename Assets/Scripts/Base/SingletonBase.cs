@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletoneBase<T> : MonoBehaviour where T : MonoBehaviour
+public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
     protected static bool _isLoad = true;

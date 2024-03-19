@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceManager : SingletoneBase<ResourceManager>
+public class ResourceManager : SingletonBase<ResourceManager>
 {
     public Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>();
 
