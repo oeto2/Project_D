@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace DarkPixelRPGUI.Scripts.UI.Equipment
 {
-    public class Slot : MonoBehaviour
+    public class Slot : MonoBehaviour, IDropHandler
     {
         [SerializeField] private NullableSerializableObjectField<Item> initialItem;
         [SerializeField] private Image itemIcon;
@@ -67,6 +68,11 @@ namespace DarkPixelRPGUI.Scripts.UI.Equipment
             }
 
             ShowItem();
+        }
+
+        public void OnDrop(PointerEventData eventData)
+        {
+            DragItemHolder.Instance.DropItem();
         }
     }
 }
