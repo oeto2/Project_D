@@ -14,7 +14,6 @@ public class PlayerAttacks : MonoBehaviour
 
     public void BaseAttack(AnimationEvent myEvent)
     {
-        Debug.Log(myEvent.intParameter);
         AttackInfoData attackInfoData = _player.Data.AttackData.GetAttackInfo(myEvent.intParameter);
         float range = attackInfoData.AttackRange;
         var forward = _player.transform.forward;
@@ -27,7 +26,6 @@ public class PlayerAttacks : MonoBehaviour
             {
                 if (collider.GetComponent<IDamagable>() != null && collider.gameObject != _playerObj)
                 {
-                    Debug.Log(attackInfoData.Damage);
                     collider.GetComponent<IDamagable>().TakePhysicalDamage(attackInfoData.Damage);
                 }
             }

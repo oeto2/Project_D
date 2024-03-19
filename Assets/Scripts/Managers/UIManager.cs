@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : SingletoneBase<UIManager>
+public class UIManager : SingletonBase<UIManager>
 {
     //ºÎ¸ð UI
     public Transform parentsUI = null;
