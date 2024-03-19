@@ -8,6 +8,9 @@ public class LoadingSceneUI : MonoBehaviour
     {
         //부모 오브젝트 지정
         UIManager.Instance.parentsUI = transform;
-        UIManager.Instance.ShowPopup<LoadingMainPopup>(transform);
+        LoadingMainPopup loadingMainPopup = UIManager.Instance.ShowPopup<LoadingMainPopup>(transform);
+
+        LoadingSceneController loadingSceneController = ResourceManager.Instance.Instantiate("Manager/LodingSceneManager").GetComponent<LoadingSceneController>();
+        //loadingSceneController.LoadingBar = loadingMainPopup.
     }
 }

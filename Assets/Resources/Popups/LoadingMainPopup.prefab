@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnClose: {fileID: 0}
+  loadingBar: {fileID: 8096379999585516688}
 --- !u!1 &643544142213366017
 GameObject:
   m_ObjectHideFlags: 0
