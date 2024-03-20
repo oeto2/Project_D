@@ -13,5 +13,13 @@ namespace Constants
         //EnumÀÇ ÃÑ °¹¼ö
         Count
     }
+
+   public enum DungeonLevel
+    {
+        Esay,
+        Normal,
+        Hard,
+        Count
+    }
 }
 

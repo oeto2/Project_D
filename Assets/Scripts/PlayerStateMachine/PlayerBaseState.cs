@@ -90,12 +90,10 @@ public class PlayerBaseState : IState
 
     private void OnLookCanceled(InputAction.CallbackContext context)
     {
-
     }
 
     protected virtual void OnJumpStarted(InputAction.CallbackContext context)
     {
-
     }
 
     protected virtual void OnAttackPerformed(InputAction.CallbackContext context)
