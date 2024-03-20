@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da9742839b0ed047acd53f6b9de9e0a, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 100
+  <Health>k__BackingField: 65
   <GroundedData>k__BackingField:
     <BaseSpeed>k__BackingField: 5
     <BaseRotationDamping>k__BackingField: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
       <Dealing_Start_TransitionTime>k__BackingField: 0.5
       <Dealing_End_TransitionTime>k__BackingField: 0.5
       <Damage>k__BackingField: 5
-      <AttackRange>k__BackingField: 2
+      <AttackRange>k__BackingField: 1.1
     - <AttackName>k__BackingField: "\uD3C9\uD0C0 2\uD0C0"
       <ComboStateIndex>k__BackingField: 2
       <ComboTransitionTime>k__BackingField: 0.8
@@ -39,7 +39,7 @@ MonoBehaviour:
       <Dealing_Start_TransitionTime>k__BackingField: 0.5
       <Dealing_End_TransitionTime>k__BackingField: 0.5
       <Damage>k__BackingField: 10
-      <AttackRange>k__BackingField: 2
+      <AttackRange>k__BackingField: 1.2
     - <AttackName>k__BackingField: "\uD3C9\uD0C0 3\uD0C0"
       <ComboStateIndex>k__BackingField: 3
       <ComboTransitionTime>k__BackingField: 0.8
@@ -48,4 +48,4 @@ MonoBehaviour:
       <Dealing_Start_TransitionTime>k__BackingField: 0.5
       <Dealing_End_TransitionTime>k__BackingField: 0.5
       <Damage>k__BackingField: 15
-      <AttackRange>k__BackingField: 2
+      <AttackRange>k__BackingField: 1.3
