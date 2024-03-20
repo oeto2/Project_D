@@ -16,6 +16,7 @@ public class AttackInfoData
     [field: SerializeField][field: Range(0f, 1f)] public float Dealing_End_TransitionTime { get; private set; }
 
     [field: SerializeField] public int Damage { get; private set; }
+    [field: SerializeField] public float AttackRange { get; private set; }
 }
 
 
