@@ -28,8 +28,41 @@ public class Player : MonoBehaviour, IDamagable
     public PlayerStateMachine stateMachine;
     public Transform playerTransform;
 
+    //플레이어가 데미지 받았을 때
     public event Action TakeDamageEvent;
+
+    //플레이어가 죽었을 때
     public event Action PlayerDieEvent;
+
+    [Header("PlayerState")]
+    [SerializeField] private float _playerMaxHp;
+    [SerializeField] private float _playerCurHp;
+    [SerializeField] private float _playerMaxMp;
+    [SerializeField] private float _playerCurMp;
+
+    public float PlayerMaxHp
+    {
+        get { return _playerMaxHp; }
+        set { _playerMaxHp = value;}
+    }
+
+    public float PlayerCurHp
+    {
+        get { return _playerCurHp; }
+        set { _playerCurHp = value; }
+    }
+
+    public float PlayerMaxMp
+    {
+        get { return _playerMaxMp; }
+        set { _playerMaxMp = value; }
+    }
+
+    public float PlayerCurMp
+    {
+        get { return _playerCurMp; }
+        set { _playerCurMp = value; }
+    }
 
     private void Awake()
     {
@@ -45,6 +78,8 @@ public class Player : MonoBehaviour, IDamagable
         playerTransform = GetComponent<Transform>();
 
         stateMachine = new PlayerStateMachine(this);
+        PlayerMaxHp = Data.Health;
+        PlayerCurHp = Data.Health;
     }
 
     private void Start()
@@ -77,16 +112,15 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakePhysicalDamage(int damageAmount)
     {
-        CallTakeDamageEvent();
-
-        Data.CurHealth -= damageAmount;
-        Debug.Log($"남은 플레이어 체력 : {Data.CurHealth}");
-        if (Data.CurHealth <= 0)
+        PlayerCurHp -= damageAmount;
+        Debug.Log($"남은 플레이어 체력 : {PlayerCurHp}");
+        if (PlayerCurHp <= 0)
         {
-            CallPlayerDieEvent();
             // 죽었을 때 이벤트 액션으로 나중에 바꾸기
             stateMachine.ChangeState(stateMachine.DieState);
             Animator.SetTrigger(stateMachine.Player.AnimationData.DieParameterHash);
+            CallPlayerDieEvent();
         }
+        CallTakeDamageEvent();
     }
 }
