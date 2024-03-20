@@ -41,7 +41,7 @@ public class Player : MonoBehaviour, IDamagable
         playerTransform = GetComponent<Transform>();
 
         stateMachine = new PlayerStateMachine(this);
-        Health.maxHealth = Data.Health;
+        Health.InitHealth(Data.Health);
     }
 
     private void Start()
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour, IDamagable
         Cursor.lockState = CursorLockMode.Locked;
         stateMachine.ChangeState(stateMachine.IdleState);
 
-        //Health.OnDie += OnDie;
+        Health.OnDie += OnDie;
     }
 
     private void Update()
@@ -65,8 +65,8 @@ public class Player : MonoBehaviour, IDamagable
 
     void OnDie()
     {
-        Animator.SetTrigger("Die");
-        enabled = false;
+        stateMachine.ChangeState(stateMachine.DieState);
+        Animator.SetTrigger(stateMachine.Player.AnimationData.DieParameterHash);
     }
 
     public void TakePhysicalDamage(int damageAmount)

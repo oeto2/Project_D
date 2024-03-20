@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;
-    private int _health;
+    public float maxHealth;
+    public float health;
 
     public event Action<int> OnDamage;
     public event Action OnDie;
@@ -17,6 +17,12 @@ public class Health : MonoBehaviour
         OnDamage += TakeDamage;
     }
 
+    public void InitHealth(float amount)
+    {
+        maxHealth = amount;
+        health = maxHealth;
+    }
+
     public void TakePhysicalDamage(int damageAmount)
     {
         OnDamage(damageAmount);
@@ -24,8 +30,8 @@ public class Health : MonoBehaviour
 
     private void TakeDamage(int damageAmount)
     {
-        _health = Math.Max(_health - damageAmount, 0);
-        if (_health <= 0)
+        health = Math.Max(health - damageAmount, 0);
+        if (health <= 0)
         {
             OnDie();
         }
