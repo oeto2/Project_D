@@ -12,6 +12,8 @@ public class ItemData
     [SerializeField] private int _itemPrice;
     [SerializeField] private float _itemAtk;
     [SerializeField] private float _itemDef;
+    [SerializeField] private int _itemHpRecover;
+    [SerializeField] private int _itemMpRecover;
     [SerializeField] private string _itemDescription;
     [SerializeField] private int _itemMaxStack;
     [SerializeField] private ItemGrade _itemGrade;
@@ -23,6 +25,8 @@ public class ItemData
     public int itemPrice => _itemPrice;
     public float itemAtk => _itemAtk;
     public float itemDef => _itemDef;
+    public int itemHpRecover => _itemHpRecover;
+    public int itemMpRecover => _itemMpRecover;
     public string itemDescription => _itemDescription;
     public int itemMax_Stack => _itemMaxStack;
     public ItemGrade itemGrade => _itemGrade;
