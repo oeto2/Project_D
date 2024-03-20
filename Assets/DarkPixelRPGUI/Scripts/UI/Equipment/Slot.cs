@@ -8,7 +8,7 @@ namespace DarkPixelRPGUI.Scripts.UI.Equipment
         [SerializeField] private NullableSerializableObjectField<Item> initialItem;
         [SerializeField] private Image itemIcon;
         [SerializeField] private Image placedItemImage;
-        private Item _item;
+        [SerializeField] private Item _item;
         public Item Item => _item;
 
         public bool IsEmpty()

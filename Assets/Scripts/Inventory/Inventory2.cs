@@ -12,9 +12,9 @@ public class Inventory : MonoBehaviour
 
     // 필요한 컴포넌트
     [SerializeField]
-    private GameObject go_InventoryBase;
+    private GameObject _inventoryBase;
     [SerializeField]
-    private GameObject go_SlotsParent;
+    private GameObject _slotsParent;
 
     // 슬롯들.
     private Slot[] slots;
@@ -23,7 +23,17 @@ public class Inventory : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        slots = go_SlotsParent.GetComponentsInChildren<Slot>();
+        slots = _slotsParent.GetComponentsInChildren<Slot>();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Q)) 
+        {
+            Debug.Log("Q누름");
+            AcquireItem(Resources.Load<ItemDBSheet>("DB/ItemDBSheet").Item_Table[0]);
+        }
+
     }
 
     public void OnInventoryInput(InputAction.CallbackContext callbackcontext)
@@ -46,23 +56,23 @@ public class Inventory : MonoBehaviour
 
     private void OpenInventory()
     {
-        go_InventoryBase.SetActive(true);
+        _inventoryBase.SetActive(true);
     }
 
     private void CloseInventory()
     {
-        go_InventoryBase.SetActive(false);
+        _inventoryBase.SetActive(false);
     }
 
     public void AcquireItem(ItemData _item, int _count = 1)
     {
-        if (_item.item_Type == Constants.ItemType.Consume || _item.item_Type == Constants.ItemType.Material)
+        if (_item.itemType == Constants.ItemType.Consume || _item.itemType == Constants.ItemType.Material)
         {
             for (int i = 0; i < slots.Length; i++)
             {
                 if (slots[i].item != null)
                 {
-                    if (slots[i].item.item_Name == _item.item_Name)
+                    if (slots[i].item.itemName == _item.itemName)
                     {
                         slots[i].SetSlotCount(_count);
                         return;

@@ -15,9 +15,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     // 필요한 컴포넌트.
     [SerializeField]
-    private TextMeshProUGUI text_Count;
+    private TextMeshProUGUI _textCount;
     [SerializeField]
-    private GameObject go_CountImage;
+    private GameObject _countImage;
+
+    private void Awake()
+    {
+        ClearSlot();
+    }
 
     // 이미지의 투명도 조절.
     private void SetColor(float _alpha)
@@ -34,15 +39,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         itemCount = _count;
         itemImage.sprite = item.Sprite;
 
-        if (item.item_Type != Constants.ItemType.Material || item.item_Type != Constants.ItemType.Consume)
+        if (item.itemType == Constants.ItemType.Material || item.itemType == Constants.ItemType.Consume)
         {
-            go_CountImage.SetActive(true);
-            text_Count.text = itemCount.ToString();
+            _countImage.SetActive(true);
+            _textCount.text = itemCount.ToString();
         }
         else
         {
-            text_Count.text = "0";
-            go_CountImage.SetActive(false);
+            _textCount.text = "0";
+            _countImage.SetActive(false);
         }
 
         SetColor(1);
@@ -52,7 +57,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     public void SetSlotCount(int _count)
     {
         itemCount += _count;
-        text_Count.text = itemCount.ToString();
+        _textCount.text = itemCount.ToString();
 
         if (itemCount <= 0)
             ClearSlot();
@@ -66,8 +71,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         itemImage.sprite = null;
         SetColor(0);
 
-        text_Count.text = "0";
-        go_CountImage.SetActive(false);
+        _textCount.text = "0";
+        _countImage.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -76,17 +81,17 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         {
             if (item != null)
             {
-                if (item.item_Type == Constants.ItemType.Weapon)
+                if (item.itemType == Constants.ItemType.Weapon)
                 {
                     //무기 장착
                 }
-                else if(item.item_Type == Constants.ItemType.Equip)
+                else if(item.itemType == Constants.ItemType.Equip)
                 {
                     //장비장착
                 }
                 else
                 {
-                    Debug.Log(item.item_Name + " 을 사용했습니다");
+                    Debug.Log(item.itemName + " 을 사용했습니다");
                     SetSlotCount(-1);
                 }
             }
@@ -120,7 +125,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     public void OnDrop(PointerEventData eventData)
     {
-
         if (DragSlot.instance.dragSlot != null)
             ChangeSlot();
     }
