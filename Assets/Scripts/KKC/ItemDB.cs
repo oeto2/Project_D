@@ -9,7 +9,7 @@ public class ItemDB
 
     public ItemDB()
     {
-        var res = Resources.Load<ItemDBSheet>("SO/ItemSO/ItemDBSheet");
+        var res = Resources.Load<ItemDBSheet>("DB/ItemDBSheet");
         var itemSO = Object.Instantiate(res);
         var entities = itemSO.Item_Table;
 

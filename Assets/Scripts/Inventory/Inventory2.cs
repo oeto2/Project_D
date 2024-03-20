@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Q)) 
         {
             Debug.Log("Q´©¸§");
-            AcquireItem(Resources.Load<ItemDBSheet>("DB/ItemDBSheet").Item_Table[0]);
+            AcquireItem(Database.Item.Get(20000001));
         }
 
     }
