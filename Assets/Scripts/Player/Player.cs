@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,12 +21,15 @@ public class Player : MonoBehaviour, IDamagable
     public NavMeshAgent NavMeshAgent { get; private set; }
     public PlayerController PlayerController { get; private set; }
 
-   // [field: SerializeField] public Weapon Weapon { get; private set; }
+    // [field: SerializeField] public Weapon Weapon { get; private set; }
 
     //public Health Health { get; private set; }
 
     public PlayerStateMachine stateMachine;
     public Transform playerTransform;
+
+    public event Action TakeDamageEvent;
+    public event Action PlayerDieEvent;
 
     private void Awake()
     {
@@ -68,12 +72,18 @@ public class Player : MonoBehaviour, IDamagable
         enabled = false;
     }
 
+    private void CallTakeDamageEvent() => TakeDamageEvent?.Invoke();
+    private void CallPlayerDieEvent() => PlayerDieEvent?.Invoke();
+
     public void TakePhysicalDamage(int damageAmount)
     {
-        Data.Health -= damageAmount;
-        Debug.Log($"남은 플레이어 체력 : {Data.Health}");
-        if (Data.Health <= 0)
+        CallTakeDamageEvent();
+
+        Data.CurHealth -= damageAmount;
+        Debug.Log($"남은 플레이어 체력 : {Data.CurHealth}");
+        if (Data.CurHealth <= 0)
         {
+            CallPlayerDieEvent();
             // 죽었을 때 이벤트 액션으로 나중에 바꾸기
             stateMachine.ChangeState(stateMachine.DieState);
             Animator.SetTrigger(stateMachine.Player.AnimationData.DieParameterHash);
