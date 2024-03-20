@@ -13,6 +13,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerJumpState JumpState { get; }
     public PlayerFallState FallState { get; }
     public PlayerComboAttackState ComboAttackState { get; }
+    public PlayerDieState DieState { get; }
 
     // 
     public Vector2 MovementInput { get; set; }

@@ -6,27 +6,27 @@ using Constants;
 [System.Serializable]
 public class ItemData
 {
-    [SerializeField] private int Id;
-    [SerializeField] private string Item_Name;
-    [SerializeField] private ItemType Item_Type;
-    [SerializeField] private int Item_Price;
-    [SerializeField] private float Item_Atk;
-    [SerializeField] private float Item_Def;
-    [SerializeField] private string Item_Description;
-    [SerializeField] private int Item_Max_Stack;
-    [SerializeField] private ItemGrade Item_Grade;
-    [SerializeField] private string Item_Image;
+    [SerializeField] private int _id;
+    [SerializeField] private string _itemName;
+    [SerializeField] private ItemType _itemType;
+    [SerializeField] private int _itemPrice;
+    [SerializeField] private float _itemAtk;
+    [SerializeField] private float _itemDef;
+    [SerializeField] private string _itemDescription;
+    [SerializeField] private int _itemMaxStack;
+    [SerializeField] private ItemGrade _itemGrade;
+    [SerializeField] private string _itemSprite;
 
-    public int id => Id;
-    public string item_Name => Item_Name;
-    public ItemType item_Type => Item_Type;
-    public int item_Price => Item_Price;
-    public float item_Atk => Item_Atk;
-    public float item_Def => Item_Def;
-    public string item_Description => Item_Description;
-    public int item_Max_Stack => Item_Max_Stack;
-    public ItemGrade item_Grade => Item_Grade;
-    public string item_Image => Item_Image;
+    public int id => _id;
+    public string itemName => _itemName;
+    public ItemType itemType => _itemType;
+    public int itemPrice => _itemPrice;
+    public float itemAtk => _itemAtk;
+    public float itemDef => _itemDef;
+    public string itemDescription => _itemDescription;
+    public int itemMax_Stack => _itemMaxStack;
+    public ItemGrade itemGrade => _itemGrade;
+    public string itemSprite => _itemSprite;
 
     private Sprite sprite;
     public Sprite Sprite
@@ -34,7 +34,7 @@ public class ItemData
         get
         {
             Debug.Log("ÀÐÀ½");
-            sprite = Resources.Load<Sprite>(item_Image);
+            sprite = Resources.Load<Sprite>(itemSprite);
 
             return sprite;
         }

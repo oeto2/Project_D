@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public abstract class UIBase : MonoBehaviour
 {
-    [SerializeField] private Button btnClose;
+    [SerializeField] protected Button btnClose;
 
     private void Awake()
     {

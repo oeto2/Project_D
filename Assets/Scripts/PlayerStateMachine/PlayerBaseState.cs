@@ -200,6 +200,8 @@ public class PlayerBaseState : IState
             return 0f;
         }
     }
+
+
     // Áö¿ì±â
     //protected bool isGround()
     //{

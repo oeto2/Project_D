@@ -4,18 +4,20 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : SingletoneBase<UIManager>
+public class UIManager : SingletonBase<UIManager>
 {
     //부모 UI
     public Transform parentsUI = null;
     private Dictionary<string,UIBase> popups = new Dictionary<string,UIBase>();
 
+    private void Awake() => _isLoad = false;
     public GameObject GetPopup(string popupName)
     {
         if (!popups.ContainsKey(popupName))
         {
             ShowPopup(popupName);
         }
+
         return popups[popupName].gameObject;
     }
 
@@ -26,7 +28,6 @@ public class UIManager : SingletoneBase<UIManager>
         if(popups.ContainsKey(popupname))
         {
             ShowPopup(popups[popupname].gameObject);
-            Debug.Log("null 반환");
             return null;
         }
 
