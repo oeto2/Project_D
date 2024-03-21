@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemySO : ScriptableObject
 {
-    [field: SerializeField] public float EnemyHealth = 10f;
+    [field: SerializeField] public float Health = 50f;
     [field: SerializeField] public float EnemyChasingRange { get; private set; } = 10f;
     [field: SerializeField] public float AttackRange { get; private set; } = 1.5f;
     [field: SerializeField][field: Range(0f, 3f)] public float ForceTransitionTime { get; private set; }

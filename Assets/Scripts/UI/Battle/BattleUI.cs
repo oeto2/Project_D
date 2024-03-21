@@ -11,6 +11,7 @@ public class BattleUI : UIBase
     [SerializeField] private Slider _playerMp;
     [SerializeField] private GameObject _playerDeadUIPanel;
     [SerializeField] private GameObject _gameEndUIPanel;
+    [SerializeField] private Button _enterButton;
     
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class BattleUI : UIBase
     private IEnumerator ShowGameOverPanel()
     {
         yield return new WaitForSeconds(5f);
+        Cursor.lockState = CursorLockMode.None;
         _gameEndUIPanel.SetActive(true);
     }
 }
