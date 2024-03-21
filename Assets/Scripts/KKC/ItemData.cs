@@ -17,7 +17,6 @@ public class ItemData
     [SerializeField] private string _itemDescription;
     [SerializeField] private int _itemMaxStack;
     [SerializeField] private ItemGrade _itemGrade;
-    [SerializeField] private bool _isShop;
     [SerializeField] private string _itemSprite;
 
     public int id => _id;
@@ -31,7 +30,6 @@ public class ItemData
     public string itemDescription => _itemDescription;
     public int itemMax_Stack => _itemMaxStack;
     public ItemGrade itemGrade => _itemGrade;
-    public bool isShop => _isShop;
     public string itemSprite => _itemSprite;
 
     private Sprite sprite;

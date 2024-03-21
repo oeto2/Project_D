@@ -384,14 +384,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -712,8 +712,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4ce034de9c1fb5949bd9a9da883e7bf4, type: 2}
-  m_sharedMaterial: {fileID: -3359197029103750868, guid: 4ce034de9c1fb5949bd9a9da883e7bf4,
+  m_fontAsset: {fileID: 11400000, guid: 3e35b5184c084794f85c03e83e3a042c, type: 2}
+  m_sharedMaterial: {fileID: 7469225891138420652, guid: 3e35b5184c084794f85c03e83e3a042c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -924,8 +924,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4ce034de9c1fb5949bd9a9da883e7bf4, type: 2}
-  m_sharedMaterial: {fileID: -3359197029103750868, guid: 4ce034de9c1fb5949bd9a9da883e7bf4,
+  m_fontAsset: {fileID: 11400000, guid: 3e35b5184c084794f85c03e83e3a042c, type: 2}
+  m_sharedMaterial: {fileID: 7469225891138420652, guid: 3e35b5184c084794f85c03e83e3a042c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1060,8 +1060,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4ce034de9c1fb5949bd9a9da883e7bf4, type: 2}
-  m_sharedMaterial: {fileID: -3359197029103750868, guid: 4ce034de9c1fb5949bd9a9da883e7bf4,
+  m_fontAsset: {fileID: 11400000, guid: 3e35b5184c084794f85c03e83e3a042c, type: 2}
+  m_sharedMaterial: {fileID: 7469225891138420652, guid: 3e35b5184c084794f85c03e83e3a042c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1352,6 +1352,7 @@ GameObject:
   - component: {fileID: 2634556581288196189}
   - component: {fileID: 8823517027615594497}
   - component: {fileID: 1871444532317793860}
+  - component: {fileID: 7570650038138139569}
   m_Layer: 5
   m_Name: ShopSlot
   m_TagString: Untagged
@@ -1423,3 +1424,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7570650038138139569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8836322484268341113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f039f75982c6fd04fbbe995503469b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemName: {fileID: 3575023452180850680}
+  ItemPrice: {fileID: 6547180078468306244}
+  ItemDescription: {fileID: 8334029506086531640}
+  ItemStack: {fileID: 6071118536100227012}
+  BuyItemButton: {fileID: 6629789039309465369}
+  ItemSprite: {fileID: 1890476481384111404}
+  ItemData:
+    _id: 0
+    _itemName: 
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 0
+    _itemSprite: 

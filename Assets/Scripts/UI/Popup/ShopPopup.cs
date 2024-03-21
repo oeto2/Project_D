@@ -6,16 +6,8 @@ using UnityEngine.UI;
 
 public class ShopPopup : UIBase
 {
-    [Header("Shop Item")]
-    public List<ItemData> ShopItems = new List<ItemData>();
-
-    [Header("Shop UI")]
-    public TMP_Text ItemName;
-    public TMP_Text ItemPrice;
-    public TMP_InputField ItemStack;
-    public Image ItemSprite;
-
-    public ItemData ItemData;
+    [field: SerializeField] public ShopListSO ShopItems;
+    [SerializeField] private Transform _shopItemSlots;
 
     private GameObject lobbyUpPopup_Object;
 
@@ -28,6 +20,7 @@ public class ShopPopup : UIBase
     private void OnEnable()
     {
         lobbyUpPopup_Object.SetActive(false);
+        ShopItemSet();
     }
 
     protected override void CloseUI()
@@ -36,19 +29,15 @@ public class ShopPopup : UIBase
         gameObject.SetActive(false);
     }
 
-    private void ShopItemSet(int id)
+    // 상점에 SO에 존재하는 int값과 같은 id의 아이템 추가
+    private void ShopItemSet()
     {
-        // isShop이 True인 데이터들만 가져오기
-        for(int i = 0; i < ShopItems.Count; i++)
+        foreach (var shopItemId in ShopItems.ShopItems)
         {
-            
+            var shopItem = Database.Item.Get(shopItemId);
+            var shopSlot = ResourceManager.Instance.Instantiate("UI/ShopSlot", _shopItemSlots);
+            shopSlot.GetComponent<ShopSlot>().UpdateUI(shopItem);
+            //Debug.Log(Database.Item.Get(shopItemId).itemName);
         }
     }
-
-    public void UpdateSlot()
-    {
-        // 슬롯 훑어서 빈 슬롯에 ShopItem 넣기
-    }
-
-    // Button event 만들어서 InputField 갯수만큼 인벤토리에 추가
 }

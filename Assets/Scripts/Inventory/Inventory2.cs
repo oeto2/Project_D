@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
 {
 
     public static bool inventoryActivated = false;
-
+    public static Inventory instance = null;
 
     // ÇÊ¿äÇÑ ÄÄÆ÷³ÍÆ®
     [SerializeField]
@@ -19,11 +19,19 @@ public class Inventory : MonoBehaviour
     // ½½·Ôµé.
     private Slot[] slots;
 
-
+    
     // Use this for initialization
     void Start()
     {
         slots = _slotsParent.GetComponentsInChildren<Slot>();
+    }
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
     }
 
     private void Update()
