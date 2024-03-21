@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3889816474832063947}
   - component: {fileID: 1206285567953136439}
   - component: {fileID: 6665009720752067060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4850,7 +4850,7 @@ GameObject:
   - component: {fileID: 5882444413498946774}
   - component: {fileID: 6046166669438410592}
   - component: {fileID: 7642233556712890447}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portal blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9761,7 +9761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dcefad32a6bf1948b3d4d7ab254dbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingBar: {fileID: 0}
 --- !u!1 &5759165922331799116
 GameObject:
   m_ObjectHideFlags: 0
@@ -9773,7 +9772,7 @@ GameObject:
   - component: {fileID: 7533929042573759506}
   - component: {fileID: 2184561163848598958}
   - component: {fileID: 6931884440055917080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14659,7 +14658,7 @@ GameObject:
   - component: {fileID: 6428558793748128781}
   - component: {fileID: 976294877724672329}
   - component: {fileID: 367275910736110649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CircleSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

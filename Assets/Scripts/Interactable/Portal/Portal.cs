@@ -1,3 +1,4 @@
+using Constants;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -38,6 +39,7 @@ public class Portal : MonoBehaviour, IInteractable
         if (_time >= 3)
         {
             //플레이어 씬이동
+            GameManager.Instance.ChangeScene(SceneType.LobbyScene);
         }
     }
     void IInteractable.CancelInteract()

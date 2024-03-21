@@ -54,3 +54,15 @@ MonoBehaviour:
     _itemGrade: 0
     _isShop: 1
     _itemSprite: Images/Items/LittleMpPotion
+  - _id: 30000002
+    _itemName: "\uBC29\uC5B4\uAD6C"
+    _itemType: 1
+    _itemPrice: 300
+    _itemAtk: 0
+    _itemDef: 20
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uBC29\uC5B4\uAD6C\uC774\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 0
+    _itemSprite: Images/Items/chest

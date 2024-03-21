@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Constants;
 
 public class LoadingSceneController : MonoBehaviour
 {
-    public const string dungeonScene = "LSM_Scene";
+    public const string lobbyScene = "LobbyScene";
+    public const string dungeonScene = "DungeonScene";
     public Slider LoadingBar;
 
     public void Start()
@@ -16,7 +18,19 @@ public class LoadingSceneController : MonoBehaviour
 
     private IEnumerator LoadSceneProcess()
     {
-        AsyncOperation loadScene = SceneManager.LoadSceneAsync(dungeonScene);
+        string scene = lobbyScene;
+
+        switch (GameManager.Instance.sceneType)
+        {
+            case SceneType.LobbyScene:
+                scene = lobbyScene;
+                break;
+            case SceneType.DungeonScene:
+                scene = dungeonScene;
+                break;
+        }
+
+        AsyncOperation loadScene = SceneManager.LoadSceneAsync(scene);
         loadScene.allowSceneActivation = false;
 
         float elapsedTime = 0f;

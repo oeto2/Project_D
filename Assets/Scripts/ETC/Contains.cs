@@ -21,5 +21,11 @@ namespace Constants
         Hard,
         Count
     }
+
+    public enum SceneType
+    {
+        LobbyScene,
+        DungeonScene
+    }
 }
 
