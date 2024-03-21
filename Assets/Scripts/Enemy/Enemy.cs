@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour, IDamagable
     [HideInInspector] public Health _targetHealth;
 
     //공격 대상 트랜스폼
-    public Transform Target { get; private set; }
+    [field: SerializeField] public Transform Target { get; private set; }
 
     public int CurWanderDestination_index
     {

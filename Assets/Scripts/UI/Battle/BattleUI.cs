@@ -15,7 +15,7 @@ public class BattleUI : UIBase
     
     private void Start()
     {
-        _PlayerHealth = GameManager.Instance.playerObject.GetComponent<Health>();
+        _PlayerHealth = GameManager.Instance.playerObject?.GetComponent<Health>();
         
         //ÇÃ·¹ÀÌ¾î »ç¸Á½Ã DeadUI ¶ç¿ì±â
         _PlayerHealth.OnDie += ShowPlayerDeadUI;
@@ -44,7 +44,6 @@ public class BattleUI : UIBase
     private IEnumerator ShowGameOverPanel()
     {
         yield return new WaitForSeconds(5f);
-        Cursor.lockState = CursorLockMode.None;
-        _gameEndUIPanel.SetActive(true);
+        UIManager.Instance.ShowPopup<RewardPopup>();
     }
 }

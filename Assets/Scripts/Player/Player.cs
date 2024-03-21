@@ -26,6 +26,7 @@ public class Player : MonoBehaviour, IDamagable
 
     public PlayerStateMachine stateMachine;
     public Transform playerTransform;
+    public InteractionSystem InteractionSystem;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour, IDamagable
         playerTransform = GetComponent<Transform>();
 
         stateMachine = new PlayerStateMachine(this);
+        InteractionSystem = GetComponent<InteractionSystem>();
         Health.InitHealth(Data.Health);
     }
 
