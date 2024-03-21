@@ -8,9 +8,28 @@ public class GameManager : SingletonBase<GameManager>
 {
     public GameObject playerObject;
 
-    //나중에 수정하기
+    public SceneType sceneType = SceneType.LobbyScene;
+
+    private const string _loadingSceneName = "LoadingScene";
+
     private void Awake()
     {
-        playerObject = GameObject.FindWithTag("Player");
+        SceneManager.sceneLoaded += PlayerInit;
+    }
+
+    private void PlayerInit(Scene scene, LoadSceneMode mode)
+    {
+        if (playerObject == null && SceneManager.GetActiveScene().name != _loadingSceneName)
+        {
+            playerObject = ResourceManager.Instance.Instantiate("Player/Player");
+            //playerObject = Resources.Load<GameObject>("Prefabs/Player/Player");
+            //  Instantiate(playerObject);
+        }
+    }
+
+    public void ChangeScene(SceneType scene)
+    {
+        sceneType = scene;
+        SceneManager.LoadScene(_loadingSceneName);
     }
 }

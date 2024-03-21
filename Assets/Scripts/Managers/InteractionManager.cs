@@ -13,7 +13,7 @@ public interface IInteractable
     void CancelInteract();
 }
 
-public class InteractionManager : MonoBehaviour
+public class InteractionManager : SingletonBase<InteractionManager>
 {
     public InputActionReference interactionRef;
     public float checkRate = 0.05f;
@@ -22,11 +22,11 @@ public class InteractionManager : MonoBehaviour
     public LayerMask layerMask;
 
     private GameObject _curInteractGameObject;
-    private IInteractable _curInteractable;
+    public IInteractable curInteractable;
 
     private Camera _camera;
 
-    private bool _isInteract= false;
+    public bool isInteract= false;
     public Slider loadingBar;
     public TextMeshProUGUI promptText;
 
@@ -35,6 +35,7 @@ public class InteractionManager : MonoBehaviour
 
     private void Awake()
     {
+        _isLoad = false;
         _uiManager = UIManager.Instance;
     }
 
@@ -62,43 +63,44 @@ public class InteractionManager : MonoBehaviour
                 if (hit.collider.gameObject != _curInteractGameObject)
                 {
                     _curInteractGameObject = hit.collider.gameObject;
-                    _curInteractable = hit.collider.GetComponent<IInteractable>();
+                    curInteractable = hit.collider.GetComponent<IInteractable>();
                     SetPromptText();
                 }
             }
             else
             {
                 loadingBar.gameObject.SetActive(false);
-                _isInteract = false;
+                isInteract = false;
                 _curInteractGameObject = null;
-                _curInteractable = null;
+                curInteractable = null;
                 promptText.gameObject.SetActive(false);
             }
         }
-        if (_isInteract && _curInteractable != null)
+        if (isInteract && curInteractable != null)
         {
-            _curInteractable.OnInteract();
+            curInteractable.OnInteract();
         }
     }
 
     private void SetPromptText()
     {
         promptText.gameObject.SetActive(true);
-        promptText.text = string.Format($"<b>[{interactionRef.action.GetBindingDisplayString()}]</b> {_curInteractable.GetInteractPrompt()}");
+        promptText.text = string.Format($"<b>[{interactionRef.action.GetBindingDisplayString()}]</b> {curInteractable.GetInteractPrompt()}");
         
     }
 
-    public void OnIteractInput(InputAction.CallbackContext callbackcontext)
-    {
-        if (callbackcontext.phase == InputActionPhase.Started && _curInteractable != null)
-        {
-            _isInteract = true;
-
-        }
-        else if (callbackcontext.phase == InputActionPhase.Canceled && _curInteractable != null)
-        {
-            _isInteract = false;
-            _curInteractable.CancelInteract();
-        }
-    }
+    // ÁöÈÆ´ÔÀÇ Ãß¾ï
+    //public void OnIteractInput(InputAction.CallbackContext callbackcontext)
+    //{
+    //    if (callbackcontext.phase == InputActionPhase.Started && curInteractable != null)
+    //    {
+    //        isInteract = true;
+    //
+    //    }
+    //    else if (callbackcontext.phase == InputActionPhase.Canceled && curInteractable != null)
+    //    {
+    //        isInteract = false;
+    //        curInteractable.CancelInteract();
+    //    }
+    //}
 }

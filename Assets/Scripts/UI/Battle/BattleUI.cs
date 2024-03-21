@@ -12,7 +12,7 @@ public class BattleUI : UIBase
     [SerializeField] private GameObject _playerDeadUIPanel;
     [SerializeField] private GameObject _gameEndUIPanel;
     
-    private void Awake()
+    private void Start()
     {
         _PlayerHealth = GameManager.Instance.playerObject.GetComponent<Health>();
         //플레이어 피격시 체력 UI 새로고침
