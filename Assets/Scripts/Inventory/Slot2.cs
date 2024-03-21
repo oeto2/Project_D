@@ -64,7 +64,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     }
 
     // 슬롯 초기화.
-    private void ClearSlot()
+    public void ClearSlot()
     {
         item = null;
         itemCount = 0;
@@ -104,7 +104,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         {
             DragSlot.instance.dragSlot = this;
             DragSlot.instance.DragSetImage(itemImage);
-
+            DragSlot.instance.dragItem = item;
             DragSlot.instance.transform.position = eventData.position;
         }
     }
@@ -120,12 +120,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     public void OnEndDrag(PointerEventData eventData)
     {
         DragSlot.instance.SetColor(0);
+        DragSlot.instance.dragItem = null;
         DragSlot.instance.dragSlot = null;
+        DragSlot.instance.equipmentSlot = null;
+        DragSlot.instance.weaponSlot = null;
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (DragSlot.instance.dragSlot != null)
+        if (DragSlot.instance.dragSlot != null || DragSlot.instance.weaponSlot != null || DragSlot.instance.equipmentSlot != null)
             ChangeSlot();
     }
 
@@ -133,12 +136,39 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         ItemData _tempItem = item;
         int _tempItemCount = itemCount;
+        if (DragSlot.instance.dragSlot != null)
+        {
+            AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
+            if (_tempItem != null)
+                DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);
+            else
+                DragSlot.instance.dragSlot.ClearSlot();
+        }
+            
+        else if (DragSlot.instance.equipmentSlot != null)
+        {
+            AddItem(DragSlot.instance.equipmentSlot.item);
+            if (_tempItem != null)
+                if (_tempItem.itemType == Constants.ItemType.Equip)
+                    DragSlot.instance.equipmentSlot.AddItem(_tempItem);
+                else
+                    //착용할수없음
+                    Debug.Log("착용할수없습니다.");
+            else
+                DragSlot.instance.equipmentSlot.ClearSlot();
+        }
 
-        AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
-
-        if (_tempItem != null)
-            DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);
         else
-            DragSlot.instance.dragSlot.ClearSlot();
+        {
+            AddItem(DragSlot.instance.weaponSlot.item);
+            if (_tempItem != null)
+                if (_tempItem.itemType == Constants.ItemType.Weapon)
+                    DragSlot.instance.weaponSlot.AddItem(_tempItem);
+                else
+                    //착용할수없음
+                    Debug.Log("착용할수없습니다.");
+            else
+                DragSlot.instance.weaponSlot.ClearSlot();
+        }
     }
 }

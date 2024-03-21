@@ -8,7 +8,12 @@ public class DragSlot : MonoBehaviour
 
     public static DragSlot instance;
 
+    public ItemData dragItem;
+
     public Slot dragSlot;
+
+    public EquipmentSlot equipmentSlot;
+    public WeaponSlot weaponSlot;
 
     // 아이템 이미지.
     [SerializeField]
