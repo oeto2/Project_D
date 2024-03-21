@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
     public float maxHealth;
     public float health;
+    public bool IsDead {get; private set; }
 
     public event Action<int> OnDamage;
     public event Action OnDie;
@@ -34,6 +35,7 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             OnDie?.Invoke();
+            IsDead = true;
         }
     }
 }

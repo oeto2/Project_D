@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour, IDamagable
 
     [SerializeField] private GameObject enemyInteration_Object;
     public Health Health { get; private set; }
+    [HideInInspector] public Health _targetHealth;
+
     public int CurWanderDestination_index
     {
         get
@@ -72,6 +74,7 @@ public class Enemy : MonoBehaviour, IDamagable
         //¼øÂû Àå¼Ò
         SetPatrolLocation(EnemyPatrolLocation_number);
         Health.InitHealth(Data.Health);
+        _targetHealth = stateMachine.Target.GetComponent<Health>();
     }
 
     private void Start()

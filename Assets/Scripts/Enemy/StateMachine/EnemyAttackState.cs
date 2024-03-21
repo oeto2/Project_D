@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyBaseState
 {
-
     private bool alreadyAppliedForce;
 
     public EnemyAttackState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
     }
-
     public override void Enter()
     {
         stateMachine.MovementSpeedModifier = 0;
@@ -51,15 +49,5 @@ public class EnemyAttackState : EnemyBaseState
                 return;
             }
         }
-    }
-
-    private void TryApplyForce()
-    {
-        if (alreadyAppliedForce) return;
-        alreadyAppliedForce = true;
-
-        stateMachine.Enemy.ForceReceiver.Reset();
-
-        stateMachine.Enemy.ForceReceiver.AddForce(stateMachine.Enemy.transform.forward * stateMachine.Enemy.Data.Force);
     }
 }
