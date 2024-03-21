@@ -41,7 +41,7 @@ public class Portal : MonoBehaviour, IInteractable
         //상호작용 완료
         if (_time >= 3)
         {
-            UIManager.Instance.ShowPopup<RewardPopup>();
+            UIManager.Instance.ShowPopup<GameEndPopup>();
         }
     }
     void IInteractable.CancelInteract()

@@ -5,7 +5,7 @@ namespace DarkPixelRPGUI.Scripts.UI.Equipment
 {
     public class InventorySlotItemDropTarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] private Inventory inventory;
+        [SerializeField] private InventoryAsset inventory;
         private Slot _placeholdedSlot;
 
         public void OnPointerEnter(PointerEventData eventData)
