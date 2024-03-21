@@ -50,7 +50,7 @@ public class InteractionSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(curInteractable);
+        //Debug.Log(curInteractable);
 
         if (Time.time - lastCheckTime > checkRate)
         {
@@ -67,7 +67,7 @@ public class InteractionSystem : MonoBehaviour
                     _curInteractGameObject = hit.collider.gameObject;
                     curInteractable = hit.collider.GetComponent<IInteractable>();
                     SetPromptText();
-                    Debug.Log("레이캐스트 포탈 발견");
+                    //Debug.Log("레이캐스트 포탈 발견");
                 }
             }
             else
