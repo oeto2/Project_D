@@ -13,7 +13,7 @@ public class BattleUI : UIBase
     [SerializeField] private GameObject _gameEndUIPanel;
     [SerializeField] private Button _enterButton;
     
-    private void Awake()
+    private void Start()
     {
         _PlayerHealth = GameManager.Instance.playerObject.GetComponent<Health>();
         

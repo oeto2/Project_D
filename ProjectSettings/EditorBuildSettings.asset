@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LSM_Scene.unity
     guid: d1cde9bd22b45a045bab4bebc9e38f8b
   - enabled: 1
-    path: Assets/Scenes/LobbyScene.unity
+    path: Assets/Scenes/MainScenes/LobbyScene.unity
     guid: 349123be1933a464daf9210ede85ef57
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 6aa3f0cc17ad07b44af0c5609826114c
+  - enabled: 1
+    path: Assets/Scenes/MainScenes/DungeonScene.unity
+    guid: a1ccab7b7c6ef0b419569b171c53a415
   m_configObjects: {}

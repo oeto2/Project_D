@@ -8,7 +8,7 @@ public class EnemyAttack : MonoBehaviour
     private Enemy _enemy;
     private Transform _playerObject;
 
-    private void Awake()
+    private void Start()
     {
         _enemy = GetComponentInParent<Enemy>();
         _playerObject = GameManager.Instance.playerObject.transform;
