@@ -33,13 +33,15 @@ public class Portal : MonoBehaviour, IInteractable
 
     void IInteractable.OnInteract()
     {
+        //Debug.Log("포탈 상호작용 시작");
         _loadingBar.gameObject.SetActive(true);
         _time += Time.deltaTime;
         _loadingBar.value = _time / 3;
+        
+        //상호작용 완료
         if (_time >= 3)
         {
-            //플레이어 씬이동
-            GameManager.Instance.ChangeScene(SceneType.LobbyScene);
+            UIManager.Instance.ShowPopup<RewardPopup>();
         }
     }
     void IInteractable.CancelInteract()

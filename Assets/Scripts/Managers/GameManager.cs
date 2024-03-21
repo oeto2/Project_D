@@ -10,6 +10,7 @@ public class GameManager : SingletonBase<GameManager>
 
     public SceneType sceneType = SceneType.LobbyScene;
 
+    private const string _dungeonSceneName = "DungeonScene";
     private const string _loadingSceneName = "LoadingScene";
 
     private void Awake()
@@ -19,7 +20,7 @@ public class GameManager : SingletonBase<GameManager>
 
     private void PlayerInit(Scene scene, LoadSceneMode mode)
     {
-        if (playerObject == null && SceneManager.GetActiveScene().name != _loadingSceneName)
+        if (playerObject == null && SceneManager.GetActiveScene().name == _dungeonSceneName)
         {
             playerObject = ResourceManager.Instance.Instantiate("Player/Player");
             //playerObject = Resources.Load<GameObject>("Prefabs/Player/Player");

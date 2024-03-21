@@ -11,22 +11,24 @@ public class BattleUI : UIBase
     [SerializeField] private Slider _playerMp;
     [SerializeField] private GameObject _playerDeadUIPanel;
     [SerializeField] private GameObject _gameEndUIPanel;
+    [SerializeField] private Button _enterButton;
     
     private void Start()
     {
-        _PlayerHealth = GameManager.Instance.playerObject.GetComponent<Health>();
-        //플레이어 피격시 체력 UI 새로고침
-        _PlayerHealth.OnDamage += RefreshPlayerHpUI;
+        _PlayerHealth = GameManager.Instance.playerObject?.GetComponent<Health>();
+        
         //플레이어 사망시 DeadUI 띄우기
         _PlayerHealth.OnDie += ShowPlayerDeadUI;
         _PlayerHealth.OnDie += StartShowGameOverPanel;
+
+        //플레이어 피격시 체력 UI 새로고침
+        _PlayerHealth.OnDamage += RefreshPlayerHpUI;
     }
 
     //체력 UI 새로고침
-    private void RefreshPlayerHpUI(int dmagage)
+    private void RefreshPlayerHpUI(int damage)
     {
         _playerHp.value = Mathf.Clamp01(_PlayerHealth.health / _PlayerHealth.maxHealth);
-        Debug.Log(_PlayerHealth.health / _PlayerHealth.maxHealth);
     }
 
     private void ShowPlayerDeadUI()
@@ -42,6 +44,6 @@ public class BattleUI : UIBase
     private IEnumerator ShowGameOverPanel()
     {
         yield return new WaitForSeconds(5f);
-        _gameEndUIPanel.SetActive(true);
+        UIManager.Instance.ShowPopup<RewardPopup>();
     }
 }

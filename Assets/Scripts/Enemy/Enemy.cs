@@ -37,6 +37,12 @@ public class Enemy : MonoBehaviour, IDamagable
     private int _curWanderDestination_index = 0;
 
     [SerializeField] private GameObject enemyInteration_Object;
+    public Health Health { get; private set; }
+    [HideInInspector] public Health _targetHealth;
+
+    //공격 대상 트랜스폼
+    [field: SerializeField] public Transform Target { get; private set; }
+
     public int CurWanderDestination_index
     {
         get
@@ -67,14 +73,21 @@ public class Enemy : MonoBehaviour, IDamagable
         Controller = GetComponent<CharacterController>();
         ForceReceiver = GetComponent<EnemyForceReceiver>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
-
+        Health = GetComponent<Health>();
         //순찰 장소
         SetPatrolLocation(EnemyPatrolLocation_number);
+        Health.InitHealth(Data.Health);
     }
 
     private void Start()
     {
         stateMachine.ChangeState(stateMachine.IdlingState);
+
+        Health.OnDie += OnDie;
+
+        //나중에는 수정하기
+        Target = GameManager.Instance.playerObject.transform;
+        _targetHealth = Target.GetComponent<Health>();
     }
 
     private void Update()
@@ -97,14 +110,13 @@ public class Enemy : MonoBehaviour, IDamagable
     //데미지 받기
     public void TakePhysicalDamage(int damageAmount)
     {
-        Data.EnemyHealth -= damageAmount;
+        Health.TakePhysicalDamage(damageAmount);
+    }
 
-        if(Data.EnemyHealth <= 0)
-        {
-            Debug.Log("몬스터 사망");
-            stateMachine.ChangeState(stateMachine.DeadState);
-            enemyInteration_Object.SetActive(true);
-        }
+    void OnDie()
+    {
+        stateMachine.ChangeState(stateMachine.DeadState);
+        Animator.SetTrigger(stateMachine.Enemy.AnimationData.DeadParameterHash);
     }
 
     //몬스터가 순찰할 좌표 설정

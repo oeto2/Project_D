@@ -47,6 +47,9 @@ public class UIManager : SingletonBase<UIManager>
 
     public UIBase ShowPopupWithPrefab(GameObject prefab, string popupName , Transform parents = null)
     {
+        if (parentsUI != null)
+            parents = parentsUI;
+
         string name = popupName;
         var obj = Instantiate(prefab, parents);
         obj.name = name;

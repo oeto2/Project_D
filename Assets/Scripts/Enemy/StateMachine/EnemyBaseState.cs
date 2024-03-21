@@ -67,7 +67,7 @@ public class EnemyBaseState : IState
     // 이동 방향 구하기 = 적 위치
     private Vector3 GetMovementDirection()
     {
-        return (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).normalized;
+        return (stateMachine.Enemy.Target.transform.position - stateMachine.Enemy.transform.position).normalized;
     }
 
     //적 이동에 관한 로직
@@ -120,7 +120,7 @@ public class EnemyBaseState : IState
         // if (stateMachine.Target.IsDead) { return false; }
 
         //제곱을 푸는 연산보다 한번 더 곱하는 연산이 메모리상 좋음
-        float playerDistanceSqr = (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
+        float playerDistanceSqr = (stateMachine.Enemy.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
 
         return playerDistanceSqr <= stateMachine.Enemy.Data.EnemyChasingRange * stateMachine.Enemy.Data.EnemyChasingRange;
     }

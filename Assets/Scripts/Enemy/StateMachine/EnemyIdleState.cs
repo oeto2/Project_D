@@ -51,7 +51,7 @@ public class EnemyIdleState : EnemyBaseState
         }
 
         //일정 범위내로 들어왔으면 플레이어 추적 하기
-        if (IsInChaseRange())
+        if (IsInChaseRange() && !stateMachine.Enemy._targetHealth.IsDead)
         {
             stateMachine.ChangeState(stateMachine.ChasingState);
             return;
