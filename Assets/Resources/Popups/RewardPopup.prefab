@@ -11880,7 +11880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnClose: {fileID: 0}
-  _enterButton: {fileID: 0}
+  _enterButton: {fileID: 4210680920639398904}
 --- !u!1 &4941913546434401194
 GameObject:
   m_ObjectHideFlags: 0
