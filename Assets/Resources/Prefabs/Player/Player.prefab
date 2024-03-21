@@ -140,8 +140,8 @@ GameObject:
   - component: {fileID: 1623027208097025533}
   - component: {fileID: 9171299046693303827}
   - component: {fileID: 1601241418627150647}
-  - component: {fileID: 1724602920245799973}
   - component: {fileID: 4185950106989077849}
+  - component: {fileID: 4655556671127475536}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -164,7 +164,7 @@ Transform:
   - {fileID: 6640828296462194371}
   - {fileID: 1399646196693946878}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2796891779340450164
 MonoBehaviour:
@@ -193,6 +193,7 @@ MonoBehaviour:
   <Data>k__BackingField: {fileID: 11400000, guid: 5a45be0f929e17246b88c5c109ca7e31,
     type: 2}
   playerTransform: {fileID: 0}
+  InteractionSystem: {fileID: 0}
 --- !u!195 &3762349560147412955
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -269,28 +270,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1724602920245799973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5659017553536869922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 332a2854c56f0ef43831408313c6fd0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRef: {fileID: -4321771855936372211, guid: 90263fe60b86d654397890c587e97f0b,
-    type: 3}
-  checkRate: 0.05
-  maxCheckDistance: 2
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  loadingBar: {fileID: 0}
-  promptText: {fileID: 0}
-  _interationPopup: {fileID: 0}
 --- !u!114 &4185950106989077849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +284,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   health: 0
+--- !u!114 &4655556671127475536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5659017553536869922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 332a2854c56f0ef43831408313c6fd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRef: {fileID: -4321771855936372211, guid: 90263fe60b86d654397890c587e97f0b,
+    type: 3}
+  checkRate: 0.05
+  maxCheckDistance: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  isInteract: 0
+  loadingBar: {fileID: 0}
+  promptText: {fileID: 0}
+  _interationPopup: {fileID: 0}
 --- !u!1 &8133763627656144227
 GameObject:
   m_ObjectHideFlags: 0

@@ -115,13 +115,15 @@ public class PlayerBaseState : IState
 
     private void OnInteractionStarted(InputAction.CallbackContext context)
     {
-        InteractionManager.Instance.isInteract = true;
+        //Debug.Log("상호작용 시작");
+        stateMachine.Player.InteractionSystem.isInteract = true;
     }
 
     private void OnInteractionCanceled(InputAction.CallbackContext context)
     {
-        InteractionManager.Instance.isInteract = false;
-        InteractionManager.Instance.curInteractable.CancelInteract();
+        //Debug.Log("상호작용 종료");
+        stateMachine.Player.InteractionSystem.isInteract = false;
+        stateMachine.Player.InteractionSystem.curInteractable?.CancelInteract();
     }
 
     private void OnPotionStarted(InputAction.CallbackContext context)
