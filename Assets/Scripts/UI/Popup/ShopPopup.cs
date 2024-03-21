@@ -7,13 +7,15 @@ using UnityEngine.UI;
 public class ShopPopup : UIBase
 {
     [Header("Shop Item")]
-    public List<ItemData> Items = new List<ItemData>();
     public List<ItemData> ShopItems = new List<ItemData>();
 
     [Header("Shop UI")]
     public TMP_Text ItemName;
     public TMP_Text ItemPrice;
+    public TMP_InputField ItemStack;
     public Image ItemSprite;
+
+    public ItemData ItemData;
 
     private GameObject lobbyUpPopup_Object;
 
@@ -34,10 +36,13 @@ public class ShopPopup : UIBase
         gameObject.SetActive(false);
     }
 
-    private void ShopItemSet()
+    private void ShopItemSet(int id)
     {
-        Items.Add(Database.Item.Get(20000001));
-        Items.Add(Database.Item.Get(20000002));
+        // isShop이 True인 데이터들만 가져오기
+        for(int i = 0; i < ShopItems.Count; i++)
+        {
+            
+        }
     }
 
     public void UpdateSlot()
@@ -45,7 +50,5 @@ public class ShopPopup : UIBase
         // 슬롯 훑어서 빈 슬롯에 ShopItem 넣기
     }
 
-    // Button event 만들어서 buy버튼 띄우기
-
-    // 
+    // Button event 만들어서 InputField 갯수만큼 인벤토리에 추가
 }
