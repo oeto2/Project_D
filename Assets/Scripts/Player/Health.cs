@@ -8,11 +8,12 @@ public class Health : MonoBehaviour
 {
     public float maxHealth;
     public float health;
+    public bool IsDead {get; private set; }
 
     public event Action<int> OnDamage;
     public event Action OnDie;
 
-    private void Start()
+    private void Awake()
     {
         OnDamage += TakeDamage;
     }
@@ -33,7 +34,8 @@ public class Health : MonoBehaviour
         health = Math.Max(health - damageAmount, 0);
         if (health <= 0)
         {
-            OnDie();
+            OnDie?.Invoke();
+            IsDead = true;
         }
     }
 }

@@ -29,7 +29,6 @@ public class ResourceManager : SingletonBase<ResourceManager>
             Debug.Log($"Failed to load prefab : {path}");
             return null;
         }
-
         return Instantiate(prefab, parent);
     }
 
