@@ -11,6 +11,11 @@ public class ShopPopup : UIBase
 
     private GameObject lobbyUpPopup_Object;
 
+    private void Start()
+    {
+        ShopItemSet();
+    }
+
     private void Awake()
     {
         lobbyUpPopup_Object = UIManager.Instance.GetPopup(nameof(LobbyUpPopup));
@@ -20,7 +25,6 @@ public class ShopPopup : UIBase
     private void OnEnable()
     {
         lobbyUpPopup_Object.SetActive(false);
-        ShopItemSet();
     }
 
     protected override void CloseUI()
