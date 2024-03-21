@@ -20,14 +20,13 @@ public class EnterDungeonPopup : UIBase
 
 
     private GameObject lobbyUpPopup_Object;
-    private const string _loadingSceneName = "LoadingScene";
     [SerializeField] private DungeonLevel _level = DungeonLevel.Esay;
 
     private void Awake()
     {
         lobbyUpPopup_Object = UIManager.Instance.GetPopup(nameof(LobbyUpPopup));
         btnClose.onClick.AddListener(() => CloseUI());
-        _enterButton.onClick.AddListener(() => SceneManager.LoadScene(_loadingSceneName));
+        _enterButton.onClick.AddListener(() => GameManager.Instance.ChangeScene(SceneType.DungeonScene));
         _nextButton.onClick.AddListener(() => NextButtonClick());
         _beforeButton.onClick.AddListener(() => BeforeButtonClick());
     }

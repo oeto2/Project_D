@@ -58,11 +58,15 @@ public class PlayerBaseState : IState
 
         input.playerActions.Attack.performed += OnAttackPerformed;
         input.playerActions.Attack.canceled += OnAttackCanceled;
-        
+
+        input.playerActions.Interaction.started += OnInteractionStarted;
+        input.playerActions.Interaction.canceled += OnInteractionCanceled;
+
         //stateMachine.Player.Input.playerActions.Potion.started += OnPotionStarted;
     }
 
     
+
 
     protected virtual void RemoveInputActionsCallback()
     {
@@ -74,7 +78,10 @@ public class PlayerBaseState : IState
 
         input.playerActions.Attack.performed -= OnAttackPerformed;
         input.playerActions.Attack.canceled -= OnAttackCanceled;
-        
+
+        input.playerActions.Interaction.started -= OnInteractionStarted;
+        input.playerActions.Interaction.canceled -= OnInteractionCanceled;
+
         //stateMachine.Player.Input.playerActions.Potion.started -= OnPotionStarted;
     }
 
@@ -104,6 +111,17 @@ public class PlayerBaseState : IState
     protected virtual void OnAttackCanceled(InputAction.CallbackContext context)
     {
         stateMachine.IsAttacking = false;
+    }
+
+    private void OnInteractionStarted(InputAction.CallbackContext context)
+    {
+        InteractionManager.Instance.isInteract = true;
+    }
+
+    private void OnInteractionCanceled(InputAction.CallbackContext context)
+    {
+        InteractionManager.Instance.isInteract = false;
+        InteractionManager.Instance.curInteractable.CancelInteract();
     }
 
     private void OnPotionStarted(InputAction.CallbackContext context)
