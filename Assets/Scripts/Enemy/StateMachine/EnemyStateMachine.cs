@@ -7,8 +7,6 @@ using UnityEngine;
 public class EnemyStateMachine : StateMachine
 {
     public Enemy Enemy { get; }
-    public Transform Target { get; private set; }
-
     //States
     public EnemyIdleState IdlingState { get; }
     public EnemyChasingState ChasingState { get; }
@@ -25,8 +23,7 @@ public class EnemyStateMachine : StateMachine
     {
         Enemy = enemy;
 
-        //나중에는 수정하기
-        Target = GameManager.Instance.playerObject.transform;
+        
 
         IdlingState = new EnemyIdleState(this);
         ChasingState = new EnemyChasingState(this);

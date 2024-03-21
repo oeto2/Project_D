@@ -40,6 +40,9 @@ public class Enemy : MonoBehaviour, IDamagable
     public Health Health { get; private set; }
     [HideInInspector] public Health _targetHealth;
 
+    //공격 대상 트랜스폼
+    public Transform Target { get; private set; }
+
     public int CurWanderDestination_index
     {
         get
@@ -74,7 +77,6 @@ public class Enemy : MonoBehaviour, IDamagable
         //순찰 장소
         SetPatrolLocation(EnemyPatrolLocation_number);
         Health.InitHealth(Data.Health);
-        _targetHealth = stateMachine.Target.GetComponent<Health>();
     }
 
     private void Start()
@@ -82,6 +84,10 @@ public class Enemy : MonoBehaviour, IDamagable
         stateMachine.ChangeState(stateMachine.IdlingState);
 
         Health.OnDie += OnDie;
+
+        //나중에는 수정하기
+        Target = GameManager.Instance.playerObject.transform;
+        _targetHealth = Target.GetComponent<Health>();
     }
 
     private void Update()

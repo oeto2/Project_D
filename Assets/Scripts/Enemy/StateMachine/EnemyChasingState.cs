@@ -10,7 +10,7 @@ public class EnemyChasingState : EnemyBaseState
     
     public override void Enter()
     {
-        Debug.Log("추적상태 진입");
+        //Debug.Log("추적상태 진입");
         stateMachine.MovementSpeedModifier = 1;
 
         base.Enter();
@@ -52,7 +52,7 @@ public class EnemyChasingState : EnemyBaseState
     //공격 범위
     private bool IsInAttackRange()
     {
-        float playerDistanceSqr = (stateMachine.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
+        float playerDistanceSqr = (stateMachine.Enemy.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
         return playerDistanceSqr <= stateMachine.Enemy.Data.AttackRange * stateMachine.Enemy.Data.AttackRange;
     }
 }
