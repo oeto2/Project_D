@@ -10,6 +10,13 @@ public class InformationManager : SingletonBase<InformationManager>
     private string _path;
     private string _fileName = "SavePlayerData";
 
+    // 인벤토리 관련 정보
+    public Slot[] slots;
+    public int gold;
+    // 장비창 관련 정보
+    public ItemData weaponSlot;
+    public ItemData equipSlot;
+
     private void Awake()
     {
         _path = Application.dataPath + "/";

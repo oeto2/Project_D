@@ -17,20 +17,26 @@ public class Inventory : MonoBehaviour
     private GameObject _slotsParent;
 
     // ½½·Ôµé.
-    private Slot[] slots;
+    private Slot[] _slots;
 
     
     // Use this for initialization
-    void Start()
-    {
-        slots = _slotsParent.GetComponentsInChildren<Slot>();
-    }
+    
 
     private void Awake()
     {
         if(instance == null)
         {
             instance = this;
+        }
+    }
+
+    private void Start()
+    {
+        _slots = _slotsParent.GetComponentsInChildren<Slot>();
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            _slots[i] = InformationManager.Instance.slots[i];
         }
     }
 
@@ -78,24 +84,24 @@ public class Inventory : MonoBehaviour
     {
         if (_item.itemType == Constants.ItemType.Consume || _item.itemType == Constants.ItemType.Material)
         {
-            for (int i = 0; i < slots.Length; i++)
+            for (int i = 0; i < _slots.Length; i++)
             {
-                if (slots[i].item != null)
+                if (_slots[i].item != null)
                 {
-                    if (slots[i].item.itemName == _item.itemName)
+                    if (_slots[i].item.itemName == _item.itemName)
                     {
-                        slots[i].SetSlotCount(_count);
+                        _slots[i].SetSlotCount(_count);
                         return;
                     }
                 }
             }
         }
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < _slots.Length; i++)
         {
-            if (slots[i].item == null)
+            if (_slots[i].item == null)
             {
-                slots[i].AddItem(_item, _count);
+                _slots[i].AddItem(_item, _count);
                 return;
             }
         }
