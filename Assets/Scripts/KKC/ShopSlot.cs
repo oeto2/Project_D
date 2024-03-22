@@ -32,11 +32,7 @@ public class ShopSlot : MonoBehaviour
         int itemCount; // 아이템 갯수
         if (int.TryParse(ItemStack.text, out itemCount))
         {
-            if (ItemStack.text == null)
-            {
-                itemCount = 1;
-                //Inventory.Instance.AcquireItem(ItemData, itemCount);
-            }
+            //Inventory.Instance.AcquireItem(ItemData, itemCount);
             Debug.Log(ItemData.itemName + " " + itemCount);
         }
         ItemStack.text = null;
