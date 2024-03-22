@@ -8,6 +8,16 @@ public class EquipmentPopup : UIBase
     private const string _lobbySceneName = "LobbyScene";
     private string _currentSceneName;
 
+    private void OnEnable()
+    {
+        UIManager.Instance.BattleUICount++;
+    }
+
+    private void OnDisable()
+    {
+        UIManager.Instance.BattleUICount--;
+    }
+
     private void Awake()
     {
         _currentSceneName = SceneManager.GetActiveScene().name;

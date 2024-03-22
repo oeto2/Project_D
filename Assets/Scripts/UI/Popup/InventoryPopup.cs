@@ -20,6 +20,12 @@ public class InventoryPopup : UIBase
     private void OnEnable()
     {
         lobbyUpPopup_Object.SetActive(false);
+        UIManager.Instance.BattleUICount++;
+    }
+
+    private void OnDisable()
+    {
+        UIManager.Instance.BattleUICount--;
     }
 
     protected override void CloseUI()

@@ -4,4 +4,13 @@ using UnityEngine;
 
 public class RewardPopup : UIBase
 {
+    private void OnEnable()
+    {
+        UIManager.Instance.BattleUICount++;
+    }
+
+    private void OnDisable()
+    {
+        UIManager.Instance.BattleUICount--;
+    }
 }
