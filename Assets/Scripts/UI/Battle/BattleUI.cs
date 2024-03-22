@@ -44,6 +44,6 @@ public class BattleUI : UIBase
     private IEnumerator ShowGameOverPanel()
     {
         yield return new WaitForSeconds(5f);
-        UIManager.Instance.ShowPopup<RewardPopup>();
+        UIManager.Instance.ShowPopup<GameEndPopup>();
     }
 }

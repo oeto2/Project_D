@@ -24,7 +24,7 @@ MonoBehaviour:
     _itemDescription: "\uB0A1\uC740 \uAC80\uC774\uB2E4"
     _itemMaxStack: 1
     _itemGrade: 0
-    _itemSprite: 
+    _itemSprite: Images/Items/Sword
   - _id: 20000001
     _itemName: "\uCCB4\uB825\uBB3C\uC57D(\uC18C)"
     _itemType: 2
@@ -48,7 +48,7 @@ MonoBehaviour:
     _itemMpRecover: 50
     _itemDescription: "\uC791\uC740 \uB9C8\uB098\uBB3C\uC57D\uC774\uB2E4. MP\uB97C
       \uC18C\uB7C9 \uD68C\uBCF5\uD55C\uB2E4."
-    _itemMaxStack: 0
+    _itemMaxStack: 20
     _itemGrade: 0
     _itemSprite: Images/Items/LittleMpPotion
   - _id: 30000002
@@ -62,4 +62,4 @@ MonoBehaviour:
     _itemDescription: "\uBC29\uC5B4\uAD6C\uC774\uB2E4."
     _itemMaxStack: 1
     _itemGrade: 0
-    _itemSprite: Images/Items/chest
+    _itemSprite: Images/Items/Chest

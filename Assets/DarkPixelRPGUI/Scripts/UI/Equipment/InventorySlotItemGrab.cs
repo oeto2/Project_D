@@ -8,7 +8,7 @@ namespace DarkPixelRPGUI.Scripts.UI.Equipment
     public class InventorySlotItemGrab : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
         private const string InventorySlot = "InventorySlot";
-        [SerializeField] private Inventory inventory;
+        [SerializeField] private InventoryAsset inventory;
 
         public void OnBeginDrag(PointerEventData eventData)
         {

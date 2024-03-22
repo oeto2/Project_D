@@ -53,7 +53,6 @@ public class UIManager : SingletonBase<UIManager>
         string name = popupName;
         var obj = Instantiate(prefab, parents);
         obj.name = name;
-
         obj.GetComponent<Canvas>().sortingOrder = popups.Count;
 
         ////Äµ¹ö½º ºÎÂø

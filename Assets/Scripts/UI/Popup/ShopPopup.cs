@@ -6,16 +6,15 @@ using UnityEngine.UI;
 
 public class ShopPopup : UIBase
 {
-    [Header("Shop Item")]
-    public List<ItemData> Items = new List<ItemData>();
-    public List<ItemData> ShopItems = new List<ItemData>();
-
-    [Header("Shop UI")]
-    public TMP_Text ItemName;
-    public TMP_Text ItemPrice;
-    public Image ItemSprite;
+    [field: SerializeField] public ShopListSO ShopItems;
+    [SerializeField] private Transform _shopItemSlots;
 
     private GameObject lobbyUpPopup_Object;
+
+    private void Start()
+    {
+        ShopItemSet();
+    }
 
     private void Awake()
     {
@@ -34,18 +33,15 @@ public class ShopPopup : UIBase
         gameObject.SetActive(false);
     }
 
+    // 상점에 SO에 존재하는 int값과 같은 id의 아이템 추가
     private void ShopItemSet()
     {
-        Items.Add(Database.Item.Get(20000001));
-        Items.Add(Database.Item.Get(20000002));
+        foreach (var shopItemId in ShopItems.ShopItems)
+        {
+            var shopItem = Database.Item.Get(shopItemId);
+            var shopSlot = ResourceManager.Instance.Instantiate("UI/ShopSlot", _shopItemSlots);
+            shopSlot.GetComponent<ShopSlot>().UpdateUI(shopItem);
+            //Debug.Log(Database.Item.Get(shopItemId).itemName);
+        }
     }
-
-    public void UpdateSlot()
-    {
-        // 슬롯 훑어서 빈 슬롯에 ShopItem 넣기
-    }
-
-    // Button event 만들어서 buy버튼 띄우기
-
-    // 
 }
