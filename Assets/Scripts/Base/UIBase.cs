@@ -9,15 +9,18 @@ public abstract class UIBase : MonoBehaviour
 
     private void Awake()
     {
-        CloseUI();
+        btnClose?.onClick.AddListener(() => CloseUI());
     }
 
     protected virtual void CloseUI()
     {
-        if (btnClose != null)
+        if(btnClose != null)
         {
-            btnClose.onClick.AddListener(() => CloseUI());
             gameObject.SetActive(false);
+
+            //UI가 모두 종료 되었으면 다시 커서 락
+            if (UIManager.Instance.BattleUICount <= 0)
+                Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

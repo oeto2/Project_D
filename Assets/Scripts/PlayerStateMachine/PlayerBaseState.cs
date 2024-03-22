@@ -41,7 +41,7 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
-        //if (Cursor.lockState != CursorLockMode.None)
+        if (Cursor.lockState != CursorLockMode.None)
         {
             Move();
             Look();

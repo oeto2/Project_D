@@ -26,6 +26,12 @@ public class UIManager : SingletonBase<UIManager>
         return _popups[popupName].gameObject;
     }
 
+    //해당 팝업이 존재하는지
+    public bool ExistPopup(string _key)
+    {
+        return _popups.ContainsKey(_key);
+    }
+
     //팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
     {
