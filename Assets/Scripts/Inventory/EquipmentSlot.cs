@@ -12,7 +12,12 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
 
     private void Awake()
     {
-        ClearSlot();
+        if (InformationManager.Instance.equipSlot == null)
+            ClearSlot();
+        else
+        {
+            AddItem(InformationManager.Instance.equipSlot);
+        }
     }
 
     // 이미지의 투명도 조절.
@@ -100,8 +105,14 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
         AddItem(DragSlot.instance.dragSlot.item);
 
         if (_tempItem != null)
+        {
             DragSlot.instance.dragSlot.AddItem(_tempItem);
+            InformationManager.Instance.equipSlot = _tempItem;
+        }
         else
+        {
             DragSlot.instance.dragSlot.ClearSlot();
+            InformationManager.Instance.equipSlot = null;
+        }
     }
 }

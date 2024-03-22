@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class PlayerBaseState : IState
 {
@@ -42,8 +41,11 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
-        Move();
-        Look();
+        //if (Cursor.lockState != CursorLockMode.None)
+        {
+            Move();
+            Look();
+        }
         //Debug.Log(stateMachine.GetCurrentState());
     }
 
@@ -62,10 +64,8 @@ public class PlayerBaseState : IState
         input.playerActions.Interaction.started += OnInteractionStarted;
         input.playerActions.Interaction.canceled += OnInteractionCanceled;
 
-        //stateMachine.Player.Input.playerActions.Potion.started += OnPotionStarted;
+        input.playerActions.Inventory.started += OnInventoryStarted;
     }
-
-    
 
 
     protected virtual void RemoveInputActionsCallback()
@@ -82,7 +82,7 @@ public class PlayerBaseState : IState
         input.playerActions.Interaction.started -= OnInteractionStarted;
         input.playerActions.Interaction.canceled -= OnInteractionCanceled;
 
-        //stateMachine.Player.Input.playerActions.Potion.started -= OnPotionStarted;
+        input.playerActions.Inventory.started -= OnInventoryStarted;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -124,6 +124,14 @@ public class PlayerBaseState : IState
         //Debug.Log("상호작용 종료");
         stateMachine.Player.InteractionSystem.isInteract = false;
         stateMachine.Player.InteractionSystem.curInteractable?.CancelInteract();
+    }
+
+    private void OnInventoryStarted(InputAction.CallbackContext context)
+    {
+        Cursor.lockState = CursorLockMode.None;
+        UIManager.Instance.ShowPopup<EquipmentPopup>();
+        UIManager.Instance.ShowPopup<InventoryPopup>();
+        UIManager.Instance.ShowPopup<DragPopup>();
     }
 
     private void OnPotionStarted(InputAction.CallbackContext context)

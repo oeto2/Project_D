@@ -12,7 +12,13 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
 
     private void Awake()
     {
-        ClearSlot();
+        // 인포매니저에서 데이터가 비어있으면 초기화, 아니면 집어넣기
+        if (InformationManager.Instance.weaponSlot == null)
+            ClearSlot();
+        else
+        {
+            AddItem(InformationManager.Instance.weaponSlot);
+        }
     }
 
     // 이미지의 투명도 조절.
@@ -100,8 +106,14 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
         AddItem(DragSlot.instance.dragSlot.item);
 
         if (_tempItem != null)
+        {
             DragSlot.instance.dragSlot.AddItem(_tempItem);
+            InformationManager.Instance.weaponSlot = _tempItem;
+        }
         else
+        {
             DragSlot.instance.dragSlot.ClearSlot();
+            InformationManager.Instance.weaponSlot = null;
+        }
     }
 }
