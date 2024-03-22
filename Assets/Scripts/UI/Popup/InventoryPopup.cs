@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InventoryPopup : UIBase
 {
@@ -11,9 +12,9 @@ public class InventoryPopup : UIBase
 
     private void Awake()
     {
+        _currentSceneName = SceneManager.GetActiveScene().name;
         lobbyUpPopup_Object = UIManager.Instance.GetPopup(nameof(LobbyUpPopup));
         btnClose.onClick.AddListener(() => CloseUI());
-        _currentSceneName = SceneManager.GetActiveScene().name;
     }
 
     private void OnEnable()
@@ -25,7 +26,13 @@ public class InventoryPopup : UIBase
     {
         //로딩 씬에서만 동작
         if (_currentSceneName == _lobbySceneName)
+        {
             lobbyUpPopup_Object.SetActive(true);
+            UIManager.Instance.GetPopup(nameof(InventoryPopup)).gameObject.SetActive(false);
+            UIManager.Instance.GetPopup(nameof(EquipmentPopup)).gameObject.SetActive(false);
+            UIManager.Instance.GetPopup(nameof(DragPopup)).gameObject.SetActive(false);
+            return;
+        }
 
         gameObject.SetActive(false);
     }

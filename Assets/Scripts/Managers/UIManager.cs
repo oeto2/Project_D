@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -6,6 +7,10 @@ using UnityEngine.UI;
 
 public class UIManager : SingletonBase<UIManager>
 {
+    private const string _dragPopupName = "DragPopup";
+    private const string _optionPopupName = "OptionPopup";
+
+
     //부모 UI
     public Transform parentsUI = null;
     private Dictionary<string,UIBase> popups = new Dictionary<string,UIBase>();
@@ -53,22 +58,20 @@ public class UIManager : SingletonBase<UIManager>
         string name = popupName;
         var obj = Instantiate(prefab, parents);
         obj.name = name;
-        obj.GetComponent<Canvas>().sortingOrder = popups.Count;
 
-        ////캔버스 부착
-        //Canvas canvas = obj.AddComponent<Canvas>();
-        //CanvasScaler canvasScaler = obj.AddComponent<CanvasScaler>();
+        switch(obj.name)
+        {
+            case _dragPopupName:
+                obj.GetComponent<Canvas>().sortingOrder = 20;
+                break;
 
-        ////캔버스 세팅
-        //canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        //canvas.sortingOrder = popups.Count;
+            case _optionPopupName:
+                obj.GetComponent<Canvas>().sortingOrder = 100;
+                break;
 
-        ////캔버스 스케일러 세팅
-        //canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        //canvasScaler.referenceResolution = new Vector2(1920, 1080);
-        //canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
-        //canvasScaler.referencePixelsPerUnit = 100;
-
+            default: obj.GetComponent<Canvas>().sortingOrder = popups.Count;
+                break;
+        }
         return ShowPopup(obj, popupName);
     }
 
