@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
+using Constants;
 
 public class InformationManager : SingletonBase<InformationManager>
 {
@@ -10,16 +12,29 @@ public class InformationManager : SingletonBase<InformationManager>
     private string _path;
     private string _fileName = "SavePlayerData";
 
-    // 인벤토리 관련 정보
-    public Slot[] slots;
-    public int gold;
-    // 장비창 관련 정보
-    public ItemData weaponSlot;
-    public ItemData equipSlot;
-
     private void Awake()
     {
         _path = Application.dataPath + "/";
+
+        LoadData();
+    }
+
+    public void SaveInformation(Slot[] slots_)
+    {
+        saveLoadData.slots = slots_;
+        SaveData();
+    }
+
+    public void SaveInformation(ItemData itemData_)
+    {
+        saveLoadData.equipmentItems[itemData_.itemType] = itemData_;
+        SaveData();
+    }
+
+    public void SaveInformation(int gold_)
+    {
+        saveLoadData.gold = gold_;
+        SaveData();
     }
 
     public void SaveData()
@@ -38,4 +53,14 @@ public class InformationManager : SingletonBase<InformationManager>
 class SaveLoadData
 {
     // 창고, 인벤, 돈
+    // 인벤토리 관련 정보
+    public Slot[] slots;
+    public int gold;
+
+    // 장비창 관련 정보
+    public Dictionary<ItemType, ItemData> equipmentItems = new Dictionary<ItemType, ItemData>()
+    {
+        {ItemType.Weapon, null },
+        {ItemType.Equip, null }
+    };
 }
