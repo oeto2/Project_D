@@ -41,6 +41,7 @@ public class ShopSlot : MonoBehaviour
             }
             else
             {
+                UIManager.Instance.ShowPopup<WarningPopup>();
                 Debug.Log("∞ÒµÂ∫Œ¡∑");
             }
         }
