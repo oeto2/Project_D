@@ -1,6 +1,7 @@
 using DarkPixelRPGUI.Scripts.UI.Equipment;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,8 @@ public class Inventory : MonoBehaviour
     // ½½·Ôµé.
     private Slot[] _slots;
 
+    public TMP_Text goldText;
+
     
     // Use this for initialization
     
@@ -29,14 +32,18 @@ public class Inventory : MonoBehaviour
         {
             instance = this;
         }
+        UpdateGold(0);
     }
 
     private void Start()
     {
         _slots = _slotsParent.GetComponentsInChildren<Slot>();
-        for (int i = 0; i < _slots.Length; i++)
+        if(InformationManager.Instance.slots != null)
         {
-            _slots[i] = InformationManager.Instance.slots[i];
+            for (int i = 0; i < _slots.Length; i++)
+            {
+                _slots[i] = InformationManager.Instance.slots[i];
+            }
         }
     }
 
@@ -106,4 +113,22 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+    public void UpdateGold(int itemPrice_)
+    {
+        InformationManager.Instance.gold -= itemPrice_;
+        goldText.text = InformationManager.Instance.gold.ToString();
+    }
+
+    
+    private void OnDestroy()
+    {
+        if (InformationManager.Instance.slots == null)
+            InformationManager.Instance.slots = _slots;
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            InformationManager.Instance.slots[i] = _slots[i]; 
+        }
+    }
+
 }
