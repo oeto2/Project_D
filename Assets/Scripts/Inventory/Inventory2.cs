@@ -8,8 +8,6 @@ public class Inventory : MonoBehaviour
 {
 
     public static bool inventoryActivated = false;
-
-
     // 필요한 컴포넌트
     [SerializeField]
     private GameObject _inventoryBase;

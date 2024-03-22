@@ -50,7 +50,6 @@ public class InteractionSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(curInteractable);
 
         if (Time.time - lastCheckTime > checkRate)
         {
