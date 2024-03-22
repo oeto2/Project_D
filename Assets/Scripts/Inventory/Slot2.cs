@@ -37,6 +37,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         item = _item;
         itemCount = _count;
+        if(itemCount == 0)
+        {
+            ClearSlot();
+            return;
+        }
         itemImage.sprite = item.Sprite;
 
         if (item.itemType == Constants.ItemType.Material || item.itemType == Constants.ItemType.Consume)
@@ -147,28 +152,48 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             
         else if (DragSlot.instance.equipmentSlot != null)
         {
-            AddItem(DragSlot.instance.equipmentSlot.item);
+            
             if (_tempItem != null)
                 if (_tempItem.itemType == Constants.ItemType.Equip)
+                {
                     DragSlot.instance.equipmentSlot.AddItem(_tempItem);
+                    AddItem(DragSlot.instance.equipmentSlot.item);
+                }
                 else
+                {
                     //착용할수없음
-                    Debug.Log("착용할수없습니다.");
+                    Debug.Log("바꿀수없습니다.");
+                    return;
+                }
+                    
             else
+            {
+                AddItem(DragSlot.instance.equipmentSlot.item);
                 DragSlot.instance.equipmentSlot.ClearSlot();
+            }
+                
         }
 
         else
         {
-            AddItem(DragSlot.instance.weaponSlot.item);
             if (_tempItem != null)
                 if (_tempItem.itemType == Constants.ItemType.Weapon)
+                {
+                    AddItem(DragSlot.instance.weaponSlot.item);
                     DragSlot.instance.weaponSlot.AddItem(_tempItem);
+                } 
                 else
+                {
                     //착용할수없음
-                    Debug.Log("착용할수없습니다.");
+                    Debug.Log("바꿀수없습니다.");
+                    return;
+                }
             else
+            {
+                AddItem(DragSlot.instance.weaponSlot.item);
                 DragSlot.instance.weaponSlot.ClearSlot();
+            }
+                
         }
     }
 }
