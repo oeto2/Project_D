@@ -1910,7 +1910,7 @@ RectTransform:
   - {fileID: 8354997832490733758}
   - {fileID: 3576231239784114748}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2000,6 +2000,7 @@ MonoBehaviour:
   runRef: {fileID: 6950813544322081412, guid: 90263fe60b86d654397890c587e97f0b, type: 3}
   attackRef: {fileID: -4423027893368884440, guid: 90263fe60b86d654397890c587e97f0b,
     type: 3}
+  inventoryRef: {fileID: 0}
 --- !u!1 &5072521844608570652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5923424855538962768}
         m_TargetAssemblyTypeName: RebindPopup, Assembly-CSharp
         m_MethodName: OnOk
         m_Mode: 1
@@ -3013,7 +3014,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: S/W/D/A
+  m_Text: W/A/S/D
 --- !u!1 &8125042348699585765
 GameObject:
   m_ObjectHideFlags: 0

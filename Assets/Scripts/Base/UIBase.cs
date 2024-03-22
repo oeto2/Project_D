@@ -9,14 +9,13 @@ public abstract class UIBase : MonoBehaviour
 
     private void Awake()
     {
-        CloseUI();
+        btnClose?.onClick.AddListener(() => CloseUI());
     }
 
     protected virtual void CloseUI()
     {
-        if (btnClose != null)
+        if(btnClose != null)
         {
-            btnClose.onClick.AddListener(() => CloseUI());
             gameObject.SetActive(false);
         }
     }

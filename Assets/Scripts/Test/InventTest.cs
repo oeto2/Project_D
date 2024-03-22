@@ -16,11 +16,18 @@ public class InventTest : MonoBehaviour
         //    UIManager.Instance.ShowPopup<DragPopup>();
         //}
         //
-        ////보상창 열기 열기
-        //if (Input.GetKeyDown(KeyCode.N))
-        //{
-        //    Cursor.lockState = CursorLockMode.None;
-        //    UIManager.Instance.ShowPopup<RewardPopup>();
-        //}
+        //보상창 열기 열기
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            UIManager.Instance.ShowPopup<RewardPopup>();
+        }
+
+        //옵션창 열기
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            UIManager.Instance.ShowPopup<OptionPopup>();
+        }
     }
 }

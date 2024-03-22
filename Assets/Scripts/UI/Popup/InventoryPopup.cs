@@ -20,6 +20,16 @@ public class InventoryPopup : UIBase
     private void OnEnable()
     {
         lobbyUpPopup_Object.SetActive(false);
+        UIManager.Instance.BattleUICount++;
+    }
+
+    private void OnDisable()
+    {
+        UIManager.Instance.BattleUICount--;
+
+        //UI가 모두 종료 되었으면 다시 커서 락
+        if (_currentSceneName != _lobbySceneName && UIManager.Instance.BattleUICount <= 0)
+            Cursor.lockState = CursorLockMode.Locked;
     }
 
     protected override void CloseUI()
@@ -33,7 +43,6 @@ public class InventoryPopup : UIBase
             UIManager.Instance.GetPopup(nameof(DragPopup)).gameObject.SetActive(false);
             return;
         }
-
         gameObject.SetActive(false);
     }
 }

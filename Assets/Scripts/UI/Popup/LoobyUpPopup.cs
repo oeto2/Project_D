@@ -37,8 +37,8 @@ public class LobbyUpPopup : UIBase
 
     private void InventoryButtonClick()
     {
-        UIManager.Instance.ShowPopup<EquipmentPopup>();
-        UIManager.Instance.ShowPopup<InventoryPopup>();
-        UIManager.Instance.ShowPopup<DragPopup>();
+        _uiManager.ShowPopup<EquipmentPopup>();
+        _uiManager.ShowPopup<InventoryPopup>();
+        _uiManager.ShowPopup<DragPopup>();
     }
 }
