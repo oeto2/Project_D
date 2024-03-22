@@ -30,7 +30,15 @@ public class LobbyUpPopup : UIBase
         _shopButton.onClick.AddListener(() => _uiManager.ShowPopup<ShopPopup>());
         _enterDungeonButton.onClick.AddListener(() => _uiManager.ShowPopup<EnterDungeonPopup>());
         _stateButton.onClick.AddListener(() => _uiManager.ShowPopup<StatePopup>());
-        _inventroyButton.onClick.AddListener(() => _uiManager.ShowPopup<InventoryPopup>());
+        _inventroyButton.onClick.AddListener(() => InventoryButtonClick());
         _classButton.onClick.AddListener(() => _uiManager.ShowPopup<ClassPopup>());
+    }
+
+
+    private void InventoryButtonClick()
+    {
+        UIManager.Instance.ShowPopup<EquipmentPopup>();
+        UIManager.Instance.ShowPopup<InventoryPopup>();
+        UIManager.Instance.ShowPopup<DragPopup>();
     }
 }
