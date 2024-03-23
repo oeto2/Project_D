@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using Constants;
-using DarkPixelRPGUI.Scripts.UI.Equipment;
+using Newtonsoft.Json;
 
 public class InformationManager : SingletonBase<InformationManager>
 {
@@ -13,9 +13,12 @@ public class InformationManager : SingletonBase<InformationManager>
     private string _path;
     private string _fileName = "SavePlayerData";
 
+
     private void Awake()
     {
         _path = Application.dataPath + "/";
+        saveLoadData.equipmentItems.Add(ItemType.Weapon, 0);
+        saveLoadData.equipmentItems.Add(ItemType.Weapon, 0);
 
         LoadData();
     }
@@ -38,9 +41,9 @@ public class InformationManager : SingletonBase<InformationManager>
         SaveData();
     }
 
-    public void SaveInformation(ItemType type, ItemData itemData_)
+    public void SaveInformation(ItemType type, int itemID)
     {
-        saveLoadData.equipmentItems[type] = itemData_;
+        saveLoadData.equipmentItems[type] = itemID;
         SaveData();
     }
 
@@ -52,7 +55,7 @@ public class InformationManager : SingletonBase<InformationManager>
 
     public void SaveData()
     {
-        string jsonData = JsonUtility.ToJson(saveLoadData);
+        string jsonData = JsonConvert.SerializeObject(saveLoadData);
         File.WriteAllText(_path + _fileName, jsonData);
     }
 
@@ -61,11 +64,12 @@ public class InformationManager : SingletonBase<InformationManager>
         if (File.ReadAllText(_path + _fileName) != null)
         {
             string jsonData = File.ReadAllText(_path + _fileName);
-            saveLoadData = JsonUtility.FromJson<SaveLoadData>(jsonData);
+            saveLoadData = JsonConvert.DeserializeObject<SaveLoadData>(jsonData);
         }
     }
 }
 
+[System.Serializable]
 public class SaveLoadData
 {
     // 창고, 인벤, 돈
@@ -75,9 +79,10 @@ public class SaveLoadData
     public int gold;
 
     // 장비창 관련 정보
-    public Dictionary<ItemType, ItemData> equipmentItems = new Dictionary<ItemType, ItemData>()
+    public Dictionary<ItemType, int> equipmentItems = new Dictionary<ItemType, int>()
     {
-        {ItemType.Weapon, null },
-        {ItemType.Equip, null }
+        {ItemType.Weapon, 0 },
+        {ItemType.Equip, 0 }
     };
+
 }

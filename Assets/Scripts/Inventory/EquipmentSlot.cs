@@ -13,11 +13,13 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
 
     private void Awake()
     {
-        if (InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Weapon] == null)
+        var index = InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Equip];
+        // 인포매니저에서 데이터가 비어있으면 초기화, 아니면 집어넣기
+        if (index == 0)
             ClearSlot();
         else
         {
-            AddItem(InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Weapon]);
+            AddItem(Database.Item.Get(index));
         }
     }
 
@@ -108,12 +110,20 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
         if (_tempItem != null)
         {
             DragSlot.instance.dragSlot.AddItem(_tempItem);
-            InformationManager.Instance.SaveInformation(ItemType.Equip, _tempItem);
         }
         else
         {
             DragSlot.instance.dragSlot.ClearSlot();
-            InformationManager.Instance.SaveInformation(ItemType.Equip, null);
         }
+    }
+
+    private void OnDisable()
+    {
+        if (item != null)
+        {
+            InformationManager.Instance.SaveInformation(ItemType.Equip, item.id);
+        }
+        else
+            InformationManager.Instance.SaveInformation(ItemType.Equip, 0);
     }
 }
