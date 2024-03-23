@@ -1,3 +1,4 @@
+using Constants;
 using DarkPixelRPGUI.Scripts.UI.Equipment;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,7 +43,8 @@ public class Inventory : MonoBehaviour
         {
             if (InformationManager.Instance.saveLoadData.itemID[i] != 0)
             {
-
+                _slots[i].AddItem(Database.Item.Get(InformationManager.Instance.saveLoadData.itemID[i]),
+                    InformationManager.Instance.saveLoadData.itemStack[i]);
             }
         }
     }
@@ -98,7 +100,7 @@ public class Inventory : MonoBehaviour
                     if (_slots[i].item.itemName == _item.itemName)
                     {
                         _slots[i].SetSlotCount(_count);
-                        InformationManager.Instance.SaveInformation(i, _item.id, _count);
+                        //InformationManager.Instance.SaveInformation(i, _item.id, _count);
                         return;
                     }
                 }
@@ -110,7 +112,7 @@ public class Inventory : MonoBehaviour
             if (_slots[i].item == null)
             {
                 _slots[i].AddItem(_item, _count);
-                InformationManager.Instance.SaveInformation(i, _item.id, _count);
+                //InformationManager.Instance.SaveInformation(i, _item.id, _count);
                 return;
             }
         }
@@ -118,8 +120,21 @@ public class Inventory : MonoBehaviour
 
     public void UpdateGold(int itemPrice_)
     {
-        InformationManager.Instance.SaveInformation(-itemPrice_);
+        InformationManager.Instance.SaveInformation(itemPrice_);
         goldText.text = InformationManager.Instance.saveLoadData.gold.ToString();
+    }
+
+
+    private void OnDisable()
+    {
+        for(int i=0 ; i< _slots.Length;i++)
+        {
+            if (_slots[i].item != null)
+                InformationManager.Instance.SaveInformation(i, _slots[i].item.id, _slots[i].itemCount);
+            else
+                InformationManager.Instance.SaveInformation(i, 0,0);
+        }
+        
     }
     //
     //

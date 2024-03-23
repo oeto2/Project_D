@@ -35,14 +35,14 @@ public class ShopSlot : MonoBehaviour
             if(InformationManager.Instance.saveLoadData.gold >= ItemData.itemPrice*itemCount)
             {
                 Inventory.instance.AcquireItem(ItemData, itemCount);
-                Inventory.instance.UpdateGold(ItemData.itemPrice * itemCount);
-                Debug.Log(ItemData.itemName + " " + itemCount);
+                Inventory.instance.UpdateGold(-ItemData.itemPrice * itemCount);
+                //Debug.Log(ItemData.itemName + " " + itemCount);
 
             }
             else
             {
                 UIManager.Instance.ShowPopup<WarningPopup>();
-                Debug.Log("∞ÒµÂ∫Œ¡∑");
+                //Debug.Log("∞ÒµÂ∫Œ¡∑");
             }
         }
         ItemStack.text = null;
