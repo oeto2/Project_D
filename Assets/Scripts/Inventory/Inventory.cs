@@ -127,14 +127,7 @@ public class Inventory : MonoBehaviour
 
     private void OnDisable()
     {
-        for(int i=0 ; i< _slots.Length;i++)
-        {
-            if (_slots[i].item != null)
-                InformationManager.Instance.SaveInformation(i, _slots[i].item.id, _slots[i].itemCount);
-            else
-                InformationManager.Instance.SaveInformation(i, 0,0);
-        }
-        
+        InformationManager.Instance.SaveInformation(_slots);
     }
     //
     //

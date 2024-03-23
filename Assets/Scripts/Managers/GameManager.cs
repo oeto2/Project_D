@@ -25,8 +25,11 @@ public class GameManager : SingletonBase<GameManager>
         if (playerObject == null && SceneManager.GetActiveScene().name == _dungeonSceneName)
         {
             playerObject = ResourceManager.Instance.Instantiate("Player/Player");
-            //playerObject = Resources.Load<GameObject>("Prefabs/Player/Player");
-            //  Instantiate(playerObject);
+        }
+
+        if (sceneType == SceneType.LobbyScene)
+        {
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 

@@ -27,13 +27,19 @@ public class LobbyUpPopup : UIBase
     private void SettingButtons()
     {
         _optionButton.onClick.AddListener(() => _uiManager.ShowPopup<OptionPopup>());
-        _shopButton.onClick.AddListener(() => _uiManager.ShowPopup<ShopPopup>());
+        _shopButton.onClick.AddListener(() => ShopButtonClick());
         _enterDungeonButton.onClick.AddListener(() => _uiManager.ShowPopup<EnterDungeonPopup>());
         _stateButton.onClick.AddListener(() => _uiManager.ShowPopup<StatePopup>());
         _inventroyButton.onClick.AddListener(() => InventoryButtonClick());
         _classButton.onClick.AddListener(() => _uiManager.ShowPopup<ClassPopup>());
     }
 
+    private void ShopButtonClick()
+    {
+        _uiManager.ShowPopup<ShopPopup>();
+        _uiManager.ShowPopup<InventoryPopup>();
+        _uiManager.ShowPopup<DragPopup>();
+    }
 
     private void InventoryButtonClick()
     {

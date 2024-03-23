@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using Constants;
+using DarkPixelRPGUI.Scripts.UI.Equipment;
 
 public class InformationManager : SingletonBase<InformationManager>
 {
@@ -19,10 +20,21 @@ public class InformationManager : SingletonBase<InformationManager>
         LoadData();
     }
 
-    public void SaveInformation(int index, int id, int count = 1)
+    public void SaveInformation(Slot[] slots_)
     {
-        saveLoadData.itemID[index] = id;
-        saveLoadData.itemStack[index] = count;
+        for (int i = 0; i < slots_.Length; i++)
+        {
+            if (slots_[i].item != null)
+            {
+                saveLoadData.itemID[i] = slots_[i].item.id;
+                saveLoadData.itemStack[i] = slots_[i].itemCount;
+            }
+            else
+            {
+                saveLoadData.itemID[i] = 0;
+                saveLoadData.itemStack[i] = 0;
+            }
+        }
         SaveData();
     }
 
@@ -41,7 +53,6 @@ public class InformationManager : SingletonBase<InformationManager>
     public void SaveData()
     {
         string jsonData = JsonUtility.ToJson(saveLoadData);
-        Debug.Log(_path + _fileName);
         File.WriteAllText(_path + _fileName, jsonData);
     }
 
