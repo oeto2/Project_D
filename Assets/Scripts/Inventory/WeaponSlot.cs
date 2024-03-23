@@ -1,3 +1,4 @@
+using Constants;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,11 +14,11 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     private void Awake()
     {
         // 인포매니저에서 데이터가 비어있으면 초기화, 아니면 집어넣기
-        if (InformationManager.Instance.weaponSlot == null)
+        if (InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Weapon] == null)
             ClearSlot();
         else
         {
-            AddItem(InformationManager.Instance.weaponSlot);
+            AddItem(InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Weapon]);
         }
     }
 
@@ -108,12 +109,12 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
         if (_tempItem != null)
         {
             DragSlot.instance.dragSlot.AddItem(_tempItem);
-            InformationManager.Instance.weaponSlot = _tempItem;
+            InformationManager.Instance.SaveInformation(ItemType.Weapon, _tempItem);
         }
         else
         {
             DragSlot.instance.dragSlot.ClearSlot();
-            InformationManager.Instance.weaponSlot = null;
+            InformationManager.Instance.SaveInformation(ItemType.Weapon, null);
         }
     }
 }

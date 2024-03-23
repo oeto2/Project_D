@@ -32,7 +32,7 @@ public class ShopSlot : MonoBehaviour
         int itemCount; // ¾ÆÀÌÅÛ °¹¼ö
         if (int.TryParse(ItemStack.text, out itemCount))
         {
-            if(InformationManager.Instance.gold >= ItemData.itemPrice*itemCount)
+            if(InformationManager.Instance.saveLoadData.gold >= ItemData.itemPrice*itemCount)
             {
                 Inventory.instance.AcquireItem(ItemData, itemCount);
                 Inventory.instance.UpdateGold(ItemData.itemPrice * itemCount);

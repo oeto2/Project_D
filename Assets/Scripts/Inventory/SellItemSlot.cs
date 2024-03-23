@@ -19,9 +19,9 @@ public class SellItemSlot : MonoBehaviour, IDropHandler
         {
             if (_tempItem != null)
             {
-                InformationManager.Instance.gold += (int)(DragSlot.instance.dragSlot.item.itemPrice*0.8f);
+                InformationManager.Instance.saveLoadData.gold += (int)(DragSlot.instance.dragSlot.item.itemPrice*0.8f);
                 DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount-1);
-                Debug.Log(InformationManager.Instance.gold);
+                Debug.Log(InformationManager.Instance.saveLoadData.gold);
             }
             else
                 DragSlot.instance.dragSlot.ClearSlot();

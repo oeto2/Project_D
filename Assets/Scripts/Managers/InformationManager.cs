@@ -7,7 +7,7 @@ using Constants;
 
 public class InformationManager : SingletonBase<InformationManager>
 {
-    SaveLoadData saveLoadData = new SaveLoadData();
+    public SaveLoadData saveLoadData = new SaveLoadData();
 
     private string _path;
     private string _fileName = "SavePlayerData";
@@ -19,42 +19,48 @@ public class InformationManager : SingletonBase<InformationManager>
         LoadData();
     }
 
-    public void SaveInformation(Slot[] slots_)
+    public void SaveInformation(int index, int id, int count = 1)
     {
-        saveLoadData.slots = slots_;
+        saveLoadData.itemID[index] = id;
+        saveLoadData.itemStack[index] = count;
         SaveData();
     }
 
-    public void SaveInformation(ItemData itemData_)
+    public void SaveInformation(ItemType type, ItemData itemData_)
     {
-        saveLoadData.equipmentItems[itemData_.itemType] = itemData_;
+        saveLoadData.equipmentItems[type] = itemData_;
         SaveData();
     }
 
     public void SaveInformation(int gold_)
     {
-        saveLoadData.gold = gold_;
+        saveLoadData.gold += gold_;
         SaveData();
     }
 
     public void SaveData()
     {
         string jsonData = JsonUtility.ToJson(saveLoadData);
+        Debug.Log(_path + _fileName);
         File.WriteAllText(_path + _fileName, jsonData);
     }
 
     public void LoadData()
     {
-        string jsonData = File.ReadAllText(_path + _fileName);
-        saveLoadData = JsonUtility.FromJson<SaveLoadData>(jsonData);
+        if (File.ReadAllText(_path + _fileName) != null)
+        {
+            string jsonData = File.ReadAllText(_path + _fileName);
+            saveLoadData = JsonUtility.FromJson<SaveLoadData>(jsonData);
+        }
     }
 }
 
-class SaveLoadData
+public class SaveLoadData
 {
     // 창고, 인벤, 돈
     // 인벤토리 관련 정보
-    public Slot[] slots;
+    public int[] itemID = new int[30];
+    public int[] itemStack = new int[30];
     public int gold;
 
     // 장비창 관련 정보

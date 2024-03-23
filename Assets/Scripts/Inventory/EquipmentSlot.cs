@@ -1,3 +1,4 @@
+using Constants;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,11 +13,11 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
 
     private void Awake()
     {
-        if (InformationManager.Instance.equipSlot == null)
+        if (InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Weapon] == null)
             ClearSlot();
         else
         {
-            AddItem(InformationManager.Instance.equipSlot);
+            AddItem(InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Weapon]);
         }
     }
 
@@ -107,12 +108,12 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
         if (_tempItem != null)
         {
             DragSlot.instance.dragSlot.AddItem(_tempItem);
-            InformationManager.Instance.equipSlot = _tempItem;
+            InformationManager.Instance.SaveInformation(ItemType.Equip, _tempItem);
         }
         else
         {
             DragSlot.instance.dragSlot.ClearSlot();
-            InformationManager.Instance.equipSlot = null;
+            InformationManager.Instance.SaveInformation(ItemType.Equip, null);
         }
     }
 }

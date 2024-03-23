@@ -22,13 +22,13 @@ public class Inventory : MonoBehaviour
 
     public TMP_Text goldText;
 
-    
+
     // Use this for initialization
-    
+
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -38,18 +38,18 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         _slots = _slotsParent.GetComponentsInChildren<Slot>();
-        if(InformationManager.Instance.slots != null)
+        for (int i = 0; i < _slots.Length; i++)
         {
-            for (int i = 0; i < _slots.Length; i++)
+            if (InformationManager.Instance.saveLoadData.itemID[i] != 0)
             {
-                _slots[i] = InformationManager.Instance.slots[i];
+
             }
         }
     }
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Q)) 
+        if (Input.GetKeyUp(KeyCode.Q))
         {
             Debug.Log("Q´©¸§");
             AcquireItem(Database.Item.Get(20000001));
@@ -98,6 +98,7 @@ public class Inventory : MonoBehaviour
                     if (_slots[i].item.itemName == _item.itemName)
                     {
                         _slots[i].SetSlotCount(_count);
+                        InformationManager.Instance.SaveInformation(i, _item.id, _count);
                         return;
                     }
                 }
@@ -109,6 +110,7 @@ public class Inventory : MonoBehaviour
             if (_slots[i].item == null)
             {
                 _slots[i].AddItem(_item, _count);
+                InformationManager.Instance.SaveInformation(i, _item.id, _count);
                 return;
             }
         }
@@ -116,19 +118,19 @@ public class Inventory : MonoBehaviour
 
     public void UpdateGold(int itemPrice_)
     {
-        InformationManager.Instance.gold -= itemPrice_;
-        goldText.text = InformationManager.Instance.gold.ToString();
+        InformationManager.Instance.SaveInformation(-itemPrice_);
+        goldText.text = InformationManager.Instance.saveLoadData.gold.ToString();
     }
-
-    
-    private void OnDestroy()
-    {
-        if (InformationManager.Instance.slots == null)
-            InformationManager.Instance.slots = _slots;
-        for (int i = 0; i < _slots.Length; i++)
-        {
-            InformationManager.Instance.slots[i] = _slots[i]; 
-        }
-    }
+    //
+    //
+    //private void OnDestroy()
+    //{
+    //    if (InformationManager.Instance.saveLoadData.slots == null)
+    //        InformationManager.Instance.saveLoadData.slots = _slots;
+    //    for (int i = 0; i < _slots.Length; i++)
+    //    {
+    //        InformationManager.Instance.saveLoadData.slots[i] = _slots[i]; 
+    //    }
+    //}
 
 }
