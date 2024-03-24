@@ -47,4 +47,11 @@ public class LobbyUpPopup : UIBase
         _uiManager.ShowPopup<InventoryPopup>();
         _uiManager.ShowPopup<DragPopup>();
     }
+
+    private void ShopButtonClick()
+    {
+        _uiManager.ShowPopup<ShopPopup>();
+        _uiManager.ShowPopup<InventoryPopup>();
+        _uiManager.ShowPopup<DragPopup>();
+    }
 }

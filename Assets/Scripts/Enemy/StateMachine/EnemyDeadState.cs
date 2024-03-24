@@ -18,5 +18,7 @@ public class EnemyDeadState : EnemyBaseState
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);
         SetTriggerAnimation(stateMachine.Enemy.AnimationData.DeadParameterHash);
+
+        stateMachine.Enemy.enemyInteration_Object.SetActive(true);
     }
 }

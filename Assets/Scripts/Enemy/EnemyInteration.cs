@@ -18,5 +18,6 @@ public class EnemyInteration : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         //아이템루트 열기
+        UIManager.Instance.ShowPopup<RewardPopup>();
     }
 }

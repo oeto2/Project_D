@@ -16,6 +16,8 @@ public class RewardPopup : UIBase
 
     private void OnEnable()
     {
+        //커서 락 풀기
+        Cursor.lockState = CursorLockMode.None;
         UIManager.Instance.BattleUICount++;
     }
 
