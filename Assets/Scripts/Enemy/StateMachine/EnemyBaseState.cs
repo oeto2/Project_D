@@ -28,7 +28,7 @@ public class EnemyBaseState : IState
 
     public virtual void Update()
     {
-        if (isMove)
+        //if (isMove)
             Move();
     }
 
@@ -87,6 +87,8 @@ public class EnemyBaseState : IState
 
             stateMachine.Enemy.transform.rotation = Quaternion.Slerp(stateMachine.Enemy.transform.rotation, targetRotation, stateMachine.RotationDamping * Time.deltaTime);
         }
+
+        //Debug.Log($"Àû È¸Àü {stateMachine.Enemy.transform.rotation}");
     }
 
     protected float GetMovementSpeed()
