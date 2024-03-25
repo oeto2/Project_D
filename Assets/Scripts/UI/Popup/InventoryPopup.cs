@@ -34,10 +34,11 @@ public class InventoryPopup : UIBase
 
     protected override void CloseUI()
     {
-        //로딩 씬에서만 동작
+        //로비 씬에서만 동작
         if (_currentSceneName == _lobbySceneName)
         {
             lobbyUpPopup_Object.SetActive(true);
+            UIManager.Instance.GetPopup(nameof(ShopPopup))?.gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(InventoryPopup)).gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(EquipmentPopup)).gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(DragPopup)).gameObject.SetActive(false);
