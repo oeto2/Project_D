@@ -19,10 +19,6 @@ public class PlayerStateMachine : StateMachine
     public Vector2 MovementInput { get; set; }
 
     public Vector2 LookInput { get; set; }
-    public float RotationDamping { get; private set; }
-    public float MovementSpeedModifier { get; set; } = 1f;
-    public float MovementSpeed { get; private set; } = 5f;
-
     public float JumpForce { get; set; }
 
     public bool IsAttacking { get; set; }
@@ -43,8 +39,5 @@ public class PlayerStateMachine : StateMachine
         ComboAttackState = new PlayerComboAttackState(this);
 
         MainCameraTransform = Camera.main.transform;
-
-        MovementSpeed = player.Data.GroundedData.BaseSpeed;
-        RotationDamping = player.Data.GroundedData.BaseRotationDamping;
     }
 }
