@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerComboAttackState : PlayerAttackState
 {
-    private bool alreadyAppliedForce;
     private bool alreadyApplyCombo;
 
     AttackInfoData attackInfoData;
@@ -19,7 +18,6 @@ public class PlayerComboAttackState : PlayerAttackState
         StartAnimation(stateMachine.Player.AnimationData.ComboAttackParameterHash);
 
         alreadyApplyCombo = false;
-        alreadyAppliedForce = false;
 
         int comboIndex = stateMachine.ComboIndex;
         attackInfoData = stateMachine.Player.Data.AttackData.GetAttackInfo(comboIndex);
@@ -46,28 +44,13 @@ public class PlayerComboAttackState : PlayerAttackState
         alreadyApplyCombo = true;
     }
 
-    private void TryApplyForce()
-    {
-        if (alreadyAppliedForce) return;
-        alreadyAppliedForce = true;
-
-        //stateMachine.Player.ForceReceiver.Reset();
-        //
-        //stateMachine.Player.ForceReceiver.AddForce(stateMachine.Player.transform.forward * attackInfoData.Force);
-    }
-
     public override void Update()
     {
         base.Update();
 
-        ForceMove();
-
         float normalizedTime = GetNormalizedTime(stateMachine.Player.Animator, "Attack");
         if (normalizedTime < 1f)
         {
-            if (normalizedTime >= attackInfoData.ForceTransitionTime)
-                TryApplyForce();
-
             if (normalizedTime >= attackInfoData.ComboTransitionTime)
                 TryComboAttack();
         }

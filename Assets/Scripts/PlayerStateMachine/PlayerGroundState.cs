@@ -13,13 +13,13 @@ public class PlayerGroundState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        //StartAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
+        StartAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
     }
 
     public override void Exit()
     {
         base.Exit();
-        //StopAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
+        StopAnimation(stateMachine.Player.AnimationData.GroundParameterHash);
     }
 
     public override void Update()
@@ -36,12 +36,6 @@ public class PlayerGroundState : PlayerBaseState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-
-        //if (!isGround() && stateMachine.Player.Rigidbody.velocity.y < 0)
-        //{
-        //    stateMachine.ChangeState(stateMachine.FallState);
-        //    return;
-        //}
     }
 
     protected override void OnMoveCanceled(InputAction.CallbackContext context)
@@ -51,9 +45,9 @@ public class PlayerGroundState : PlayerBaseState
         {
             return;
         }
-
+    
         stateMachine.ChangeState(stateMachine.IdleState);
-
+    
         base.OnMoveCanceled(context);
     }
 
