@@ -17,8 +17,6 @@ public class InformationManager : SingletonBase<InformationManager>
     private void Awake()
     {
         _path = Application.dataPath + "/";
-        saveLoadData.equipmentItems.Add(ItemType.Weapon, 0);
-        saveLoadData.equipmentItems.Add(ItemType.Weapon, 0);
 
         LoadData();
     }

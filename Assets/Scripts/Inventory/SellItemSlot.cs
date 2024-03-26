@@ -19,9 +19,19 @@ public class SellItemSlot : MonoBehaviour, IDropHandler
         {
             if (_tempItem != null)
             {
-                Inventory.instance.UpdateGold((int)(DragSlot.instance.dragSlot.item.itemPrice * 0.8f));
-                DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount-1);
-                Debug.Log(InformationManager.Instance.saveLoadData.gold);
+                if(_tempItemCount == 1)
+                {
+                    Inventory.instance.UpdateGold((int)(DragSlot.instance.dragSlot.item.itemPrice * 0.8f));
+                    DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount-1);
+                    //Debug.Log(InformationManager.Instance.saveLoadData.gold);
+
+                }
+                else
+                {
+                    UIManager.Instance.ShowPopup<InputPopup>();
+                    var inputPopup = UIManager.Instance.GetPopup(nameof(InputPopup)).GetComponent<InputPopup>();
+                    inputPopup.sellSlot = DragSlot.instance.dragSlot;
+                }
             }
             else
                 DragSlot.instance.dragSlot.ClearSlot();
