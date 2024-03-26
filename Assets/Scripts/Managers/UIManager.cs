@@ -9,6 +9,7 @@ public class UIManager : SingletonBase<UIManager>
 {
     private const string _dragPopupName = "DragPopup";
     private const string _optionPopupName = "OptionPopup";
+    private const string _gameEndPopupName = "GameEndPopup";
     //ºÎ¸ð UI
     public Transform parentsUI = null;
     private Dictionary<string, UIBase> _popups = new Dictionary<string, UIBase>();
@@ -69,6 +70,10 @@ public class UIManager : SingletonBase<UIManager>
 
         switch (obj.name)
         {
+            case _gameEndPopupName:
+                obj.GetComponent<Canvas>().sortingOrder = 1;
+                break;
+
             case _dragPopupName:
                 obj.GetComponent<Canvas>().sortingOrder = 20;
                 break;

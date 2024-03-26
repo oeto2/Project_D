@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyChasingState : EnemyBaseState
 {
@@ -10,6 +11,7 @@ public class EnemyChasingState : EnemyBaseState
     
     public override void Enter()
     {
+        stateMachine.Enemy.NavMeshAgent.Stop();
         //Debug.Log("추적상태 진입");
         stateMachine.MovementSpeedModifier = 1;
 
@@ -29,7 +31,7 @@ public class EnemyChasingState : EnemyBaseState
     {
         base.Update();
 
-        if(stateMachine.Enemy._targetHealth.IsDead)
+        if (stateMachine.Enemy._targetHealth.IsDead)
         {
             stateMachine.ChangeState(stateMachine.IdlingState);
             return;

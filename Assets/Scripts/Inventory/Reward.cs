@@ -24,6 +24,8 @@ public class Reward : MonoBehaviour
     void Start()
     {
         slots = _slotsParent.GetComponentsInChildren<Slot>();
+        AcquireItem(Database.Item.Get(20000001));
+        AcquireItem(Database.Item.Get(20000002));
     }
 
 

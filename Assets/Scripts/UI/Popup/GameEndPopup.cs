@@ -11,6 +11,8 @@ public class GameEndPopup : UIBase
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.None;
+        UIManager.Instance.ShowPopup<InventoryPopup>();
+        UIManager.Instance.ShowPopup<EquipmentPopup>();
         //¾À ÀÌµ¿
         _enterButton.onClick.AddListener(() => GameManager.Instance.ChangeScene(SceneType.LobbyScene));
     }

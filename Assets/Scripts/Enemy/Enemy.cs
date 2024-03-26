@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour, IDamagable
     //현재 이동할 목적지 좌표의 인덱스
     private int _curWanderDestination_index = 0;
 
-    [SerializeField] private GameObject enemyInteration_Object;
+    public GameObject enemyInteration_Object;
     public Health Health { get; private set; }
     [HideInInspector] public Health _targetHealth;
 
