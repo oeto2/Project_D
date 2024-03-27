@@ -46,7 +46,6 @@ public class PlayerBaseState : IState
             Move();
             Look();
         }
-        //Debug.Log(stateMachine.GetCurrentState());
     }
 
     protected virtual void AddInputActionsCallback()
@@ -105,7 +104,8 @@ public class PlayerBaseState : IState
 
     protected virtual void OnAttackPerformed(InputAction.CallbackContext context)
     {
-        stateMachine.IsAttacking = true;
+        if (Cursor.lockState != CursorLockMode.None)
+            stateMachine.IsAttacking = true;
     }
 
     protected virtual void OnAttackCanceled(InputAction.CallbackContext context)
@@ -115,13 +115,11 @@ public class PlayerBaseState : IState
 
     private void OnInteractionStarted(InputAction.CallbackContext context)
     {
-        //Debug.Log("상호작용 시작");
         stateMachine.Player.InteractionSystem.isInteract = true;
     }
 
     private void OnInteractionCanceled(InputAction.CallbackContext context)
     {
-        //Debug.Log("상호작용 종료");
         stateMachine.Player.InteractionSystem.isInteract = false;
         stateMachine.Player.InteractionSystem.curInteractable?.CancelInteract();
     }
@@ -132,11 +130,6 @@ public class PlayerBaseState : IState
         UIManager.Instance.ShowPopup<EquipmentPopup>();
         UIManager.Instance.ShowPopup<InventoryPopup>();
         UIManager.Instance.ShowPopup<DragPopup>();
-    }
-
-    private void OnPotionStarted(InputAction.CallbackContext context)
-    {
-        //GameManager.Instance._player.GetComponent<Items>().UsePotion();
     }
 
     private void ReadMovementInput()
@@ -151,18 +144,8 @@ public class PlayerBaseState : IState
 
     private void Move()
     {
-        //Vector3 movementDirection = GetMovementDirection() * GetMovementSpeed();
-        //if (OnSlope())
-        //{
-        //    stateMachine.Player.Rigidbody.velocity = (GetSlopeMoveDirection(movementDirection) + stateMachine.Player.ForceReceiver.Movement);
-        //}
-        //else
-        //{
-        //    stateMachine.Player.Rigidbody.velocity = (movementDirection + stateMachine.Player.ForceReceiver.Movement);
-        //}
         Vector3 destination = stateMachine.Player.transform.position + GetMovementDirection();
         stateMachine.Player.NavMeshAgent.destination = destination;
-        //stateMachine.Player.NavMeshAgent.SetDestination(destination);
     }
 
     protected void Look()
@@ -176,11 +159,6 @@ public class PlayerBaseState : IState
         playerTransform.eulerAngles += new Vector3(0, stateMachine.LookInput.x * controller.lookSensitivity, 0) ;
     }
 
-    protected void ForceMove()
-    {
-       //stateMachine.Player.(stateMachine.Player.ForceReceiver.Movement * Time.deltaTime);
-    }
-
     protected Vector3 GetMovementDirection()
     {
         Vector3 forward = stateMachine.Player.transform.forward;
@@ -190,12 +168,6 @@ public class PlayerBaseState : IState
         right.Normalize();
 
         return forward * stateMachine.MovementInput.y + right * stateMachine.MovementInput.x;
-    }
-
-    private float GetMovementSpeed()
-    {
-        float movementSpeed = stateMachine.MovementSpeed * stateMachine.MovementSpeedModifier;
-        return movementSpeed;
     }
 
     protected void StartAnimation(int animationHash)
@@ -226,29 +198,4 @@ public class PlayerBaseState : IState
             return 0f;
         }
     }
-
-
-    // 지우기
-    //protected bool isGround()
-    //{
-    //    var transform = stateMachine.Player.transform;
-    //
-    //    Ray[] rays = new Ray[4]
-    //    {
-    //        new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
-    //        new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
-    //        new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
-    //        new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
-    //    };
-    //
-    //    for (int i = 0; i < rays.Length; i++)
-    //    {
-    //        if (Physics.Raycast(rays[i], 0.1f, stateMachine.Player.Controller.groundLayerMask))
-    //        {
-    //            return true;
-    //        }
-    //    }
-    //
-    //    return false;
-    //}
 }

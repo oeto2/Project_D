@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerRunState : PlayerGroundState
 {
@@ -10,8 +11,8 @@ public class PlayerRunState : PlayerGroundState
 
     public override void Enter()
     {
-        stateMachine.MovementSpeedModifier = groundData.RunSpeedModifier;
         base.Enter();
+        stateMachine.Player.NavMeshAgent.speed = groundData.RunSpeedModifier * groundData.BaseSpeed;
         StartAnimation(stateMachine.Player.AnimationData.RunParameterHash);
     }
 
@@ -19,5 +20,11 @@ public class PlayerRunState : PlayerGroundState
     {
         base.Exit();
         StopAnimation(stateMachine.Player.AnimationData.RunParameterHash);
+    }
+
+    protected override void OnRunStarted(InputAction.CallbackContext context)
+    {
+        base.OnRunStarted(context);
+        stateMachine.ChangeState(stateMachine.WalkState);
     }
 }
