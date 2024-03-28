@@ -10,7 +10,7 @@ public class LobbyUpPopup : UIBase
     [SerializeField] private Button _enterDungeonButton;
     [SerializeField] private Button _stateButton;
     [SerializeField] private Button _inventroyButton;
-    [SerializeField] private Button _classButton;
+    [SerializeField] private Button _storageButton;
 
     private UIManager _uiManager;
 
@@ -31,7 +31,7 @@ public class LobbyUpPopup : UIBase
         _enterDungeonButton.onClick.AddListener(() => _uiManager.ShowPopup<EnterDungeonPopup>());
         _stateButton.onClick.AddListener(() => _uiManager.ShowPopup<StatePopup>());
         _inventroyButton.onClick.AddListener(() => InventoryButtonClick());
-        _classButton.onClick.AddListener(() => _uiManager.ShowPopup<ClassPopup>());
+        _storageButton.onClick.AddListener(() => _uiManager.ShowPopup<StoragePopup>());
     }
 
     private void ShopButtonClick()
