@@ -24,6 +24,7 @@ public class EnterDungeonPopup : UIBase
 
     private void Awake()
     {
+        gameObject.GetComponentInParent<LobbySceneUI>().curLobbyType = LobbyType.EnterDungeon;
         lobbyUpPopup_Object = UIManager.Instance.GetPopup(nameof(LobbyUpPopup));
         btnClose.onClick.AddListener(() => CloseUI());
         _enterButton.onClick.AddListener(() => GameManager.Instance.ChangeScene(SceneType.DungeonScene));

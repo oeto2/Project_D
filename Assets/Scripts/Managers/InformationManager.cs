@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using Constants;
 using Newtonsoft.Json;
+using UnityEngine.UIElements.Experimental;
 
 public class InformationManager : SingletonBase<InformationManager>
 {
@@ -17,25 +18,47 @@ public class InformationManager : SingletonBase<InformationManager>
     private void Awake()
     {
         _path = Application.dataPath + "/";
-
         LoadData();
     }
 
     public void SaveInformation(Slot[] slots_)
     {
-        for (int i = 0; i < slots_.Length; i++)
+        //인벤토리 데이터 저장
+        if (slots_.Length < 50)
         {
-            if (slots_[i].item != null)
+            for (int i = 0; i < slots_.Length; i++)
             {
-                saveLoadData.itemID[i] = slots_[i].item.id;
-                saveLoadData.itemStack[i] = slots_[i].itemCount;
-            }
-            else
-            {
-                saveLoadData.itemID[i] = 0;
-                saveLoadData.itemStack[i] = 0;
+                if (slots_[i].item != null)
+                {
+                    saveLoadData.itemID[i] = slots_[i].item.id;
+                    saveLoadData.itemStack[i] = slots_[i].itemCount;
+                }
+                else
+                {
+                    saveLoadData.itemID[i] = 0;
+                    saveLoadData.itemStack[i] = 0;
+                }
             }
         }
+
+        //창고 데이터 저장
+        else
+        {
+            for (int i = 0; i < slots_.Length; i++)
+            {
+                if (slots_[i].item != null)
+                {
+                    saveLoadData.storage_ItemID[i] = slots_[i].item.id;
+                    saveLoadData.storage_ItemStack[i] = slots_[i].itemCount;
+                }
+                else
+                {
+                    saveLoadData.storage_ItemID[i] = 0;
+                    saveLoadData.storage_ItemStack[i] = 0;
+                }
+            }
+        }
+
         SaveData();
     }
 
@@ -76,11 +99,15 @@ public class SaveLoadData
     public int[] itemStack = new int[30];
     public int gold;
 
+    //창고 데이터
+    public int[] storage_ItemID = new int[70];
+    public int[] storage_ItemStack = new int[70];
+    public int storage_Gold;
+
     // 장비창 관련 정보
     public Dictionary<ItemType, int> equipmentItems = new Dictionary<ItemType, int>()
     {
         {ItemType.Weapon, 0 },
         {ItemType.Equip, 0 }
     };
-
 }
