@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &784195439773250391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7524169691700001050}
+  - component: {fileID: 6763837876863015569}
+  m_Layer: 0
+  m_Name: DefenseObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7524169691700001050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784195439773250391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 60459908374691874}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6763837876863015569
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784195439773250391}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 2, z: 0.1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1632378422577173210
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,16 +209,17 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5659017553536869922}
-  m_LocalRotation: {x: 0, y: 0.7305777, z: 0, w: 0.68282956}
+  m_LocalRotation: {x: 0, y: 0.73057956, z: 0, w: 0.6828276}
   m_LocalPosition: {x: -13.54, y: 0, z: -90.73042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6640828296462194371}
   - {fileID: 1399646196693946878}
+  - {fileID: 7524169691700001050}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 93.87, z: 0}
 --- !u!114 &2796891779340450164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +246,7 @@ MonoBehaviour:
     dieParameterName: Die
   <Data>k__BackingField: {fileID: 11400000, guid: 5a45be0f929e17246b88c5c109ca7e31,
     type: 2}
+  <DefenseObj>k__BackingField: {fileID: 784195439773250391}
   playerTransform: {fileID: 0}
   InteractionSystem: {fileID: 0}
 --- !u!114 &9171299046693303827

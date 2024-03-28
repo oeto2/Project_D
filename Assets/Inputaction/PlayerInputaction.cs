@@ -99,6 +99,15 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Defense"",
+                    ""type"": ""Value"",
+                    ""id"": ""1ab402d1-c6b3-45fb-8cfb-75922772086f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -233,6 +242,17 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
                     ""action"": ""Equip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02b7e2e5-ed28-4f85-b0ad-025a41199984"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Defense"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -252,6 +272,7 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Equip = m_Player.FindAction("Equip", throwIfNotFound: true);
+        m_Player_Defense = m_Player.FindAction("Defense", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -321,6 +342,7 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Equip;
+    private readonly InputAction m_Player_Defense;
     public struct PlayerActions
     {
         private @PlayerInputaction m_Wrapper;
@@ -333,6 +355,7 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Equip => m_Wrapper.m_Player_Equip;
+        public InputAction @Defense => m_Wrapper.m_Player_Defense;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -366,6 +389,9 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
             @Equip.started += instance.OnEquip;
             @Equip.performed += instance.OnEquip;
             @Equip.canceled += instance.OnEquip;
+            @Defense.started += instance.OnDefense;
+            @Defense.performed += instance.OnDefense;
+            @Defense.canceled += instance.OnDefense;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -394,6 +420,9 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
             @Equip.started -= instance.OnEquip;
             @Equip.performed -= instance.OnEquip;
             @Equip.canceled -= instance.OnEquip;
+            @Defense.started -= instance.OnDefense;
+            @Defense.performed -= instance.OnDefense;
+            @Defense.canceled -= instance.OnDefense;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -421,5 +450,6 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnEquip(InputAction.CallbackContext context);
+        void OnDefense(InputAction.CallbackContext context);
     }
 }

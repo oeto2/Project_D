@@ -20,7 +20,7 @@ public class Player : MonoBehaviour, IDamagable
     public NavMeshAgent NavMeshAgent { get; private set; }
     public PlayerController PlayerController { get; private set; }
 
-   // [field: SerializeField] public Weapon Weapon { get; private set; }
+    [field: SerializeField] public GameObject DefenseObj { get; private set; }
 
     public Health Health { get; private set; }
 
