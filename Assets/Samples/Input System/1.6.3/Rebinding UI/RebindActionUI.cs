@@ -320,6 +320,10 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
         protected void OnEnable()
         {
+            m_ActionAsset = m_Action.asset;
+            var rebinds = PlayerPrefs.GetString("rebinds");
+            if (!string.IsNullOrEmpty(rebinds))
+                m_ActionAsset.LoadBindingOverridesFromJson(rebinds);
             if (s_RebindActionUIs == null)
                 s_RebindActionUIs = new List<RebindActionUI>();
             s_RebindActionUIs.Add(this);
@@ -366,6 +370,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     component.UpdateBindingDisplay();
             }
         }
+        private InputActionAsset m_ActionAsset;
 
         [Tooltip("Reference to action that is to be rebound from the UI.")]
         [SerializeField]
