@@ -17,6 +17,7 @@ public class GameManager : SingletonBase<GameManager>
 
     private void Awake()
     {
+        Debug.Log("게임매니저 생성");
         SceneManager.sceneLoaded += PlayerInit;
     }
 
