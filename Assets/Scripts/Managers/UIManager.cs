@@ -10,13 +10,19 @@ public class UIManager : SingletonBase<UIManager>
     private const string _dragPopupName = "DragPopup";
     private const string _optionPopupName = "OptionPopup";
     private const string _gameEndPopupName = "GameEndPopup";
+
     //ºÎ¸ð UI
     public Transform parentsUI = null;
     private Dictionary<string, UIBase> _popups = new Dictionary<string, UIBase>();
 
     public int BattleUICount;
 
-    private void Awake() => _isLoad = false;
+    private void Awake()
+    {
+        GameManager.Instance.SceneLoadEvent += ResetUIMangerData;
+    }
+
+    //private void Awake() => _isLoad = false;
     public GameObject GetPopup(string popupName)
     {
         if (!_popups.ContainsKey(popupName))
@@ -71,7 +77,7 @@ public class UIManager : SingletonBase<UIManager>
         switch (obj.name)
         {
             case _gameEndPopupName:
-                obj.GetComponent<Canvas>().sortingOrder = 1;
+                obj.GetComponent<Canvas>().sortingOrder = 2;
                 break;
 
             case _dragPopupName:
@@ -102,5 +108,11 @@ public class UIManager : SingletonBase<UIManager>
     public void ShowPopup(GameObject obj)
     {
         obj.SetActive(true);
+    }
+
+    //µñ¼Å³Ê¸® ÃÊ±âÈ­
+    public void ResetUIMangerData()
+    {
+        _popups.Clear();
     }
 }

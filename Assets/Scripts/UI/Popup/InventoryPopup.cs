@@ -1,3 +1,4 @@
+using Constants;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,19 +8,19 @@ using UnityEngine.UI;
 public class InventoryPopup : UIBase
 {
     private const string _lobbySceneName = "LobbyScene";
-    private GameObject lobbyUpPopup_Object;
     private string _currentSceneName;
+    private LobbySceneUI _lobbySceneUI;
 
     private void Awake()
     {
+        _lobbySceneUI = GetComponentInParent<LobbySceneUI>();
         _currentSceneName = SceneManager.GetActiveScene().name;
-        lobbyUpPopup_Object = UIManager.Instance.GetPopup(nameof(LobbyUpPopup));
         btnClose.onClick.AddListener(() => CloseUI());
     }
 
     private void OnEnable()
     {
-        lobbyUpPopup_Object.SetActive(false);
+        UIManager.Instance.GetPopup(nameof(LobbyUpPopup)).gameObject.SetActive(false);
         UIManager.Instance.BattleUICount++;
     }
 
@@ -34,16 +35,20 @@ public class InventoryPopup : UIBase
 
     protected override void CloseUI()
     {
-        //로비 씬에서만 동작
-        if (_currentSceneName == _lobbySceneName)
+        if(_lobbySceneUI.curLobbyType == LobbyType.Storage)
         {
-            lobbyUpPopup_Object.SetActive(true);
+            Debug.Log("창고 인벤토리 닫기");
+            gameObject.SetActive(false);
+        }    
+
+        //로비 씬에서만 동작
+        if (_currentSceneName == _lobbySceneName && _lobbySceneUI.curLobbyType != LobbyType.Storage)
+        {
             UIManager.Instance.GetPopup(nameof(ShopPopup))?.gameObject.SetActive(false);
-            UIManager.Instance.GetPopup(nameof(InventoryPopup)).gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(EquipmentPopup)).gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(DragPopup)).gameObject.SetActive(false);
-            return;
+            UIManager.Instance.GetPopup(nameof(LobbyUpPopup)).gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
-        gameObject.SetActive(false);
     }
 }
