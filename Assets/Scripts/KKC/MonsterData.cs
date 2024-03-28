@@ -17,10 +17,7 @@ public class MonsterData
     [SerializeField] private float _monsterRun;
     [SerializeField] private float _monsterStiff;
     [SerializeField] private int _monsterMaxRoot;
-    [SerializeField] private string _commonDropPer;
-    [SerializeField] private string _uncommonDropPer;
-    [SerializeField] private string _rareDropPer;
-    [SerializeField] private string _uniqueDropPer;
+    [SerializeField] private int _dropId;
 
     public int id => _id;
     public string monsterName => _monsterName;
@@ -33,5 +30,5 @@ public class MonsterData
     public float monsterRun => _monsterRun;
     public float monsterStiff => _monsterStiff;
     public int monsterMaxRoot => _monsterMaxRoot;
-
+    public int dropId => _dropId;
 }
