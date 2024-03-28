@@ -31,6 +31,11 @@ public class PlayerGroundState : PlayerBaseState
             OnAttack();
             return;
         }
+        if (stateMachine.IsDefensing && stateMachine.GetCurrentState() != stateMachine.DefenseState) 
+        {
+            OnDefense(); 
+            return;
+        }
     }
 
     public override void PhysicsUpdate()
@@ -57,8 +62,6 @@ public class PlayerGroundState : PlayerBaseState
             stateMachine.ChangeState(stateMachine.JumpState);
     }
 
-    
-
     protected virtual void OnMove()
     {
         stateMachine.ChangeState(stateMachine.WalkState);
@@ -67,5 +70,10 @@ public class PlayerGroundState : PlayerBaseState
     protected virtual void OnAttack()
     {
         stateMachine.ChangeState(stateMachine.ComboAttackState);
+    }
+
+    protected virtual void OnDefense()
+    {
+        stateMachine.ChangeState(stateMachine.DefenseState);
     }
 }

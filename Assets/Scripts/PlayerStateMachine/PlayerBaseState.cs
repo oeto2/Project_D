@@ -64,6 +64,10 @@ public class PlayerBaseState : IState
         input.playerActions.Interaction.canceled += OnInteractionCanceled;
 
         input.playerActions.Inventory.started += OnInventoryStarted;
+        input.playerActions.Equip.started += OnEquipStarted;
+
+        input.playerActions.Defense.performed += OnDefensePerformed;
+        input.playerActions.Defense.canceled += OnDefenseCanceled;
     }
 
 
@@ -82,6 +86,10 @@ public class PlayerBaseState : IState
         input.playerActions.Interaction.canceled -= OnInteractionCanceled;
 
         input.playerActions.Inventory.started -= OnInventoryStarted;
+        input.playerActions.Equip.started -= OnEquipStarted;
+
+        input.playerActions.Defense.performed -= OnDefensePerformed;
+        input.playerActions.Defense.canceled -= OnDefenseCanceled;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -127,9 +135,25 @@ public class PlayerBaseState : IState
     private void OnInventoryStarted(InputAction.CallbackContext context)
     {
         Cursor.lockState = CursorLockMode.None;
-        UIManager.Instance.ShowPopup<EquipmentPopup>();
         UIManager.Instance.ShowPopup<InventoryPopup>();
         UIManager.Instance.ShowPopup<DragPopup>();
+    }
+
+    private void OnEquipStarted(InputAction.CallbackContext context)
+    {
+        Cursor.lockState = CursorLockMode.None;
+        UIManager.Instance.ShowPopup<EquipmentPopup>();
+        UIManager.Instance.ShowPopup<DragPopup>();
+    }
+
+    private void OnDefensePerformed(InputAction.CallbackContext context)
+    {
+        if (Cursor.lockState != CursorLockMode.None)
+            stateMachine.IsDefensing = true;
+    }
+
+    protected virtual void OnDefenseCanceled(InputAction.CallbackContext context)
+    {
     }
 
     private void ReadMovementInput()
