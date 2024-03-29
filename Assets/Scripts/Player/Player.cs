@@ -52,6 +52,7 @@ public class Player : MonoBehaviour, IDamagable
         stateMachine.ChangeState(stateMachine.IdleState);
 
         Health.OnDie += OnDie;
+        Health.OnDie += OnDieCameraView;
     }
 
     private void Update()
@@ -69,6 +70,12 @@ public class Player : MonoBehaviour, IDamagable
     {
         stateMachine.ChangeState(stateMachine.DieState);
         Animator.SetTrigger(stateMachine.Player.AnimationData.DieParameterHash);
+    }
+
+    void OnDieCameraView()
+    {
+        Camera cam = Camera.main;
+        cam.cullingMask = -1;
     }
 
     public void TakePhysicalDamage(int damageAmount)
