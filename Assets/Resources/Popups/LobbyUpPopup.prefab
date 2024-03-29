@@ -380,7 +380,7 @@ MonoBehaviour:
   _enterDungeonButton: {fileID: 765274565573544206}
   _stateButton: {fileID: 7346845984774005727}
   _inventroyButton: {fileID: 8850248129068340616}
-  _classButton: {fileID: 7440593950917926972}
+  _storageButton: {fileID: 7440593950917926972}
 --- !u!1 &892034477281975200
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 7584802926610053282}
   - component: {fileID: 7440593950917926972}
   m_Layer: 0
-  m_Name: ClassButton
+  m_Name: StroageButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC9C1\uC5C5"
+  m_text: "\uCC3D\uACE0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e35b5184c084794f85c03e83e3a042c, type: 2}
   m_sharedMaterial: {fileID: 7469225891138420652, guid: 3e35b5184c084794f85c03e83e3a042c,
