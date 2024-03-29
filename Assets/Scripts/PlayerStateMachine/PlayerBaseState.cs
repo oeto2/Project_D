@@ -134,16 +134,37 @@ public class PlayerBaseState : IState
 
     private void OnInventoryStarted(InputAction.CallbackContext context)
     {
+        GameObject inventoryPopup = UIManager.Instance.GetPopupObject(nameof(InventoryPopup));
+
+        if(inventoryPopup != null)
+        {
+            if (inventoryPopup.active)
+            {
+                inventoryPopup.SetActive(false);
+                return;
+            }
+        }
+
         Cursor.lockState = CursorLockMode.None;
         UIManager.Instance.ShowPopup<InventoryPopup>();
-        UIManager.Instance.ShowPopup<DragPopup>();
     }
 
     private void OnEquipStarted(InputAction.CallbackContext context)
     {
+        GameObject equipmentPopup = UIManager.Instance.GetPopupObject(nameof(EquipmentPopup));
+
+        //장비창 토글
+        if (equipmentPopup != null)
+        {
+            if (equipmentPopup.active)
+            {
+                equipmentPopup.SetActive(false);
+                return;
+            }
+        }
+
         Cursor.lockState = CursorLockMode.None;
         UIManager.Instance.ShowPopup<EquipmentPopup>();
-        UIManager.Instance.ShowPopup<DragPopup>();
     }
 
     private void OnDefensePerformed(InputAction.CallbackContext context)

@@ -16,6 +16,7 @@ public class InventoryPopup : UIBase
         _lobbySceneUI = GetComponentInParent<LobbySceneUI>();
         _currentSceneName = SceneManager.GetActiveScene().name;
         btnClose.onClick.AddListener(() => CloseUI());
+        UIManager.Instance.ShowPopup<DragPopup>();
     }
 
     private void OnEnable()
