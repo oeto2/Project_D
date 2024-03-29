@@ -58,7 +58,6 @@ public class Inventory : MonoBehaviour
             AcquireItem(Database.Item.Get(20000002));
             AcquireItem(Database.Item.Get(30000002));
         }
-
     }
 
     public void OnInventoryInput(InputAction.CallbackContext callbackcontext)
