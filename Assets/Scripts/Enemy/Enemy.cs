@@ -117,6 +117,10 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         stateMachine.ChangeState(stateMachine.DeadState);
         Animator.SetTrigger(stateMachine.Enemy.AnimationData.DeadParameterHash);
+        Controller.enabled = false;
+        NavMeshAgent.enabled = false;
+        ForceReceiver.enabled = false;
+        enabled = false;
     }
 
     //몬스터가 순찰할 좌표 설정
