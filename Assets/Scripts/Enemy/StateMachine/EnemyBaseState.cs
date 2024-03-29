@@ -28,7 +28,7 @@ public class EnemyBaseState : IState
 
     public virtual void Update()
     {
-        //if (isMove)
+        if (isMove)
             Move();
     }
 
