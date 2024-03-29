@@ -27,5 +27,16 @@ namespace Constants
         LobbyScene,
         DungeonScene
     }
+
+    public enum LobbyType
+    {
+        Main,
+        Option,
+        Shop,
+        EnterDungeon,
+        Status,
+        Inventory,
+        Storage
+    }
 }
 

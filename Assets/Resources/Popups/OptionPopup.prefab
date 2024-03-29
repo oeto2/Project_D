@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 891626977044853180, guid: 90263fe60b86d654397890c587e97f0b, type: 3}
   m_BindingId: 5cfca0ac-953e-43c0-a165-99cc17c4fc36
   m_DisplayStringOptions: 0
@@ -432,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 891626977044853180, guid: 90263fe60b86d654397890c587e97f0b, type: 3}
   m_BindingId: 32c2155c-1687-4ba7-bef8-7ec6b3245173
   m_DisplayStringOptions: 0
@@ -1251,7 +1253,7 @@ GameObject:
   - component: {fileID: 1104836490209843238}
   - component: {fileID: 8308168112099581604}
   m_Layer: 5
-  m_Name: MenuOrangeButtonSmall
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1813,7 +1815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8369874209786396232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2063,6 +2065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 891626977044853180, guid: 90263fe60b86d654397890c587e97f0b, type: 3}
   m_BindingId: d186a18d-78fd-4810-a4fa-542a7700a6b0
   m_DisplayStringOptions: 0
@@ -2336,6 +2339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 7367188055133100503, guid: 90263fe60b86d654397890c587e97f0b,
     type: 3}
   m_BindingId: af5d9bfc-127a-4d8b-a877-0aef4aa01755
@@ -3798,6 +3802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: -4423027893368884440, guid: 90263fe60b86d654397890c587e97f0b,
     type: 3}
   m_BindingId: 118ee830-2850-4211-9492-153dada274ac
@@ -4305,6 +4310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4046648534207573958}
   - component: {fileID: 4844754931708325992}
+  - component: {fileID: 7784419182103260748}
   m_Layer: 5
   m_Name: KeyboardOptions
   m_TagString: Untagged
@@ -4363,6 +4369,19 @@ MonoBehaviour:
     type: 3}
   inventoryRef: {fileID: 2098171480445901236, guid: 90263fe60b86d654397890c587e97f0b,
     type: 3}
+--- !u!114 &7784419182103260748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599585556687331158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6c2da2db9374dada6761b5e35121c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 90263fe60b86d654397890c587e97f0b, type: 3}
 --- !u!1 &3602873702646472464
 GameObject:
   m_ObjectHideFlags: 0
@@ -5173,6 +5192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 6950813544322081412, guid: 90263fe60b86d654397890c587e97f0b,
     type: 3}
   m_BindingId: 3e3fc09d-9abf-4787-8b9a-74545fd1100d
@@ -5281,6 +5301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 2098171480445901236, guid: 90263fe60b86d654397890c587e97f0b,
     type: 3}
   m_BindingId: 8e06d23a-3211-41bd-946e-4fb40df384cb
@@ -5469,6 +5490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: -8080187149696088081, guid: 90263fe60b86d654397890c587e97f0b,
     type: 3}
   m_BindingId: a87d9589-6e82-4427-829b-6524da97864c
@@ -6110,6 +6132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 0}
   m_BindingId: 9cebac61-34fd-47bc-908f-bbb2f24e5bc7
   m_DisplayStringOptions: 0
@@ -6563,6 +6586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: -4321771855936372211, guid: 90263fe60b86d654397890c587e97f0b,
     type: 3}
   m_BindingId: 9cebac61-34fd-47bc-908f-bbb2f24e5bc7
@@ -6883,7 +6907,7 @@ GameObject:
   - component: {fileID: 6064678447287154345}
   - component: {fileID: 2896853480066002987}
   m_Layer: 5
-  m_Name: MenuOrangeButtonSmall (1)
+  m_Name: SaveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6955,7 +6979,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6064678445722264002}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7784419182103260748}
+        m_TargetAssemblyTypeName: RebindSaveLoad, Unity.InputSystem.RebindingUI
+        m_MethodName: OnSaveButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6299825103221716292
 GameObject:
   m_ObjectHideFlags: 0
@@ -7473,6 +7509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 0}
   m_BindingId: 9cebac61-34fd-47bc-908f-bbb2f24e5bc7
   m_DisplayStringOptions: 0
@@ -9162,6 +9199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 891626977044853180, guid: 90263fe60b86d654397890c587e97f0b, type: 3}
   m_BindingId: 7fe23c12-beee-40de-aa77-54620c8bea54
   m_DisplayStringOptions: 0
@@ -9395,6 +9433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 0}
   m_BindingId: 9cebac61-34fd-47bc-908f-bbb2f24e5bc7
   m_DisplayStringOptions: 0
@@ -9502,6 +9541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ActionAsset: {fileID: 0}
   m_Action: {fileID: 0}
   m_BindingId: 9cebac61-34fd-47bc-908f-bbb2f24e5bc7
   m_DisplayStringOptions: 0

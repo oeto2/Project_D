@@ -1,5 +1,6 @@
 using Constants;
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class GameManager : SingletonBase<GameManager>
 
     private const string _dungeonSceneName = "DungeonScene";
     private const string _loadingSceneName = "LoadingScene";
+
+    public event Action SceneLoadEvent;
 
     private void Awake()
     {
@@ -35,7 +38,13 @@ public class GameManager : SingletonBase<GameManager>
 
     public void ChangeScene(SceneType scene)
     {
+        CallSceneChangeEvent();
         sceneType = scene;
         SceneManager.LoadScene(_loadingSceneName);
+    }
+
+    private void CallSceneChangeEvent()
+    {
+        SceneLoadEvent?.Invoke();
     }
 }
