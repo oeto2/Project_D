@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterDB
 {
     private Dictionary<int, MonsterData> monsters = new();
+    private Dictionary<int, DropPerData> dropPer = new();
 
     public MonsterDB()
     {

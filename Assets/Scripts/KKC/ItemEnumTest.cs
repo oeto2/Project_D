@@ -11,6 +11,8 @@ public class ItemEnumTest : MonoBehaviour
     [SerializeField] private List<ItemData> _rareItem = new List<ItemData>();
     [SerializeField] private List<ItemData> _uniqueItem = new List<ItemData>();
 
+    System.Random random = new System.Random();
+
     private void Start()
     {
         ItemEnum();
@@ -47,8 +49,7 @@ public class ItemEnumTest : MonoBehaviour
 
     public ItemData GetItem(ItemGrade itemGrade_)
     {
-        System.Random random = new System.Random();
-        
+
         switch (itemGrade_)
         {
             case ItemGrade.Common:
@@ -62,4 +63,11 @@ public class ItemEnumTest : MonoBehaviour
         }
         return null;
     }
+
+    //public ItemData GetItem()
+    //{
+    //    int rand = random.Next(100);
+
+    //    if (rand >= 0 && 
+    //}
 }
