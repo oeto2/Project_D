@@ -14,8 +14,12 @@ public class Enemy : MonoBehaviour, IDamagable
 {
     [field: Header("References")]
 
+    [SerializeField] private int _monsterID;
+
     //몬스터에 대한 데이터
-    [field: SerializeField] public EnemySO Data { get; private set; }
+    [field: SerializeField] public MonsterDBSheet MonstersDbSheet { get; private set; }
+
+    [field: SerializeField] public MonsterData Data { get; private set; }
 
     [field: Header("Animations")]
     [field: SerializeField] public EnemyAnimationData AnimationData { get; private set; }
@@ -64,10 +68,10 @@ public class Enemy : MonoBehaviour, IDamagable
 
     void Awake()
     {
+        Data = Database.Monster.Get(_monsterID);
         stateMachine = new EnemyStateMachine(this);
         //애니메이션 데이터 할당
         AnimationData.Initialize();
-
         Rigidbody = GetComponent<Rigidbody>();
         Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();
@@ -76,7 +80,7 @@ public class Enemy : MonoBehaviour, IDamagable
         Health = GetComponent<Health>();
         //순찰 장소
         SetPatrolLocation(EnemyPatrolLocation_number);
-        Health.InitHealth(Data.Health);
+        Health.InitHealth(Data.monsterHp);
     }
 
     private void Start()
