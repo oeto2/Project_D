@@ -4,8 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemEnumTest : MonoBehaviour
+[System.Serializable]
+public class DropPerDB : MonoBehaviour
 {
+    private Dictionary<int, DropPerData> _dropPer = new();
+
     [SerializeField] private List<ItemData> _commonItem = new List<ItemData>();
     [SerializeField] private List<ItemData> _uncommonItem = new List<ItemData>();
     [SerializeField] private List<ItemData> _rareItem = new List<ItemData>();
@@ -16,6 +19,31 @@ public class ItemEnumTest : MonoBehaviour
     private void Start()
     {
         ItemEnum();
+        
+        var res = Resources.Load<DropPerSheet>("DB/DropPerDBSheet");
+        var dropPerSO = Object.Instantiate(res);
+        var datas = dropPerSO.Drop_Table;
+
+        if (datas == null || datas.Count <= 0)
+            return;
+
+        var dataCount = datas.Count;
+        for (int i = 0; i < dataCount; i++)
+        {
+            var data = datas[i];
+
+            if (_dropPer.ContainsKey(data.id))
+                _dropPer[data.id] = data;
+            else
+                _dropPer.Add(data.id, data);
+        }
+
+        int rand = random.Next(1, Database.Monster.Get(11000001).monsterMaxRoot);
+        for(int i = 0; i < rand; i++)
+        {
+            //GetItem(Database.Monster.Get(11000001).dropId);
+            Debug.Log(GetItem(Database.Monster.Get(11000001).dropId).itemName);
+        }
     }
 
     public void ItemEnum()
@@ -64,10 +92,27 @@ public class ItemEnumTest : MonoBehaviour
         return null;
     }
 
-    //public ItemData GetItem()
-    //{
-    //    int rand = random.Next(100);
-
-    //    if (rand >= 0 && 
-    //}
+    public ItemData GetItem(int dropPerId_)
+    {
+        int rand = random.Next(_dropPer[dropPerId_].totalDropPer);
+        
+        if (rand <= _dropPer[dropPerId_].dropPer4)
+        {
+            return GetItem(ItemGrade.Unique);
+        }
+        else if (rand <= _dropPer[dropPerId_].dropPer3)
+        {
+            return GetItem(ItemGrade.Rare);
+        }
+        else if (rand <= _dropPer[dropPerId_].dropPer2)
+        {
+            return GetItem(ItemGrade.Uncommon);
+        }
+        else if (rand <= _dropPer[dropPerId_].dropPer1)
+        {
+            return GetItem(ItemGrade.Unique);
+        }
+        else
+            return null;
+    }
 }
