@@ -1172,6 +1172,7 @@ MonoBehaviour:
   btnClose: {fileID: 0}
   _playerHp: {fileID: 2259381577933039483}
   _playerMp: {fileID: 7578147399260476133}
+  _playerSta: {fileID: 291583445454877378}
   _playerDeadUIPanel: {fileID: 7424870559383764080}
   _gameEndUIPanel: {fileID: 0}
   _enterButton: {fileID: 0}

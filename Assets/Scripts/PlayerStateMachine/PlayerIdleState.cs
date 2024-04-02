@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,5 +30,6 @@ public class PlayerIdleState : PlayerGroundState
             OnMove();
             return;
         }
+        stateMachine.Player.Health.ChangeStaminaAction(5 * Time.deltaTime);
     }
 }

@@ -26,7 +26,6 @@ public class PlayerStateMachine : StateMachine
     public bool IsDefensing { get; set; }
     public int ComboIndex { get; set; }
 
-
     public Transform MainCameraTransform { get; set; }
 
     public PlayerStateMachine(Player player)

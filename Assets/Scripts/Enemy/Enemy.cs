@@ -41,8 +41,8 @@ public class Enemy : MonoBehaviour, IDamagable
     private int _curWanderDestination_index = 0;
 
     public GameObject enemyInteration_Object;
-    public Health Health { get; private set; }
-    [HideInInspector] public Health _targetHealth;
+    public CharacterStats Health { get; private set; }
+    [HideInInspector] public CharacterStats _targetHealth;
 
     //공격 대상 트랜스폼
     [field: SerializeField] public Transform Target { get; private set; }
@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour, IDamagable
         Controller = GetComponent<CharacterController>();
         ForceReceiver = GetComponent<EnemyForceReceiver>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
-        Health = GetComponent<Health>();
+        Health = GetComponent<CharacterStats>();
         //순찰 장소
         SetPatrolLocation(EnemyPatrolLocation_number);
         Health.InitHealth(Data.monsterHp);
@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
         //나중에는 수정하기
         Target = GameManager.Instance.playerObject.transform;
-        _targetHealth = Target.GetComponent<Health>();
+        _targetHealth = Target.GetComponent<CharacterStats>();
     }
 
     private void Update()
