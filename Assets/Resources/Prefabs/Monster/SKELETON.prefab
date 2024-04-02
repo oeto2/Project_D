@@ -1310,7 +1310,8 @@ GameObject:
   - component: {fileID: 6734574209666049167}
   - component: {fileID: 5204801804691217164}
   - component: {fileID: 4509785441108074177}
-  - component: {fileID: 1973623582596763404}
+  - component: {fileID: 2998001838243272160}
+  - component: {fileID: 6673926871779175555}
   m_Layer: 0
   m_Name: SKELETON
   m_TagString: Untagged
@@ -1333,7 +1334,7 @@ Transform:
   - {fileID: 8161308449354173832}
   - {fileID: 6160977005367642040}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &507005864954431936
 MonoBehaviour:
@@ -1374,7 +1375,7 @@ MonoBehaviour:
     attackParameterName: '@Attack'
     baseAttackParameterName: BaseAttack
     deadParameterName: Dead
-  EnemyPatrolLocation_number: 1
+  EnemyPatrolLocation_number: 2
   <MonsterMoveType>k__BackingField: 1
   MonsterWanderDestination: []
   enemyInteration_Object: {fileID: 3770708180680966607}
@@ -1442,7 +1443,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1973623582596763404
+--- !u!114 &2998001838243272160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1451,11 +1452,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 5803477382436822640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 301eeb14a26e5f949875e0f4edcbb707, type: 3}
+  m_Script: {fileID: 11500000, guid: 95b6cdfdfe5230b4497e980d7ea9f18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
   health: 0
+  maxMana: 0
+  mana: 0
+  maxStamina: 0
+  stamina: 0
+--- !u!114 &6673926871779175555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803477382436822640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b6cdfdfe5230b4497e980d7ea9f18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  health: 0
+  maxMana: 0
+  mana: 0
+  maxStamina: 0
+  stamina: 0
 --- !u!1 &6014732541299738104
 GameObject:
   m_ObjectHideFlags: 0

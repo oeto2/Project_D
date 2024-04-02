@@ -18,6 +18,7 @@ public class CharacterStats : MonoBehaviour
 
     public event Action<int> OnDamage;
     public event Action OnDie;
+    public event Action<float> OnMana;
     public event Action<float> OnStamina;
 
     private void Awake()
@@ -55,6 +56,11 @@ public class CharacterStats : MonoBehaviour
             OnDie?.Invoke();
             IsDead = true;
         }
+    }
+
+    public void ChangeManaAction(float amount)
+    {
+
     }
 
     public void ChangeStaminaAction(float amount)

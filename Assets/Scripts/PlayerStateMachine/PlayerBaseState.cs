@@ -112,7 +112,7 @@ public class PlayerBaseState : IState
 
     protected virtual void OnAttackPerformed(InputAction.CallbackContext context)
     {
-        if (Cursor.lockState != CursorLockMode.None && stateMachine.Player.Health.stamina >= 5f)
+        if (Cursor.lockState != CursorLockMode.None && stateMachine.Player.Stats.stamina >= 5f)
             stateMachine.IsAttacking = true;
     }
 

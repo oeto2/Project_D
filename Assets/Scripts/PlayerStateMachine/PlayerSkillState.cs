@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerSkillState : PlayerAttackState
 {
-    // 공격 스킬
+    SkillInfoData skillInfoData;
+
     public PlayerSkillState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
     }
@@ -13,6 +14,12 @@ public class PlayerSkillState : PlayerAttackState
     {
         base.Enter();
         //StartAnimation();
+
+        int skillIndex = stateMachine.SkillIndex;
+        skillInfoData = stateMachine.Player.Data.SkillData.GetSkillInfo(skillIndex);
+        stateMachine.Player.Animator.SetInteger("Skill", skillIndex);
+        stateMachine.Player.Stats.ChangeManaAction(-skillInfoData.ManaCost);
+        
     }
 
     public override void Exit() 
@@ -24,5 +31,9 @@ public class PlayerSkillState : PlayerAttackState
     public override void Update()
     {
         base.Update();
+
+        float normalizedTime = GetNormalizedTime(stateMachine.Player.Animator, "Attack");
     }
+
+
 }

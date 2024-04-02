@@ -17,7 +17,7 @@ public class PlayerComboAttackState : PlayerAttackState
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.ComboAttackParameterHash);
 
-        stateMachine.Player.Health.ChangeStaminaAction(-5f);
+        stateMachine.Player.Stats.ChangeStaminaAction(-5f);
         alreadyApplyCombo = false;
 
         int comboIndex = stateMachine.ComboIndex;
