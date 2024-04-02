@@ -1,8 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem.XR;
 
 public class Player : MonoBehaviour, IDamagable
 {
@@ -22,11 +22,12 @@ public class Player : MonoBehaviour, IDamagable
 
     [field: SerializeField] public GameObject DefenseObj { get; private set; }
 
-    public Health Health { get; private set; }
+    public CharacterStats Stats { get; private set; }
 
     public PlayerStateMachine stateMachine;
     public Transform playerTransform;
     public InteractionSystem InteractionSystem;
+
 
     private void Awake()
     {
@@ -37,13 +38,16 @@ public class Player : MonoBehaviour, IDamagable
         //ForceReceiver = GetComponent<ForceReceiver>();
         Controller = GetComponent<PlayerController>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
-        Health = GetComponent<Health>();
+        Stats = GetComponent<CharacterStats>();
         PlayerController = GetComponent<PlayerController>();
         playerTransform = GetComponent<Transform>();
 
         stateMachine = new PlayerStateMachine(this);
         InteractionSystem = GetComponent<InteractionSystem>();
-        Health.InitHealth(Data.Health);
+
+        Stats.InitHealth(Data.Health);
+        Stats.InitMana(Data.Mana);
+        Stats.InitStamina(Data.Stamina);
     }
 
     private void Start()
@@ -51,7 +55,8 @@ public class Player : MonoBehaviour, IDamagable
         Cursor.lockState = CursorLockMode.Locked;
         stateMachine.ChangeState(stateMachine.IdleState);
 
-        Health.OnDie += OnDie;
+        Stats.OnDie += OnDie;
+        Stats.OnDie += OnDieCameraView;
     }
 
     private void Update()
@@ -71,8 +76,14 @@ public class Player : MonoBehaviour, IDamagable
         Animator.SetTrigger(stateMachine.Player.AnimationData.DieParameterHash);
     }
 
+    void OnDieCameraView()
+    {
+        Camera cam = Camera.main;
+        cam.cullingMask = -1;
+    }
+
     public void TakePhysicalDamage(int damageAmount)
     {
-        Health.TakePhysicalDamage(damageAmount);
+        Stats.TakePhysicalDamage(damageAmount);
     }
 }

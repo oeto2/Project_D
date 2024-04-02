@@ -95,13 +95,13 @@ public class SaveLoadData
 {
     // 창고, 인벤, 돈
     // 인벤토리 관련 정보
-    public int[] itemID = new int[30];
-    public int[] itemStack = new int[30];
+    public int[] itemID = new int[Constant.InvenSize];
+    public int[] itemStack = new int[Constant.InvenSize];
     public int gold;
 
     //창고 데이터
-    public int[] storage_ItemID = new int[70];
-    public int[] storage_ItemStack = new int[70];
+    public int[] storage_ItemID = new int[Constant.StorageSize];
+    public int[] storage_ItemStack = new int[Constant.StorageSize];
     public int storage_Gold;
 
     // 장비창 관련 정보

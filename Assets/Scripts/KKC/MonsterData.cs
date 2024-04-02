@@ -18,6 +18,9 @@ public class MonsterData
     [SerializeField] private float _monsterStiff;
     [SerializeField] private int _monsterMaxRoot;
     [SerializeField] private int _dropId;
+    [SerializeField] private int _monsterChasingRng;
+    [SerializeField] private int _monsterRotationDamping;
+
 
     public int id => _id;
     public string monsterName => _monsterName;
@@ -31,4 +34,6 @@ public class MonsterData
     public float monsterStiff => _monsterStiff;
     public int monsterMaxRoot => _monsterMaxRoot;
     public int dropId => _dropId;
+    public int monsterChasingRng => _monsterChasingRng;
+    public int monsterRotationDamping => _monsterRotationDamping;
 }

@@ -17,6 +17,7 @@ public class PlayerComboAttackState : PlayerAttackState
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.ComboAttackParameterHash);
 
+        stateMachine.Player.Stats.ChangeStaminaAction(-5f);
         alreadyApplyCombo = false;
 
         int comboIndex = stateMachine.ComboIndex;
@@ -37,7 +38,7 @@ public class PlayerComboAttackState : PlayerAttackState
     {
         if (alreadyApplyCombo) return;
 
-        if (attackInfoData.ComboStateIndex == 3) return;
+        if (attackInfoData.ComboStateIndex == stateMachine.Player.Data.AttackData.GetAttackInfoCount()) return;
 
         if (!stateMachine.IsAttacking) return;
 

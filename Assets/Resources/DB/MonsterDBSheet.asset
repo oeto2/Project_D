@@ -25,6 +25,8 @@ MonoBehaviour:
     _monsterStiff: 0.2
     _monsterMaxRoot: 5
     _dropId: 10000001
+    _monsterChasingRng: 10
+    _monsterRotationDamping: 15
   - _id: 11000002
     _monsterName: "\uBBF8\uBBF9"
     _monsterHp: 150
@@ -37,3 +39,5 @@ MonoBehaviour:
     _monsterStiff: 0.2
     _monsterMaxRoot: 6
     _dropId: 10000002
+    _monsterChasingRng: 10
+    _monsterRotationDamping: 15
