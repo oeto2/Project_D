@@ -16,6 +16,9 @@ public class EnemyStiffState : EnemyBaseState
     {
         //경직 상태 시간 초기화
         stiffTime = stateMachine.Enemy.Data.monsterStiff;
+        Debug.Log($"몬스터 경직상태, 경직{stiffTime}초");
+
+        elapsedTime = 0f;
         stateMachine.MovementSpeedModifier = 0f;
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);
@@ -32,7 +35,6 @@ public class EnemyStiffState : EnemyBaseState
     public override void Update()
     {
         elapsedTime += Time.deltaTime;
-        Debug.Log("몬스터 경직상태");
         if (stiffTime < elapsedTime)
         {
             stateMachine.ChangeState(stateMachine.IdlingState);
