@@ -2,25 +2,27 @@ using Constants;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
-public class DropPerDB : MonoBehaviour
+public class DropPerDB
 {
     private Dictionary<int, DropPerData> _dropPer = new();
 
-    [SerializeField] private List<ItemData> _commonItem = new List<ItemData>();
-    [SerializeField] private List<ItemData> _uncommonItem = new List<ItemData>();
-    [SerializeField] private List<ItemData> _rareItem = new List<ItemData>();
-    [SerializeField] private List<ItemData> _uniqueItem = new List<ItemData>();
+    private List<ItemData> _commonItem = new List<ItemData>();
+    private List<ItemData> _uncommonItem = new List<ItemData>();
+    private List<ItemData> _rareItem = new List<ItemData>();
+    private List<ItemData> _uniqueItem = new List<ItemData>();
+
+    private List<ItemGrade> _totalItem = new List<ItemGrade>();
+    private List<int> _totalDropPer = new List<int>();
 
     System.Random random = new System.Random();
 
-    private void Start()
+    public DropPerDB()
     {
-        ItemEnum();
-        
-        var res = Resources.Load<DropPerSheet>("DB/DropPerDBSheet");
+        var res = Resources.Load<DropPerSheet>("DB/DropPerSheet");
         var dropPerSO = Object.Instantiate(res);
         var datas = dropPerSO.Drop_Table;
 
@@ -36,13 +38,6 @@ public class DropPerDB : MonoBehaviour
                 _dropPer[data.id] = data;
             else
                 _dropPer.Add(data.id, data);
-        }
-
-        int rand = random.Next(1, Database.Monster.Get(11000001).monsterMaxRoot);
-        for(int i = 0; i < rand; i++)
-        {
-            //GetItem(Database.Monster.Get(11000001).dropId);
-            Debug.Log(GetItem(Database.Monster.Get(11000001).dropId).itemName);
         }
     }
 
@@ -83,11 +78,11 @@ public class DropPerDB : MonoBehaviour
             case ItemGrade.Common:
                 return _commonItem[random.Next(_commonItem.Count)];
             case ItemGrade.Uncommon:
-                return _commonItem[random.Next(_uncommonItem.Count)];
+                return _uncommonItem[random.Next(_uncommonItem.Count)];
             case ItemGrade.Rare:
-                return _commonItem[random.Next(_rareItem.Count)];
+                return _rareItem[random.Next(_rareItem.Count)];
             case ItemGrade.Unique:
-                return _commonItem[random.Next(_uniqueItem.Count)];
+                return _uniqueItem[random.Next(_uniqueItem.Count)];
         }
         return null;
     }
@@ -95,22 +90,22 @@ public class DropPerDB : MonoBehaviour
     public ItemData GetItem(int dropPerId_)
     {
         int rand = random.Next(_dropPer[dropPerId_].totalDropPer);
-        
+
         if (rand <= _dropPer[dropPerId_].dropPer4)
         {
             return GetItem(ItemGrade.Unique);
         }
-        else if (rand <= _dropPer[dropPerId_].dropPer3)
+        else if (rand <= _dropPer[dropPerId_].dropPer4 + _dropPer[dropPerId_].dropPer3)
         {
             return GetItem(ItemGrade.Rare);
         }
-        else if (rand <= _dropPer[dropPerId_].dropPer2)
+        else if (rand <= _dropPer[dropPerId_].dropPer4 + _dropPer[dropPerId_].dropPer3 + _dropPer[dropPerId_].dropPer2)
         {
             return GetItem(ItemGrade.Uncommon);
         }
-        else if (rand <= _dropPer[dropPerId_].dropPer1)
+        else if (rand <= _dropPer[dropPerId_].dropPer4 + _dropPer[dropPerId_].dropPer3 + _dropPer[dropPerId_].dropPer2 + _dropPer[dropPerId_].dropPer1)
         {
-            return GetItem(ItemGrade.Unique);
+            return GetItem(ItemGrade.Common);
         }
         else
             return null;

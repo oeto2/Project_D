@@ -71,3 +71,45 @@ MonoBehaviour:
     _width: 2
     _height: 2
     _itemSprite: Images/Items/Chest
+  - _id: 10000011
+    _itemName: "\uC5B8\uCEE4\uBA3C\uC544\uC774\uD15C"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 1
+    _width: 0
+    _height: 0
+    _itemSprite: 
+  - _id: 10000012
+    _itemName: "\uB808\uC5B4\uC544\uC774\uD15C"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 2
+    _width: 0
+    _height: 0
+    _itemSprite: 
+  - _id: 10000013
+    _itemName: "\uC720\uB2C8\uD06C\uC544\uC774\uD15C"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 3
+    _width: 0
+    _height: 0
+    _itemSprite: 
