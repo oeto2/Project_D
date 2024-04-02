@@ -5,6 +5,7 @@ using UnityEngine;
 public class Database : MonoBehaviour
 {
     private static ItemDB item;
+    private static MonsterDB monster;
 
     public static ItemDB Item
     {
@@ -14,6 +15,17 @@ public class Database : MonoBehaviour
                 item = new ItemDB();
 
             return item;
+        }
+    }
+
+    public static MonsterDB Monster
+    {
+        get
+        {
+            if (monster == null)
+                monster = new MonsterDB();
+
+            return monster;
         }
     }
 }

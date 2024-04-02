@@ -5,13 +5,11 @@ using UnityEngine;
 public class EnemyBaseState : IState
 {
     protected EnemyStateMachine stateMachine;
-    protected readonly EnemyGroundData groundData;
     protected bool isMove = true;
 
     public EnemyBaseState(EnemyStateMachine ememyStateMachine)
     {
         stateMachine = ememyStateMachine;
-        groundData = stateMachine.Enemy.Data.GroundedData;
     }
 
     public virtual void Enter()
@@ -28,7 +26,7 @@ public class EnemyBaseState : IState
 
     public virtual void Update()
     {
-        //if (isMove)
+        if (isMove)
             Move();
     }
 
@@ -118,12 +116,9 @@ public class EnemyBaseState : IState
 
     protected bool IsInChaseRange()
     {
-        //Debug.Log($"플레이어 위치 : {stateMachine.Target.transform.position}");
-        // if (stateMachine.Target.IsDead) { return false; }
-
         //제곱을 푸는 연산보다 한번 더 곱하는 연산이 메모리상 좋음
         float playerDistanceSqr = (stateMachine.Enemy.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
 
-        return playerDistanceSqr <= stateMachine.Enemy.Data.EnemyChasingRange * stateMachine.Enemy.Data.EnemyChasingRange;
+        return playerDistanceSqr <= stateMachine.Enemy.Data.monsterChasingRng * stateMachine.Enemy.Data.monsterChasingRng;
     }
 }

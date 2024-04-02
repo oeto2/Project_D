@@ -143,7 +143,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         int _tempItemCount = itemCount;
         if (DragSlot.instance.dragSlot != null)
         {
-            if(_tempItem == DragSlot.instance.dragSlot.item)
+            if(_tempItem == DragSlot.instance.dragSlot.item && (_tempItem.itemType == Constants.ItemType.Material||_tempItem.itemType==Constants.ItemType.Consume))
             {
                 SetSlotCount(DragSlot.instance.dragSlot.itemCount);
                 DragSlot.instance.dragSlot.ClearSlot();

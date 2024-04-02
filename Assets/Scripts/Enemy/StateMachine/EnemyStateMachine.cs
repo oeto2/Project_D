@@ -22,16 +22,13 @@ public class EnemyStateMachine : StateMachine
     public EnemyStateMachine(Enemy enemy)
     {
         Enemy = enemy;
-
-        
-
         IdlingState = new EnemyIdleState(this);
         ChasingState = new EnemyChasingState(this);
         AttackState = new EnemyAttackState(this);
         WanderingState = new EnemyWanderingState(this);
         DeadState = new EnemyDeadState(this);
 
-        MovementSpeed = enemy.Data.GroundedData.BaseSpeed;
-        RotationDamping = enemy.Data.GroundedData.BaseRotationDamping;
+        MovementSpeed = enemy.Data.monsterWalk;
+        RotationDamping = enemy.Data.monsterRotationDamping;
     }
 }

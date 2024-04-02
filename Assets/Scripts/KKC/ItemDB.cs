@@ -38,6 +38,6 @@ public class ItemDB
 
     public IEnumerator DbEnumerator()
     {
-        return items.GetEnumerator();
+        return items.Values.GetEnumerator();
     }
 }
