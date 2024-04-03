@@ -19,4 +19,9 @@ namespace Constants
         Rare,
         Unique
     }
+
+    public enum ClassType
+    {
+        Warrior
+    }
 }

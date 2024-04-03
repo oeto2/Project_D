@@ -22,7 +22,7 @@ public class Player : MonoBehaviour, IDamagable
 
     [field: SerializeField] public GameObject DefenseObj { get; private set; }
 
-    public CharacterStats Health { get; private set; }
+    public CharacterStats Stats { get; private set; }
 
     public PlayerStateMachine stateMachine;
     public Transform playerTransform;
@@ -36,15 +36,16 @@ public class Player : MonoBehaviour, IDamagable
         Input = GetComponent<PlayerInputs>();
         Controller = GetComponent<PlayerController>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
-        Health = GetComponent<CharacterStats>();
+        Stats = GetComponent<CharacterStats>();
         PlayerController = GetComponent<PlayerController>();
         playerTransform = GetComponent<Transform>();
 
         stateMachine = new PlayerStateMachine(this);
         InteractionSystem = GetComponent<InteractionSystem>();
 
-        Health.InitHealth(Data.Health);
-        Health.InitStamina(Data.Stamina);
+        Stats.InitHealth(Data.Health);
+        Stats.InitMana(Data.Mana);
+        Stats.InitStamina(Data.Stamina);
     }
 
     private void Start()
@@ -52,8 +53,8 @@ public class Player : MonoBehaviour, IDamagable
         Cursor.lockState = CursorLockMode.Locked;
         stateMachine.ChangeState(stateMachine.IdleState);
 
-        Health.OnDie += OnDie;
-        Health.OnDie += OnDieCameraView;
+        Stats.OnDie += OnDie;
+        Stats.OnDie += OnDieCameraView;
     }
 
     private void Update()
@@ -81,6 +82,6 @@ public class Player : MonoBehaviour, IDamagable
 
     public void TakePhysicalDamage(int damageAmount)
     {
-        Health.TakePhysicalDamage(damageAmount);
+        Stats.TakePhysicalDamage(damageAmount);
     }
 }

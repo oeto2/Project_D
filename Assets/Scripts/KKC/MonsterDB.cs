@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterDB
 {
-    private Dictionary<int, MonsterData> monsters = new();
+    private Dictionary<int, MonsterData> _monsters = new();
 
     public MonsterDB()
     {
@@ -20,17 +20,17 @@ public class MonsterDB
         {
             var monster = entities[i];
 
-            if (monsters.ContainsKey(monster.id))
-                monsters[monster.id] = monster;
+            if (_monsters.ContainsKey(monster.id))
+                _monsters[monster.id] = monster;
             else
-                monsters.Add(monster.id, monster);
+                _monsters.Add(monster.id, monster);
         }
     }
 
     public MonsterData Get(int id)
     {
-        if (monsters.ContainsKey(id))
-            return monsters[id];
+        if (_monsters.ContainsKey(id))
+            return _monsters[id];
         else
             return null;
     }

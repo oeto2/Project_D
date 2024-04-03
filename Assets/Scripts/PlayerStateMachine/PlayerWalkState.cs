@@ -27,7 +27,7 @@ public class PlayerWalkState : PlayerGroundState
     {
         base.Update();
 
-        stateMachine.Player.Health.ChangeStaminaAction(Time.deltaTime);
+        stateMachine.Player.Stats.ChangeStaminaAction(Time.deltaTime);
     }
 
     protected override void OnRunStarted(InputAction.CallbackContext context)

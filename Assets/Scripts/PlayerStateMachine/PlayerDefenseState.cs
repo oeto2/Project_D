@@ -31,9 +31,9 @@ public class PlayerDefenseState : PlayerGroundState
     {
         base.Update();
 
-        stateMachine.Player.Health.ChangeStaminaAction(-5 * Time.deltaTime);
+        stateMachine.Player.Stats.ChangeStaminaAction(-5 * Time.deltaTime);
 
-        if (!stateMachine.IsDefensing || stateMachine.Player.Health.stamina <= 0)
+        if (!stateMachine.IsDefensing || stateMachine.Player.Stats.stamina <= 0)
             stateMachine.ChangeState(stateMachine.IdleState);
     }
 

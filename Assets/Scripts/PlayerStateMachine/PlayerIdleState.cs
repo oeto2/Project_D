@@ -30,6 +30,6 @@ public class PlayerIdleState : PlayerGroundState
             OnMove();
             return;
         }
-        stateMachine.Player.Health.ChangeStaminaAction(5 * Time.deltaTime);
+        stateMachine.Player.Stats.ChangeStaminaAction(5 * Time.deltaTime);
     }
 }

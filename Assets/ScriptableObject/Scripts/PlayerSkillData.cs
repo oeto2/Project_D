@@ -8,6 +8,7 @@ using UnityEngine;
 public class SkillInfoData
 {
     [field: SerializeField] public string SkillName { get; private set; }
+    [field: SerializeField] public int SkillStateIndex { get; private set; }
     [field: SerializeField] public float ManaCost { get; private set; }
     [field: SerializeField] public int Damage { get; private set; }
     [field: SerializeField] public float SkillRange { get; private set; }
