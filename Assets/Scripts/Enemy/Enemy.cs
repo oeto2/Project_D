@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public CharacterController Controller { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
 
-    [field: SerializeField] private int EnemyPatrolLocation_number;
+    public int EnemyPatrolLocation_number;
 
     private EnemyStateMachine stateMachine;
 
@@ -81,8 +81,8 @@ public class Enemy : MonoBehaviour, IDamagable
         ForceReceiver = GetComponent<EnemyForceReceiver>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Health = GetComponent<CharacterStats>();
-        //순찰 장소
-        SetPatrolLocation(EnemyPatrolLocation_number);
+        ////순찰 장소
+        //SetPatrolLocation(EnemyPatrolLocation_number);
         Health.InitHealth(Data.monsterHp);
     }
 
@@ -140,15 +140,17 @@ public class Enemy : MonoBehaviour, IDamagable
     //몬스터가 순찰할 좌표 설정
     public void SetPatrolLocation(int index)
     {
+        EnemyPatrolLocation_number = index;
+
         switch (index)
         {
-            case 1:
+            case 0:
                 //몬스터 순찰 위치 동적할당
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint0").transform);
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint1").transform);
                 break;
 
-            case 2:
+            case 1:
                 //몬스터 순찰 위치 동적할당
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint2").transform);
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint3").transform);
