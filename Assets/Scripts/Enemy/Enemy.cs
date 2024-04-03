@@ -118,9 +118,9 @@ public class Enemy : MonoBehaviour, IDamagable
     public void TakePhysicalDamage(int damageAmount)
     {
         Health.TakePhysicalDamage(damageAmount);
+        Debug.Log(Health.health);
 
-        //피격시 경직상태 진입
-        if (enableStiff)
+        if (enableStiff && Health.health > 0)
         {
             stateMachine.ChangeState(stateMachine.StiffState);
             StartCoroutine(StiffStateDelay());
