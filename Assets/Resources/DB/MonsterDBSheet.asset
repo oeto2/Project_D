@@ -48,7 +48,7 @@ MonoBehaviour:
     _monsterAtkSpd: 0.1
     _monsterAtkRng: 1
     _monsterDef: 5
-    _monsterWalk: 0.5
+    _monsterWalk: 2.5
     _monsterRun: 7
     _monsterStiff: 1
     _monsterMaxRoot: 5

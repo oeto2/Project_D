@@ -22,6 +22,11 @@ public class GameManager : SingletonBase<GameManager>
     {
         SceneManager.sceneLoaded += PlayerInit;
     }
+    private void Start()
+    {
+        //아이템 데이터 세팅
+        Database.DropPer.ItemEnum();
+    }
 
     private void PlayerInit(Scene scene, LoadSceneMode mode)
     {
