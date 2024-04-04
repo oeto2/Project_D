@@ -8692,6 +8692,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3038920133769852075, guid: da1d7ac8286ce5f41acc1c5455b2bccc,
+        type: 3}
+      propertyPath: _cellBase
+      value: 
+      objectReference: {fileID: 370754256101361980}
     - target: {fileID: 3587903643696247953, guid: da1d7ac8286ce5f41acc1c5455b2bccc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8884,6 +8889,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4062160260415810066, guid: da1d7ac8286ce5f41acc1c5455b2bccc, type: 3}
+    - {fileID: 3699749998824809461, guid: da1d7ac8286ce5f41acc1c5455b2bccc, type: 3}
+    - {fileID: 2421379618785703275, guid: da1d7ac8286ce5f41acc1c5455b2bccc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6747730984532728151, guid: da1d7ac8286ce5f41acc1c5455b2bccc, type: 3}
     m_AddedGameObjects:
@@ -88295,7 +88302,7 @@ GameObject:
   - component: {fileID: 6560073618685421080}
   - component: {fileID: 429722744920016452}
   - component: {fileID: 7385190426931130369}
-  - component: {fileID: 1627375524608945652}
+  - component: {fileID: 7385190426931130370}
   m_Layer: 5
   m_Name: ShopSlot 1
   m_TagString: Untagged
@@ -89038,39 +89045,6 @@ Transform:
   m_Father: {fileID: 4876445149425422139}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1627375524608945652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370754256101361980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f039f75982c6fd04fbbe995503469b92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemName: {fileID: 5627471557704055229}
-  ItemPrice: {fileID: 2691326169569053441}
-  ItemDescription: {fileID: 877543172762709117}
-  ItemStack: {fileID: 3153981367733549441}
-  BuyItemButton: {fileID: 2559308420350998876}
-  ItemSprite: {fileID: 7330049454061323113}
-  ItemData:
-    _id: 0
-    _itemName: 
-    _itemType: 0
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: 
-    _itemMaxStack: 0
-    _itemGrade: 0
-    _width: 0
-    _height: 0
-    _itemSprite: 
 --- !u!1 &1648600623693375081
 GameObject:
   m_ObjectHideFlags: 0
@@ -93508,6 +93482,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7385190426931130370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370754256101361980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ade521a745d2a489307390c9547436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemName: {fileID: 5627471557704055229}
+  ItemPrice: {fileID: 2691326169569053441}
+  ItemDescription: {fileID: 877543172762709117}
+  ItemStack: {fileID: 3153981367733549441}
+  BuyItemButton: {fileID: 2559308420350998876}
+  ItemSprite: {fileID: 7330049454061323113}
+  itemData:
+    _id: 0
+    _itemName: 
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 0
+    _width: 0
+    _height: 0
+    _itemSprite: 
 --- !u!4 &7385343792827049707
 Transform:
   m_ObjectHideFlags: 0
