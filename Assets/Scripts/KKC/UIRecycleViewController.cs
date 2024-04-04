@@ -20,9 +20,13 @@ namespace UI
 
         private LinkedList<UIRecycleViewCell<T>> _cells = new LinkedList<UIRecycleViewCell<T>>(); // 셀 저장 리스트
 
-        private Rect _visibleRect; // 리스트 항목을 셀읳 ㅕㅇ태로 표시하는 범위를 나타내는 사각형
+        private Rect _visibleRect; // 리스트 항목을 셀의형태로 표시하는 범위를 나타내는 사각형
 
         private Vector2 _prevScrollPos; // 바로 전 스크롤 위치를 저장
+
+        [SerializeField]
+        private float contentHeight = 0;
+
 
         public RectTransform CachedRectTransform => GetComponent<RectTransform>();
         public ScrollRect CachedScrollRect => GetComponent<ScrollRect>();
@@ -93,7 +97,7 @@ namespace UI
         protected void UpdateScrollViewSize()
         {
             // 스크롤 할 내용 전체의 높이를 계산
-            float contentHeight = 0f;
+            contentHeight = 0f;
             for (int i = 0; i < tableData.Count; i++)
             {
                 contentHeight += GetCellHeightAtIndex(i);
