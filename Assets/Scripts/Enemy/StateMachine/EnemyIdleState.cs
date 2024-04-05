@@ -21,7 +21,7 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Enter()
     {
-        //Debug.Log("기본 상태 진입");
+        Debug.Log("기본 상태 진입");
 
         //기다리는 시간 설정값 초기화
         isWaiting = true;
@@ -43,6 +43,8 @@ public class EnemyIdleState : EnemyBaseState
     public override void Update()
     {
         elapsedTime += Time.deltaTime;
+
+        Debug.Log("기본상태 중");
 
         //설정된 시간이 지났다면,
         if (elapsedTime >= WaitTime)
