@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b68f3aeefbb5bb48b9a912f10f0fd64, type: 3}
   m_Name: ShopDBSheet
   m_EditorClassIdentifier: 
-  Shop_table:
+  Shop_Table:
   - _id: 10000001
     _shopName: "\uC0C1\uC810"
     _item1: 20000001
     _item2: 20000002
-    _item3: 0
-    _item4: 0
-    _item5: 0
+    _item3: 20000002
+    _item4: 20000002
+    _item5: 20000002
+    _item6: 20000002
+    _item7: 20000002
+    _item8: 20000002
+    _item9: 20000002
+    _item10: 20000002
