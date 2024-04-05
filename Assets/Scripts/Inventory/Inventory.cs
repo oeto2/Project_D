@@ -1,5 +1,3 @@
-using Constants;
-using DarkPixelRPGUI.Scripts.UI.Equipment;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -38,7 +36,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        _slots = _slotsParent.GetComponentsInChildren<Slot>();
+         _slots = _slotsParent.GetComponentsInChildren<Slot>();
         for (int i = 0; i < _slots.Length; i++)
         {
             if (InformationManager.Instance.saveLoadData.itemID[i] != 0)
