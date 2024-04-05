@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da9742839b0ed047acd53f6b9de9e0a, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 100
+  <Health>k__BackingField: 10000
   <Mana>k__BackingField: 100
   <Stamina>k__BackingField: 100
   <GroundedData>k__BackingField:
@@ -43,6 +43,11 @@ MonoBehaviour:
     <SkillInfoDatas>k__BackingField:
     - <SkillName>k__BackingField: "\uAE30\uC0AC\uC2A4\uD0AC1"
       <SkillStateIndex>k__BackingField: 1
+      <ManaCost>k__BackingField: 40
+      <Damage>k__BackingField: 500
+      <SkillRange>k__BackingField: 2
+    - <SkillName>k__BackingField: "\uAE30\uC0AC\uC2A4\uD0AC2"
+      <SkillStateIndex>k__BackingField: 2
       <ManaCost>k__BackingField: 20
       <Damage>k__BackingField: 500
-      <SkillRange>k__BackingField: 5
+      <SkillRange>k__BackingField: 1.6

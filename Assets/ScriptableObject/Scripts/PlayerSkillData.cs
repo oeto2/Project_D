@@ -18,5 +18,5 @@ public class SkillInfoData
 public class PlayerSkillData
 {
     [field: SerializeField] public List<SkillInfoData> SkillInfoDatas { get; private set; }
-    public SkillInfoData GetSkillInfo(int index) { return SkillInfoDatas[index]; }
+    public SkillInfoData GetSkillInfo(int index) { return SkillInfoDatas[index - 1]; }
 }
