@@ -24,6 +24,8 @@ MonoBehaviour:
     _itemDescription: "\uB0A1\uC740 \uAC80\uC774\uB2E4"
     _itemMaxStack: 1
     _itemGrade: 0
+    _width: 1
+    _height: 2
     _itemSprite: Images/Items/Sword
   - _id: 20000001
     _itemName: "\uCCB4\uB825\uBB3C\uC57D(\uC18C)"
@@ -37,6 +39,8 @@ MonoBehaviour:
       \uC18C\uB7C9 \uD68C\uBCF5\uD55C\uB2E4."
     _itemMaxStack: 20
     _itemGrade: 0
+    _width: 1
+    _height: 1
     _itemSprite: Images/Items/LittleHpPotion
   - _id: 20000002
     _itemName: "\uB9C8\uB098\uBB3C\uC57D(\uC18C)"
@@ -50,6 +54,8 @@ MonoBehaviour:
       \uC18C\uB7C9 \uD68C\uBCF5\uD55C\uB2E4."
     _itemMaxStack: 20
     _itemGrade: 0
+    _width: 1
+    _height: 1
     _itemSprite: Images/Items/LittleMpPotion
   - _id: 30000002
     _itemName: "\uBC29\uC5B4\uAD6C"
@@ -62,4 +68,48 @@ MonoBehaviour:
     _itemDescription: "\uBC29\uC5B4\uAD6C\uC774\uB2E4."
     _itemMaxStack: 1
     _itemGrade: 0
+    _width: 2
+    _height: 2
     _itemSprite: Images/Items/Chest
+  - _id: 10000011
+    _itemName: "\uC5B8\uCEE4\uBA3C\uC544\uC774\uD15C"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 1
+    _width: 0
+    _height: 0
+    _itemSprite: 
+  - _id: 10000012
+    _itemName: "\uB808\uC5B4\uC544\uC774\uD15C"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 2
+    _width: 0
+    _height: 0
+    _itemSprite: 
+  - _id: 10000013
+    _itemName: "\uC720\uB2C8\uD06C\uC544\uC774\uD15C"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 3
+    _width: 0
+    _height: 0
+    _itemSprite: 

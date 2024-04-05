@@ -34,8 +34,6 @@ public class Player : MonoBehaviour, IDamagable
         AnimationData.Initialize();
         Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInputs>();
-        //Rigidbody = GetComponent<Rigidbody>();  
-        //ForceReceiver = GetComponent<ForceReceiver>();
         Controller = GetComponent<PlayerController>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Stats = GetComponent<CharacterStats>();
