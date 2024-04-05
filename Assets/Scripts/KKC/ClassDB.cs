@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDB
+public class ClassDB
 {
-    private Dictionary<int, ItemData> items = new();
+    private Dictionary<int, ClassData> charClasses = new();
 
-    public ItemDB()
+    public ClassDB()
     {
-        var res = Resources.Load<ItemDBSheet>("DB/ItemDBSheet");
-        var itemSO = Object.Instantiate(res);
-        var entities = itemSO.Item_Table;
+        var res = Resources.Load<ClassDBSheet>("DB/ClassDBSheet");
+        var classSO = Object.Instantiate(res);
+        var entities = classSO.Class_Table;
 
         if (entities == null || entities.Count <= 0)
             return;
@@ -19,25 +19,20 @@ public class ItemDB
         var entityCount = entities.Count;
         for(int i = 0; i < entityCount; i++)
         {
-            var item = entities[i];
+            var charClass = entities[i];
 
-            if (items.ContainsKey(item.id))
-                items[item.id] = item;
+            if (charClasses.ContainsKey(charClass.id))
+                charClasses[charClass.id] = charClass;
             else
-                items.Add(item.id, item);
+                charClasses.Add(charClass.id, charClass);
         }
     }
 
-    public ItemData Get(int id)
+    public ClassData Get(int id)
     {
-        if (items.ContainsKey(id))
-            return items[id];
+        if (charClasses.ContainsKey(id))
+            return charClasses[id];
 
         return null;
-    }
-
-    public IEnumerator DbEnumerator()
-    {
-        return items.Values.GetEnumerator();
     }
 }

@@ -8,6 +8,7 @@ public class Database : MonoBehaviour
     private static MonsterDB monster;
     private static ClassDB charClass;
     private static DropPerDB dropPer;
+    private static ShopDB shop;
 
     public static ItemDB Item
     {
@@ -50,6 +51,17 @@ public class Database : MonoBehaviour
                 dropPer = new DropPerDB();
 
             return dropPer;
+        }
+    }
+
+    public static ShopDB Shop
+    {
+        get
+        {
+            if (shop == null)
+                shop = new ShopDB();
+
+            return shop;
         }
     }
 }
