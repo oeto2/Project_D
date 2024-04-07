@@ -82,6 +82,7 @@ public class InteractionSystem : MonoBehaviour
         if (isInteract && curInteractable != null)
         {
             curInteractable.OnInteract();
+            isInteract = false;
         }
     }
 
@@ -91,19 +92,4 @@ public class InteractionSystem : MonoBehaviour
         promptText.text = string.Format($"<b>[{interactionRef.action.GetBindingDisplayString()}]</b> {curInteractable.GetInteractPrompt()}");
         
     }
-
-    // ÁöÈÆ´ÔÀÇ Ãß¾ï
-    //public void OnIteractInput(InputAction.CallbackContext callbackcontext)
-    //{
-    //    if (callbackcontext.phase == InputActionPhase.Started && curInteractable != null)
-    //    {
-    //        isInteract = true;
-
-    //    }
-    //    else if (callbackcontext.phase == InputActionPhase.Canceled && curInteractable != null)
-    //    {
-    //        isInteract = false;
-    //        curInteractable.CancelInteract();
-    //    }
-    //}
 }

@@ -26,10 +26,7 @@ public class UIManager : SingletonBase<UIManager>
 
     public GameObject GetPopup(string popupName)
     {
-        if (!_popups.ContainsKey(popupName))
-        {
-            ShowPopup(popupName);
-        }
+        ShowPopup(popupName);
 
         return _popups[popupName].gameObject;
     }
