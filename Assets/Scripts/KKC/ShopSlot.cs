@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopSlot : MonoBehaviour
+public class ShopSlot : UIRecycleViewCell<ItemData>
 {
     [Header("Item Information")]
     public TMP_Text ItemName;
@@ -14,15 +14,15 @@ public class ShopSlot : MonoBehaviour
     public Button BuyItemButton;
     public Image ItemSprite;
 
-    public ItemData ItemData;
+    public ItemData itemData;
 
-    public void UpdateUI(ItemData itemData_)
+    public override void UpdateContent(ItemData itemData_)
     {
-        ItemData = itemData_;
-        ItemName.text = ItemData.itemName;
-        ItemPrice.text = ItemData.itemPrice.ToString();
-        ItemDescription.text = ItemData.itemDescription;
-        ItemSprite.sprite = ResourceManager.Instance.Load<Sprite>(ItemData.itemSprite);
+        itemData = itemData_;
+        ItemName.text = itemData_.itemName;
+        ItemPrice.text = itemData_.itemPrice.ToString();
+        ItemDescription.text = itemData_.itemDescription;
+        ItemSprite.sprite = ResourceManager.Instance.Load<Sprite>(itemData.itemSprite);
         BuyItemButton.onClick.AddListener(() => OnBuyButton());
     }
 
@@ -32,10 +32,10 @@ public class ShopSlot : MonoBehaviour
         int itemCount; // ¾ÆÀÌÅÛ °¹¼ö
         if (int.TryParse(ItemStack.text, out itemCount))
         {
-            if(InformationManager.Instance.saveLoadData.gold >= ItemData.itemPrice*itemCount)
+            if (InformationManager.Instance.saveLoadData.gold >= itemData.itemPrice * itemCount)
             {
-                Inventory.instance.AcquireItem(ItemData, itemCount);
-                Inventory.instance.UpdateGold(-ItemData.itemPrice * itemCount);
+                Inventory.instance.AcquireItem(itemData, itemCount);
+                Inventory.instance.UpdateGold(-itemData.itemPrice * itemCount);
                 //Debug.Log(ItemData.itemName + " " + itemCount);
 
             }
