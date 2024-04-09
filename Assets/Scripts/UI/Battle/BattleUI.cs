@@ -27,6 +27,7 @@ public class BattleUI : UIBase
 
         //플레이어 피격시 체력 UI 새로고침
         _PlayerHealth.OnDamage += RefreshPlayerHpUI;
+        _PlayerHealth.OnMana += RefreshPlayerMpUI;
         _PlayerHealth.OnStamina += RefreshPlayerStaUI;
     }
 
@@ -34,6 +35,11 @@ public class BattleUI : UIBase
     private void RefreshPlayerHpUI(int damage)
     {
         _playerHp.value = Mathf.Clamp01(_PlayerHealth.health / _PlayerHealth.maxHealth);
+    }
+
+    private void RefreshPlayerMpUI(float amount)
+    {
+        _playerMp.value = Mathf.Clamp01(_PlayerHealth.mana / _PlayerHealth.maxMana);
     }
 
     private void RefreshPlayerStaUI(float amount)

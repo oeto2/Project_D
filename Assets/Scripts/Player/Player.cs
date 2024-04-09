@@ -23,6 +23,9 @@ public class Player : MonoBehaviour, IDamagable
     [field: SerializeField] public GameObject DefenseObj { get; private set; }
 
     public CharacterStats Stats { get; private set; }
+    public PlayerSkills PlayerSkills { get; private set; }
+
+    public ClassData Datas { get; private set; }
 
     public PlayerStateMachine stateMachine;
     public Transform playerTransform;
@@ -37,6 +40,7 @@ public class Player : MonoBehaviour, IDamagable
         Controller = GetComponent<PlayerController>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Stats = GetComponent<CharacterStats>();
+        PlayerSkills = GetComponentInChildren<PlayerSkills>();
         PlayerController = GetComponent<PlayerController>();
         playerTransform = GetComponent<Transform>();
 
