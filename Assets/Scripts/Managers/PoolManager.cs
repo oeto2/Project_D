@@ -7,7 +7,6 @@ public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance = null;
 
-
     [System.Serializable]
     public struct Pool
     {
@@ -45,7 +44,7 @@ public class PoolManager : MonoBehaviour
 
         GameObject obj = poolDictionary[tag].Dequeue();
         poolDictionary[tag].Enqueue(obj);
-
+        obj.SetActive(true);
         return obj;
     }
 }
