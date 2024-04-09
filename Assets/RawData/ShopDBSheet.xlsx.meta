@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/RawData/ShopDBSheet.xlsx.meta
 guid: 12e6d8e66ff81ea47a3709e5e440358b
+========
+guid: d5fdc92d517eb4b4c9b3090b558ccd24
+folderAsset: yes
+>>>>>>>> Feature_CCH2:Assets/Knight/Animations/PlayerAnim.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

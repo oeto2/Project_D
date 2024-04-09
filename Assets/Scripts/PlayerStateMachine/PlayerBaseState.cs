@@ -46,6 +46,10 @@ public class PlayerBaseState : IState
             Move();
             Look();
         }
+        if (stateMachine.SkillIndex == 0)
+        {
+            stateMachine.Player.Stats.ChangeManaAction(0.1f * Time.deltaTime);
+        }
     }
 
     protected virtual void AddInputActionsCallback()
@@ -68,6 +72,10 @@ public class PlayerBaseState : IState
 
         input.playerActions.Defense.performed += OnDefensePerformed;
         input.playerActions.Defense.canceled += OnDefenseCanceled;
+
+        input.playerActions.Skill1.performed += OnSkill1Performed;
+        input.playerActions.Skill2.performed += OnSkill2Performed;
+        input.playerActions.Skill3.performed += OnSkill3Performed;
     }
 
 
@@ -90,6 +98,10 @@ public class PlayerBaseState : IState
 
         input.playerActions.Defense.performed -= OnDefensePerformed;
         input.playerActions.Defense.canceled -= OnDefenseCanceled;
+
+        input.playerActions.Skill1.performed -= OnSkill1Performed;
+        input.playerActions.Skill2.performed -= OnSkill2Performed;
+        input.playerActions.Skill3.performed -= OnSkill3Performed;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -138,7 +150,7 @@ public class PlayerBaseState : IState
 
         if(inventoryPopup != null)
         {
-            if (inventoryPopup.active)
+            if (inventoryPopup.activeSelf)
             {
                 inventoryPopup.SetActive(false);
                 return;
@@ -156,7 +168,7 @@ public class PlayerBaseState : IState
         //장비창 토글
         if (equipmentPopup != null)
         {
-            if (equipmentPopup.active)
+            if (equipmentPopup.activeSelf)
             {
                 equipmentPopup.SetActive(false);
                 return;
@@ -175,6 +187,33 @@ public class PlayerBaseState : IState
 
     protected virtual void OnDefenseCanceled(InputAction.CallbackContext context)
     {
+    }
+
+    private void OnSkill1Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(1))
+        {
+            stateMachine.SkillIndex = 1;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
+    }
+
+    private void OnSkill2Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(2))
+        {
+            stateMachine.SkillIndex = 2;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
+    }
+
+    private void OnSkill3Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(3))
+        {
+            stateMachine.SkillIndex = 3;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
     }
 
     private void ReadMovementInput()
@@ -242,5 +281,14 @@ public class PlayerBaseState : IState
         {
             return 0f;
         }
+    }
+
+    private bool CanSkillActive(int index)
+    {
+        if (stateMachine.Player.Stats.mana < stateMachine.Player.Data.SkillData.GetSkillInfo(index).ManaCost || stateMachine.Player.PlayerSkills.coolDowns[index - 1] > 0)
+        {
+            return false;
+        }
+        return true;
     }
 }
