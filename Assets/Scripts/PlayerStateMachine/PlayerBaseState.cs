@@ -75,6 +75,7 @@ public class PlayerBaseState : IState
 
         input.playerActions.Skill1.performed += OnSkill1Performed;
         input.playerActions.Skill2.performed += OnSkill2Performed;
+        input.playerActions.Skill3.performed += OnSkill3Performed;
     }
 
 
@@ -100,6 +101,7 @@ public class PlayerBaseState : IState
 
         input.playerActions.Skill1.performed -= OnSkill1Performed;
         input.playerActions.Skill2.performed -= OnSkill2Performed;
+        input.playerActions.Skill3.performed -= OnSkill3Performed;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -189,14 +191,29 @@ public class PlayerBaseState : IState
 
     private void OnSkill1Performed(InputAction.CallbackContext context)
     {
-        stateMachine.SkillIndex = 1;
-        stateMachine.ChangeState(stateMachine.SkillState);
+        if (CanSkillActive(1))
+        {
+            stateMachine.SkillIndex = 1;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
     }
 
     private void OnSkill2Performed(InputAction.CallbackContext context)
     {
-        stateMachine.SkillIndex = 2;
-        stateMachine.ChangeState(stateMachine.SkillState);
+        if (CanSkillActive(2))
+        {
+            stateMachine.SkillIndex = 2;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
+    }
+
+    private void OnSkill3Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(3))
+        {
+            stateMachine.SkillIndex = 3;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
     }
 
     private void ReadMovementInput()
@@ -264,5 +281,14 @@ public class PlayerBaseState : IState
         {
             return 0f;
         }
+    }
+
+    private bool CanSkillActive(int index)
+    {
+        if (stateMachine.Player.Stats.mana < stateMachine.Player.Data.SkillData.GetSkillInfo(index).ManaCost || stateMachine.Player.PlayerSkills.coolDowns[index - 1] > 0)
+        {
+            return false;
+        }
+        return true;
     }
 }

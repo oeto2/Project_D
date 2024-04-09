@@ -17,14 +17,9 @@ public class PlayerSkillState : PlayerAttackState
         int skillIndex = stateMachine.SkillIndex;
         skillInfoData = stateMachine.Player.Data.SkillData.GetSkillInfo(skillIndex);
 
-        if (stateMachine.Player.Stats.mana < skillInfoData.ManaCost)
-        {
-            stateMachine.ChangeState(stateMachine.IdleState);
-            return;
-        }
-
         stateMachine.Player.Animator.SetInteger("Skill", skillIndex);
         stateMachine.Player.Stats.ChangeManaAction(-skillInfoData.ManaCost);
+        stateMachine.Player.PlayerSkills.coolDowns[skillIndex - 1] = stateMachine.Player.Data.SkillData.GetSkillInfo(skillIndex).CoolDown;
 
         StartAnimation(stateMachine.Player.AnimationData.BaseSkillParameterHash);
     }

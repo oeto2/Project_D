@@ -5,7 +5,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerSkills : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> skillEffect;
+    [SerializeField] private List<GameObject> _skillEffect;
+    public float[] coolDowns;
     private ParticleSystem _ps;
     //public List<GameObject> _enemies = new List<GameObject>();
     [SerializeField] private GameObject _playerObj;
@@ -14,20 +15,30 @@ public class PlayerSkills : MonoBehaviour
     private void Awake()
     {
         _player = _playerObj.GetComponent<Player>();
+        coolDowns = new float[_player.Data.SkillData.GetSkillInfoCount()];
     }
     public void BaseSkill(AnimationEvent myEvent)
     {
-        _ps = skillEffect[myEvent.intParameter - 1].GetComponent<ParticleSystem>();
-        StopCoroutine(SkillOff(skillEffect[myEvent.intParameter - 1]));
-        skillEffect[myEvent.intParameter - 1].SetActive(true);
+        int index = myEvent.intParameter - 1;
+        _ps = _skillEffect[index].GetComponent<ParticleSystem>();
+        StopCoroutine(SkillOff(_skillEffect[index], index));
+        _skillEffect[index].SetActive(true);
         _ps.Play();
-        StartCoroutine(SkillOff(skillEffect[myEvent.intParameter - 1]));
+        StartCoroutine(SkillOff(_skillEffect[index], index));
     }
 
-    IEnumerator SkillOff(GameObject obj)
+    IEnumerator SkillOff(GameObject obj, int index)
     {
         ParticleSystem ps = obj.GetComponent<ParticleSystem>();
-        yield return new WaitForSeconds(ps.main.duration);
+        float duration = _player.Data.SkillData.GetSkillInfo(index + 1).Duration;
+        if (duration != 0)
+        {
+            yield return new WaitForSeconds(duration);
+        }
+        else
+        {
+            yield return new WaitForSeconds(ps.main.duration);
+        }
         ps.Stop();
         obj.SetActive(false);   
     }
