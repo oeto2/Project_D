@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da9742839b0ed047acd53f6b9de9e0a, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 100
+  <Health>k__BackingField: 10000
   <Mana>k__BackingField: 100
   <Stamina>k__BackingField: 100
   <GroundedData>k__BackingField:
     <BaseSpeed>k__BackingField: 5
-    <BaseRotationDamping>k__BackingField: 1
     <WalkSpeedModifier>k__BackingField: 0.225
     <RunSpeedModifier>k__BackingField: 1
   <AirData>k__BackingField:
@@ -41,8 +40,24 @@ MonoBehaviour:
       <AttackRange>k__BackingField: 1.3
   <SkillData>k__BackingField:
     <SkillInfoDatas>k__BackingField:
-    - <SkillName>k__BackingField: "\uAE30\uC0AC\uC2A4\uD0AC1"
+    - <SkillName>k__BackingField: "\uAE30\uC0AC\uACF5\uACA9\uC2A4\uD0AC1"
       <SkillStateIndex>k__BackingField: 1
+      <ManaCost>k__BackingField: 40
+      <Damage>k__BackingField: 500
+      <SkillRange>k__BackingField: 3
+      <CoolDown>k__BackingField: 0
+      <Duration>k__BackingField: 0
+    - <SkillName>k__BackingField: "\uAE30\uC0AC\uACF5\uACA9\uC2A4\uD0AC2"
+      <SkillStateIndex>k__BackingField: 2
       <ManaCost>k__BackingField: 20
       <Damage>k__BackingField: 500
-      <SkillRange>k__BackingField: 5
+      <SkillRange>k__BackingField: 1.6
+      <CoolDown>k__BackingField: 0
+      <Duration>k__BackingField: 0
+    - <SkillName>k__BackingField: "\uAE30\uC0AC\uBC84\uD504\uC2A4\uD0AC1"
+      <SkillStateIndex>k__BackingField: 3
+      <ManaCost>k__BackingField: 50
+      <Damage>k__BackingField: 0
+      <SkillRange>k__BackingField: 0
+      <CoolDown>k__BackingField: 60
+      <Duration>k__BackingField: 40

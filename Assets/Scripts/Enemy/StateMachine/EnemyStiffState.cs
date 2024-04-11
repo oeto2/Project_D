@@ -20,7 +20,7 @@ public class EnemyStiffState : EnemyBaseState
         playerHp = stateMachine.Enemy.Health.health;
         //경직 상태 시간 초기화
         stiffTime = stateMachine.Enemy.Data.monsterStiff;
-        Debug.Log($"몬스터 경직상태, 경직{stiffTime}초");
+        //Debug.Log($"몬스터 경직상태, 경직{stiffTime}초");
 
         elapsedTime = 0f;
         stateMachine.MovementSpeedModifier = 0f;
@@ -38,11 +38,11 @@ public class EnemyStiffState : EnemyBaseState
 
     public override void Update()
     {
-        Debug.Log("경직상태중");
+        //Debug.Log("경직상태중");
         elapsedTime += Time.deltaTime;
         if (stiffTime < elapsedTime)
         {
-            Debug.Log("경직상태 끝");
+            //Debug.Log("경직상태 끝");
             stateMachine.ChangeState(stateMachine.IdlingState);
         }
     }

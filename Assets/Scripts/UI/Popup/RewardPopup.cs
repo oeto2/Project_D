@@ -12,6 +12,7 @@ public class RewardPopup : UIBase
     {
         btnClose?.onClick.AddListener(() => CloseUI());
         _currentSceneName = SceneManager.GetActiveScene().name;
+        UIManager.Instance.ShowPopup<DragPopup>();
     }
 
     private void OnEnable()
@@ -24,6 +25,9 @@ public class RewardPopup : UIBase
     private void OnDisable()
     {
         UIManager.Instance.BattleUICount--;
+
+        //보상 이벤트 목록 정리
+        GameManager.Instance.ClearGetRewardItemEvent();
 
         //UI가 모두 종료 되었으면 다시 커서 락
         if (_currentSceneName != _lobbySceneName && UIManager.Instance.BattleUICount <= 0)

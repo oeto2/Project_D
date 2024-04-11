@@ -81,13 +81,15 @@ public class Enemy : MonoBehaviour, IDamagable
         ForceReceiver = GetComponent<EnemyForceReceiver>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Health = GetComponent<CharacterStats>();
-        ////¼øÂû Àå¼Ò
+        //¼øÂû Àå¼Ò
         //SetPatrolLocation(EnemyPatrolLocation_number);
         Health.InitHealth(Data.monsterHp);
     }
 
     private void Start()
     {
+        NavMeshAgent.speed = Data.monsterWalk;
+
         stateMachine.ChangeState(stateMachine.IdlingState);
 
         Health.OnDie += OnDie;
@@ -118,7 +120,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public void TakePhysicalDamage(int damageAmount)
     {
         Health.TakePhysicalDamage(damageAmount);
-        Debug.Log(Health.health);
+        //Debug.Log(Health.health);
 
         if (enableStiff && Health.health > 0)
         {

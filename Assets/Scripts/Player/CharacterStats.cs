@@ -24,6 +24,7 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         OnDamage += TakeDamage;
+        OnMana += ChangeMana;
         OnStamina += ChangeStamina;
     }
 
@@ -60,7 +61,21 @@ public class CharacterStats : MonoBehaviour
 
     public void ChangeManaAction(float amount)
     {
+        OnMana(amount);
+    }
 
+    private void ChangeMana(float amount)
+    {
+        if (amount >= 0)
+            mana = MathF.Min(mana + amount, maxMana);
+        else
+        {
+            mana = MathF.Max(mana + amount, 0);
+            if (mana <= 0)
+            {
+                // 마나 0 됐을 때 할 일
+            }
+        }
     }
 
     public void ChangeStaminaAction(float amount)
