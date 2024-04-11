@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Shop : UIRecycleViewController<ItemData>
 {
-    [field: SerializeField] public ShopListSO ShopItems;
     private List<int> ShopItemsList;
    
     private int _shopCode = 10000001;
