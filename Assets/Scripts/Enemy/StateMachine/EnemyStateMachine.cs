@@ -26,7 +26,7 @@ public class EnemyStateMachine : StateMachine
         DeadState = new EnemyDeadState(this);
         StiffState = new EnemyStiffState(this);
 
-        MovementSpeed = enemy.Data.monsterWalk;
+        MovementSpeed = enemy.Data.monsterRun;
         RotationDamping = enemy.Data.monsterRotationDamping;
     }
 }

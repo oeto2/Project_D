@@ -3,36 +3,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassDB
+public class ItemDB
 {
-    private Dictionary<int, ClassData> charClass = new();
+    private Dictionary<int, ItemData> items = new();
 
-    public ClassDB()
+    public ItemDB()
     {
-        var res = Resources.Load<ClassDBSheet>("DB/ClassDBSheet");
-        var classSO = Object.Instantiate(res);
-        var entities = classSO.Class_Table;
+        var res = Resources.Load<ItemDBSheet>("DB/ItemDBSheet");
+        var itemSO = Object.Instantiate(res);
+        var entities = itemSO.Item_Table;
 
         if (entities == null || entities.Count <= 0)
             return;
 
         var entityCount = entities.Count;
-        for(int i = 0; i < entityCount; i++)
+        for (int i = 0; i < entityCount; i++)
         {
-            var charClass = entities[i];
+            var item = entities[i];
 
-            if (this.charClass.ContainsKey(charClass.id))
-                this.charClass[charClass.id] = charClass;
+            if (items.ContainsKey(item.id))
+                items[item.id] = item;
             else
-                this.charClass.Add(charClass.id, charClass);
+                items.Add(item.id, item);
         }
     }
 
-    public ClassData Get(int id)
+    public ItemData Get(int id)
     {
-        if (charClass.ContainsKey(id))
-            return charClass[id];
+        if (items.ContainsKey(id))
+            return items[id];
 
         return null;
+    }
+
+    public IEnumerator DbEnumerator()
+    {
+        return items.Values.GetEnumerator();
     }
 }

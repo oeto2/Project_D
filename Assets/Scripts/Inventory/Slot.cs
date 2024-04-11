@@ -12,7 +12,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     public int itemCount; // 획득한 아이템의 개수.
     public Image itemImage; // 아이템의 이미지.
 
-
     // 필요한 컴포넌트.
     [SerializeField]
     private TextMeshProUGUI _textCount;
@@ -37,7 +36,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         item = _item;
         itemCount = _count;
-        if(itemCount == 0)
+        if (itemCount == 0)
         {
             ClearSlot();
             return;
@@ -90,7 +89,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 {
                     //무기 장착
                 }
-                else if(item.itemType == Constants.ItemType.Equip)
+                else if (item.itemType == Constants.ItemType.Equip)
                 {
                     //장비장착
                 }
@@ -143,7 +142,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         int _tempItemCount = itemCount;
         if (DragSlot.instance.dragSlot != null)
         {
-            if(_tempItem == DragSlot.instance.dragSlot.item && (_tempItem.itemType == Constants.ItemType.Material||_tempItem.itemType==Constants.ItemType.Consume))
+            if (_tempItem == DragSlot.instance.dragSlot.item && (_tempItem.itemType == Constants.ItemType.Material || _tempItem.itemType == Constants.ItemType.Consume))
             {
                 SetSlotCount(DragSlot.instance.dragSlot.itemCount);
                 DragSlot.instance.dragSlot.ClearSlot();
@@ -154,11 +153,20 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);
             else
                 DragSlot.instance.dragSlot.ClearSlot();
+
+            //리워드 창이 켜져있다면
+            if (UIManager.Instance.ExistPopup(nameof(RewardPopup)))
+            {
+                Debug.Log("아이템 변경됨");
+
+                //아이템 변경시 변경 내용을 몬스터 상호작용 리스트에 적용
+                GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+            }
         }
-            
+
         else if (DragSlot.instance.equipmentSlot != null)
         {
-            
+
             if (_tempItem != null)
                 if (_tempItem.itemType == Constants.ItemType.Equip)
                 {
@@ -171,13 +179,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     Debug.Log("바꿀수없습니다.");
                     return;
                 }
-                    
+
             else
             {
                 AddItem(DragSlot.instance.equipmentSlot.item);
                 DragSlot.instance.equipmentSlot.ClearSlot();
             }
-                
+
         }
 
         else
@@ -187,7 +195,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 {
                     AddItem(DragSlot.instance.weaponSlot.item);
                     DragSlot.instance.weaponSlot.AddItem(_tempItem);
-                } 
+                }
                 else
                 {
                     //착용할수없음
@@ -199,7 +207,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 AddItem(DragSlot.instance.weaponSlot.item);
                 DragSlot.instance.weaponSlot.ClearSlot();
             }
-                
+
+        }
+
+        EnemyInteration enemyInteration = GetComponentInParent<EnemyInteration>();
+        if (enemyInteration != null)
+        {
+            Debug.Log("상호작용 스크립트를 가지고 있음");
         }
     }
 }
