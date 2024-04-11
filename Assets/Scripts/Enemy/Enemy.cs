@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Constants;
+using System;
 
 //데미지를 입게하는 인터페이스
 public interface IDamagable
@@ -49,6 +50,10 @@ public class Enemy : MonoBehaviour, IDamagable
 
     //스턴 할수 있는지 
     [SerializeField] private bool enableStiff = true;
+
+    #region 액션 이벤트
+    public event Action<float> TakeDamageEvent;
+    #endregion
 
     public int CurWanderDestination_index
     {
@@ -121,6 +126,8 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         Health.TakePhysicalDamage(damageAmount);
         //Debug.Log(Health.health);
+        
+        CallTakeDamageEvent(Health.health);
 
         if (enableStiff && Health.health > 0)
         {
@@ -168,5 +175,11 @@ public class Enemy : MonoBehaviour, IDamagable
         //다시 경직 상태로 들어갈 수 있는 시간
         yield return new WaitForSeconds(3f);
         enableStiff = true;
+    }
+
+    //몬스터 피격 이벤트 호출
+    public void CallTakeDamageEvent(float curHp_)
+    {
+        TakeDamageEvent?.Invoke(curHp_);
     }
 }

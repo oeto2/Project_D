@@ -18,7 +18,7 @@ namespace DarkPixelRPGUI.Scripts.UI
             }
         }
 
-        private void UpdateText(float value)
+        public void UpdateText(float value)
         {
             if (!text) return;
             text.text = $"{value:0}/{slider.maxValue:0}";
