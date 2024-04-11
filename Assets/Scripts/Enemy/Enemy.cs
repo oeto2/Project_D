@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public CharacterController Controller { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
 
-    public int EnemyPatrolLocation_number;
+    public int EnemyPatrolLocation_number = 0;
 
     private EnemyStateMachine stateMachine;
 
@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         Health.TakePhysicalDamage(damageAmount);
         //Debug.Log(Health.health);
-        
+
         CallTakeDamageEvent(Health.health);
 
         if (enableStiff && Health.health > 0)
@@ -146,26 +146,12 @@ public class Enemy : MonoBehaviour, IDamagable
         enabled = false;
     }
 
-    //몬스터가 순찰할 좌표 설정
-    public void SetPatrolLocation(int index)
-    {
-        EnemyPatrolLocation_number = index;
-
-        switch (index)
-        {
-            case 0:
-                //몬스터 순찰 위치 동적할당
-                MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint0").transform);
-                MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint1").transform);
-                break;
-
-            case 1:
-                //몬스터 순찰 위치 동적할당
-                MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint2").transform);
-                MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint3").transform);
-                break;
-        }
-    }
+    ////몬스터가 순찰할 좌표 설정
+    //public void SetPatrolLocation()
+    //{
+    //    MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate($"Map/WayPoint{EnemyPatrolLocation_number++}").transform);
+    //    MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate($"Map/WayPoint{EnemyPatrolLocation_number}").transform);
+    //}
 
     //경직상태 딜레이
     public IEnumerator StiffStateDelay()
