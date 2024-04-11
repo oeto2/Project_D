@@ -11,7 +11,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     public ItemData item; // 획득한 아이템.
     public int itemCount; // 획득한 아이템의 개수.
     public Image itemImage; // 아이템의 이미지.
-
+    //public int itemOriginPosX;
+    //public int itemOriginPosY;
 
     // 필요한 컴포넌트.
     [SerializeField]

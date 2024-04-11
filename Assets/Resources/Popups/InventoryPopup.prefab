@@ -1143,6 +1143,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2997419905267947121}
@@ -2173,6 +2175,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5522190769514219782}
@@ -2927,6 +2931,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6453402658772451869}
@@ -2996,6 +3002,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4363950283360807663}
@@ -3065,6 +3073,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5345714090926103929}
@@ -3394,7 +3404,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 867642557794556254}
-  - {fileID: 8920474387300553302}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3635,6 +3644,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7538423769185657038}
@@ -3704,6 +3715,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 569926900292865937}
@@ -3773,6 +3786,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5904778248821324286}
@@ -4285,6 +4300,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4945144395829582061}
@@ -4628,6 +4645,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1650273359027423201}
@@ -5292,6 +5311,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5584811461655750830}
@@ -6233,6 +6254,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4614732873711150531}
@@ -6881,6 +6904,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2431844408252514732}
@@ -7895,6 +7920,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5522321963094666570}
@@ -8939,6 +8966,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4929495306372743058}
@@ -9222,6 +9251,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 3750918589230804321}
@@ -9291,6 +9322,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5764018098276501443}
@@ -9436,6 +9469,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5329443454262915950}
@@ -9582,6 +9617,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2210158601888218081}
@@ -9864,6 +9901,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2693373485270535825}
@@ -10282,6 +10321,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8755947367494479634}
@@ -10351,6 +10392,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7140239984885004542}
@@ -11015,6 +11058,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7125605691464844982}
@@ -11201,6 +11246,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6446342563849415088}
@@ -11274,112 +11321,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: da01037398e12134b89ca562a25d71db, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!1 &6990870730785087468
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8920474387300553302}
-  - component: {fileID: 2832239663132597576}
-  - component: {fileID: 6472987009704254430}
-  - component: {fileID: 1551142839816580092}
-  m_Layer: 5
-  m_Name: DragSlot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &8920474387300553302
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990870730785087468}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 653179042876748735}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2832239663132597576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990870730785087468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4745cb504f0564890f6c3a5b70881b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragItem:
-    _id: 0
-    _itemName: 
-    _itemType: 0
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: 
-    _itemMaxStack: 0
-    _itemGrade: 0
-    _itemSprite: 
-  dragSlot: {fileID: 0}
-  equipmentSlot: {fileID: 0}
-  weaponSlot: {fileID: 0}
-  imageItem: {fileID: 1551142839816580092}
---- !u!222 &6472987009704254430
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990870730785087468}
-  m_CullTransparentMesh: 1
---- !u!114 &1551142839816580092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6990870730785087468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11820,6 +11761,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2774010861438791560}
@@ -11965,6 +11908,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2611517225891038323}
@@ -12263,6 +12208,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2448231077194777449}
@@ -12910,6 +12857,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2895568241785873876}
@@ -13207,6 +13156,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5890889319411070158}
@@ -13428,6 +13379,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5982709411384400611}
