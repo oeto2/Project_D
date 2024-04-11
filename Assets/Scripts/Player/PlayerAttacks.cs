@@ -26,7 +26,7 @@ public class PlayerAttacks : MonoBehaviour
             {
                 if (collider.GetComponent<IDamagable>() != null && collider.gameObject != _playerObj)
                 {
-                    collider.GetComponent<IDamagable>().TakePhysicalDamage(attackInfoData.Damage);
+                    collider.GetComponent<IDamagable>().TakePhysicalDamage(attackInfoData.Damage * (int)_player.Stats.attack);
                 }
             }
         }

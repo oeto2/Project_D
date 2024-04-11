@@ -17,6 +17,18 @@ public class PlayerSkills : MonoBehaviour
         _player = _playerObj.GetComponent<Player>();
         coolDowns = new float[_player.Data.SkillData.GetSkillInfoCount()];
     }
+
+    private void Update()
+    {
+        for (int i = 0; i < coolDowns.Length; i++)
+        {
+            if (coolDowns[i] > 0)
+            {
+                coolDowns[i] -= Time.deltaTime;
+            }
+        }
+    }
+
     public void BaseSkill(AnimationEvent myEvent)
     {
         int index = myEvent.intParameter - 1;
@@ -33,7 +45,10 @@ public class PlayerSkills : MonoBehaviour
         float duration = _player.Data.SkillData.GetSkillInfo(index + 1).Duration;
         if (duration != 0)
         {
+            float addAttack = _player.Stats.attack * 0.5f;
+            _player.Stats.attack += addAttack;
             yield return new WaitForSeconds(duration);
+            _player.Stats.attack -= addAttack;
         }
         else
         {
@@ -57,7 +72,7 @@ public class PlayerSkills : MonoBehaviour
             {
                 if (collider.GetComponent<IDamagable>() != null && collider.gameObject != _playerObj)
                 {
-                    collider.GetComponent<IDamagable>().TakePhysicalDamage(skillInfoData.Damage);
+                    collider.GetComponent<IDamagable>().TakePhysicalDamage(skillInfoData.Damage * (int)_player.Stats.attack);
                 }
             }
         }
