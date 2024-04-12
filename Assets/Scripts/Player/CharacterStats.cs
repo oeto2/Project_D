@@ -14,6 +14,9 @@ public class CharacterStats : MonoBehaviour
     public float maxStamina;
     public float stamina;
 
+    public float attack;
+    public float defense;
+
     public bool IsDead {get; private set; }
 
     public event Action<int> OnDamage;
@@ -26,6 +29,15 @@ public class CharacterStats : MonoBehaviour
         OnDamage += TakeDamage;
         OnMana += ChangeMana;
         OnStamina += ChangeStamina;
+    }
+
+    public void Init(PlayerSO playerSO)
+    {
+        InitHealth(playerSO.Health);
+        InitMana(playerSO.Mana);
+        InitStamina(playerSO.Stamina);
+        attack = playerSO.Attack;
+        defense = playerSO.Defense;
     }
 
     public void InitHealth(float amount)
@@ -46,7 +58,7 @@ public class CharacterStats : MonoBehaviour
 
     public void TakePhysicalDamage(int damageAmount)
     {
-        OnDamage(damageAmount);
+        OnDamage(damageAmount - (int)defense);
     }
 
     private void TakeDamage(int damageAmount)

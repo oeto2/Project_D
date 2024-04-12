@@ -47,9 +47,7 @@ public class Player : MonoBehaviour, IDamagable
         stateMachine = new PlayerStateMachine(this);
         InteractionSystem = GetComponent<InteractionSystem>();
 
-        Stats.InitHealth(Data.Health);
-        Stats.InitMana(Data.Mana);
-        Stats.InitStamina(Data.Stamina);
+        Stats.Init(Data);
     }
 
     private void Start()

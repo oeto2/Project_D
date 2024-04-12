@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: b2f5b8a2cd219b249bcf8614355a670f
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Chest_SK
+    100002: ChestBody
+    100004: //RootNode
+    100006: joint1
+    100008: joint10
+    100010: joint10 1
+    100012: joint11
+    100014: joint12
+    100016: joint13
+    100018: joint14
+    100020: joint15
+    100022: joint16
+    100024: joint17
+    100026: joint2
+    100028: joint2 1
+    100030: joint3
+    100032: joint3 1
+    100034: joint4
+    100036: joint4 1
+    100038: joint5
+    100040: joint5 1
+    100042: joint6
+    100044: joint6 1
+    100046: joint7
+    100048: joint7 1
+    100050: joint8
+    100052: joint8 1
+    100054: joint9
+    100056: joint9 1
+    100058: RopeLeft
+    100060: RopeRight
+    100062: JointsNodes
+    100064: ChestSurface
+    100066: ChestControlManipulator
+    100068: BottomChest
+    100070: LockBase
+    100072: LockFoot
+    100074: OpenCloseJoint
+    100076: rootJoint
+    100078: UpperChest
+    100080: Chest01_SK
+    100082: Chest01Surface
+    400000: Chest_SK
+    400002: ChestBody
+    400004: //RootNode
+    400006: joint1
+    400008: joint10
+    400010: joint10 1
+    400012: joint11
+    400014: joint12
+    400016: joint13
+    400018: joint14
+    400020: joint15
+    400022: joint16
+    400024: joint17
+    400026: joint2
+    400028: joint2 1
+    400030: joint3
+    400032: joint3 1
+    400034: joint4
+    400036: joint4 1
+    400038: joint5
+    400040: joint5 1
+    400042: joint6
+    400044: joint6 1
+    400046: joint7
+    400048: joint7 1
+    400050: joint8
+    400052: joint8 1
+    400054: joint9
+    400056: joint9 1
+    400058: RopeLeft
+    400060: RopeRight
+    400062: JointsNodes
+    400064: ChestSurface
+    400066: ChestControlManipulator
+    400068: BottomChest
+    400070: LockBase
+    400072: LockFoot
+    400074: OpenCloseJoint
+    400076: rootJoint
+    400078: UpperChest
+    400080: Chest01_SK
+    400082: Chest01Surface
+    4300000: RopeRight
+    4300002: RopeLeft
+    4300004: ChestBody
+    4300006: ChestSurface
+    4300008: Chest01Surface
+    7400000: M1-M-Chest-Open
+    7400002: M1-M-Chest-Close
+    7400004: idle
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: ChestBody
+    13700002: RopeLeft
+    13700004: RopeRight
+    13700006: ChestSurface
+    13700008: Chest01Surface
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: M1-M-Chest-Open
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 42
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-Chest-Close
+      takeName: Take 001
+      firstFrame: 43
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 15
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

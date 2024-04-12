@@ -21,15 +21,13 @@ public class PlayerAttacks : MonoBehaviour
         Vector3 attackPos = _player.transform.position + new Vector3(0, 1.1f, 0) + forward * range;
         Collider[] colliders = Physics.OverlapSphere(attackPos, range);
 
-        Debug.Log("몬스터 공격");
         if (colliders.Length != 0)
         {
-            
             foreach (Collider collider in colliders)
             {
                 if (collider.GetComponent<IDamagable>() != null && collider.gameObject != _playerObj)
                 {
-                    collider.GetComponent<IDamagable>().TakePhysicalDamage(attackInfoData.Damage);
+                    collider.GetComponent<IDamagable>().TakePhysicalDamage(attackInfoData.Damage * (int)_player.Stats.attack);
 
                     GameObject hitTextObject = PoolManager.Instance.SpawnFromPool(nameof(HitDamageText));
                     HitDamageText hitDamageText = hitTextObject.GetComponent<HitDamageText>();
