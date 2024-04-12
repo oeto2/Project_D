@@ -44,6 +44,7 @@ public class PlayerAirState : PlayerBaseState
 
     protected void Jump()
     {
+        stateMachine.Player.beforeTrans = stateMachine.Player.playerTransform.position;
         stateMachine.Player.PlayerController.isJump = true;
         stateMachine.Player.PlayerController.gravity = stateMachine.JumpForce;
         stateMachine.Player.PlayerController.velocity = stateMachine.Player.playerTransform.position;

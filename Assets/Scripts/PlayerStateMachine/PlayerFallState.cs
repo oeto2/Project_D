@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem.HID;
 
 public class PlayerFallState : PlayerAirState
 {
@@ -33,12 +32,10 @@ public class PlayerFallState : PlayerAirState
             OnGround();
         }
 
-        if (stateMachine.Player.PlayerController.gravity <= -8f)
+        if (stateMachine.Player.PlayerController.gravity <= -40f)
         {
-            stateMachine.Player.PlayerController.gravity = 0f;
-            stateMachine.Player.PlayerController.isJump = false;
-            stateMachine.Player.NavMeshAgent.enabled = true;
-            stateMachine.ChangeState(stateMachine.IdleState);
+            stateMachine.Player.playerTransform.position = stateMachine.Player.beforeTrans;
+            OnGround();
         }
     }
 
