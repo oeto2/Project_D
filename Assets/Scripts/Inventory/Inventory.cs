@@ -54,7 +54,7 @@ public class Inventory : MonoBehaviour
             Debug.Log("Q´©¸§");
             AcquireItem(Database.Item.Get(20000001));
             AcquireItem(Database.Item.Get(20000002));
-            AcquireItem(Database.Item.Get(30000002));
+            //AcquireItem(Database.Item.Get(30000002));
         }
     }
 

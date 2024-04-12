@@ -7,10 +7,11 @@ public class ItemDescription : MonoBehaviour
 {
     public static ItemDescription instance;
 
-    [SerializeField] private TextMeshProUGUI itemName;
-    [SerializeField] private TextMeshProUGUI itemDescription;
+    public TextMeshProUGUI itemName;
+    public TextMeshProUGUI itemDescription;
     void Awake()
     {
         instance = this;
+        this.gameObject.SetActive(false);
     }
 }

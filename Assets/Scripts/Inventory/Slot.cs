@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public ItemData item; // 획득한 아이템.
@@ -26,18 +26,18 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     }
 
     // 이미지의 투명도 조절.
-    private void SetColor(float _alpha)
+    private void SetColor(float alpha_)
     {
         Color color = itemImage.color;
-        color.a = _alpha;
+        color.a = alpha_;
         itemImage.color = color;
     }
 
     // 아이템 획득
-    public void AddItem(ItemData _item, int _count = 1)
+    public void AddItem(ItemData item_, int count_ = 1)
     {
-        item = _item;
-        itemCount = _count;
+        item = item_;
+        itemCount = count_;
         if(itemCount == 0)
         {
             ClearSlot();
@@ -60,9 +60,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     }
 
     // 아이템 개수 조정.
-    public void SetSlotCount(int _count)
+    public void SetSlotCount(int count_)
     {
-        itemCount += _count;
+        itemCount += count_;
         _textCount.text = itemCount.ToString();
 
         if (itemCount <= 0)
@@ -104,10 +104,27 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(item != null)
+        {
+            ItemDescription.instance.gameObject.SetActive(true);
+            ItemDescription.instance.transform.position = eventData.position;
+            ItemDescription.instance.itemName.text = item.itemName;
+            ItemDescription.instance.itemDescription.text = item.itemDescription;
+        }
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ItemDescription.instance.gameObject.SetActive(false);
+    }
+
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (item != null)
         {
+            SetColor(0.5f);
             DragSlot.instance.dragSlot = this;
             DragSlot.instance.DragSetImage(itemImage);
             DragSlot.instance.dragItem = item;
@@ -125,6 +142,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if(item != null)
+        {
+            SetColor(1);
+        }
         DragSlot.instance.SetColor(0);
         DragSlot.instance.dragItem = null;
         DragSlot.instance.dragSlot = null;
@@ -142,9 +163,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         ItemData _tempItem = item;
         int _tempItemCount = itemCount;
+        if (DragSlot.instance.dragSlot == this)
+        {
+            return;  // 변경 없이 메서드 종료
+        }
         if (DragSlot.instance.dragSlot != null)
         {
-            if(_tempItem == DragSlot.instance.dragSlot.item && (_tempItem.itemType == Constants.ItemType.Material||_tempItem.itemType==Constants.ItemType.Consume))
+            if(item == DragSlot.instance.dragSlot.item && (item.itemType == Constants.ItemType.Material||item.itemType==Constants.ItemType.Consume))
             {
                 SetSlotCount(DragSlot.instance.dragSlot.itemCount);
                 DragSlot.instance.dragSlot.ClearSlot();
@@ -203,4 +228,5 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 
         }
     }
+
 }
