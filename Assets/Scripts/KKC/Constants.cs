@@ -15,8 +15,13 @@ namespace Constants
     public enum ItemGrade
     {
         Common,
-        UnCommon,
+        Uncommon,
         Rare,
         Unique
+    }
+
+    public enum ClassType
+    {
+        Warrior
     }
 }

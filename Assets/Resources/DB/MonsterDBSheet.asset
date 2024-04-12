@@ -12,28 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c44034cd8c19ab42976a8443be6f4c4, type: 3}
   m_Name: MonsterDBSheet
   m_EditorClassIdentifier: 
-  monster_table:
+  Monster_Table:
   - _id: 11000001
     _monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uAC80\uC0AC"
-    _monsterHp: 300
+    _monsterHp: 30
     _monsterAtk: 20
     _monsterAtkSpd: 0.1
     _monsterAtkRng: 3
     _monsterDef: 10
-    _monsterWalk: 5
-    _monsterRun: 7
-    _monsterStiff: 0.2
+    _monsterWalk: 2.5
+    _monsterRun: 5
+    _monsterStiff: 0.8
     _monsterMaxRoot: 5
     _dropId: 10000001
+    _monsterChasingRng: 10
+    _monsterRotationDamping: 15
   - _id: 11000002
     _monsterName: "\uBBF8\uBBF9"
-    _monsterHp: 150
+    _monsterHp: 15
     _monsterAtk: 30
     _monsterAtkSpd: 0.2
     _monsterAtkRng: 2
     _monsterDef: 5
-    _monsterWalk: 5
-    _monsterRun: 7
-    _monsterStiff: 0.2
+    _monsterWalk: 2
+    _monsterRun: 4
+    _monsterStiff: 1
     _monsterMaxRoot: 6
     _dropId: 10000002
+    _monsterChasingRng: 10
+    _monsterRotationDamping: 15
+  - _id: 11000003
+    _monsterName: "\uACE0\uBE14\uB9B0"
+    _monsterHp: 20
+    _monsterAtk: 30
+    _monsterAtkSpd: 0.1
+    _monsterAtkRng: 1
+    _monsterDef: 5
+    _monsterWalk: 2.5
+    _monsterRun: 7
+    _monsterStiff: 1
+    _monsterMaxRoot: 5
+    _dropId: 10000001
+    _monsterChasingRng: 10
+    _monsterRotationDamping: 15

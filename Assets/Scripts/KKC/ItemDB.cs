@@ -17,7 +17,7 @@ public class ItemDB
             return;
 
         var entityCount = entities.Count;
-        for(int i = 0; i < entityCount; i++)
+        for (int i = 0; i < entityCount; i++)
         {
             var item = entities[i];
 
@@ -38,6 +38,6 @@ public class ItemDB
 
     public IEnumerator DbEnumerator()
     {
-        return items.GetEnumerator();
+        return items.Values.GetEnumerator();
     }
 }

@@ -14,8 +14,12 @@ public class Enemy : MonoBehaviour, IDamagable
 {
     [field: Header("References")]
 
+    [SerializeField] private int _monsterID;
+
     //몬스터에 대한 데이터
-    [field: SerializeField] public EnemySO Data { get; private set; }
+    [field: SerializeField] public MonsterDBSheet MonstersDbSheet { get; private set; }
+
+    [field: SerializeField] public MonsterData Data { get; private set; }
 
     [field: Header("Animations")]
     [field: SerializeField] public EnemyAnimationData AnimationData { get; private set; }
@@ -25,7 +29,7 @@ public class Enemy : MonoBehaviour, IDamagable
     public CharacterController Controller { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
 
-    [field : SerializeField] private int EnemyPatrolLocation_number;
+    public int EnemyPatrolLocation_number;
 
     private EnemyStateMachine stateMachine;
 
@@ -37,11 +41,14 @@ public class Enemy : MonoBehaviour, IDamagable
     private int _curWanderDestination_index = 0;
 
     public GameObject enemyInteration_Object;
-    public Health Health { get; private set; }
-    [HideInInspector] public Health _targetHealth;
+    public CharacterStats Health { get; private set; }
+    [HideInInspector] public CharacterStats _targetHealth;
 
     //공격 대상 트랜스폼
     [field: SerializeField] public Transform Target { get; private set; }
+
+    //스턴 할수 있는지 
+    [SerializeField] private bool enableStiff = true;
 
     public int CurWanderDestination_index
     {
@@ -64,30 +71,32 @@ public class Enemy : MonoBehaviour, IDamagable
 
     void Awake()
     {
+        Data = Database.Monster.Get(_monsterID);
         stateMachine = new EnemyStateMachine(this);
         //애니메이션 데이터 할당
         AnimationData.Initialize();
-
         Rigidbody = GetComponent<Rigidbody>();
         Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();
         ForceReceiver = GetComponent<EnemyForceReceiver>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
-        Health = GetComponent<Health>();
+        Health = GetComponent<CharacterStats>();
         //순찰 장소
-        SetPatrolLocation(EnemyPatrolLocation_number);
-        Health.InitHealth(Data.Health);
+        //SetPatrolLocation(EnemyPatrolLocation_number);
+        Health.InitHealth(Data.monsterHp);
     }
 
     private void Start()
     {
+        NavMeshAgent.speed = Data.monsterWalk;
+
         stateMachine.ChangeState(stateMachine.IdlingState);
 
         Health.OnDie += OnDie;
 
         //나중에는 수정하기
         Target = GameManager.Instance.playerObject.transform;
-        _targetHealth = Target.GetComponent<Health>();
+        _targetHealth = Target.GetComponent<CharacterStats>();
     }
 
     private void Update()
@@ -96,7 +105,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
         stateMachine.Update();
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             TakePhysicalDamage(100);
         }
@@ -111,30 +120,53 @@ public class Enemy : MonoBehaviour, IDamagable
     public void TakePhysicalDamage(int damageAmount)
     {
         Health.TakePhysicalDamage(damageAmount);
+        //Debug.Log(Health.health);
+
+        if (enableStiff && Health.health > 0)
+        {
+            stateMachine.ChangeState(stateMachine.StiffState);
+            StartCoroutine(StiffStateDelay());
+        }
     }
 
     void OnDie()
     {
         stateMachine.ChangeState(stateMachine.DeadState);
         Animator.SetTrigger(stateMachine.Enemy.AnimationData.DeadParameterHash);
+        Controller.enabled = false;
+        NavMeshAgent.enabled = false;
+        ForceReceiver.enabled = false;
+        enabled = false;
     }
 
     //몬스터가 순찰할 좌표 설정
     public void SetPatrolLocation(int index)
     {
-        switch(index)
+        EnemyPatrolLocation_number = index;
+
+        switch (index)
         {
-            case 1:
+            case 0:
                 //몬스터 순찰 위치 동적할당
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint0").transform);
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint1").transform);
                 break;
 
-            case 2:
+            case 1:
                 //몬스터 순찰 위치 동적할당
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint2").transform);
                 MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate("Map/WayPoint3").transform);
                 break;
         }
+    }
+
+    //경직상태 딜레이
+    public IEnumerator StiffStateDelay()
+    {
+        enableStiff = false;
+
+        //다시 경직 상태로 들어갈 수 있는 시간
+        yield return new WaitForSeconds(3f);
+        enableStiff = true;
     }
 }

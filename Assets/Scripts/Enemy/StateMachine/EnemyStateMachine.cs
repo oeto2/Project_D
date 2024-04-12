@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyStateMachine : StateMachine
@@ -13,6 +9,7 @@ public class EnemyStateMachine : StateMachine
     public EnemyAttackState AttackState { get; }
     public EnemyWanderingState WanderingState { get; }
     public EnemyDeadState DeadState { get; }
+    public EnemyStiffState StiffState { get; }
 
     public Vector2 MovementInput { get; set; }
     public float MovementSpeed { get; private set; }
@@ -22,16 +19,14 @@ public class EnemyStateMachine : StateMachine
     public EnemyStateMachine(Enemy enemy)
     {
         Enemy = enemy;
-
-        
-
         IdlingState = new EnemyIdleState(this);
         ChasingState = new EnemyChasingState(this);
         AttackState = new EnemyAttackState(this);
         WanderingState = new EnemyWanderingState(this);
         DeadState = new EnemyDeadState(this);
+        StiffState = new EnemyStiffState(this);
 
-        MovementSpeed = enemy.Data.GroundedData.BaseSpeed;
-        RotationDamping = enemy.Data.GroundedData.BaseRotationDamping;
+        MovementSpeed = enemy.Data.monsterRun;
+        RotationDamping = enemy.Data.monsterRotationDamping;
     }
 }

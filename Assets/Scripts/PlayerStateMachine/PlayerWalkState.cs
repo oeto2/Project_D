@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,13 @@ public class PlayerWalkState : PlayerGroundState
     {
         base.Exit();
         StopAnimation(stateMachine.Player.AnimationData.WalkParameterHash);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        stateMachine.Player.Stats.ChangeStaminaAction(Time.deltaTime);
     }
 
     protected override void OnRunStarted(InputAction.CallbackContext context)

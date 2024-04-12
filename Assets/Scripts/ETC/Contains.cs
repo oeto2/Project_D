@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Constants
 {
+    static class Constant
+    {
+        public const int InvenSize = 30;
+        public const int StorageSize = 70;
+    }
+
     public enum MonsterMoveType
     {
         //고정된 타입

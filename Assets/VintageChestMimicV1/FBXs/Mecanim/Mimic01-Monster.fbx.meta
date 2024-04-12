@@ -1,0 +1,862 @@
+fileFormatVersion: 2
+guid: b23b6bd3c5e3d8147a6a421ec8bb6825
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Chest01Surface
+    100002: //RootNode
+    100004: Mimic01MouthSuface
+    100006: BottomChest
+    100008: EntireMovement
+    100010: joint17
+    100012: joint18
+    100014: LockBase
+    100016: LockFoot
+    100018: Mimic01BaseSurface
+    100020: Mimic02:joint19
+    100022: Mimic02:joint20
+    100024: Mimic02:joint21
+    100026: Mimic02:Surfaces
+    100028: OpenCloseJoint
+    100030: rootJoint
+    100032: Tongue_SK
+    100034: UpperChest
+    100036: Mimic_SK
+    100038: Tongue01
+    100040: Tongue02
+    100042: Tongue03
+    100044: Tongue04
+    100046: TongueBase
+    400000: Chest01Surface
+    400002: //RootNode
+    400004: Mimic01MouthSuface
+    400006: BottomChest
+    400008: EntireMovement
+    400010: joint17
+    400012: joint18
+    400014: LockBase
+    400016: LockFoot
+    400018: Mimic01BaseSurface
+    400020: Mimic02:joint19
+    400022: Mimic02:joint20
+    400024: Mimic02:joint21
+    400026: Mimic02:Surfaces
+    400028: OpenCloseJoint
+    400030: rootJoint
+    400032: Tongue_SK
+    400034: UpperChest
+    400036: Mimic_SK
+    400038: Tongue01
+    400040: Tongue02
+    400042: Tongue03
+    400044: Tongue04
+    400046: TongueBase
+    2300000: Chest01Surface
+    2300002: Mimic01MouthSuface
+    2300004: Mimic01BaseSurface
+    3300000: Chest01Surface
+    3300002: Mimic01MouthSuface
+    3300004: Mimic01BaseSurface
+    4300000: Mimic01MouthSuface
+    4300002: Chest01Surface
+    4300004: Mimic01BaseSurface
+    7400000: M1-M-SurpriseAttack
+    7400002: M1-M-IDLE-Base
+    7400004: M1-M-IDLE-Roar#1
+    7400006: M1-M-IDLE-Roar#2
+    7400008: M1-M-IDLE-Observing
+    7400010: M1-M-BiteAttack#1
+    7400012: M1-M-BiteAttack#2
+    7400014: M1-M-Walk
+    7400016: M1-M-GetDamage#1
+    7400018: M1-M-GetDamage#2
+    7400020: M1-M-Defeated
+    7400022: M1-M-Chest
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Mimic01BaseSurface
+    13700002: Mimic01MouthSuface
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: M1-M-SurpriseAttack
+      takeName: Take 001
+      firstFrame: .959999979
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-IDLE-Base
+      takeName: Take 001
+      firstFrame: 31
+      lastFrame: 94
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-IDLE-Roar#1
+      takeName: Take 001
+      firstFrame: 95
+      lastFrame: 165
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-IDLE-Roar#2
+      takeName: Take 001
+      firstFrame: 166
+      lastFrame: 235
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-IDLE-Observing
+      takeName: Take 001
+      firstFrame: 236
+      lastFrame: 375
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-BiteAttack#1
+      takeName: Take 001
+      firstFrame: 376
+      lastFrame: 394
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-BiteAttack#2
+      takeName: Take 001
+      firstFrame: 395
+      lastFrame: 413
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-Walk
+      takeName: Take 001
+      firstFrame: 414
+      lastFrame: 486
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-GetDamage#1
+      takeName: Take 001
+      firstFrame: 487
+      lastFrame: 502
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-GetDamage#2
+      takeName: Take 001
+      firstFrame: 503
+      lastFrame: 515
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-Defeated
+      takeName: Take 001
+      firstFrame: 516
+      lastFrame: 635
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M1-M-Chest
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: EntireMovement
+        weight: 1
+      - path: EntireMovement/Mimic_SK
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/BottomChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/LockBase/LockFoot
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/OpenCloseJoint/UpperChest
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03
+        weight: 1
+      - path: EntireMovement/Mimic_SK/rootJoint/TongueBase/Tongue01/Tongue02/Tongue03/Tongue04
+        weight: 1
+      - path: Mimic02:Surfaces
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01BaseSurface
+        weight: 1
+      - path: Mimic02:Surfaces/Mimic01MouthSuface
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 0
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

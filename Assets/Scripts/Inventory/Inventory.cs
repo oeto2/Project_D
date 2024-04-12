@@ -126,16 +126,4 @@ public class Inventory : MonoBehaviour
     {
         InformationManager.Instance.SaveInformation(_slots);
     }
-    //
-    //
-    //private void OnDestroy()
-    //{
-    //    if (InformationManager.Instance.saveLoadData.slots == null)
-    //        InformationManager.Instance.saveLoadData.slots = _slots;
-    //    for (int i = 0; i < _slots.Length; i++)
-    //    {
-    //        InformationManager.Instance.saveLoadData.slots[i] = _slots[i]; 
-    //    }
-    //}
-
 }

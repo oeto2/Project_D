@@ -14,6 +14,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerFallState FallState { get; }
     public PlayerComboAttackState ComboAttackState { get; }
     public PlayerDefenseState DefenseState { get; }
+    public PlayerSkillState SkillState { get; }
     public PlayerDieState DieState { get; }
 
     // 
@@ -25,7 +26,7 @@ public class PlayerStateMachine : StateMachine
     public bool IsAttacking { get; set; }
     public bool IsDefensing { get; set; }
     public int ComboIndex { get; set; }
-
+    public int SkillIndex { get; set; }
 
     public Transform MainCameraTransform { get; set; }
 
@@ -40,6 +41,7 @@ public class PlayerStateMachine : StateMachine
         FallState = new PlayerFallState(this);
         ComboAttackState = new PlayerComboAttackState(this);
         DefenseState = new PlayerDefenseState(this);
+        SkillState = new PlayerSkillState(this);
         DieState = new PlayerDieState(this);
         MainCameraTransform = Camera.main.transform;
     }

@@ -23,11 +23,19 @@ public class UIManager : SingletonBase<UIManager>
     }
 
     //private void Awake() => _isLoad = false;
+
     public GameObject GetPopup(string popupName)
+    {
+        ShowPopup(popupName);
+
+        return _popups[popupName].gameObject;
+    }
+
+    public GameObject GetPopupObject(string popupName)
     {
         if (!_popups.ContainsKey(popupName))
         {
-            ShowPopup(popupName);
+            return null;
         }
 
         return _popups[popupName].gameObject;

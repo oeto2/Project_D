@@ -18,6 +18,7 @@ public class PlayerAnimationData
     [SerializeField] private string attackParameterName = "@Attack";
     [SerializeField] private string baseAttackParameterName = "BaseAttack";
     [SerializeField] private string comboAttackParameterName = "ComboAttack";
+    [SerializeField] private string baseSkillParameterName = "BaseSkill";
 
     [SerializeField] private string dieParameterName = "Die";
 
@@ -34,6 +35,7 @@ public class PlayerAnimationData
     public int AttackParameterHash { get; private set; }
     public int ComboAttackParameterHash { get; private set; }
     public int BaseAttackParameterHash { get; private set; }
+    public int BaseSkillParameterHash { get; private set; }
 
     public int DieParameterHash { get; private set; }
 
@@ -51,6 +53,7 @@ public class PlayerAnimationData
         AttackParameterHash = Animator.StringToHash(attackParameterName);
         ComboAttackParameterHash = Animator.StringToHash(comboAttackParameterName);
         BaseAttackParameterHash = Animator.StringToHash(baseAttackParameterName);
+        BaseSkillParameterHash = Animator.StringToHash(baseSkillParameterName);
 
         DieParameterHash = Animator.StringToHash(dieParameterName);
     }

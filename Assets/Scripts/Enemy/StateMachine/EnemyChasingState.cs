@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UIElements;
-
 public class EnemyChasingState : EnemyBaseState
 {
     public EnemyChasingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
@@ -55,6 +50,6 @@ public class EnemyChasingState : EnemyBaseState
     private bool IsInAttackRange()
     {
         float playerDistanceSqr = (stateMachine.Enemy.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
-        return playerDistanceSqr <= stateMachine.Enemy.Data.AttackRange * stateMachine.Enemy.Data.AttackRange;
+        return playerDistanceSqr <= stateMachine.Enemy.Data.monsterAtkRng* stateMachine.Enemy.Data.monsterAtkRng;
     }
 }

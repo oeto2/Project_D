@@ -1,6 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -21,11 +18,11 @@ public class EnemyAttack : MonoBehaviour
         RaycastHit hitData;
 
         //레이캐스트 사용
-        Physics.Raycast(ray, out hitData, _enemy.Data.AttackRange);
+        Physics.Raycast(ray, out hitData, _enemy.Data.monsterAtkRng);
 
         if(hitData.transform?.tag == "Player")
         {
-            hitData.transform?.GetComponent<IDamagable>().TakePhysicalDamage(_enemy.Data.Damage);
+            hitData.transform?.GetComponent<IDamagable>().TakePhysicalDamage((int)_enemy.Data.monsterAtk);
         }
     }
 }

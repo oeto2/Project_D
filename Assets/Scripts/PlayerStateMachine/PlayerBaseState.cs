@@ -46,6 +46,10 @@ public class PlayerBaseState : IState
             Move();
             Look();
         }
+        if (stateMachine.SkillIndex == 0)
+        {
+            stateMachine.Player.Stats.ChangeManaAction(0.1f * Time.deltaTime);
+        }
     }
 
     protected virtual void AddInputActionsCallback()
@@ -68,6 +72,10 @@ public class PlayerBaseState : IState
 
         input.playerActions.Defense.performed += OnDefensePerformed;
         input.playerActions.Defense.canceled += OnDefenseCanceled;
+
+        input.playerActions.Skill1.performed += OnSkill1Performed;
+        input.playerActions.Skill2.performed += OnSkill2Performed;
+        input.playerActions.Skill3.performed += OnSkill3Performed;
     }
 
 
@@ -90,6 +98,10 @@ public class PlayerBaseState : IState
 
         input.playerActions.Defense.performed -= OnDefensePerformed;
         input.playerActions.Defense.canceled -= OnDefenseCanceled;
+
+        input.playerActions.Skill1.performed -= OnSkill1Performed;
+        input.playerActions.Skill2.performed -= OnSkill2Performed;
+        input.playerActions.Skill3.performed -= OnSkill3Performed;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -112,7 +124,7 @@ public class PlayerBaseState : IState
 
     protected virtual void OnAttackPerformed(InputAction.CallbackContext context)
     {
-        if (Cursor.lockState != CursorLockMode.None)
+        if (Cursor.lockState != CursorLockMode.None && stateMachine.Player.Stats.stamina >= 5f)
             stateMachine.IsAttacking = true;
     }
 
@@ -134,16 +146,37 @@ public class PlayerBaseState : IState
 
     private void OnInventoryStarted(InputAction.CallbackContext context)
     {
+        GameObject inventoryPopup = UIManager.Instance.GetPopupObject(nameof(InventoryPopup));
+
+        if(inventoryPopup != null)
+        {
+            if (inventoryPopup.activeSelf)
+            {
+                inventoryPopup.SetActive(false);
+                return;
+            }
+        }
+
         Cursor.lockState = CursorLockMode.None;
         UIManager.Instance.ShowPopup<InventoryPopup>();
-        UIManager.Instance.ShowPopup<DragPopup>();
     }
 
     private void OnEquipStarted(InputAction.CallbackContext context)
     {
+        GameObject equipmentPopup = UIManager.Instance.GetPopupObject(nameof(EquipmentPopup));
+
+        //장비창 토글
+        if (equipmentPopup != null)
+        {
+            if (equipmentPopup.activeSelf)
+            {
+                equipmentPopup.SetActive(false);
+                return;
+            }
+        }
+
         Cursor.lockState = CursorLockMode.None;
         UIManager.Instance.ShowPopup<EquipmentPopup>();
-        UIManager.Instance.ShowPopup<DragPopup>();
     }
 
     private void OnDefensePerformed(InputAction.CallbackContext context)
@@ -154,6 +187,33 @@ public class PlayerBaseState : IState
 
     protected virtual void OnDefenseCanceled(InputAction.CallbackContext context)
     {
+    }
+
+    private void OnSkill1Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(1))
+        {
+            stateMachine.SkillIndex = 1;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
+    }
+
+    private void OnSkill2Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(2))
+        {
+            stateMachine.SkillIndex = 2;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
+    }
+
+    private void OnSkill3Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(3))
+        {
+            stateMachine.SkillIndex = 3;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
     }
 
     private void ReadMovementInput()
@@ -221,5 +281,14 @@ public class PlayerBaseState : IState
         {
             return 0f;
         }
+    }
+
+    private bool CanSkillActive(int index)
+    {
+        if (stateMachine.Player.Stats.mana < stateMachine.Player.Data.SkillData.GetSkillInfo(index).ManaCost || stateMachine.Player.PlayerSkills.coolDowns[index - 1] > 0)
+        {
+            return false;
+        }
+        return true;
     }
 }

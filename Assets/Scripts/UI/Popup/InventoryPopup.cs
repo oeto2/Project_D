@@ -16,6 +16,7 @@ public class InventoryPopup : UIBase
         _lobbySceneUI = GetComponentInParent<LobbySceneUI>();
         _currentSceneName = SceneManager.GetActiveScene().name;
         btnClose.onClick.AddListener(() => CloseUI());
+        UIManager.Instance.ShowPopup<DragPopup>();
     }
 
     private void OnEnable()
@@ -35,9 +36,8 @@ public class InventoryPopup : UIBase
 
     protected override void CloseUI()
     {
-        if(_lobbySceneUI.curLobbyType == LobbyType.Storage)
+        if(_lobbySceneUI?.curLobbyType == LobbyType.Storage)
         {
-            Debug.Log("창고 인벤토리 닫기");
             gameObject.SetActive(false);
         }    
 
@@ -48,7 +48,8 @@ public class InventoryPopup : UIBase
             UIManager.Instance.GetPopup(nameof(EquipmentPopup)).gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(DragPopup)).gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(LobbyUpPopup)).gameObject.SetActive(true);
-            gameObject.SetActive(false);
         }
+
+        gameObject.SetActive(false);
     }
 }

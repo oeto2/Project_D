@@ -34,5 +34,7 @@ public class EquipmentPopup : UIBase
         {
             btnClose.gameObject.SetActive(false);
         }
+
+        UIManager.Instance.ShowPopup<DragPopup>();
     }
 }

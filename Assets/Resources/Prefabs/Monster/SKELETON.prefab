@@ -1309,8 +1309,8 @@ GameObject:
   - component: {fileID: 507005864954431936}
   - component: {fileID: 6734574209666049167}
   - component: {fileID: 5204801804691217164}
-  - component: {fileID: 4509785441108074177}
-  - component: {fileID: 1973623582596763404}
+  - component: {fileID: 6926299337325238293}
+  - component: {fileID: 8454578380842620898}
   m_Layer: 0
   m_Name: SKELETON
   m_TagString: Untagged
@@ -1326,7 +1326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5803477382436822640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.62, y: 0, z: -87.46}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1347,8 +1347,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a7fff41e1f6784ba033653f45de3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Data>k__BackingField: {fileID: 11400000, guid: 8395138df3199884f849b4e8e7ac1715,
+  _monsterID: 11000001
+  <MonstersDbSheet>k__BackingField: {fileID: 11400000, guid: 0e11d15a77f1f364abdb5309778b20ee,
     type: 2}
+  <Data>k__BackingField:
+    _id: 0
+    _monsterName: 
+    _monsterHp: 0
+    _monsterAtk: 0
+    _monsterAtkSpd: 0
+    _monsterAtkRng: 0
+    _monsterDef: 0
+    _monsterWalk: 0
+    _monsterRun: 0
+    _monsterStiff: 0
+    _monsterMaxRoot: 0
+    _dropId: 0
+    _monsterChasingRng: 0
+    _monsterRotationDamping: 0
   <AnimationData>k__BackingField:
     groundParameterName: '@Ground'
     idleParameterName: Idle
@@ -1358,12 +1374,14 @@ MonoBehaviour:
     attackParameterName: '@Attack'
     baseAttackParameterName: BaseAttack
     deadParameterName: Dead
+    stiffParameterName: Stiff
   EnemyPatrolLocation_number: 1
   <MonsterMoveType>k__BackingField: 1
   MonsterWanderDestination: []
   enemyInteration_Object: {fileID: 3770708180680966607}
   _targetHealth: {fileID: 0}
   <Target>k__BackingField: {fileID: 0}
+  enableStiff: 1
 --- !u!114 &6734574209666049167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1422,25 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 3.34, z: 0}
---- !u!195 &4509785441108074177
+--- !u!114 &6926299337325238293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803477382436822640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b6cdfdfe5230b4497e980d7ea9f18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  health: 0
+  maxMana: 0
+  mana: 0
+  maxStamina: 0
+  stamina: 0
+--- !u!195 &8454578380842620898
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1414,10 +1450,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 1000
+  m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1426,20 +1462,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1973623582596763404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5803477382436822640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 301eeb14a26e5f949875e0f4edcbb707, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  health: 0
 --- !u!1 &6014732541299738104
 GameObject:
   m_ObjectHideFlags: 0
