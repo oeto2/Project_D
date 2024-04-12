@@ -10223,6 +10223,7 @@ GameObject:
   - component: {fileID: 6026015665010052111}
   - component: {fileID: 5314240573419437085}
   - component: {fileID: 3132864006968145655}
+  - component: {fileID: 8663283395194072534}
   m_Layer: 6
   m_Name: OrkWarrior
   m_TagString: Untagged
@@ -10245,7 +10246,7 @@ Transform:
   - {fileID: 7942200806163621758}
   - {fileID: 7658009922842763391}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &3974559103476848192
 MonoBehaviour:
@@ -10326,6 +10327,8 @@ MonoBehaviour:
   mana: 0
   maxStamina: 0
   stamina: 0
+  attack: 0
+  defense: 0
 --- !u!143 &5314240573419437085
 CharacterController:
   m_ObjectHideFlags: 0
@@ -10374,6 +10377,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8663283395194072534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014646188459995882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa9e764c454acbc4784122d48291cbc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bossHpPopup: {fileID: 0}
 --- !u!1 &5033676831089418913
 GameObject:
   m_ObjectHideFlags: 0
