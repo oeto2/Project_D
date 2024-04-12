@@ -108,4 +108,10 @@ public class CharacterStats : MonoBehaviour
             }
         }
     }
+
+    public void UsePotion(ItemData potion)
+    {
+        OnDamage(-potion.itemHpRecover);
+        OnMana(potion.itemMpRecover);
+    }
 }

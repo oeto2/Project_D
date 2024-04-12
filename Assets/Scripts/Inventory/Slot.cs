@@ -97,7 +97,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 }
                 else
                 {
-                    Debug.Log(item.itemName + " 을 사용했습니다");
+                    GameManager.Instance.UsePotion(item);
                     SetSlotCount(-1);
                 }
             }

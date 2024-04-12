@@ -13,9 +13,10 @@ public class PlayerDefenseState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("ฟฃลอ");
         stateMachine.Player.NavMeshAgent.speed = groundData.WalkSpeedModifier * groundData.BaseSpeed;
         stateMachine.Player.DefenseObj.SetActive(true);
-        //StartAnimation();
+        StartAnimation(stateMachine.Player.AnimationData.DefenseParameterHash);
     }
 
     public override void Exit()
@@ -24,7 +25,7 @@ public class PlayerDefenseState : PlayerGroundState
         stateMachine.IsDefensing = false;
         base.Exit();
 
-        //StopAnimation();
+        StopAnimation(stateMachine.Player.AnimationData.DefenseParameterHash);
     }
 
     public override void Update()
