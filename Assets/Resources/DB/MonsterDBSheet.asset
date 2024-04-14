@@ -29,7 +29,7 @@ MonoBehaviour:
     _monsterRotationDamping: 15
   - _id: 11000002
     _monsterName: "\uBBF8\uBBF9"
-    _monsterHp: 15
+    _monsterHp: 30
     _monsterAtk: 30
     _monsterAtkSpd: 0.2
     _monsterAtkRng: 2

@@ -13,7 +13,7 @@ public class EnemyDeadState : EnemyBaseState
     {
         isMove = false;
         stateMachine.MovementSpeedModifier = 0f;
-        stateMachine.Enemy.NavMeshAgent.Stop();
+        stateMachine.Enemy.NavMeshAgent?.Stop();
 
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);

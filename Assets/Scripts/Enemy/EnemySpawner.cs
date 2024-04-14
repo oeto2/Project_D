@@ -23,7 +23,10 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnInfomation spawnInfomation = _monsterSpawnPoints[i].GetComponent<SpawnInfomation>();
             _spawnMonsters.Add(ResourceManager.Instance.Instantiate(spawnInfomation.GetSpawnMonsterPath(), _monsterSpawnPoints[i]));
-            _spawnMonsters[i].GetComponent<Enemy>().EnemyPatrolLocation_number = i;
+            Enemy enemy = _spawnMonsters[i].GetComponent<Enemy>();
+
+            if (enemy != null)
+                enemy.EnemyPatrolLocation_number = i;
         }
     }
 
@@ -34,6 +37,12 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < _spawnMonsters.Count; i++)
         {
             Enemy enemy = _spawnMonsters[i].GetComponent<Enemy>();
+
+            if (enemy == null)
+                continue;
+            if (enemy.MonsterMoveType == Constants.MonsterMoveType.Lock )
+                continue;
+
             enemy.MonsterWanderDestination.Add(_EnemyPatrolLocations[locationNum++]);
             enemy.MonsterWanderDestination.Add(_EnemyPatrolLocations[locationNum++]);
         }

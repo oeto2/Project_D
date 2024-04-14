@@ -25,7 +25,8 @@ namespace Constants
     {
         Skeleton,
         Goblin,
-        OrkWarrior
+        OrkWarrior,
+        Mimic
     }
 
    public enum DungeonLevel

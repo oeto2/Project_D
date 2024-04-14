@@ -10,7 +10,7 @@ public class SpawnInfomation : MonoBehaviour
 
     public string GetSpawnMonsterPath()
     {
-        switch(_SpawnMonsterName)
+        switch (_SpawnMonsterName)
         {
             case MonsterName.Skeleton:
                 return "Monster/SKELETON";
@@ -20,6 +20,13 @@ public class SpawnInfomation : MonoBehaviour
 
             case MonsterName.OrkWarrior:
                 return "Monster/Boss/OrkWarrior";
+
+            case MonsterName.Mimic:
+                int rand = Random.Range(0, 2);
+                if (rand == 0)
+                    return "Monster/Mimic";
+                else
+                    return "Object/Chest";
         }
 
         return "Monster/SKELETON";
