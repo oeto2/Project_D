@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public ItemData item; // 획득한 아이템.
     public Image itemImage; // 아이템의 이미지.
@@ -54,17 +54,30 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
         {
             if (item != null)
             {
-                if (item.itemType == Constants.ItemType.Weapon)
-                {
-                    //무기 장착
-                }
-                else if (item.itemType == Constants.ItemType.Equip)
-                {
-                    //장비장착
-                }
+                //장비장착해제
+
             }
         }
     }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (item != null)
+        {
+            ItemDescription.instance.gameObject.SetActive(true);
+            ItemDescription.instance.transform.position = eventData.position;
+            ItemDescription.instance.itemName.text = item.itemName;
+            ItemDescription.instance.itemDescription.text = item.itemDescription;
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (item != null)
+        {
+            ItemDescription.instance.gameObject.SetActive(false);
+        }
+    }
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {

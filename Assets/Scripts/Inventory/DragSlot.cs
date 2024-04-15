@@ -19,7 +19,7 @@ public class DragSlot : MonoBehaviour
     [SerializeField]
     private Image imageItem;
 
-    void Start()
+    void Awake()
     {
         instance = this;
     }

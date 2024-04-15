@@ -31,6 +31,8 @@ public class Player : MonoBehaviour, IDamagable
     public Transform playerTransform;
     public InteractionSystem InteractionSystem;
 
+    public Vector3 beforeTrans;
+
 
     private void Awake()
     {
