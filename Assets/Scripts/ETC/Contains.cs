@@ -21,6 +21,14 @@ namespace Constants
         Count
     }
 
+    public enum MonsterName
+    {
+        Skeleton,
+        Goblin,
+        OrkWarrior,
+        Mimic
+    }
+
    public enum DungeonLevel
     {
         Esay,

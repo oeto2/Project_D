@@ -871,6 +871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e34746992a577f4d995ec301a6b764b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isRoot: 0
+  _getItemsID: 
 --- !u!65 &1454623272067989930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1375,7 +1377,7 @@ MonoBehaviour:
     baseAttackParameterName: BaseAttack
     deadParameterName: Dead
     stiffParameterName: Stiff
-  EnemyPatrolLocation_number: 1
+  EnemyPatrolLocation_number: 0
   <MonsterMoveType>k__BackingField: 1
   MonsterWanderDestination: []
   enemyInteration_Object: {fileID: 3770708180680966607}

@@ -19,9 +19,15 @@ public class EnemySpawner : MonoBehaviour
     //몬스터 생성
     private void SpawnMonsters()
     {
-        _spawnMonsters.Add(ResourceManager.Instance.Instantiate("Monster/SKELETON", _monsterSpawnPoints[0]));
-        _spawnMonsters.Add(ResourceManager.Instance.Instantiate("Monster/SKELETON", _monsterSpawnPoints[1]));
-        _spawnMonsters.Add(ResourceManager.Instance.Instantiate("Monster/Goblin", _monsterSpawnPoints[2]));
+        for (int i = 0; i < _monsterSpawnPoints.Count; i++)
+        {
+            SpawnInfomation spawnInfomation = _monsterSpawnPoints[i].GetComponent<SpawnInfomation>();
+            _spawnMonsters.Add(ResourceManager.Instance.Instantiate(spawnInfomation.GetSpawnMonsterPath(), _monsterSpawnPoints[i]));
+            Enemy enemy = _spawnMonsters[i].GetComponent<Enemy>();
+
+            if (enemy != null)
+                enemy.EnemyPatrolLocation_number = i;
+        }
     }
 
     //몬스터 세팅
@@ -31,7 +37,12 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < _spawnMonsters.Count; i++)
         {
             Enemy enemy = _spawnMonsters[i].GetComponent<Enemy>();
-            enemy.SetPatrolLocation(i);
+
+            if (enemy == null)
+                continue;
+            if (enemy.MonsterMoveType == Constants.MonsterMoveType.Lock )
+                continue;
+
             enemy.MonsterWanderDestination.Add(_EnemyPatrolLocations[locationNum++]);
             enemy.MonsterWanderDestination.Add(_EnemyPatrolLocations[locationNum++]);
         }
