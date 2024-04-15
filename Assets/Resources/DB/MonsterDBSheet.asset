@@ -29,7 +29,7 @@ MonoBehaviour:
     _monsterRotationDamping: 15
   - _id: 11000002
     _monsterName: "\uBBF8\uBBF9"
-    _monsterHp: 15
+    _monsterHp: 30
     _monsterAtk: 30
     _monsterAtkSpd: 0.2
     _monsterAtkRng: 2
@@ -54,4 +54,18 @@ MonoBehaviour:
     _monsterMaxRoot: 5
     _dropId: 10000001
     _monsterChasingRng: 10
+    _monsterRotationDamping: 15
+  - _id: 11000004
+    _monsterName: "\uC624\uD06C\uC804\uC0AC"
+    _monsterHp: 200
+    _monsterAtk: 30
+    _monsterAtkSpd: 0.1
+    _monsterAtkRng: 3
+    _monsterDef: 10
+    _monsterWalk: 2.5
+    _monsterRun: 7
+    _monsterStiff: 1
+    _monsterMaxRoot: 5
+    _dropId: 10000001
+    _monsterChasingRng: 8
     _monsterRotationDamping: 15

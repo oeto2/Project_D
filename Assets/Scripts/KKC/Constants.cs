@@ -8,6 +8,12 @@ namespace Constants
     {
         Weapon,
         Equip,
+        Helmet,
+        Armour,
+        Pants,
+        Boots,
+        Necklace,
+        Ring,
         Consume,
         Material
     }
@@ -17,7 +23,8 @@ namespace Constants
         Common,
         Uncommon,
         Rare,
-        Unique
+        Unique,
+        Epic
     }
 
     public enum ClassType

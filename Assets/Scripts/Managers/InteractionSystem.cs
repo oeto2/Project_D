@@ -82,7 +82,7 @@ public class InteractionSystem : MonoBehaviour
         if (isInteract && curInteractable != null)
         {
             curInteractable.OnInteract();
-            isInteract = false;
+            //isInteract = false;
         }
     }
 
@@ -90,6 +90,5 @@ public class InteractionSystem : MonoBehaviour
     {
         promptText.gameObject.SetActive(true);
         promptText.text = string.Format($"<b>[{interactionRef.action.GetBindingDisplayString()}]</b> {curInteractable.GetInteractPrompt()}");
-        
     }
 }

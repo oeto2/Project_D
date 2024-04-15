@@ -1221,6 +1221,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2784034206043027412}
@@ -1290,6 +1292,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 569331908453134738}
@@ -1971,6 +1975,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 390104112250718379}
@@ -2490,6 +2496,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5081085264748209663}
@@ -3382,6 +3390,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5367472165783759020}
@@ -3652,7 +3662,7 @@ RectTransform:
   m_Children:
   - {fileID: 2667326516182665457}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4163,6 +4173,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6916045184599745760}
@@ -4308,6 +4320,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1483125486158480626}
@@ -4530,6 +4544,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 980158324263443151}
@@ -4599,6 +4615,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1534224675971104482}
@@ -4805,6 +4823,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1969457027963430348}
@@ -4950,6 +4970,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8059661670855827629}
@@ -5154,6 +5176,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 9218754725443146033}
@@ -5377,6 +5401,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4036071786658384132}
@@ -5583,6 +5609,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5785327903735238947}
@@ -5652,6 +5680,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7754703320328190958}
@@ -6409,7 +6439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: 20}
+  m_AnchoredPosition: {x: -430, y: 20}
   m_SizeDelta: {x: 525, y: 780}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4840635311433439310
@@ -6904,6 +6934,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7856536320392424250}
@@ -7126,6 +7158,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 3967836392780864859}
@@ -7408,6 +7442,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5759968289041795738}
@@ -7477,6 +7513,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8173627119853118702}
@@ -7789,6 +7827,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8850103246240574756}
@@ -9170,6 +9210,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6457480640613160734}
@@ -9543,6 +9585,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 614414481152460882}
@@ -9749,6 +9793,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6024799537450358180}
@@ -10898,6 +10944,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1208033688189389610}
@@ -11043,6 +11091,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1841512169829929817}
@@ -11923,6 +11973,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6921889112866842915}
@@ -11992,6 +12044,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1841962022667771528}
@@ -12792,6 +12846,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8991029867003180588}
@@ -12937,6 +12993,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5671911202902527210}
@@ -13006,6 +13064,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8149208826782567159}
