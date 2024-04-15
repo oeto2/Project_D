@@ -7,6 +7,7 @@ namespace Constants
     public enum ItemType
     {
         Weapon,
+        Equip,
         Helmet,
         Armour,
         Pants,
