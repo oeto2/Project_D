@@ -13,7 +13,6 @@ public class PlayerDefenseState : PlayerGroundState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("ฟฃลอ");
         stateMachine.Player.NavMeshAgent.speed = groundData.WalkSpeedModifier * groundData.BaseSpeed;
         stateMachine.Player.DefenseObj.SetActive(true);
         StartAnimation(stateMachine.Player.AnimationData.DefenseParameterHash);
