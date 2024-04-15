@@ -9896,7 +9896,7 @@ Transform:
   - {fileID: 6138375065518292450}
   - {fileID: 6848661888944021955}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 93.87, z: 0}
 --- !u!114 &2796891779340450164
 MonoBehaviour:
@@ -10045,6 +10045,8 @@ MonoBehaviour:
   mana: 0
   maxStamina: 0
   stamina: 0
+  attack: 0
+  defense: 0
 --- !u!1 &6490943239589496992
 GameObject:
   m_ObjectHideFlags: 0
@@ -15014,7 +15016,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 375
+    m_Bits: 887
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
