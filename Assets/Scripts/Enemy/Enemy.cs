@@ -65,7 +65,6 @@ public class Enemy : MonoBehaviour, IDamagable
                 //다시 처음 설정값으로 초기화
                 _curWanderDestination_index = 0;
             }
-
             return _curWanderDestination_index;
         }
         set
@@ -126,6 +125,16 @@ public class Enemy : MonoBehaviour, IDamagable
     {
         Health.TakePhysicalDamage(damageAmount);
         //Debug.Log(Health.health);
+        
+        //데미지 텍스트 띄우기
+        GameObject hitTextObject = PoolManager.Instance.SpawnFromPool(nameof(HitDamageText));
+        HitDamageText hitDamageText = hitTextObject.GetComponent<HitDamageText>();
+        hitDamageText.SetHitDamageText(damageAmount);
+
+        int randx = UnityEngine.Random.Range(-3, 4);
+
+        hitTextObject.transform.position = Target.position + new Vector3(1f, 1, 0);
+        Debug.Log(transform.position);
 
         CallTakeDamageEvent(Health.health);
 

@@ -28,11 +28,6 @@ public class PlayerAttacks : MonoBehaviour
                 if (collider.GetComponent<IDamagable>() != null && collider.gameObject != _playerObj)
                 {
                     collider.GetComponent<IDamagable>().TakePhysicalDamage(attackInfoData.Damage * (int)_player.Stats.attack);
-
-                    GameObject hitTextObject = PoolManager.Instance.SpawnFromPool(nameof(HitDamageText));
-                    HitDamageText hitDamageText = hitTextObject.GetComponent<HitDamageText>();
-                    hitDamageText.SetHitDamageText(attackInfoData.Damage);
-                    hitTextObject.transform.position = attackPos + new Vector3(0.2f, 0.2f, 0);
                 }
             }
         }
