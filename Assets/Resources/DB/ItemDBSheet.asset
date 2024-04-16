@@ -28,144 +28,24 @@ MonoBehaviour:
     _width: 1
     _height: 2
     _itemSprite: Images/Items/Sword
-  - _id: 20000001
-    _itemName: "\uCCB4\uB825\uBB3C\uC57D(\uC18C)"
-    _itemType: 8
-    _itemPrice: 300
+  - _id: 10000002
+    _itemName: "\uB808\uB354 \uD5EC\uB984"
+    _itemType: 1
+    _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
-    _itemHpRecover: 50
+    _itemHpRecover: 0
     _itemMpRecover: 0
-    _itemDescription: "\uC791\uC740 \uCCB4\uB825\uBB3C\uC57D\uC774\uB2E4. HP\uB97C
-      \uC18C\uB7C9 \uD68C\uBCF5\uD55C\uB2E4."
-    _itemMaxStack: 20
+    _itemDescription: "\uB0A1\uC740 \uD22C\uAD6C\uB2E4. \uC0C1\uB2F9\uD788 \uC624\uB798\uB3FC
+      \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
     _itemGrade: 0
-    _width: 1
-    _height: 1
-    _itemSprite: Images/Items/LittleHpPotion
-  - _id: 20000002
-    _itemName: "\uB9C8\uB098\uBB3C\uC57D(\uC18C)"
-    _itemType: 8
-    _itemPrice: 300
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 50
-    _itemDescription: "\uC791\uC740 \uB9C8\uB098\uBB3C\uC57D\uC774\uB2E4. MP\uB97C
-      \uC18C\uB7C9 \uD68C\uBCF5\uD55C\uB2E4."
-    _itemMaxStack: 20
-    _itemGrade: 0
-    _width: 1
-    _height: 1
-    _itemSprite: Images/Items/LittleMpPotion
-  - _id: 20000005
-    _itemName: "\uC5F4\uC1E0"
-    _itemType: 8
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uC791\uC740 \uC5F4\uC1E0\uB2E4. \uC5B4\uB5A0\uD55C \uC0C1\uC790\uB97C
-      \uC5EC\uB294 \uB370 \uD544\uC694\uD560 \uAC83 \uAC19\uB2E4."
-    _itemMaxStack: 5
-    _itemGrade: 2
-    _width: 1
-    _height: 1
-    _itemSprite: 
-  - _id: 30000001
-    _itemName: "\uD074\uB85C\uC18C\uC758 \uD22C\uAD6C"
-    _itemType: 2
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uD22C\uAD6C.
-      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 4
     _width: 2
-    _height: 2
-    _itemSprite: 
-  - _id: 30000002
-    _itemName: "\uB77C\uCF00\uC2DC\uC2A4\uC758 \uAC11\uC637"
-    _itemType: 3
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uAC11\uC637.
-      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 4
-    _width: 3
-    _height: 3
-    _itemSprite: 
-  - _id: 30000003
-    _itemName: "\uC544\uD2B8\uB85C\uD3EC\uC2A4\uC758 \uBC14\uC9C0"
-    _itemType: 4
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBC14\uC9C0.
-      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 4
-    _width: 3
-    _height: 3
-    _itemSprite: 
-  - _id: 30000004
-    _itemName: "\uB178\uB098\uC758 \uC2E0\uBC1C"
-    _itemType: 5
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uC2E0\uBC1C.
-      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 4
-    _width: 2
-    _height: 2
-    _itemSprite: 
-  - _id: 30000005
-    _itemName: "\uB370\uD0A4\uB9C8\uC758 \uBC18\uC9C0"
-    _itemType: 7
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBC18\uC9C0.
-      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 4
-    _width: 1
-    _height: 1
-    _itemSprite: 
-  - _id: 30000006
-    _itemName: "\uBAA8\uB974\uD0C0\uC758 \uBAA9\uAC78\uC774"
-    _itemType: 6
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBAA9\uAC78\uC774.
-      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 4
-    _width: 1
     _height: 2
     _itemSprite: 
   - _id: 10000003
     _itemName: "\uB808\uB354 \uC544\uBA38"
-    _itemType: 3
+    _itemType: 2
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -180,7 +60,7 @@ MonoBehaviour:
     _itemSprite: 
   - _id: 10000004
     _itemName: "\uB808\uB354 \uD32C\uCE20"
-    _itemType: 4
+    _itemType: 3
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -193,24 +73,9 @@ MonoBehaviour:
     _width: 3
     _height: 3
     _itemSprite: 
-  - _id: 10000002
-    _itemName: "\uB808\uB354 \uD5EC\uB984"
-    _itemType: 2
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uB0A1\uC740 \uD22C\uAD6C\uB2E4. \uC0C1\uB2F9\uD788 \uC624\uB798\uB3FC
-      \uBCF4\uC778\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 0
-    _width: 2
-    _height: 2
-    _itemSprite: 
   - _id: 10000005
     _itemName: "\uB3D9 \uBC18\uC9C0"
-    _itemType: 7
+    _itemType: 6
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -225,7 +90,7 @@ MonoBehaviour:
     _itemSprite: 
   - _id: 10000006
     _itemName: "\uB3D9 \uBAA9\uAC78\uC774"
-    _itemType: 6
+    _itemType: 5
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -236,6 +101,141 @@ MonoBehaviour:
       \uD754\uC801\uC774 \uC788\uB2E4."
     _itemMaxStack: 1
     _itemGrade: 0
+    _width: 1
+    _height: 2
+    _itemSprite: 
+  - _id: 20000001
+    _itemName: "\uCCB4\uB825\uBB3C\uC57D(\uC18C)"
+    _itemType: 7
+    _itemPrice: 300
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 50
+    _itemMpRecover: 0
+    _itemDescription: "\uC791\uC740 \uCCB4\uB825\uBB3C\uC57D\uC774\uB2E4. HP\uB97C
+      \uC18C\uB7C9 \uD68C\uBCF5\uD55C\uB2E4."
+    _itemMaxStack: 20
+    _itemGrade: 0
+    _width: 1
+    _height: 1
+    _itemSprite: Images/Items/LittleHpPotion
+  - _id: 20000002
+    _itemName: "\uB9C8\uB098\uBB3C\uC57D(\uC18C)"
+    _itemType: 7
+    _itemPrice: 300
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 50
+    _itemDescription: "\uC791\uC740 \uB9C8\uB098\uBB3C\uC57D\uC774\uB2E4. MP\uB97C
+      \uC18C\uB7C9 \uD68C\uBCF5\uD55C\uB2E4."
+    _itemMaxStack: 20
+    _itemGrade: 0
+    _width: 1
+    _height: 1
+    _itemSprite: Images/Items/LittleMpPotion
+  - _id: 20000005
+    _itemName: "\uC5F4\uC1E0"
+    _itemType: 7
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC791\uC740 \uC5F4\uC1E0\uB2E4. \uC5B4\uB5A0\uD55C \uC0C1\uC790\uB97C
+      \uC5EC\uB294 \uB370 \uD544\uC694\uD560 \uAC83 \uAC19\uB2E4."
+    _itemMaxStack: 5
+    _itemGrade: 2
+    _width: 1
+    _height: 1
+    _itemSprite: 
+  - _id: 30000001
+    _itemName: "\uD074\uB85C\uC18C\uC758 \uD22C\uAD6C"
+    _itemType: 1
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uD22C\uAD6C.
+      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 4
+    _width: 2
+    _height: 2
+    _itemSprite: 
+  - _id: 30000002
+    _itemName: "\uB77C\uCF00\uC2DC\uC2A4\uC758 \uAC11\uC637"
+    _itemType: 2
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uAC11\uC637.
+      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 4
+    _width: 3
+    _height: 3
+    _itemSprite: 
+  - _id: 30000003
+    _itemName: "\uC544\uD2B8\uB85C\uD3EC\uC2A4\uC758 \uBC14\uC9C0"
+    _itemType: 3
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBC14\uC9C0.
+      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 4
+    _width: 3
+    _height: 3
+    _itemSprite: 
+  - _id: 30000004
+    _itemName: "\uB178\uB098\uC758 \uC2E0\uBC1C"
+    _itemType: 4
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uC2E0\uBC1C.
+      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 4
+    _width: 2
+    _height: 2
+    _itemSprite: 
+  - _id: 30000005
+    _itemName: "\uB370\uD0A4\uB9C8\uC758 \uBC18\uC9C0"
+    _itemType: 6
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBC18\uC9C0.
+      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 4
+    _width: 1
+    _height: 1
+    _itemSprite: 
+  - _id: 30000006
+    _itemName: "\uBAA8\uB974\uD0C0\uC758 \uBAA9\uAC78\uC774"
+    _itemType: 5
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBAA9\uAC78\uC774.
+      \uC5B4\uB290 \uC5EC\uC2E0\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 4
     _width: 1
     _height: 2
     _itemSprite: 

@@ -11,7 +11,6 @@ public class TrapAnimationController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("충돌");
         _animator.SetBool("Attack", true);
     }
     //private void OnTriggerStay(Collider other)
@@ -21,7 +20,6 @@ public class TrapAnimationController : MonoBehaviour
     //}
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("해제");
         _animator.SetBool("Attack", false);
     }
 }
