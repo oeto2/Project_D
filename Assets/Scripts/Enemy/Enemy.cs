@@ -43,10 +43,11 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public GameObject enemyInteration_Object;
     public CharacterStats Health { get; private set; }
-    [HideInInspector] public CharacterStats _targetHealth;
-
     //공격 대상 트랜스폼
     [field: SerializeField] public Transform Target { get; private set; }
+    [HideInInspector] public CharacterStats _targetHealth;
+    //데미지 UI 뜨는 곳
+    public Transform HitUIPos;
 
     //스턴 할수 있는지 
     [SerializeField] private bool enableStiff = true;
@@ -131,9 +132,9 @@ public class Enemy : MonoBehaviour, IDamagable
         HitDamageText hitDamageText = hitTextObject.GetComponent<HitDamageText>();
         hitDamageText.SetHitDamageText(damageAmount);
 
-        int randx = UnityEngine.Random.Range(-3, 4);
+        int randx = UnityEngine.Random.Range(-2, 3);
 
-        hitTextObject.transform.position = Target.position + new Vector3(1f, 1, 0);
+        hitTextObject.transform.position = HitUIPos.position + new Vector3(0, 1, 0.1f * randx);
         Debug.Log(transform.position);
 
         CallTakeDamageEvent(Health.health);

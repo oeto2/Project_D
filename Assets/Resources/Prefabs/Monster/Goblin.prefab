@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2931509581033057564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3844190606174385491}
+  m_Layer: 0
+  m_Name: HitUIPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3844190606174385491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2931509581033057564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6750725954864246562}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3770708180680966607
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e34746992a577f4d995ec301a6b764b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isRoot: 0
+  _getItemsID: 
 --- !u!65 &1454623272067989930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -101,6 +134,7 @@ Transform:
   m_Children:
   - {fileID: 4415299770306073398}
   - {fileID: 6160977005367642040}
+  - {fileID: 3844190606174385491}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -148,8 +182,9 @@ MonoBehaviour:
   <MonsterMoveType>k__BackingField: 1
   MonsterWanderDestination: []
   enemyInteration_Object: {fileID: 3770708180680966607}
-  _targetHealth: {fileID: 0}
   <Target>k__BackingField: {fileID: 0}
+  _targetHealth: {fileID: 0}
+  HitUIPos: {fileID: 3844190606174385491}
   enableStiff: 1
 --- !u!114 &6734574209666049167
 MonoBehaviour:
@@ -183,6 +218,8 @@ MonoBehaviour:
   mana: 0
   maxStamina: 0
   stamina: 0
+  attack: 0
+  defense: 0
 --- !u!143 &5204801804691217164
 CharacterController:
   m_ObjectHideFlags: 0
