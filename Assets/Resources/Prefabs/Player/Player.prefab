@@ -9915,6 +9915,7 @@ MonoBehaviour:
     idleParameterName: Idle
     walkParameterName: Walk
     runParameterName: Run
+    defenseParameterName: Defense
     airParameterName: '@Air'
     jumpParameterName: Jump
     fallParameterName: Fall
@@ -9928,6 +9929,7 @@ MonoBehaviour:
   <DefenseObj>k__BackingField: {fileID: 784195439773250391}
   playerTransform: {fileID: 0}
   InteractionSystem: {fileID: 0}
+  beforeTrans: {x: 0, y: 0, z: 0}
 --- !u!114 &9171299046693303827
 MonoBehaviour:
   m_ObjectHideFlags: 0
