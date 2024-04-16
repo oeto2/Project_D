@@ -13,7 +13,6 @@ public class DragSlot : MonoBehaviour
     public Slot dragSlot;
 
     public EquipmentSlot equipmentSlot;
-    public WeaponSlot weaponSlot;
 
     // 아이템 이미지.
     [SerializeField]
@@ -24,16 +23,16 @@ public class DragSlot : MonoBehaviour
         instance = this;
     }
 
-    public void DragSetImage(Image _itemImage)
+    public void DragSetImage(Image itemImage_)
     {
-        imageItem.sprite = _itemImage.sprite;
+        imageItem.sprite = itemImage_.sprite;
         SetColor(1);
     }
 
-    public void SetColor(float _alpha)
+    public void SetColor(float alpha_)
     {
         Color color = imageItem.color;
-        color.a = _alpha;
+        color.a = alpha_;
         imageItem.color = color;
     }
 }

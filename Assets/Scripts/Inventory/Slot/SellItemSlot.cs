@@ -7,7 +7,7 @@ public class SellItemSlot : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        if (DragSlot.instance.dragSlot != null || DragSlot.instance.weaponSlot != null || DragSlot.instance.equipmentSlot != null)
+        if (DragSlot.instance.dragSlot != null  || DragSlot.instance.equipmentSlot != null)
             SellItem();
     }
 
