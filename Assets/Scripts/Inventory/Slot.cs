@@ -87,15 +87,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         {
             if (item != null)
             {
-                if (item.itemType == Constants.ItemType.Weapon)
-                {
-                    //¹«±â ÀåÂø
-                }
-                else if(item.itemType == Constants.ItemType.Equip)
-                {
-                    //ÀåºñÀåÂø
-                }
-                else
+                //if (item.itemType == Constants.ItemType.Weapon)
+                //{
+                //    //¹«±â ÀåÂø
+                //}
+                //else if(item.itemType == Constants.ItemType.Equip)
+                //{
+                //    //ÀåºñÀåÂø
+                //}
+                if(item.itemType == Constants.ItemType.Material|| item.itemType == Constants.ItemType.Consume)
                 {
                     GameManager.Instance.UsePotion(item);
                     SetSlotCount(-1);
@@ -108,6 +108,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         if(item != null)
         {
+            ItemDescription.instance.SetColor(item);
             ItemDescription.instance.gameObject.SetActive(true);
             ItemDescription.instance.transform.position = eventData.position;
             ItemDescription.instance.itemName.text = item.itemName;

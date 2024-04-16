@@ -24,17 +24,17 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     }
 
     // 이미지의 투명도 조절.
-    private void SetColor(float _alpha)
+    private void SetColor(float alpha_)
     {
         Color color = itemImage.color;
-        color.a = _alpha;
+        color.a = alpha_;
         itemImage.color = color;
     }
 
     // 아이템 획득
-    public void AddItem(ItemData _item)
+    public void AddItem(ItemData item_)
     {
-        item = _item;
+        item = item_;
         itemImage.sprite = item.Sprite;
 
         SetColor(1);
@@ -62,6 +62,7 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     {
         if (item != null)
         {
+            ItemDescription.instance.SetColor(item);
             ItemDescription.instance.gameObject.SetActive(true);
             ItemDescription.instance.transform.position = eventData.position;
             ItemDescription.instance.itemName.text = item.itemName;
@@ -70,10 +71,7 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (item != null)
-        {
-            ItemDescription.instance.gameObject.SetActive(false);
-        }
+        ItemDescription.instance.gameObject.SetActive(false);
     }
 
 
@@ -81,6 +79,7 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
     {
         if (item != null)
         {
+            SetColor(0.5f);
             DragSlot.instance.weaponSlot = this;
             DragSlot.instance.DragSetImage(itemImage);
             DragSlot.instance.dragItem = item;
@@ -98,6 +97,10 @@ public class WeaponSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (item != null)
+        {
+            SetColor(1);
+        }
         DragSlot.instance.SetColor(0);
         DragSlot.instance.dragItem = null;
         DragSlot.instance.dragSlot = null;
