@@ -22,15 +22,15 @@ public class InputPopup : UIBase
 
     public void OnOkButton()
     {
-        int sellItemCount_ = int.Parse(sellItemCount.text);
-        if (sellSlot.itemCount - sellItemCount_ >= 0)
+        int _sellItemCount = int.Parse(sellItemCount.text);
+        if (sellSlot.itemCount - _sellItemCount >= 0)
         {
-            sellSlot.AddItem(sellSlot.item, sellSlot.itemCount - sellItemCount_);
+            sellSlot.AddItem(sellSlot.item, sellSlot.itemCount - _sellItemCount);
             this.gameObject.SetActive(false);
         }
         else
         {
-            UIManager.Instance.ShowPopup<WarningPopup>();
+            UIManager.Instance.ShowPopup<WarningPopup>().SetWarningPopup("수량을 확인하세요");
         }
     }
 }
