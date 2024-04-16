@@ -63,6 +63,9 @@ public class CharacterStats : MonoBehaviour
 
     private void TakeDamage(int damageAmount)
     {
+        if (damageAmount > 0)
+            SoundManager.Instance.PlayHitSound(0);
+
         health = Math.Max(health - damageAmount, 0);
         if (health <= 0)
         {
