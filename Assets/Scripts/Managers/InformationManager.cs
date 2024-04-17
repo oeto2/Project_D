@@ -6,6 +6,9 @@ using System;
 using Constants;
 using Newtonsoft.Json;
 using UnityEngine.UIElements.Experimental;
+using System.Net.NetworkInformation;
+using Unity.VisualScripting;
+using UnityEditor;
 
 public class InformationManager : SingletonBase<InformationManager>
 {
@@ -108,6 +111,11 @@ public class SaveLoadData
     public Dictionary<ItemType, int> equipmentItems = new Dictionary<ItemType, int>()
     {
         {ItemType.Weapon, 0 },
-        {ItemType.Equip, 0 }
+        {ItemType.Helmet, 0 },
+        {ItemType.Chest, 0 },
+        {ItemType.Pants, 0 },
+        {ItemType.Boots, 0 },
+        {ItemType.Ring, 0 },
+        {ItemType.Necklace, 0 }
     };
 }

@@ -47,17 +47,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            Debug.Log("Q´©¸§");
-            AcquireItem(Database.Item.Get(20000001));
-            AcquireItem(Database.Item.Get(20000002));
-            //AcquireItem(Database.Item.Get(30000002));
-        }
-    }
-
     public void OnInventoryInput(InputAction.CallbackContext callbackcontext)
     {
         if (callbackcontext.phase == InputActionPhase.Started)

@@ -1316,7 +1316,7 @@ GameObject:
   m_Layer: 0
   m_Name: SKELETON
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1442,6 +1442,8 @@ MonoBehaviour:
   mana: 0
   maxStamina: 0
   stamina: 0
+  attack: 0
+  defense: 0
 --- !u!195 &8454578380842620898
 NavMeshAgent:
   m_ObjectHideFlags: 0
