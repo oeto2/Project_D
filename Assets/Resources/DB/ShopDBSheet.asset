@@ -17,11 +17,11 @@ MonoBehaviour:
     _shopName: "\uC0C1\uC810"
     _item1: 20000001
     _item2: 20000002
-    _item3: 20000002
-    _item4: 20000002
-    _item5: 20000002
-    _item6: 20000002
-    _item7: 20000002
-    _item8: 20000002
-    _item9: 20000002
-    _item10: 20000002
+    _item3: 20000003
+    _item4: 20000004
+    _item5: 20000005
+    _item6: 0
+    _item7: 0
+    _item8: 0
+    _item9: 0
+    _item10: 0
