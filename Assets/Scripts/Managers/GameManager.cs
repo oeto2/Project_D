@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : SingletonBase<GameManager>
 {
     public GameObject playerObject;
-    private Player _player;
+    public Player player;
 
     public SceneType sceneType = SceneType.LobbyScene;
 
@@ -40,7 +40,7 @@ public class GameManager : SingletonBase<GameManager>
         if (playerObject == null && (SceneManager.GetActiveScene().name == _dungeonSceneName|| SceneManager.GetActiveScene().name == _tutorialSceneName))
         {
             playerObject = ResourceManager.Instance.Instantiate("Player/Player");
-            _player = playerObject.GetComponent<Player>();
+            player = playerObject.GetComponent<Player>();
         }
 
         if (sceneType == SceneType.LobbyScene)
@@ -81,6 +81,6 @@ public class GameManager : SingletonBase<GameManager>
 
     public void UsePotion(ItemData potion)
     {
-        _player.Stats.UsePotion(potion);
+        player.Stats.UsePotion(potion);
     }
 }

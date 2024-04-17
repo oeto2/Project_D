@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BootsSlot : EquipmentSlot
 {
-    private void Awake()
+    private void Start()
     {
         var index = InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Boots];
         // 인포매니저에서 데이터가 비어있으면 초기화, 아니면 집어넣기
@@ -16,6 +17,9 @@ public class BootsSlot : EquipmentSlot
         {
             AddItem(Database.Item.Get(index));
         }
+
+        EquipStats += _player.Stats.EquipItem;
+        UnEquipStats += _player.Stats.UnEquipItem;
     }
 
     public override void OnDrop(PointerEventData eventData)
