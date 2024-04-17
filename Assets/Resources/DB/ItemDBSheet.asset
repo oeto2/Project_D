@@ -14,23 +14,434 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Item_Table:
   - _id: 10000001
-    _itemName: "\uB871\uC18C\uB4DC"
+    _itemName: "\uB871 \uC18C\uB4DC"
     _itemType: 0
     _itemPrice: 200
     _itemAtk: 100
     _itemDef: 0
     _itemHpRecover: 0
     _itemMpRecover: 0
-    _itemDescription: "\uB0A1\uC740 \uB871\uC18C\uB4DC\uB2E4. \uC870\uAE08 \uBB34\uB518
+    _itemDescription: "\uB0A1\uC740 \uB871 \uC18C\uB4DC\uB2E4. \uC870\uAE08 \uBB34\uB518
       \uB4EF \uD558\uB2E4."
     _itemMaxStack: 1
     _itemGrade: 0
     _width: 1
     _height: 2
-    _itemSprite: Images/Items/Sword
+    _itemSprite: Images/Items/CommonSword
+  - _id: 10000002
+    _itemName: "\uB808\uB354 \uD5EC\uB984"
+    _itemType: 1
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uD22C\uAD6C\uB2E4.
+      \uC0C1\uB2F9\uD788 \uC624\uB798\uB3FC \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 0
+    _width: 2
+    _height: 2
+    _itemSprite: Images/Items/CommonHelm
+  - _id: 10000003
+    _itemName: "\uB808\uB354 \uC544\uBA38"
+    _itemType: 2
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uAC11\uC637\uC774\uB2E4.
+      \uC0C1\uB2F9\uD788 \uC624\uB798\uB3FC \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 0
+    _width: 3
+    _height: 3
+    _itemSprite: Images/Items/CommonChest
+  - _id: 10000004
+    _itemName: "\uB808\uB354 \uD32C\uCE20"
+    _itemType: 3
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uBC14\uC9C0\uB2E4.
+      \uC0C1\uB2F9\uD788 \uC624\uB798\uB3FC \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 0
+    _width: 3
+    _height: 3
+    _itemSprite: Images/Items/CommonPants
+  - _id: 10000005
+    _itemName: "\uB808\uB354 \uBD80\uCE20"
+    _itemType: 4
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uC2E0\uBC1C\uC774\uB2E4.
+      \uC0C1\uB2F9\uD788 \uC624\uB798\uB3FC \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 0
+    _width: 2
+    _height: 2
+    _itemSprite: Images/Items/CommonBoots
+  - _id: 10000006
+    _itemName: "\uB3D9 \uBC18\uC9C0"
+    _itemType: 6
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uB3D9\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4. \uB204\uAD70\uAC00
+      \uC18C\uC911\uD788 \uCC28\uACE0 \uC788\uB358 \uB290\uB08C\uC774 \uB4E0\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 0
+    _width: 1
+    _height: 1
+    _itemSprite: Images/Items/CommonRing
+  - _id: 10000007
+    _itemName: "\uB3D9 \uBAA9\uAC78\uC774"
+    _itemType: 5
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uB3D9\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
+      \uB204\uAD70\uAC00\uC758 \uC18C\uC911\uD55C \uC5FC\uC6D0\uC774 \uB290\uAEF4\uC9C4\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 0
+    _width: 1
+    _height: 2
+    _itemSprite: Images/Items/CommonNecklace
+  - _id: 10001001
+    _itemName: "\uBE0C\uB85C\uB4DC \uC18C\uB4DC"
+    _itemType: 0
+    _itemPrice: 400
+    _itemAtk: 150
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uBE0C\uB85C\uB4DC \uC18C\uB4DC\uB2E4. \uAD00\uB9AC\uAC00
+      \uC798 \uB41C \uB4EF \uD558\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 1
+    _width: 1
+    _height: 2
+    _itemSprite: Images/Items/UncommonSword
+  - _id: 10001002
+    _itemName: "\uAC2C\uBE44\uC2A8 \uD5EC\uB984"
+    _itemType: 1
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAC00\uC8FD\uC5D0 \uCC9C\uC744 \uB367\uB300\uC5B4 \uB9CC\uB4E0
+      \uD22C\uAD6C\uB2E4. \uC0B4\uACE0\uC790 \uD558\uB294 \uC758\uC9C0\uAC00 \uC5FF\uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 1
+    _width: 2
+    _height: 2
+    _itemSprite: Images/Items/UncommonHelm
+  - _id: 10001003
+    _itemName: "\uAC2C\uBE44\uC2A8 \uC544\uBA38"
+    _itemType: 2
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAC00\uC8FD\uC5D0 \uCC9C\uC744 \uB367\uB300\uC5B4 \uB9CC\uB4E0
+      \uAC11\uC637\uC774\uB2E4. \uC0B4\uACE0\uC790 \uD558\uB294 \uC758\uC9C0\uAC00
+      \uC5FF\uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 1
+    _width: 3
+    _height: 3
+    _itemSprite: Images/Items/UncommonChest
+  - _id: 10001004
+    _itemName: "\uAC2C\uBE44\uC2A8 \uD32C\uCE20"
+    _itemType: 3
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAC00\uC8FD\uC5D0 \uCC9C\uC744 \uB367\uB300\uC5B4 \uB9CC\uB4E0
+      \uBC14\uC9C0\uB2E4. \uC0B4\uACE0\uC790 \uD558\uB294 \uC758\uC9C0\uAC00 \uC5FF\uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 1
+    _width: 3
+    _height: 3
+    _itemSprite: Images/Items/UncommonPants
+  - _id: 10001005
+    _itemName: "\uAC2C\uBE44\uC2A8 \uBD80\uCE20"
+    _itemType: 4
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAC00\uC8FD\uC5D0 \uCC9C\uC744 \uB367\uB300\uC5B4 \uB9CC\uB4E0
+      \uC2E0\uBC1C\uC774\uB2E4. \uC0B4\uACE0\uC790 \uD558\uB294 \uC758\uC9C0\uAC00
+      \uC5FF\uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 1
+    _width: 2
+    _height: 2
+    _itemSprite: Images/Items/UncommonBoots
+  - _id: 10001006
+    _itemName: "\uC740 \uBC18\uC9C0"
+    _itemType: 6
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC740\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4. \uC0AC\uB791\uD558\uB294
+      \uC0AC\uB78C\uACFC \uC57D\uC18D\uC758 \uC99D\uD45C\uB85C \uB9CE\uC774 \uC4F0\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 1
+    _width: 1
+    _height: 1
+    _itemSprite: Images/Items/UncommonRing
+  - _id: 10001007
+    _itemName: "\uC740 \uBAA9\uAC78\uC774"
+    _itemType: 5
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC740\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
+      \uB204\uAD70\uAC00\uC758 \uBB34\uC0AC\uB97C \uAE30\uC6D0\uD560 \uB54C \uB9CE\uC774
+      \uC4F0\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 1
+    _width: 1
+    _height: 2
+    _itemSprite: Images/Items/UncommonNecklace
+  - _id: 10010001
+    _itemName: "\uBC14\uC2A4\uD0C0\uB4DC \uC18C\uB4DC"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uBC14\uC2A4\uD0C0\uB4DC \uC18C\uB4DC\uB2E4. \uB178\uB828\uD55C
+      \uC804\uC0AC\uAC00 \uC4F4 \uB4EF\uD55C \uB290\uB08C\uC744 \uC900\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 2
+    _width: 1
+    _height: 2
+    _itemSprite: Images/Items/RareSword
+  - _id: 10010002
+    _itemName: "\uCCB4\uC778 \uD5EC\uB984"
+    _itemType: 1
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uCCA0\uC744 \uC5EE\uC5B4 \uB9CC\uB4E0 \uD22C\uAD6C\uB2E4.
+      \uC4F8\uB9CC \uD574 \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 2
+    _width: 2
+    _height: 2
+    _itemSprite: Images/Items/RareHelm
+  - _id: 10010003
+    _itemName: "\uCCB4\uC778 \uBA54\uC77C"
+    _itemType: 2
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uCCA0\uC744 \uC5EE\uC5B4 \uB9CC\uB4E0 \uAC11\uC637\uC774\uB2E4.
+      \uC4F8\uB9CC \uD574 \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 2
+    _width: 3
+    _height: 3
+    _itemSprite: Images/Items/RareChest
+  - _id: 10010004
+    _itemName: "\uCCB4\uC778 \uB808\uAE45\uC2A4"
+    _itemType: 3
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uCCA0\uC744 \uC5EE\uC5B4 \uB9CC\uB4E0 \uBC14\uC9C0\uB2E4.
+      \uC4F8\uB9CC \uD574 \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 2
+    _width: 3
+    _height: 3
+    _itemSprite: Images/Items/RarePants
+  - _id: 10010005
+    _itemName: "\uCCB4\uC778 \uBD80\uCE20"
+    _itemType: 4
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uCCA0\uC744 \uC5EE\uC5B4 \uB9CC\uB4E0 \uC2E0\uBC1C\uC774\uB2E4.
+      \uC4F8\uB9CC \uD574 \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 2
+    _width: 2
+    _height: 2
+    _itemSprite: Images/Items/RareBoots
+  - _id: 10010006
+    _itemName: "\uAE08 \uBC18\uC9C0"
+    _itemType: 6
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4. \uC0AC\uB791\uC758
+      \uACB0\uC2E4\uC758 \uC758\uBBF8\uB85C \uB9CE\uC774 \uC4F0\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 2
+    _width: 1
+    _height: 1
+    _itemSprite: Images/Items/RareRing
+  - _id: 10010007
+    _itemName: "\uAE08 \uBAA9\uAC78\uC774"
+    _itemType: 5
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
+      \uB204\uAD70\uAC00\uC758 \uBAA9\uD45C\uB97C \uD5A5\uD55C \uC5F4\uC815\uC774
+      \uB290\uAEF4\uC9C4\uB2E4. \uBB34\uC2A8 \uBAA9\uD45C\uC600\uC744\uAE4C?"
+    _itemMaxStack: 1
+    _itemGrade: 2
+    _width: 1
+    _height: 2
+    _itemSprite: Images/Items/RareNecklace
+  - _id: 10100001
+    _itemName: "\uAE00\uB77C\uB514\uC6B0\uC2A4"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uAE00\uB77C\uB514\uC6B0\uC2A4\uB2E4. \uB0A0\uCE74\uB86D\uAC8C
+      \uBCBC\uB824\uC838\uC788\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 3
+    _width: 1
+    _height: 2
+    _itemSprite: Images/Items/UniqueSword
+  - _id: 10100002
+    _itemName: "\uD50C\uB808\uC774\uD2B8 \uD5EC\uB984"
+    _itemType: 1
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uD310\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uD22C\uAD6C\uB2E4.
+      \uB9E4\uC6B0 \uD2BC\uD2BC\uD574 \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 3
+    _width: 2
+    _height: 2
+    _itemSprite: Images/Items/UniqueHelm
+  - _id: 10100003
+    _itemName: "\uD50C\uB808\uC774\uD2B8 \uBA54\uC77C"
+    _itemType: 2
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uD310\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uAC11\uC637\uC774\uB2E4.
+      \uB9E4\uC6B0 \uD2BC\uD2BC\uD574 \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 3
+    _width: 3
+    _height: 3
+    _itemSprite: Images/Items/UniqueChest
+  - _id: 10100004
+    _itemName: "\uD50C\uB808\uC774\uD2B8 \uB808\uAE45\uC2A4"
+    _itemType: 3
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uD310\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBC14\uC9C0\uB2E4.
+      \uB9E4\uC6B0 \uD2BC\uD2BC\uD574 \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 3
+    _width: 3
+    _height: 3
+    _itemSprite: Images/Items/UniquePants
+  - _id: 10100005
+    _itemName: "\uD50C\uB808\uC774\uD2B8 \uBD80\uCE20"
+    _itemType: 4
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uD310\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uC2E0\uBC1C\uC774\uB2E4.
+      \uB9E4\uC6B0 \uD2BC\uD2BC\uD574 \uBCF4\uC778\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 3
+    _width: 2
+    _height: 2
+    _itemSprite: Images/Items/UniqueBoots
+  - _id: 10100006
+    _itemName: "\uBC31\uAE08 \uBC18\uC9C0"
+    _itemType: 6
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uBC31\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4.
+      \uB204\uAD70\uAC00\uC758 \uC774\uB984\uC774 \uC4F0\uC5EC\uC838 \uC788\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 3
+    _width: 1
+    _height: 1
+    _itemSprite: Images/Items/UniqueRing
+  - _id: 10100007
+    _itemName: "\uBC31\uAE08 \uBAA9\uAC78\uC774"
+    _itemType: 5
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uBC31\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
+      \uB85C\uCF13\uC774\uC9C0\uB9CC \uC0AC\uC9C4\uBD80\uBD84\uC774 \uC5F4\uB9AC\uC9C0
+      \uC54A\uB294\uB2E4. \uC544\uB9C8 \uC18C\uC911\uD55C \uC0AC\uB78C\uC758 \uC0AC\uC9C4\uC77C
+      \uAC83\uC73C\uB85C \uCD94\uCE21\uB41C\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 3
+    _width: 1
+    _height: 2
+    _itemSprite: Images/Items/UniqueNecklace
   - _id: 20000001
     _itemName: "\uCCB4\uB825\uBB3C\uC57D(\uC18C)"
-    _itemType: 8
+    _itemType: 7
     _itemPrice: 300
     _itemAtk: 0
     _itemDef: 0
@@ -45,7 +456,7 @@ MonoBehaviour:
     _itemSprite: Images/Items/LittleHpPotion
   - _id: 20000002
     _itemName: "\uB9C8\uB098\uBB3C\uC57D(\uC18C)"
-    _itemType: 8
+    _itemType: 7
     _itemPrice: 300
     _itemAtk: 0
     _itemDef: 0
@@ -58,10 +469,38 @@ MonoBehaviour:
     _width: 1
     _height: 1
     _itemSprite: Images/Items/LittleMpPotion
+  - _id: 20000003
+    _itemName: "\uCCB4\uB825\uBB3C\uC57D"
+    _itemType: 7
+    _itemPrice: 700
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 100
+    _itemMpRecover: 0
+    _itemDescription: "\uCCB4\uB825\uBB3C\uC57D\uC774\uB2E4. HP\uB97C \uD68C\uBCF5\uD55C\uB2E4."
+    _itemMaxStack: 20
+    _itemGrade: 2
+    _width: 1
+    _height: 1
+    _itemSprite: Images/Items/HighHpPotion
+  - _id: 20000004
+    _itemName: "\uB9C8\uB098\uBB3C\uC57D"
+    _itemType: 7
+    _itemPrice: 700
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 100
+    _itemDescription: "\uB9C8\uB098\uBB3C\uC57D\uC774\uB2E4. MP\uB97C \uD68C\uBCF5\uD55C\uB2E4."
+    _itemMaxStack: 20
+    _itemGrade: 2
+    _width: 1
+    _height: 1
+    _itemSprite: Images/Items/HighMpPotion
   - _id: 20000005
     _itemName: "\uC5F4\uC1E0"
     _itemType: 8
-    _itemPrice: 0
+    _itemPrice: 2000
     _itemAtk: 0
     _itemDef: 0
     _itemHpRecover: 0
@@ -74,8 +513,23 @@ MonoBehaviour:
     _height: 1
     _itemSprite: 
   - _id: 30000001
+    _itemName: "\uC6B4\uBA85\uC758 \uAC80"
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uAC80.
+      \uBE44\uBC00\uC744 \uAC04\uC9C1\uD55C \uB290\uB08C\uC774 \uB4E0\uB2E4."
+    _itemMaxStack: 1
+    _itemGrade: 4
+    _width: 1
+    _height: 2
+    _itemSprite: Images/Items/EpicSword
+  - _id: 30000002
     _itemName: "\uD074\uB85C\uC18C\uC758 \uD22C\uAD6C"
-    _itemType: 2
+    _itemType: 1
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -87,10 +541,10 @@ MonoBehaviour:
     _itemGrade: 4
     _width: 2
     _height: 2
-    _itemSprite: 
-  - _id: 30000002
+    _itemSprite: Images/Items/EpicHelm
+  - _id: 30000003
     _itemName: "\uB77C\uCF00\uC2DC\uC2A4\uC758 \uAC11\uC637"
-    _itemType: 3
+    _itemType: 2
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -102,10 +556,10 @@ MonoBehaviour:
     _itemGrade: 4
     _width: 3
     _height: 3
-    _itemSprite: 
-  - _id: 30000003
+    _itemSprite: Images/Items/EpicChest
+  - _id: 30000004
     _itemName: "\uC544\uD2B8\uB85C\uD3EC\uC2A4\uC758 \uBC14\uC9C0"
-    _itemType: 4
+    _itemType: 3
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -117,10 +571,10 @@ MonoBehaviour:
     _itemGrade: 4
     _width: 3
     _height: 3
-    _itemSprite: 
-  - _id: 30000004
+    _itemSprite: Images/Items/EpicPants
+  - _id: 30000005
     _itemName: "\uB178\uB098\uC758 \uC2E0\uBC1C"
-    _itemType: 5
+    _itemType: 4
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -132,10 +586,10 @@ MonoBehaviour:
     _itemGrade: 4
     _width: 2
     _height: 2
-    _itemSprite: 
-  - _id: 30000005
+    _itemSprite: Images/Items/EpicBoots
+  - _id: 30000006
     _itemName: "\uB370\uD0A4\uB9C8\uC758 \uBC18\uC9C0"
-    _itemType: 7
+    _itemType: 6
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -147,10 +601,10 @@ MonoBehaviour:
     _itemGrade: 4
     _width: 1
     _height: 1
-    _itemSprite: 
-  - _id: 30000006
+    _itemSprite: Images/Items/EpicRing
+  - _id: 30000007
     _itemName: "\uBAA8\uB974\uD0C0\uC758 \uBAA9\uAC78\uC774"
-    _itemType: 6
+    _itemType: 5
     _itemPrice: 0
     _itemAtk: 0
     _itemDef: 0
@@ -162,80 +616,4 @@ MonoBehaviour:
     _itemGrade: 4
     _width: 1
     _height: 2
-    _itemSprite: 
-  - _id: 10000003
-    _itemName: "\uB808\uB354 \uC544\uBA38"
-    _itemType: 3
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uB0A1\uC740 \uAC11\uC637\uC774\uB2E4. \uC0C1\uB2F9\uD788
-      \uC624\uB798\uB3FC \uBCF4\uC778\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 0
-    _width: 3
-    _height: 3
-    _itemSprite: 
-  - _id: 10000004
-    _itemName: "\uB808\uB354 \uD32C\uCE20"
-    _itemType: 4
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uB0A1\uC740 \uBC14\uC9C0\uB2E4. \uC0C1\uB2F9\uD788 \uC624\uB798\uB3FC
-      \uBCF4\uC778\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 0
-    _width: 3
-    _height: 3
-    _itemSprite: 
-  - _id: 10000002
-    _itemName: "\uB808\uB354 \uD5EC\uB984"
-    _itemType: 2
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uB0A1\uC740 \uD22C\uAD6C\uB2E4. \uC0C1\uB2F9\uD788 \uC624\uB798\uB3FC
-      \uBCF4\uC778\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 0
-    _width: 2
-    _height: 2
-    _itemSprite: 
-  - _id: 10000005
-    _itemName: "\uB3D9 \uBC18\uC9C0"
-    _itemType: 7
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uB3D9\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4. \uB204\uAD70\uAC00\uC758
-      \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB358 \uD754\uC801\uC774 \uC788\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 0
-    _width: 1
-    _height: 1
-    _itemSprite: 
-  - _id: 10000006
-    _itemName: "\uB3D9 \uBAA9\uAC78\uC774"
-    _itemType: 6
-    _itemPrice: 0
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uB3D9\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
-      \uB204\uAD70\uAC00\uC758 \uC774\uB984\uC774 \uC0C8\uACA8\uC838 \uC788\uB358
-      \uD754\uC801\uC774 \uC788\uB2E4."
-    _itemMaxStack: 1
-    _itemGrade: 0
-    _width: 1
-    _height: 2
-    _itemSprite: 
+    _itemSprite: Images/Items/EpicNecklace

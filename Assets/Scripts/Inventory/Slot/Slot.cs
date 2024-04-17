@@ -151,12 +151,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         DragSlot.instance.dragItem = null;
         DragSlot.instance.dragSlot = null;
         DragSlot.instance.equipmentSlot = null;
-        DragSlot.instance.weaponSlot = null;
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (DragSlot.instance.dragSlot != null || DragSlot.instance.weaponSlot != null || DragSlot.instance.equipmentSlot != null)
+        if (DragSlot.instance.dragSlot != null|| DragSlot.instance.equipmentSlot != null)
             ChangeSlot();
     }
 
@@ -183,11 +182,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 DragSlot.instance.dragSlot.ClearSlot();
         }
             
-        else if (DragSlot.instance.equipmentSlot != null)
+        else
         {
             
             if (_tempItem != null)
-                if (_tempItem.itemType == Constants.ItemType.Equip)
+            {
+                //아이템 타입이 같은 경우에만 교환가능
+                if(DragSlot.instance.equipmentSlot.item.itemType == _tempItem.itemType)
                 {
                     DragSlot.instance.equipmentSlot.AddItem(_tempItem);
                     AddItem(DragSlot.instance.equipmentSlot.item);
@@ -198,33 +199,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     Debug.Log("바꿀수없습니다.");
                     return;
                 }
-                    
+            }
             else
             {
                 AddItem(DragSlot.instance.equipmentSlot.item);
                 DragSlot.instance.equipmentSlot.ClearSlot();
-            }
-                
-        }
-
-        else
-        {
-            if (_tempItem != null)
-                if (_tempItem.itemType == Constants.ItemType.Weapon)
-                {
-                    AddItem(DragSlot.instance.weaponSlot.item);
-                    DragSlot.instance.weaponSlot.AddItem(_tempItem);
-                } 
-                else
-                {
-                    //착용할수없음
-                    Debug.Log("바꿀수없습니다.");
-                    return;
-                }
-            else
-            {
-                AddItem(DragSlot.instance.weaponSlot.item);
-                DragSlot.instance.weaponSlot.ClearSlot();
             }
                 
         }

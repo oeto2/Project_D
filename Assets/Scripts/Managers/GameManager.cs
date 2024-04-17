@@ -14,6 +14,7 @@ public class GameManager : SingletonBase<GameManager>
 
     public SceneType sceneType = SceneType.LobbyScene;
 
+    private const string _tutorialSceneName = "TutorialScene";
     private const string _dungeonSceneName = "DungeonScene";
     private const string _loadingSceneName = "LoadingScene";
 
@@ -36,7 +37,7 @@ public class GameManager : SingletonBase<GameManager>
 
     private void PlayerInit(Scene scene, LoadSceneMode mode)
     {
-        if (playerObject == null && SceneManager.GetActiveScene().name == _dungeonSceneName)
+        if (playerObject == null && (SceneManager.GetActiveScene().name == _dungeonSceneName|| SceneManager.GetActiveScene().name == _tutorialSceneName))
         {
             playerObject = ResourceManager.Instance.Instantiate("Player/Player");
             _player = playerObject.GetComponent<Player>();

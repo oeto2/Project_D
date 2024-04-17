@@ -1788,14 +1788,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a6b05684a54a8254ea80122c8f00601d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4092,9 +4092,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2963817430799661236}
-  - component: {fileID: 4823447021143226726}
+  - component: {fileID: 8201806185818879111}
   m_Layer: 5
-  m_Name: HeadSlot
+  m_Name: HelmetSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4122,7 +4122,7 @@ RectTransform:
   m_AnchoredPosition: {x: 195, y: 250}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4823447021143226726
+--- !u!114 &8201806185818879111
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4131,7 +4131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5656922394297947805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6942b0117db99f48808728a38c573fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 121745371ec670d47b5adcb6f95cd049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item:
@@ -4159,6 +4159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6624332559903646485}
+  - component: {fileID: 4468622596164858380}
   m_Layer: 5
   m_Name: RingSlot
   m_TagString: Untagged
@@ -4188,6 +4189,34 @@ RectTransform:
   m_AnchoredPosition: {x: 70, y: -260}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4468622596164858380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797719543389299980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199c5500ab9945c47b48d8ffb0fd2d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    _id: 0
+    _itemName: 
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 0
+    _width: 0
+    _height: 0
+    _itemSprite: 
+  itemImage: {fileID: 8143337322018928322}
 --- !u!1 &5813437211550497506
 GameObject:
   m_ObjectHideFlags: 0
@@ -4545,9 +4574,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8457760467775824306}
-  - component: {fileID: 5686540821138904094}
+  - component: {fileID: 1150849457620840379}
   m_Layer: 5
-  m_Name: FeetSlot
+  m_Name: BootsSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4575,7 +4604,7 @@ RectTransform:
   m_AnchoredPosition: {x: 195, y: -50}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5686540821138904094
+--- !u!114 &1150849457620840379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4584,7 +4613,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6189513814129864415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6942b0117db99f48808728a38c573fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b7ead37dc85bcf4387704c8621e3b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item:
@@ -4962,9 +4991,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5889592187884644329}
-  - component: {fileID: 3254551524987711283}
+  - component: {fileID: 969571909338610676}
   m_Layer: 5
-  m_Name: LegsSlot
+  m_Name: PantsSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4992,7 +5021,7 @@ RectTransform:
   m_AnchoredPosition: {x: 195, y: 50}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3254551524987711283
+--- !u!114 &969571909338610676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5001,7 +5030,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6516251527929572599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6942b0117db99f48808728a38c573fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bc3d0a00a7a36743a2e1b21e6868598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item:
@@ -5576,14 +5605,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 97ad670292c2b1d43ab206cea1d2dfa3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5716,7 +5745,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7159786619380690824}
-  - component: {fileID: 1711716450704769468}
+  - component: {fileID: 1109713460214713639}
   m_Layer: 5
   m_Name: WeaponSlot
   m_TagString: Untagged
@@ -5746,7 +5775,7 @@ RectTransform:
   m_AnchoredPosition: {x: 195, y: -150}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1711716450704769468
+--- !u!114 &1109713460214713639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5773,7 +5802,7 @@ MonoBehaviour:
     _width: 0
     _height: 0
     _itemSprite: 
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 3950465843696693634}
 --- !u!1 &7153006394217209084
 GameObject:
   m_ObjectHideFlags: 0
@@ -5783,9 +5812,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234905391250392338}
-  - component: {fileID: 7105487302332023916}
+  - component: {fileID: 6864130306139524583}
   m_Layer: 5
-  m_Name: TabardSlot
+  m_Name: ChestSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5813,7 +5842,7 @@ RectTransform:
   m_AnchoredPosition: {x: 195, y: 150}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7105487302332023916
+--- !u!114 &6864130306139524583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5822,7 +5851,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7153006394217209084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6942b0117db99f48808728a38c573fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ffc9271f5f9cf24f94146a23fad0e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item:
@@ -6790,6 +6819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3071725197833836276}
+  - component: {fileID: 3607099358437004227}
   m_Layer: 5
   m_Name: NecklacSlot
   m_TagString: Untagged
@@ -6819,6 +6849,34 @@ RectTransform:
   m_AnchoredPosition: {x: -70, y: -260}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3607099358437004227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8465145589481536724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43749e5e5de1faf46ac0cadb1590c992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    _id: 0
+    _itemName: 
+    _itemType: 0
+    _itemPrice: 0
+    _itemAtk: 0
+    _itemDef: 0
+    _itemHpRecover: 0
+    _itemMpRecover: 0
+    _itemDescription: 
+    _itemMaxStack: 0
+    _itemGrade: 0
+    _width: 0
+    _height: 0
+    _itemSprite: 
+  itemImage: {fileID: 5747436964774599052}
 --- !u!1 &8996377251759399150
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,20 +11,9 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
     public ItemData item; // 획득한 아이템.
     public Image itemImage; // 아이템의 이미지.
 
-    private void Awake()
-    {
-        var index = InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Equip];
-        // 인포매니저에서 데이터가 비어있으면 초기화, 아니면 집어넣기
-        if (index == 0)
-            ClearSlot();
-        else
-        {
-            AddItem(Database.Item.Get(index));
-        }
-    }
 
     // 이미지의 투명도 조절.
-    private void SetColor(float alpha_)
+    protected void SetColor(float alpha_)
     {
         Color color = itemImage.color;
         color.a = alpha_;
@@ -107,14 +96,13 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
         DragSlot.instance.dragItem = null;
         DragSlot.instance.dragSlot = null;
         DragSlot.instance.equipmentSlot = null;
-        DragSlot.instance.weaponSlot = null;
     }
 
     public virtual void OnDrop(PointerEventData eventData)
     {
-        //if문에서 장비인지 확인
-        if (DragSlot.instance.dragSlot != null && DragSlot.instance.dragItem.itemType == Constants.ItemType.Equip)
-            ChangeSlot();
+        ////if문에서 장비인지 확인
+        //if (DragSlot.instance.dragSlot != null && DragSlot.instance.dragItem.itemType == Constants.ItemType.Equip)
+        //    ChangeSlot();
     }
 
     protected void ChangeSlot()
@@ -131,15 +119,5 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
         {
             DragSlot.instance.dragSlot.ClearSlot();
         }
-    }
-
-    private void OnDisable()
-    {
-        if (item != null)
-        {
-            InformationManager.Instance.SaveInformation(ItemType.Equip, item.id);
-        }
-        else
-            InformationManager.Instance.SaveInformation(ItemType.Equip, 0);
     }
 }
