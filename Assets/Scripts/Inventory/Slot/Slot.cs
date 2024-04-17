@@ -169,7 +169,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         }
         if (DragSlot.instance.dragSlot != null)
         {
-            if(item == DragSlot.instance.dragSlot.item && (item.itemType == Constants.ItemType.Material||item.itemType==Constants.ItemType.Consume))
+            if (item == DragSlot.instance.dragSlot.item && (item.itemType == Constants.ItemType.Material||item.itemType==Constants.ItemType.Consume))
             {
                 SetSlotCount(DragSlot.instance.dragSlot.itemCount);
                 DragSlot.instance.dragSlot.ClearSlot();
@@ -177,9 +177,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             }
             AddItem(DragSlot.instance.dragSlot.item, DragSlot.instance.dragSlot.itemCount);
             if (_tempItem != null)
+            {
                 DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount);
+            }
             else
                 DragSlot.instance.dragSlot.ClearSlot();
+
+            if(UIManager.Instance.ExistPopup(nameof(RewardPopup)))
+            {
+                GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+            }
         }
             
         else
@@ -205,8 +212,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 AddItem(DragSlot.instance.equipmentSlot.item);
                 DragSlot.instance.equipmentSlot.ClearSlot();
             }
-                
+
+            if (UIManager.Instance.ExistPopup(nameof(RewardPopup)))
+            {
+                GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+            }
         }
     }
-
 }

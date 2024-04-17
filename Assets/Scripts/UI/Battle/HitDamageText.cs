@@ -13,7 +13,7 @@ public class HitDamageText : MonoBehaviour
         _hitDamageTmp = GetComponent<TMP_Text>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(StartTextAniamtion());
     }

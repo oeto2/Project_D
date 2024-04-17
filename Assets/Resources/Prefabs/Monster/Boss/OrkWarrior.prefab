@@ -7337,6 +7337,37 @@ Transform:
   m_Father: {fileID: 6934916971943795568}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3856242993284990846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3604086867236132554}
+  m_Layer: 6
+  m_Name: HitUIPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3604086867236132554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856242993284990846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3550425998560413712}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3859850523824735553
 GameObject:
   m_ObjectHideFlags: 0
@@ -10238,16 +10269,17 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5014646188459995882}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 37.49, y: -0.02, z: -91.71}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7942200806163621758}
   - {fileID: 7658009922842763391}
+  - {fileID: 3604086867236132554}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3974559103476848192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10292,8 +10324,9 @@ MonoBehaviour:
   <MonsterMoveType>k__BackingField: 0
   MonsterWanderDestination: []
   enemyInteration_Object: {fileID: 1027674477082914034}
-  _targetHealth: {fileID: 0}
   <Target>k__BackingField: {fileID: 0}
+  _targetHealth: {fileID: 0}
+  HitUIPos: {fileID: 3604086867236132554}
   enableStiff: 1
 --- !u!114 &4731467328240907475
 MonoBehaviour:

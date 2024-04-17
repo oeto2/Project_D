@@ -17,7 +17,7 @@ public class Reward : MonoBehaviour
     private GameObject _slotsParent;
 
     // 슬롯들.
-    private Slot[] slots;
+    public Slot[] slots;
 
     private void Awake()
     {
@@ -28,7 +28,6 @@ public class Reward : MonoBehaviour
     {
         GameManager.Instance.SetRewardItemEvent += GetCurrentItemsId;
     }
-
 
     private void OpenReward()
     {
@@ -94,5 +93,11 @@ public class Reward : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+    }
+
+    //해당되는 슬롯의 아이템 갯수 반환
+    public int GetItemCountInSlot(int slotNum_)
+    {
+        return slots[slotNum_].itemCount;
     }
 }
