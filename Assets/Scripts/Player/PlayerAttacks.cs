@@ -32,6 +32,6 @@ public class PlayerAttacks : MonoBehaviour
             }
         }
 
-        SoundManager.Instance.PlayAttackSound(1);
+        SoundManager.Instance.PlayAttackSound(myEvent.intParameter + 1);
     }
 }

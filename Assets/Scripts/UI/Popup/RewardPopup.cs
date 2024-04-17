@@ -33,4 +33,10 @@ public class RewardPopup : UIBase
         if (_currentSceneName != _lobbySceneName && UIManager.Instance.BattleUICount <= 0)
             Cursor.lockState = CursorLockMode.Locked;
     }
+
+    protected override void CloseUI()
+    {
+        gameObject.SetActive(false);
+        GameManager.Instance.CallCloseRewardPopupEvent();
+    }
 }

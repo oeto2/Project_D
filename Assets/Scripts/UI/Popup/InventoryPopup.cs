@@ -42,11 +42,12 @@ public class InventoryPopup : UIBase
         }    
 
         //로비 씬에서만 동작
-        if (_currentSceneName == _lobbySceneName && _lobbySceneUI.curLobbyType != LobbyType.Storage)
+        if (_currentSceneName == _lobbySceneName)
         {
             UIManager.Instance.GetPopup(nameof(ShopPopup))?.gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(EquipmentPopup)).gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(DragPopup)).gameObject.SetActive(false);
+            UIManager.Instance.GetPopup(nameof(StoragePopup)).gameObject.SetActive(false);
             UIManager.Instance.GetPopup(nameof(LobbyUpPopup)).gameObject.SetActive(true);
         }
 
