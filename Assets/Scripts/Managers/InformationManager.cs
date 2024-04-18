@@ -29,7 +29,7 @@ public class InformationManager : SingletonBase<InformationManager>
             return;
         }
 
-        if (slots_.Length < 30)
+        if (slots_.Length == Constant.InvenSize)
         {
             for (int i = 0; i < slots_.Length; i++)
             {
@@ -47,7 +47,7 @@ public class InformationManager : SingletonBase<InformationManager>
         }
 
         //창고 데이터 저장
-        else
+        else if( slots_.Length == Constant.StorageSize)
         {
             for (int i = 0; i < slots_.Length; i++)
             {

@@ -100,4 +100,18 @@ public class Reward : MonoBehaviour
     {
         return slots[slotNum_].itemCount;
     }
+
+
+    public void Getitall()
+    {
+        Inventory inventory = UIManager.Instance.GetPopupObject(nameof(InventoryPopup)).GetComponent<Inventory>();
+        for (int i =0;i< slots.Length;i++)
+        {
+            if (slots[i].item != null)
+            {
+                inventory.AcquireItem(slots[i].item, slots[i].itemCount);
+            }
+        }
+        CleanRewardItem();
+    }
 }

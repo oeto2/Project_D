@@ -12,7 +12,7 @@ public class GameManager : SingletonBase<GameManager>
     public GameObject playerObject;
     public Player player;
 
-    public SceneType sceneType = SceneType.LobbyScene;
+    public SceneType sceneType = SceneType.TutorialScene;
 
     private const string _tutorialSceneName = "TutorialScene";
     private const string _dungeonSceneName = "DungeonScene";
@@ -45,7 +45,7 @@ public class GameManager : SingletonBase<GameManager>
             player = playerObject.GetComponent<Player>();
         }
 
-        if (sceneType == SceneType.LobbyScene)
+        else if (sceneType == SceneType.LobbyScene)
         {
             playerObject = ResourceManager.Instance.Instantiate("Player/Player");
             player = playerObject.GetComponent<Player>();

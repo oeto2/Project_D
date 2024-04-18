@@ -28,7 +28,7 @@ public class InventoryPopup : UIBase
     private void OnDisable()
     {
         UIManager.Instance.BattleUICount--;
-
+        ItemDescription.instance.gameObject.SetActive(false);
         //UI가 모두 종료 되었으면 다시 커서 락
         if (_currentSceneName != _lobbySceneName && UIManager.Instance.BattleUICount <= 0)
             Cursor.lockState = CursorLockMode.Locked;

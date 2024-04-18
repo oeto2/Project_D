@@ -8,7 +8,6 @@ public class Inventory : MonoBehaviour
 {
 
     public static bool inventoryActivated = false;
-    public static Inventory instance = null;
 
     // 필요한 컴포넌트
     [SerializeField]
@@ -27,10 +26,6 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
         UpdateGold(0);
     }
 
@@ -110,6 +105,8 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
+        var _warningPopup = UIManager.Instance.GetPopup(nameof(WarningPopup)).GetComponent<WarningPopup>();
+        _warningPopup.SetWarningPopup("아이템이 가득찼습니다.");
     }
 
     public void UpdateGold(int itemPrice_)

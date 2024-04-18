@@ -21,7 +21,8 @@ public class SellItemSlot : MonoBehaviour, IDropHandler
             {
                 if(_tempItemCount == 1)
                 {
-                    Inventory.instance.UpdateGold((int)(DragSlot.instance.dragSlot.item.itemPrice * 0.8f));
+                    Inventory inventory = UIManager.Instance.GetPopupObject(nameof(InventoryPopup)).GetComponent<Inventory>();
+                    inventory.UpdateGold((int)(DragSlot.instance.dragSlot.item.itemPrice * 0.8f));
                     DragSlot.instance.dragSlot.AddItem(_tempItem, _tempItemCount-1);
                     //Debug.Log(InformationManager.Instance.saveLoadData.gold);
 
