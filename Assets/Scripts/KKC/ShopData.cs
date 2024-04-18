@@ -17,6 +17,15 @@ public class ShopData
     [SerializeField] private int _item8;
     [SerializeField] private int _item9;
     [SerializeField] private int _item10;
+    [SerializeField] private int _item11;
+    [SerializeField] private int _item12;
+    [SerializeField] private int _item13;
+    [SerializeField] private int _item14;
+    [SerializeField] private int _item15;
+    [SerializeField] private int _item16;
+    [SerializeField] private int _item17;
+    [SerializeField] private int _item18;
+    [SerializeField] private int _item19;
 
     public int id => _id;
     public string shopName => _shopName;
@@ -41,6 +50,15 @@ public class ShopData
                 CheckShopItem(_item8);
                 CheckShopItem(_item9);
                 CheckShopItem(_item10);
+                CheckShopItem(_item11);
+                CheckShopItem(_item12);
+                CheckShopItem(_item13);
+                CheckShopItem(_item14);
+                CheckShopItem(_item15);
+                CheckShopItem(_item16);
+                CheckShopItem(_item17);
+                CheckShopItem(_item18);
+                CheckShopItem(_item19);
             }
 
             return shopItemList;

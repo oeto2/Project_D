@@ -17,7 +17,7 @@ MonoBehaviour:
     _itemName: "\uB871 \uC18C\uB4DC"
     _itemType: 0
     _itemPrice: 200
-    _itemAtk: 100
+    _itemAtk: 20
     _itemDef: 0
     _itemHpRecover: 0
     _itemMpRecover: 0
@@ -31,9 +31,9 @@ MonoBehaviour:
   - _id: 10000002
     _itemName: "\uB808\uB354 \uD5EC\uB984"
     _itemType: 1
-    _itemPrice: 0
+    _itemPrice: 100
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 1
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uD22C\uAD6C\uB2E4.
@@ -46,9 +46,9 @@ MonoBehaviour:
   - _id: 10000003
     _itemName: "\uB808\uB354 \uC544\uBA38"
     _itemType: 2
-    _itemPrice: 0
+    _itemPrice: 100
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 1
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uAC11\uC637\uC774\uB2E4.
@@ -61,9 +61,9 @@ MonoBehaviour:
   - _id: 10000004
     _itemName: "\uB808\uB354 \uD32C\uCE20"
     _itemType: 3
-    _itemPrice: 0
+    _itemPrice: 100
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 1
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uBC14\uC9C0\uB2E4.
@@ -76,9 +76,9 @@ MonoBehaviour:
   - _id: 10000005
     _itemName: "\uB808\uB354 \uBD80\uCE20"
     _itemType: 4
-    _itemPrice: 0
+    _itemPrice: 100
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 1
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAC00\uC8FD\uC73C\uB85C \uB9CC\uB4E0 \uC2E0\uBC1C\uC774\uB2E4.
@@ -91,9 +91,9 @@ MonoBehaviour:
   - _id: 10000006
     _itemName: "\uB3D9 \uBC18\uC9C0"
     _itemType: 6
-    _itemPrice: 0
+    _itemPrice: 50
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 0.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uB3D9\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4. \uB204\uAD70\uAC00
@@ -106,9 +106,9 @@ MonoBehaviour:
   - _id: 10000007
     _itemName: "\uB3D9 \uBAA9\uAC78\uC774"
     _itemType: 5
-    _itemPrice: 0
+    _itemPrice: 50
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 0.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uB3D9\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
@@ -122,7 +122,7 @@ MonoBehaviour:
     _itemName: "\uBE0C\uB85C\uB4DC \uC18C\uB4DC"
     _itemType: 0
     _itemPrice: 400
-    _itemAtk: 150
+    _itemAtk: 40
     _itemDef: 0
     _itemHpRecover: 0
     _itemMpRecover: 0
@@ -136,9 +136,9 @@ MonoBehaviour:
   - _id: 10001002
     _itemName: "\uAC2C\uBE44\uC2A8 \uD5EC\uB984"
     _itemType: 1
-    _itemPrice: 0
+    _itemPrice: 200
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 2
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAC00\uC8FD\uC5D0 \uCC9C\uC744 \uB367\uB300\uC5B4 \uB9CC\uB4E0
@@ -151,9 +151,9 @@ MonoBehaviour:
   - _id: 10001003
     _itemName: "\uAC2C\uBE44\uC2A8 \uC544\uBA38"
     _itemType: 2
-    _itemPrice: 0
+    _itemPrice: 200
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 2
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAC00\uC8FD\uC5D0 \uCC9C\uC744 \uB367\uB300\uC5B4 \uB9CC\uB4E0
@@ -167,9 +167,9 @@ MonoBehaviour:
   - _id: 10001004
     _itemName: "\uAC2C\uBE44\uC2A8 \uD32C\uCE20"
     _itemType: 3
-    _itemPrice: 0
+    _itemPrice: 200
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 2
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAC00\uC8FD\uC5D0 \uCC9C\uC744 \uB367\uB300\uC5B4 \uB9CC\uB4E0
@@ -182,9 +182,9 @@ MonoBehaviour:
   - _id: 10001005
     _itemName: "\uAC2C\uBE44\uC2A8 \uBD80\uCE20"
     _itemType: 4
-    _itemPrice: 0
+    _itemPrice: 200
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 2
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAC00\uC8FD\uC5D0 \uCC9C\uC744 \uB367\uB300\uC5B4 \uB9CC\uB4E0
@@ -198,9 +198,9 @@ MonoBehaviour:
   - _id: 10001006
     _itemName: "\uC740 \uBC18\uC9C0"
     _itemType: 6
-    _itemPrice: 0
+    _itemPrice: 150
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 1.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uC740\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4. \uC0AC\uB791\uD558\uB294
@@ -213,9 +213,9 @@ MonoBehaviour:
   - _id: 10001007
     _itemName: "\uC740 \uBAA9\uAC78\uC774"
     _itemType: 5
-    _itemPrice: 0
+    _itemPrice: 150
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 1.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uC740\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
@@ -229,8 +229,8 @@ MonoBehaviour:
   - _id: 10010001
     _itemName: "\uBC14\uC2A4\uD0C0\uB4DC \uC18C\uB4DC"
     _itemType: 0
-    _itemPrice: 0
-    _itemAtk: 0
+    _itemPrice: 600
+    _itemAtk: 60
     _itemDef: 0
     _itemHpRecover: 0
     _itemMpRecover: 0
@@ -244,9 +244,9 @@ MonoBehaviour:
   - _id: 10010002
     _itemName: "\uCCB4\uC778 \uD5EC\uB984"
     _itemType: 1
-    _itemPrice: 0
+    _itemPrice: 300
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 3
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uCCA0\uC744 \uC5EE\uC5B4 \uB9CC\uB4E0 \uD22C\uAD6C\uB2E4.
@@ -259,9 +259,9 @@ MonoBehaviour:
   - _id: 10010003
     _itemName: "\uCCB4\uC778 \uBA54\uC77C"
     _itemType: 2
-    _itemPrice: 0
+    _itemPrice: 300
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 3
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uCCA0\uC744 \uC5EE\uC5B4 \uB9CC\uB4E0 \uAC11\uC637\uC774\uB2E4.
@@ -274,9 +274,9 @@ MonoBehaviour:
   - _id: 10010004
     _itemName: "\uCCB4\uC778 \uB808\uAE45\uC2A4"
     _itemType: 3
-    _itemPrice: 0
+    _itemPrice: 300
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 3
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uCCA0\uC744 \uC5EE\uC5B4 \uB9CC\uB4E0 \uBC14\uC9C0\uB2E4.
@@ -289,9 +289,9 @@ MonoBehaviour:
   - _id: 10010005
     _itemName: "\uCCB4\uC778 \uBD80\uCE20"
     _itemType: 4
-    _itemPrice: 0
+    _itemPrice: 300
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 3
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uCCA0\uC744 \uC5EE\uC5B4 \uB9CC\uB4E0 \uC2E0\uBC1C\uC774\uB2E4.
@@ -304,9 +304,9 @@ MonoBehaviour:
   - _id: 10010006
     _itemName: "\uAE08 \uBC18\uC9C0"
     _itemType: 6
-    _itemPrice: 0
+    _itemPrice: 250
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 2.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4. \uC0AC\uB791\uC758
@@ -319,9 +319,9 @@ MonoBehaviour:
   - _id: 10010007
     _itemName: "\uAE08 \uBAA9\uAC78\uC774"
     _itemType: 5
-    _itemPrice: 0
+    _itemPrice: 250
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 2.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
@@ -335,8 +335,8 @@ MonoBehaviour:
   - _id: 10100001
     _itemName: "\uAE00\uB77C\uB514\uC6B0\uC2A4"
     _itemType: 0
-    _itemPrice: 0
-    _itemAtk: 0
+    _itemPrice: 800
+    _itemAtk: 80
     _itemDef: 0
     _itemHpRecover: 0
     _itemMpRecover: 0
@@ -350,9 +350,9 @@ MonoBehaviour:
   - _id: 10100002
     _itemName: "\uD50C\uB808\uC774\uD2B8 \uD5EC\uB984"
     _itemType: 1
-    _itemPrice: 0
+    _itemPrice: 400
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 4
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uD310\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uD22C\uAD6C\uB2E4.
@@ -365,9 +365,9 @@ MonoBehaviour:
   - _id: 10100003
     _itemName: "\uD50C\uB808\uC774\uD2B8 \uBA54\uC77C"
     _itemType: 2
-    _itemPrice: 0
+    _itemPrice: 400
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 4
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uD310\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uAC11\uC637\uC774\uB2E4.
@@ -380,9 +380,9 @@ MonoBehaviour:
   - _id: 10100004
     _itemName: "\uD50C\uB808\uC774\uD2B8 \uB808\uAE45\uC2A4"
     _itemType: 3
-    _itemPrice: 0
+    _itemPrice: 400
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 4
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uD310\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBC14\uC9C0\uB2E4.
@@ -395,9 +395,9 @@ MonoBehaviour:
   - _id: 10100005
     _itemName: "\uD50C\uB808\uC774\uD2B8 \uBD80\uCE20"
     _itemType: 4
-    _itemPrice: 0
+    _itemPrice: 400
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 4
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uD310\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uC2E0\uBC1C\uC774\uB2E4.
@@ -410,9 +410,9 @@ MonoBehaviour:
   - _id: 10100006
     _itemName: "\uBC31\uAE08 \uBC18\uC9C0"
     _itemType: 6
-    _itemPrice: 0
+    _itemPrice: 350
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 3.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uBC31\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBC18\uC9C0\uB2E4.
@@ -425,9 +425,9 @@ MonoBehaviour:
   - _id: 10100007
     _itemName: "\uBC31\uAE08 \uBAA9\uAC78\uC774"
     _itemType: 5
-    _itemPrice: 0
+    _itemPrice: 350
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 3.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uBC31\uAE08\uC73C\uB85C \uB9CC\uB4E0 \uBAA9\uAC78\uC774\uB2E4.
@@ -442,7 +442,7 @@ MonoBehaviour:
   - _id: 20000001
     _itemName: "\uCCB4\uB825\uBB3C\uC57D(\uC18C)"
     _itemType: 7
-    _itemPrice: 300
+    _itemPrice: 50
     _itemAtk: 0
     _itemDef: 0
     _itemHpRecover: 50
@@ -457,7 +457,7 @@ MonoBehaviour:
   - _id: 20000002
     _itemName: "\uB9C8\uB098\uBB3C\uC57D(\uC18C)"
     _itemType: 7
-    _itemPrice: 300
+    _itemPrice: 50
     _itemAtk: 0
     _itemDef: 0
     _itemHpRecover: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
   - _id: 20000003
     _itemName: "\uCCB4\uB825\uBB3C\uC57D"
     _itemType: 7
-    _itemPrice: 700
+    _itemPrice: 80
     _itemAtk: 0
     _itemDef: 0
     _itemHpRecover: 100
@@ -486,7 +486,7 @@ MonoBehaviour:
   - _id: 20000004
     _itemName: "\uB9C8\uB098\uBB3C\uC57D"
     _itemType: 7
-    _itemPrice: 700
+    _itemPrice: 80
     _itemAtk: 0
     _itemDef: 0
     _itemHpRecover: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
   - _id: 20000005
     _itemName: "\uC5F4\uC1E0"
     _itemType: 8
-    _itemPrice: 2000
+    _itemPrice: 1000
     _itemAtk: 0
     _itemDef: 0
     _itemHpRecover: 0
@@ -508,15 +508,15 @@ MonoBehaviour:
     _itemDescription: "\uC791\uC740 \uC5F4\uC1E0\uB2E4. \uC5B4\uB5A0\uD55C \uC0C1\uC790\uB97C
       \uC5EC\uB294 \uB370 \uD544\uC694\uD560 \uAC83 \uAC19\uB2E4."
     _itemMaxStack: 5
-    _itemGrade: 2
+    _itemGrade: 3
     _width: 1
     _height: 1
     _itemSprite: 
   - _id: 30000001
     _itemName: "\uC6B4\uBA85\uC758 \uAC80"
     _itemType: 0
-    _itemPrice: 0
-    _itemAtk: 0
+    _itemPrice: 10000
+    _itemAtk: 180
     _itemDef: 0
     _itemHpRecover: 0
     _itemMpRecover: 0
@@ -530,9 +530,9 @@ MonoBehaviour:
   - _id: 30000002
     _itemName: "\uD074\uB85C\uC18C\uC758 \uD22C\uAD6C"
     _itemType: 1
-    _itemPrice: 0
+    _itemPrice: 7000
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 10
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uD22C\uAD6C.
@@ -545,9 +545,9 @@ MonoBehaviour:
   - _id: 30000003
     _itemName: "\uB77C\uCF00\uC2DC\uC2A4\uC758 \uAC11\uC637"
     _itemType: 2
-    _itemPrice: 0
+    _itemPrice: 7000
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 10
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uAC11\uC637.
@@ -560,9 +560,9 @@ MonoBehaviour:
   - _id: 30000004
     _itemName: "\uC544\uD2B8\uB85C\uD3EC\uC2A4\uC758 \uBC14\uC9C0"
     _itemType: 3
-    _itemPrice: 0
+    _itemPrice: 7000
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 10
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBC14\uC9C0.
@@ -575,9 +575,9 @@ MonoBehaviour:
   - _id: 30000005
     _itemName: "\uB178\uB098\uC758 \uC2E0\uBC1C"
     _itemType: 4
-    _itemPrice: 0
+    _itemPrice: 7000
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 10
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uC2E0\uBC1C.
@@ -590,9 +590,9 @@ MonoBehaviour:
   - _id: 30000006
     _itemName: "\uB370\uD0A4\uB9C8\uC758 \uBC18\uC9C0"
     _itemType: 6
-    _itemPrice: 0
+    _itemPrice: 6500
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 9.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBC18\uC9C0.
@@ -605,9 +605,9 @@ MonoBehaviour:
   - _id: 30000007
     _itemName: "\uBAA8\uB974\uD0C0\uC758 \uBAA9\uAC78\uC774"
     _itemType: 5
-    _itemPrice: 0
+    _itemPrice: 6500
     _itemAtk: 0
-    _itemDef: 0
+    _itemDef: 9.5
     _itemHpRecover: 0
     _itemMpRecover: 0
     _itemDescription: "\uC2E0\uBE44\uD55C \uD798\uC774 \uB290\uAEF4\uC9C0\uB294 \uBAA9\uAC78\uC774.
