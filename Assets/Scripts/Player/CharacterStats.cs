@@ -36,8 +36,15 @@ public class CharacterStats : MonoBehaviour
         InitHealth(playerSO.Health);
         InitMana(playerSO.Mana);
         InitStamina(playerSO.Stamina);
-        attack = playerSO.Attack;
-        defense = playerSO.Defense;
+        InitBaseStats(playerSO);
+
+        foreach (var item in InformationManager.Instance.saveLoadData.equipmentItems)
+        {
+            if (item.Value != 0)
+            {
+                EquipItem(Database.Item.Get(item.Value));
+            }
+        }
     }
 
     public void InitHealth(float amount)
@@ -56,6 +63,12 @@ public class CharacterStats : MonoBehaviour
         stamina = maxStamina;
     }
 
+    public void InitBaseStats(PlayerSO playerSO)
+    {
+        attack = playerSO.Attack;
+        defense = playerSO.Defense;
+    }
+
     public void TakePhysicalDamage(int damageAmount)
     {
         OnDamage(damageAmount - (int)defense);
@@ -63,6 +76,9 @@ public class CharacterStats : MonoBehaviour
 
     private void TakeDamage(int damageAmount)
     {
+        if (damageAmount > 0)
+            SoundManager.Instance.PlayHitSound(0);
+
         health = Math.Max(health - damageAmount, 0);
         if (health <= 0)
         {
@@ -113,5 +129,21 @@ public class CharacterStats : MonoBehaviour
     {
         OnDamage(-potion.itemHpRecover);
         OnMana(potion.itemMpRecover);
+    }
+
+    public void EquipItem(ItemData item)
+    {
+        if (item == null)
+            return;
+        attack += item.itemAtk;
+        defense += item.itemDef;
+    }
+
+    public void UnEquipItem(ItemData item)
+    {
+        if (item == null)
+            return;
+        attack -= item.itemAtk;
+        defense -= item.itemDef;
     }
 }

@@ -4847,9 +4847,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7524169691700001050}
   - component: {fileID: 6763837876863015569}
-  m_Layer: 0
+  - component: {fileID: 6821322718540822860}
+  m_Layer: 7
   m_Name: DefenseObj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4890,6 +4891,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8, y: 2, z: 0.1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6821322718540822860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784195439773250391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab5dafcc9ceb634d93e12d525a8e767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1632378422577173210
 GameObject:
   m_ObjectHideFlags: 0
@@ -9930,6 +9943,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   InteractionSystem: {fileID: 0}
   beforeTrans: {x: 0, y: 0, z: 0}
+  _cameraView: {fileID: 1632378422577173210}
 --- !u!114 &9171299046693303827
 MonoBehaviour:
   m_ObjectHideFlags: 0

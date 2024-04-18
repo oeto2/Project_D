@@ -141,6 +141,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8729596744993242325}
@@ -424,6 +426,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 947222797092777246}
@@ -1133,6 +1137,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5385164743254783064}
@@ -2450,6 +2456,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2997419905267947121}
@@ -3023,6 +3031,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7578443626314870184}
@@ -3092,6 +3102,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5378071140403026478}
@@ -3237,6 +3249,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7505225542612193124}
@@ -3733,6 +3747,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5863025509106275541}
@@ -3802,6 +3818,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 3059192728948394400}
@@ -4237,6 +4255,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 46461317896759024}
@@ -4596,6 +4616,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4973725159608963200}
@@ -5335,6 +5357,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5522190769514219782}
@@ -6895,6 +6919,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6453402658772451869}
@@ -7040,6 +7066,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2437823719155730602}
@@ -7476,6 +7504,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4363950283360807663}
@@ -8125,6 +8155,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1117965130930460946}
@@ -8270,6 +8302,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5345714090926103929}
@@ -8553,6 +8587,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1163045423001710025}
@@ -8988,6 +9024,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 413019415325105329}
@@ -9496,6 +9534,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7538423769185657038}
@@ -9641,6 +9681,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 569926900292865937}
@@ -9923,6 +9965,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5904778248821324286}
@@ -11167,6 +11211,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 202619000151834364}
@@ -11236,6 +11282,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4945144395829582061}
@@ -11579,6 +11627,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1650273359027423201}
@@ -12014,6 +12064,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7359703432842696474}
@@ -12465,6 +12517,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7668732715667557255}
@@ -12900,6 +12954,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5584811461655750830}
@@ -14268,6 +14324,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4614732873711150531}
@@ -15009,6 +15067,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 221861016133346154}
@@ -15215,6 +15275,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 3264866929049448833}
@@ -15360,6 +15422,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8295336576850353579}
@@ -15643,6 +15707,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2431844408252514732}
@@ -15942,6 +16008,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6541862889464468862}
@@ -16315,6 +16383,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8413977662744359583}
@@ -17298,6 +17368,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5522321963094666570}
@@ -17533,7 +17605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4821594685645604730
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18472,6 +18544,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4554719158939187259}
@@ -19355,6 +19429,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4929495306372743058}
@@ -19500,6 +19576,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8974817415665424630}
@@ -19783,6 +19861,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 3750918589230804321}
@@ -20508,6 +20588,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5764018098276501443}
@@ -20806,6 +20888,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5329443454262915950}
@@ -20952,6 +21036,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2210158601888218081}
@@ -21463,6 +21549,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2693373485270535825}
@@ -21881,6 +21969,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8755947367494479634}
@@ -21950,6 +22040,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7140239984885004542}
@@ -22232,6 +22324,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1760827357658990006}
@@ -22377,6 +22471,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7164319952861472333}
@@ -23118,6 +23214,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7125605691464844982}
@@ -23187,6 +23285,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 596285648122041579}
@@ -23408,6 +23508,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6595485623581800622}
@@ -23477,6 +23579,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4992427367392998008}
@@ -23967,6 +24071,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7815066520934699713}
@@ -24036,6 +24142,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6446342563849415088}
@@ -24470,6 +24578,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   dragSlot: {fileID: 0}
   equipmentSlot: {fileID: 0}
@@ -25233,6 +25343,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 7620388030799706085}
@@ -25378,6 +25490,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2774010861438791560}
@@ -25675,6 +25789,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4040191864400104714}
@@ -25820,6 +25936,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2611517225891038323}
@@ -26195,6 +26313,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2448231077194777449}
@@ -26340,6 +26460,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 8939892814169906338}
@@ -27447,6 +27569,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 4337709395165259787}
@@ -28675,6 +28799,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5555862837974983254}
@@ -28744,6 +28870,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2895568241785873876}
@@ -29178,6 +29306,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 2301984154894642189}
@@ -29323,6 +29453,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5890889319411070158}
@@ -29544,6 +29676,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5980178087290320010}
@@ -29963,6 +30097,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5120524953905022018}
@@ -30185,6 +30321,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 5982709411384400611}
@@ -31178,6 +31316,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 6623092026078519349}
@@ -31400,6 +31540,8 @@ MonoBehaviour:
     _itemDescription: 
     _itemMaxStack: 0
     _itemGrade: 0
+    _width: 0
+    _height: 0
     _itemSprite: 
   itemCount: 0
   itemImage: {fileID: 1749183696170554760}

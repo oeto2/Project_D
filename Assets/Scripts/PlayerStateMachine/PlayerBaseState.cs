@@ -54,6 +54,8 @@ public class PlayerBaseState : IState
 
     protected virtual void AddInputActionsCallback()
     {
+        if (GameManager.Instance.sceneType == Constants.SceneType.LobbyScene)
+            return;
         PlayerInputs input = stateMachine.Player.Input;
         input.playerActions.Move.canceled += OnMoveCanceled;
         input.playerActions.Run.started += OnRunStarted;
@@ -81,6 +83,8 @@ public class PlayerBaseState : IState
 
     protected virtual void RemoveInputActionsCallback()
     {
+        if (GameManager.Instance.sceneType == Constants.SceneType.LobbyScene)
+            return;
         PlayerInputs input = stateMachine.Player.Input;
         input.playerActions.Move.canceled -= OnMoveCanceled;
         input.playerActions.Run.started -= OnRunStarted;

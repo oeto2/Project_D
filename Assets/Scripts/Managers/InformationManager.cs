@@ -5,10 +5,6 @@ using System.IO;
 using System;
 using Constants;
 using Newtonsoft.Json;
-using UnityEngine.UIElements.Experimental;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
-using UnityEditor;
 
 public class InformationManager : SingletonBase<InformationManager>
 {
@@ -27,7 +23,13 @@ public class InformationManager : SingletonBase<InformationManager>
     public void SaveInformation(Slot[] slots_)
     {
         //인벤토리 데이터 저장
-        if (slots_.Length < 50)
+        if (slots_ == null)
+        {
+            Debug.Log("이왜널");
+            return;
+        }
+
+        if (slots_.Length < 30)
         {
             for (int i = 0; i < slots_.Length; i++)
             {

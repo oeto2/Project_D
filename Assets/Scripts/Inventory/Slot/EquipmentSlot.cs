@@ -1,4 +1,5 @@
 using Constants;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,11 +7,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public ItemData item; // 획득한 아이템.
     public Image itemImage; // 아이템의 이미지.
 
+    protected Player _player;
+
+    protected event Action<ItemData> EquipStats;
+    protected event Action<ItemData> UnEquipStats;
+
+    private void Awake()
+    {
+        _player = GameManager.Instance.player;
+    }
 
     // 이미지의 투명도 조절.
     protected void SetColor(float alpha_)
@@ -25,13 +35,16 @@ public class EquipmentSlot : MonoBehaviour,IPointerClickHandler, IBeginDragHandl
     {
         item = item_;
         itemImage.sprite = item.Sprite;
-
+        if (EquipStats != null)
+            EquipStats(item);
         SetColor(1);
     }
 
     // 슬롯 초기화.
     public void ClearSlot()
     {
+        if (UnEquipStats != null)
+            UnEquipStats(item);
         item = null;
         itemImage.sprite = null;
         SetColor(0);
