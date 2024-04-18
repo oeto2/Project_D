@@ -8,7 +8,6 @@ public class Inventory : MonoBehaviour
 {
 
     public static bool inventoryActivated = false;
-    public static Inventory instance = null;
 
     // 필요한 컴포넌트
     [SerializeField]
@@ -27,10 +26,6 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
         UpdateGold(0);
     }
 
@@ -83,17 +78,17 @@ public class Inventory : MonoBehaviour
         _inventoryBase.SetActive(false);
     }
 
-    public void AcquireItem(ItemData _item, int _count = 1)
+    public void AcquireItem(ItemData item_, int count_ = 1)
     {
-        if (_item.itemType == Constants.ItemType.Consume || _item.itemType == Constants.ItemType.Material)
+        if (item_.itemType == Constants.ItemType.Consume || item_.itemType == Constants.ItemType.Material)
         {
             for (int i = 0; i < _slots.Length; i++)
             {
                 if (_slots[i].item != null)
                 {
-                    if (_slots[i].item.itemName == _item.itemName)
+                    if (_slots[i].item.itemName == item_.itemName)
                     {
-                        _slots[i].SetSlotCount(_count);
+                        _slots[i].SetSlotCount(count_);
                         //InformationManager.Instance.SaveInformation(i, _item.id, _count);
                         return;
                     }
@@ -105,11 +100,13 @@ public class Inventory : MonoBehaviour
         {
             if (_slots[i].item == null)
             {
-                _slots[i].AddItem(_item, _count);
+                _slots[i].AddItem(item_, count_);
                 //InformationManager.Instance.SaveInformation(i, _item.id, _count);
                 return;
             }
         }
+        var _warningPopup = UIManager.Instance.GetPopup(nameof(WarningPopup)).GetComponent<WarningPopup>();
+        _warningPopup.SetWarningPopup("아이템이 가득찼습니다.");
     }
 
     public void UpdateGold(int itemPrice_)

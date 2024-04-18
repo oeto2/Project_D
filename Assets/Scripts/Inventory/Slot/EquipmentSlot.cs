@@ -121,7 +121,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     protected void ChangeSlot()
     {
         ItemData _tempItem = item;
-
+        ClearSlot();
         AddItem(DragSlot.instance.dragSlot.item);
 
         if (_tempItem != null)
