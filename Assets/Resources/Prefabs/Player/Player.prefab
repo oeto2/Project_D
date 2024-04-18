@@ -9943,6 +9943,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   InteractionSystem: {fileID: 0}
   beforeTrans: {x: 0, y: 0, z: 0}
+  _cameraView: {fileID: 1632378422577173210}
 --- !u!114 &9171299046693303827
 MonoBehaviour:
   m_ObjectHideFlags: 0

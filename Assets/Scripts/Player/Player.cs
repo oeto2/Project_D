@@ -1,3 +1,4 @@
+using Constants;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour, IDamagable
     public InteractionSystem InteractionSystem;
 
     public Vector3 beforeTrans;
-
+    [SerializeField] private GameObject _cameraView;
 
     private void Awake()
     {
@@ -50,11 +51,15 @@ public class Player : MonoBehaviour, IDamagable
         InteractionSystem = GetComponent<InteractionSystem>();
 
         Stats.Init(Data);
+
+        if (GameManager.Instance.sceneType == SceneType.LobbyScene)
+            _cameraView.SetActive(false);
     }
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        if (GameManager.Instance.sceneType != SceneType.LobbyScene)
+            Cursor.lockState = CursorLockMode.Locked;
         stateMachine.ChangeState(stateMachine.IdleState);
 
         Stats.OnDie += OnDie;
