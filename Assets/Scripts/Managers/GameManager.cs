@@ -47,6 +47,8 @@ public class GameManager : SingletonBase<GameManager>
 
         if (sceneType == SceneType.LobbyScene)
         {
+            playerObject = ResourceManager.Instance.Instantiate("Player/Player");
+            player = playerObject.GetComponent<Player>();
             Cursor.lockState = CursorLockMode.None;
         }
     }
