@@ -89,7 +89,7 @@ public class DropPerDB
 
     public ItemData GetItem(int dropPerId_)
     {
-        int rand = random.Next(_dropPer[dropPerId_].totalDropPer);
+        int rand = random.Next(1, _dropPer[dropPerId_].totalDropPer);
 
         if (rand <= _dropPer[dropPerId_].dropPer4)
         {
