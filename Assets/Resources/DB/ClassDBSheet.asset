@@ -15,9 +15,9 @@ MonoBehaviour:
   Class_Table:
   - _id: 10000001
     _className: 0
-    _hp: 300
+    _hp: 500
     _mp: 200
-    _atk: 50
+    _atk: 20
     _def: 20
     _spd: 1
     _atkSpd: 0

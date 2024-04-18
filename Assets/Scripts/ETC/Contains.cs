@@ -39,6 +39,7 @@ namespace Constants
 
     public enum SceneType
     {
+        TutorialScene,
         LobbyScene,
         DungeonScene
     }
