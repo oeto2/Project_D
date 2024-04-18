@@ -25,7 +25,6 @@ public class InformationManager : SingletonBase<InformationManager>
         //인벤토리 데이터 저장
         if (slots_ == null)
         {
-            Debug.Log("이왜널");
             return;
         }
 
@@ -92,6 +91,22 @@ public class InformationManager : SingletonBase<InformationManager>
             string jsonData = File.ReadAllText(_path + _fileName);
             saveLoadData = JsonConvert.DeserializeObject<SaveLoadData>(jsonData);
         }
+    }
+
+    public void OnDieClear()
+    {
+        foreach (var item in saveLoadData.equipmentItems)
+        {
+            saveLoadData.equipmentItems[item.Key] = 0;
+        }
+        
+        for (int i = 0; i < saveLoadData.itemID.Length; i++)
+        {
+            saveLoadData.itemID[i] = 0;
+            saveLoadData.itemStack[i] = 0;
+        }
+
+        saveLoadData.gold = 0;
     }
 }
 
