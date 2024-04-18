@@ -34,8 +34,9 @@ public class ShopSlot : UIRecycleViewCell<ItemData>
         {
             if (InformationManager.Instance.saveLoadData.gold >= itemData.itemPrice * itemCount)
             {
-                Inventory.instance.AcquireItem(itemData, itemCount);
-                Inventory.instance.UpdateGold(-itemData.itemPrice * itemCount);
+                Inventory inventory = UIManager.Instance.GetPopupObject(nameof(InventoryPopup)).GetComponent<Inventory>();
+                inventory.AcquireItem(itemData, itemCount);
+                inventory.UpdateGold(-itemData.itemPrice * itemCount);
                 //Debug.Log(ItemData.itemName + " " + itemCount);
 
             }
