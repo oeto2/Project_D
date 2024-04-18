@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class EnemyInteration : MonoBehaviour, IInteractable
 {
     private Enemy _enemy;
-    [SerializeField] private bool _isRoot;
+    [SerializeField] public bool _isRoot;
     public List<int> _getItemsID;
     public List<int> _getItemsCount;
     private void Awake()

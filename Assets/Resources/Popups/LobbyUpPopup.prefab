@@ -378,7 +378,7 @@ MonoBehaviour:
   _optionButton: {fileID: 9156497784417625877}
   _shopButton: {fileID: 7625167123747275037}
   _enterDungeonButton: {fileID: 765274565573544206}
-  _stateButton: {fileID: 7346845984774005727}
+  _exitButton: {fileID: 7346845984774005727}
   _inventroyButton: {fileID: 8850248129068340616}
   _storageButton: {fileID: 7440593950917926972}
 --- !u!1 &892034477281975200
@@ -418,7 +418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1756, y: -75}
+  m_AnchoredPosition: {x: 1408, y: -75}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1054212884049841511
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC0C1\uD0DC"
+  m_text: "\uAC8C\uC784\uC885\uB8CC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e35b5184c084794f85c03e83e3a042c, type: 2}
   m_sharedMaterial: {fileID: 7469225891138420652, guid: 3e35b5184c084794f85c03e83e3a042c,
@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 3517392551057091854}
   - component: {fileID: 7346845984774005727}
   m_Layer: 0
-  m_Name: StateButton
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,7 +1152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1075, y: -75}
+  m_AnchoredPosition: {x: 1731, y: -75}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8378549047325127180
@@ -1274,7 +1274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1401, y: -75}
+  m_AnchoredPosition: {x: 1083, y: -75}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3333837310603596673
