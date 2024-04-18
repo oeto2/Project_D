@@ -1,3 +1,4 @@
+using Constants;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,6 +42,9 @@ public class InteractionSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameManager.Instance.sceneType == SceneType.LobbyScene)
+            return;
+
         _camera = Camera.main;
         _interationPopup = _uiManager.GetPopup(nameof(interationPopup)).GetComponent<interationPopup>();
         loadingBar = _interationPopup.LoadingBar;
@@ -51,6 +55,9 @@ public class InteractionSystem : MonoBehaviour
     void Update()
     {
         //Debug.Log(curInteractable);
+
+        if (GameManager.Instance.sceneType == SceneType.LobbyScene)
+            return;
 
         if (Time.time - lastCheckTime > checkRate)
         {

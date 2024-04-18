@@ -32,7 +32,10 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public int EnemyPatrolLocation_number = 0;
 
-    private EnemyStateMachine stateMachine;
+    public EnemyStateMachine stateMachine;
+
+    //몬스터 타입
+    public MonsterType MonsterType = MonsterType.Normal;
 
     //몬스터 이동 타입 (고정 or 정찰)
     [field: SerializeField] public MonsterMoveType MonsterMoveType { get; private set; }
@@ -40,7 +43,6 @@ public class Enemy : MonoBehaviour, IDamagable
 
     //현재 이동할 목적지 좌표의 인덱스
     private int _curWanderDestination_index = 0;
-
     public GameObject enemyInteration_Object;
     public CharacterStats Health { get; private set; }
     //공격 대상 트랜스폼
@@ -51,6 +53,9 @@ public class Enemy : MonoBehaviour, IDamagable
 
     //스턴 할수 있는지 
     [SerializeField] private bool enableStiff = true;
+
+    [field: Header("BossSkill")]
+    public EnemySkillBase EnemySkill;
 
     #region 액션 이벤트
     public event Action<float> TakeDamageEvent;
@@ -89,6 +94,9 @@ public class Enemy : MonoBehaviour, IDamagable
         //순찰 장소
         //SetPatrolLocation(EnemyPatrolLocation_number);
         Health.InitHealth(Data.monsterHp);
+        
+        if(MonsterType == MonsterType.Boss)
+            EnemySkill = GetComponent<EnemySkillBase>();
     }
 
     private void Start()
@@ -135,14 +143,23 @@ public class Enemy : MonoBehaviour, IDamagable
         int randx = UnityEngine.Random.Range(-2, 3);
 
         hitTextObject.transform.position = HitUIPos.position + new Vector3(0, 1, 0.1f * randx);
-        Debug.Log(transform.position);
-
         CallTakeDamageEvent(Health.health);
 
         if (enableStiff && Health.health > 0)
         {
-            stateMachine.ChangeState(stateMachine.StiffState);
-            StartCoroutine(StiffStateDelay());
+            //일반 몬스터의 경우
+            if(MonsterType == MonsterType.Normal)
+            {
+                stateMachine.ChangeState(stateMachine.StiffState);
+                StartCoroutine(StiffStateDelay());
+            }
+            
+            //보스 몬스터의 경우 스킬을 사용중이지 않을 때만 동작
+            if(MonsterType == MonsterType.Boss && !EnemySkill.UsingSkill)
+            {
+                stateMachine.ChangeState(stateMachine.StiffState);
+                StartCoroutine(StiffStateDelay());
+            }
         }
     }
 
@@ -155,13 +172,6 @@ public class Enemy : MonoBehaviour, IDamagable
         ForceReceiver.enabled = false;
         enabled = false;
     }
-
-    ////몬스터가 순찰할 좌표 설정
-    //public void SetPatrolLocation()
-    //{
-    //    MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate($"Map/WayPoint{EnemyPatrolLocation_number++}").transform);
-    //    MonsterWanderDestination.Add(ResourceManager.Instance.Instantiate($"Map/WayPoint{EnemyPatrolLocation_number}").transform);
-    //}
 
     //경직상태 딜레이
     public IEnumerator StiffStateDelay()

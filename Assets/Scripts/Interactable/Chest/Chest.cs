@@ -68,9 +68,9 @@ public class Chest : MonoBehaviour, IInteractable
                 //상호작용 UI 숨기기
                 HideInteractUI();
 
-                //이후에 상자 ID로 수정하기
-                int chestId = 11000001;
-                int rand = Random.Range(1, Database.Monster.Get(chestId).monsterMaxRoot);
+                int chestId = 20000001;
+                //상자의 MaxRoot가 존재하지 않아서 5로 설정
+                int rand = Random.Range(1, 6);
 
                 //리워드 창에 있는 아이템 비우기
                 reward.CleanRewardItem();
@@ -80,7 +80,7 @@ public class Chest : MonoBehaviour, IInteractable
                 for (int i = 0; i < rand; i++)
                 {
                     //현재 탐색중인 슬롯
-                    ItemData getItem = Database.DropPer.GetItem(Database.Monster.Get(chestId).dropId);
+                    ItemData getItem = Database.DropPer.GetItem(chestId);
                     //최초 1회 실행
                     reward.AcquireItem(getItem);
 

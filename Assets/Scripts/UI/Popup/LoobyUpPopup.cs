@@ -9,7 +9,7 @@ public class LobbyUpPopup : UIBase
     [SerializeField] private Button _optionButton;
     [SerializeField] private Button _shopButton;
     [SerializeField] private Button _enterDungeonButton;
-    [SerializeField] private Button _stateButton;
+    [SerializeField] private Button _exitButton;
     [SerializeField] private Button _inventroyButton;
     [SerializeField] private Button _storageButton;
 
@@ -30,7 +30,7 @@ public class LobbyUpPopup : UIBase
         _optionButton.onClick.AddListener(() => OptionButtonClick());
         _shopButton.onClick.AddListener(() => ShopButtonClick());
         _enterDungeonButton.onClick.AddListener(() => EnterDungeonButtonClick());
-        _stateButton.onClick.AddListener(() => StateButtonClick());
+        _exitButton.onClick.AddListener(() => ExitButtonClick());
         _inventroyButton.onClick.AddListener(() => InventoryButtonClick());
         _storageButton.onClick.AddListener(() => StorageButtonClick());
     }
@@ -59,10 +59,10 @@ public class LobbyUpPopup : UIBase
         _uiManager.ShowPopup<DragPopup>();
     }
 
-    private void StateButtonClick()
+    private void ExitButtonClick()
     {
-        GetComponentInParent<LobbySceneUI>().curLobbyType = LobbyType.Status;
-        _uiManager.ShowPopup<StatePopup>();
+        Debug.Log("게임종료");
+        Application.Quit();
     }
 
     private void EnterDungeonButtonClick()
