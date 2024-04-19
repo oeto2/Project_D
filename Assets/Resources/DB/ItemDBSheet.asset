@@ -497,21 +497,6 @@ MonoBehaviour:
     _width: 1
     _height: 1
     _itemSprite: Images/Items/HighMpPotion
-  - _id: 20000005
-    _itemName: "\uC5F4\uC1E0"
-    _itemType: 8
-    _itemPrice: 1000
-    _itemAtk: 0
-    _itemDef: 0
-    _itemHpRecover: 0
-    _itemMpRecover: 0
-    _itemDescription: "\uC791\uC740 \uC5F4\uC1E0\uB2E4. \uC5B4\uB5A0\uD55C \uC0C1\uC790\uB97C
-      \uC5EC\uB294 \uB370 \uD544\uC694\uD560 \uAC83 \uAC19\uB2E4."
-    _itemMaxStack: 5
-    _itemGrade: 3
-    _width: 1
-    _height: 1
-    _itemSprite: 
   - _id: 30000001
     _itemName: "\uC6B4\uBA85\uC758 \uAC80"
     _itemType: 0

@@ -23,9 +23,6 @@ public class ShopData
     [SerializeField] private int _item14;
     [SerializeField] private int _item15;
     [SerializeField] private int _item16;
-    [SerializeField] private int _item17;
-    [SerializeField] private int _item18;
-    [SerializeField] private int _item19;
 
     public int id => _id;
     public string shopName => _shopName;
@@ -56,9 +53,6 @@ public class ShopData
                 CheckShopItem(_item14);
                 CheckShopItem(_item15);
                 CheckShopItem(_item16);
-                CheckShopItem(_item17);
-                CheckShopItem(_item18);
-                CheckShopItem(_item19);
             }
 
             return shopItemList;

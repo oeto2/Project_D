@@ -25,24 +25,24 @@ MonoBehaviour:
     _totalDropPer: 85
   - _id: 10000002
     _rewardType1: 0
-    _dropPer1: 50
+    _dropPer1: 45
     _rewardType2: 1
     _dropPer2: 30
     _rewardType3: 2
     _dropPer3: 10
     _rewardType4: 3
-    _dropPer4: 3
-    _totalDropPer: 93
+    _dropPer4: 2
+    _totalDropPer: 87
   - _id: 20000001
     _rewardType1: 0
-    _dropPer1: 40
+    _dropPer1: 45
     _rewardType2: 1
     _dropPer2: 35
     _rewardType3: 2
-    _dropPer3: 15
+    _dropPer3: 10
     _rewardType4: 3
-    _dropPer4: 3
-    _totalDropPer: 93
+    _dropPer4: 1
+    _totalDropPer: 91
   - _id: 30000001
     _rewardType1: 0
     _dropPer1: 30
