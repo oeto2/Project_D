@@ -28,6 +28,7 @@ public class Inventory : MonoBehaviour
     {
         InformationManager.Instance.InvenGoldUpdate += UpdateGold;
         InformationManager.Instance.InvenGoldChange(0);
+        GameManager.Instance.player.Stats.OnDie += ClearInventory;
     }
 
     private void Start()
@@ -59,6 +60,14 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void ClearInventory()
+    {
+        foreach(var item in _slots)
+        {
+            item.ClearSlot();
+        }
+        InformationManager.Instance.InvenGoldChange(-InformationManager.Instance.saveLoadData.gold);
+    }
 
     private void ToggleInventory()
     {
