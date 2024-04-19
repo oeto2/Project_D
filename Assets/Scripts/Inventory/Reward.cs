@@ -104,6 +104,10 @@ public class Reward : MonoBehaviour
 
     public void Getitall()
     {
+        if (!UIManager.Instance.ExistPopup(nameof(InventoryPopup)))
+        {
+            UIManager.Instance.ShowPopup(nameof(InventoryPopup));
+        }
         Inventory inventory = UIManager.Instance.GetPopupObject(nameof(InventoryPopup)).GetComponent<Inventory>();
         for (int i =0;i< slots.Length;i++)
         {

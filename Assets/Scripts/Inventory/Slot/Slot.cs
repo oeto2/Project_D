@@ -62,6 +62,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     // 아이템 개수 조정.
     public void SetSlotCount(int count_)
     {
+        if(itemCount + count_ > item.itemMax_Stack)
+        {
+            itemCount = item.itemMax_Stack;
+            _textCount.text = itemCount.ToString();
+            return;
+        }
         itemCount += count_;
         _textCount.text = itemCount.ToString();
 
@@ -81,6 +87,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         _countImage.SetActive(false);
     }
 
+    public void UseItem()
+    {
+        if (item.itemType == Constants.ItemType.Consume)
+        {
+            GameManager.Instance.UsePotion(item);
+            SetSlotCount(-1);
+        }
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -95,11 +110,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 //{
                 //    //장비장착
                 //}
-                if(item.itemType == Constants.ItemType.Material|| item.itemType == Constants.ItemType.Consume)
-                {
-                    GameManager.Instance.UsePotion(item);
-                    SetSlotCount(-1);
-                }
+                UseItem();
             }
         }
     }
@@ -171,6 +182,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         {
             if (item == DragSlot.instance.dragSlot.item && (item.itemType == Constants.ItemType.Material||item.itemType==Constants.ItemType.Consume))
             {
+                if(itemCount + DragSlot.instance.dragSlot.itemCount > item.itemMax_Stack)
+                {
+                    SetSlotCount(DragSlot.instance.dragSlot.itemCount);
+                    DragSlot.instance.dragSlot.SetSlotCount(_tempItemCount - item.itemMax_Stack);
+                    return;
+                }
                 SetSlotCount(DragSlot.instance.dragSlot.itemCount);
                 DragSlot.instance.dragSlot.ClearSlot();
                 return;

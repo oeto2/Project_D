@@ -89,10 +89,28 @@ public class Inventory : MonoBehaviour
                 {
                     if (_slots[i].item.itemName == item_.itemName)
                     {
+                        if (_slots[i].itemCount + count_ > item_.itemMax_Stack)
+                        {
+                            int _overCount = _slots[i].itemCount + count_ - item_.itemMax_Stack;
+                            _slots[i].SetSlotCount(count_);
+                            count_ = _overCount;
+                            continue;
+                        }
                         _slots[i].SetSlotCount(count_);
-                        //InformationManager.Instance.SaveInformation(i, _item.id, _count);
                         return;
+                        //InformationManager.Instance.SaveInformation(i, _item.id, _count);
                     }
+                }
+                else
+                {
+                    if (count_ > item_.itemMax_Stack)
+                    {
+                        _slots[i].AddItem(item_, item_.itemMax_Stack);
+                        count_ = count_ - item_.itemMax_Stack;
+                        continue;
+                    }
+                    _slots[i].AddItem(item_, count_);
+                    return;
                 }
             }
         }

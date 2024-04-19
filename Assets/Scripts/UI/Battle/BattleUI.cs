@@ -15,6 +15,10 @@ public class BattleUI : UIBase
     [SerializeField] private GameObject _playerDeadUIPanel;
     [SerializeField] private GameObject _gameEndUIPanel;
     [SerializeField] private Button _enterButton;
+
+    public QuickSlot quickSlot1;
+    public QuickSlot quickSlot2;
+    public QuickSlot quickSlot3;
     
     private void Start()
     {
