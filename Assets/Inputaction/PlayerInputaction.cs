@@ -12,6 +12,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
@@ -375,9 +376,15 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
                 }
             ]
         }
+
     ],
+
     ""controlSchemes"": []
+
 }");
+        var rebinds = PlayerPrefs.GetString("rebinds");
+        if (!string.IsNullOrEmpty(rebinds))
+            asset.LoadBindingOverridesFromJson(rebinds);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
