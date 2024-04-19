@@ -26,7 +26,8 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        UpdateGold(0);
+        InformationManager.Instance.InvenGoldUpdate += UpdateGold;
+        InformationManager.Instance.InvenGoldChange(0);
     }
 
     private void Start()
@@ -129,10 +130,21 @@ public class Inventory : MonoBehaviour
 
     public void UpdateGold(int itemPrice_)
     {
-        InformationManager.Instance.SaveInformation(itemPrice_);
         goldText.text = InformationManager.Instance.saveLoadData.gold.ToString();
     }
 
+    public void InvenToStorage()
+    {
+        if (UIManager.Instance.GetPopupObject("StoragePopup") != null)
+        {
+            if (UIManager.Instance.GetPopupObject("StoragePopup").activeSelf)
+            {
+                int gold = InformationManager.Instance.saveLoadData.gold;
+                InformationManager.Instance.InvenGoldChange(-gold);
+                InformationManager.Instance.StorageGoldChange(gold);
+            }
+        }
+    }
 
     private void OnDisable()
     {

@@ -13,11 +13,15 @@ public class InformationManager : SingletonBase<InformationManager>
     private string _path;
     private string _fileName = "SavePlayerData";
 
+    public event Action<int> InvenGoldUpdate;
+    public event Action<int> StorageGoldUpdate;
 
     private void Awake()
     {
         _path = Application.dataPath + "/";
         LoadData();
+        InvenGoldUpdate += SaveInvenGold;
+        StorageGoldUpdate += SaveStorageGold;
     }
 
     public void SaveInformation(Slot[] slots_)
@@ -72,10 +76,26 @@ public class InformationManager : SingletonBase<InformationManager>
         SaveData();
     }
 
-    public void SaveInformation(int gold_)
+    public void SaveInvenGold(int gold)
     {
-        saveLoadData.gold += gold_;
+        saveLoadData.gold += gold;
         SaveData();
+    }
+
+    public void InvenGoldChange(int gold)
+    {
+        InvenGoldUpdate(gold);
+    }
+
+    public void SaveStorageGold(int gold)
+    {
+        saveLoadData.storage_Gold += gold;
+        SaveData();
+    }
+
+    public void StorageGoldChange(int gold)
+    {
+        StorageGoldUpdate(gold);
     }
 
     public void SaveData()
