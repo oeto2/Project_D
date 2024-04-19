@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class PlayerSkills : MonoBehaviour
     [SerializeField] private GameObject _playerObj;
     private Player _player;
 
+    public event Action<int> coolDownUI;
+
     private void Awake()
     {
         _player = _playerObj.GetComponent<Player>();
@@ -24,9 +27,11 @@ public class PlayerSkills : MonoBehaviour
     {
         for (int i = 0; i < coolDowns.Length; i++)
         {
-            if (coolDowns[i] > 0)
+            if (coolDowns[i] >= 0)
             {
-                coolDowns[i] -= Time.deltaTime;
+                coolDowns[i] = MathF.Max(coolDowns[i] - Time.deltaTime, 0);
+                if (coolDownUI != null)
+                    coolDownUI(i);
             }
         }
     }
