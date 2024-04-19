@@ -41,7 +41,6 @@ public class ItemData
     {
         get
         {
-            Debug.Log("ÀÐÀ½");
             sprite = Resources.Load<Sprite>(itemSprite);
 
             return sprite;

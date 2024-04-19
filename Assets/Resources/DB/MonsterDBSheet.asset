@@ -15,7 +15,7 @@ MonoBehaviour:
   Monster_Table:
   - _id: 11000001
     _monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uAC80\uC0AC"
-    _monsterHp: 300
+    _monsterHp: 150
     _monsterAtk: 40
     _monsterAtkSpd: 0.1
     _monsterAtkRng: 3
@@ -29,7 +29,7 @@ MonoBehaviour:
     _monsterRotationDamping: 15
   - _id: 11000002
     _monsterName: "\uBBF8\uBBF9"
-    _monsterHp: 300
+    _monsterHp: 150
     _monsterAtk: 70
     _monsterAtkSpd: 0.2
     _monsterAtkRng: 2
@@ -43,7 +43,7 @@ MonoBehaviour:
     _monsterRotationDamping: 15
   - _id: 11000003
     _monsterName: "\uACE0\uBE14\uB9B0"
-    _monsterHp: 200
+    _monsterHp: 100
     _monsterAtk: 70
     _monsterAtkSpd: 0.1
     _monsterAtkRng: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
     _monsterRotationDamping: 15
   - _id: 11000004
     _monsterName: "\uC624\uD06C\uC804\uC0AC"
-    _monsterHp: 2000
+    _monsterHp: 1000
     _monsterAtk: 100
     _monsterAtkSpd: 0.1
     _monsterAtkRng: 3
