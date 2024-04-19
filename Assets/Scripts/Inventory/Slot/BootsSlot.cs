@@ -1,10 +1,5 @@
 using Constants;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.Experimental.GraphView.GraphView;
-
 public class BootsSlot : EquipmentSlot
 {
     protected override void Awake()

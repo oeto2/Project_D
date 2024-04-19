@@ -12,7 +12,7 @@ public class GameManager : SingletonBase<GameManager>
     public GameObject playerObject;
     public Player player;
 
-    public SceneType sceneType = SceneType.TutorialScene;
+    public SceneType sceneType = SceneType.LobbyScene;
 
     private const string _tutorialSceneName = "TutorialScene";
     private const string _dungeonSceneName = "DungeonScene";
@@ -30,6 +30,10 @@ public class GameManager : SingletonBase<GameManager>
     private void Awake()
     {
         SceneManager.sceneLoaded += PlayerInit;
+
+        //튜토리얼을 진행하지 않았다면 씬전환
+        if (!InformationManager.Instance.saveLoadData.isTutorialClear)
+            ChangeScene(SceneType.TutorialScene);
     }
     private void Start()
     {

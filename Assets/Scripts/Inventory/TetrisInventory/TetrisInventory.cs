@@ -1,9 +1,4 @@
-using DarkPixelRPGUI.Scripts.UI.Equipment;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 [System.Serializable] //반드시 필요
 public class Row //행에 해당되는 이름
 {

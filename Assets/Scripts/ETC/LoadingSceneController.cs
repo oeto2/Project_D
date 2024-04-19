@@ -9,6 +9,7 @@ public class LoadingSceneController : MonoBehaviour
 {
     public const string lobbyScene = "LobbyScene";
     public const string dungeonScene = "DungeonScene";
+    private const string _tutorialSceneName = "TutorialScene";
     public Slider LoadingBar;
 
     public void Start()
@@ -27,6 +28,9 @@ public class LoadingSceneController : MonoBehaviour
                 break;
             case SceneType.DungeonScene:
                 scene = dungeonScene;
+                break;
+            case SceneType.TutorialScene:
+                scene = _tutorialSceneName;
                 break;
         }
 

@@ -44,14 +44,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            AcquireItem(Database.Item.Get(20000001));
-        }
-    }
-
     public void OnInventoryInput(InputAction.CallbackContext callbackcontext)
     {
         if (callbackcontext.phase == InputActionPhase.Started)

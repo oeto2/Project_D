@@ -41,6 +41,12 @@ public class LoadingMainPopup : UIBase
                 loadingText.text = "던전 입장 중..";
                 tooltipText.text = "스켈레톤은 이동속도가 느립니다.";
                 break;
+
+            case SceneType.TutorialScene:
+                tilteText.text = "튜토리얼";
+                loadingText.text = "튜토리얼 불러오는중..";
+                tooltipText.text = "죽으면 아이템을 모두 잃습니다.";
+                break;
         }
     }
 }
