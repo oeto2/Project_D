@@ -17,6 +17,8 @@ public class CharacterStats : MonoBehaviour
     public float attack;
     public float defense;
 
+    public float curDefense;
+
     public bool IsDead {get; private set; }
 
     public event Action<int> OnDamage;
@@ -67,11 +69,12 @@ public class CharacterStats : MonoBehaviour
     {
         attack = playerSO.Attack;
         defense = playerSO.Defense;
+        curDefense = defense;
     }
 
     public void TakePhysicalDamage(int damageAmount)
     {
-        OnDamage(damageAmount - (int)defense);
+        OnDamage((int)MathF.Max((damageAmount - (int)curDefense), 1));
     }
 
     private void TakeDamage(int damageAmount)
@@ -136,7 +139,7 @@ public class CharacterStats : MonoBehaviour
         if (item == null)
             return;
         attack += item.itemAtk;
-        defense += item.itemDef;
+        curDefense += defense * item.itemDef / 100;
     }
 
     public void UnEquipItem(ItemData item)
@@ -144,6 +147,6 @@ public class CharacterStats : MonoBehaviour
         if (item == null)
             return;
         attack -= item.itemAtk;
-        defense -= item.itemDef;
+        curDefense -= defense * item.itemDef / 100;
     }
 }

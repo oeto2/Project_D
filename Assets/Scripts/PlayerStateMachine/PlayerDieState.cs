@@ -10,6 +10,8 @@ public class PlayerDieState : PlayerBaseState
 
     public override void Enter()
     {
+        base.Enter();
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public override void Exit()

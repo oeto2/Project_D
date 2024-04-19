@@ -247,7 +247,7 @@ Transform:
   m_Children:
   - {fileID: 8073631683863419477}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6234905720549419539
 MonoBehaviour:
@@ -262,7 +262,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
+  _dropId: 20000001
+  _tutorialGetItems: 8196980082969800839698008496980085969800
   _getItemsID: 
+  _getItemsCount: 
 --- !u!65 &3933145010325814362
 BoxCollider:
   m_ObjectHideFlags: 0
