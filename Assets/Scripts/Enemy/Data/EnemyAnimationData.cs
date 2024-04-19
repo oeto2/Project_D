@@ -15,6 +15,8 @@ public class EnemyAnimationData
     [SerializeField] private string baseAttackParameterName = "BaseAttack";
     [SerializeField] private string deadParameterName = "Dead";
     [SerializeField] private string stiffParameterName = "Stiff";
+    [SerializeField] private string Skill01ParameterName = "Skill01";
+    [SerializeField] private string Skill02ParameterName = "Skill02";
 
     public int GroundParameterHash { get; private set; }
     public int IdleParameterHash { get; private set; }
@@ -26,7 +28,11 @@ public class EnemyAnimationData
     public int DeadParameterHash { get; private set; }
 
     public int StiffParameterHash { get; private set; }
-    
+
+    public int Skill01ParameterHash { get; private set; }
+
+    public int Skill02ParameterHash { get; private set; }
+
     //해쉬 값 할당
     public void Initialize()
     {
@@ -36,7 +42,10 @@ public class EnemyAnimationData
         RunParameterHash = Animator.StringToHash(runParameterName);
         AirParameterHash = Animator.StringToHash(airParameterName);
         AttackParameterHash = Animator.StringToHash(attackParameterName);
+        BaseAttackParameterHash = Animator.StringToHash(baseAttackParameterName);
         DeadParameterHash = Animator.StringToHash(deadParameterName);
         StiffParameterHash = Animator.StringToHash(stiffParameterName);
+        Skill01ParameterHash = Animator.StringToHash(Skill01ParameterName);
+        Skill02ParameterHash = Animator.StringToHash(Skill02ParameterName);
     }
 }

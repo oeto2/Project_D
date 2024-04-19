@@ -21,6 +21,12 @@ namespace Constants
         Count
     }
 
+    public enum MonsterType
+    {
+        Normal,
+        Boss
+    }
+
     public enum MonsterName
     {
         Skeleton,

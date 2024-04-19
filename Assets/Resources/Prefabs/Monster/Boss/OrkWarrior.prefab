@@ -2067,6 +2067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isRoot: 0
   _getItemsID: 
+  _getItemsCount: 
 --- !u!65 &7105160741401612298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10255,6 +10256,7 @@ GameObject:
   - component: {fileID: 5314240573419437085}
   - component: {fileID: 3132864006968145655}
   - component: {fileID: 8663283395194072534}
+  - component: {fileID: -1108701081282703777}
   m_Layer: 6
   m_Name: OrkWarrior
   m_TagString: Untagged
@@ -10271,7 +10273,7 @@ Transform:
   m_GameObject: {fileID: 5014646188459995882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7942200806163621758}
@@ -10320,7 +10322,10 @@ MonoBehaviour:
     baseAttackParameterName: BaseAttack
     deadParameterName: Dead
     stiffParameterName: Stiff
+    Skill01ParameterName: Skill01
+    Skill02ParameterName: Skill02
   EnemyPatrolLocation_number: 1
+  MonsterType: 1
   <MonsterMoveType>k__BackingField: 0
   MonsterWanderDestination: []
   enemyInteration_Object: {fileID: 1027674477082914034}
@@ -10328,6 +10333,7 @@ MonoBehaviour:
   _targetHealth: {fileID: 0}
   HitUIPos: {fileID: 3604086867236132554}
   enableStiff: 1
+  EnemySkill: {fileID: 0}
 --- !u!114 &4731467328240907475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10423,6 +10429,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bossHpPopup: {fileID: 0}
+--- !u!114 &-1108701081282703777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014646188459995882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4aa0b8c4c5c43948ab43f2fea28be84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skillData: {fileID: 11400000, guid: b97ddd697beca4142ad696f61b0bc3e4, type: 2}
+  <EnableSkill>k__BackingField: 1
+  <Skill01Ready>k__BackingField: 1
+  <Skill02Ready>k__BackingField: 1
+  <UsingSkill>k__BackingField: 0
 --- !u!1 &5033676831089418913
 GameObject:
   m_ObjectHideFlags: 0

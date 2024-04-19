@@ -35,7 +35,7 @@ public class Tutorial : MonoBehaviour
             case 0:
                 if(_textOn == false)
                 {
-                    SetTutorialText("WASD로 움직일 수 있어 3초동안 움직여보자");
+                    SetTutorialText("3초간 움직여라. (WASD)");
                     _textOn = true;
                 }
                 if (_player.stateMachine.GetCurrentState() == _player.stateMachine.WalkState)
@@ -55,7 +55,7 @@ public class Tutorial : MonoBehaviour
             case 1:
                 if (_textOn == false)
                 {
-                    SetTutorialText("Shift키를 누르면 달리기가 가능해 3초간 달려봐");
+                    SetTutorialText("3초간 달려라. (Shift)");
                     _textOn = true;
                 }
                 if (_player.stateMachine.GetCurrentState() == _player.stateMachine.RunState)
@@ -75,7 +75,7 @@ public class Tutorial : MonoBehaviour
             case 2:
                 if (_textOn == false)
                 {
-                    SetTutorialText("\r\nspace키를 누르면 점프할 수 있어 점프해보자");
+                    SetTutorialText("점프해라. (Space)");
                     _textOn = true;
                 }
                 if (_player.stateMachine.GetCurrentState() == _player.stateMachine.JumpState)
@@ -87,7 +87,7 @@ public class Tutorial : MonoBehaviour
             case 3:
                 if (_textOn == false)
                 {
-                    SetTutorialText("마우스 좌클릭을 누르면 공격이 가능해 공격해보자");
+                    SetTutorialText("공격해라. (마우스 좌클릭)");
                     _textOn = true;
                 }
                 if (_player.stateMachine.GetCurrentState() == _player.stateMachine.ComboAttackState)
@@ -101,7 +101,7 @@ public class Tutorial : MonoBehaviour
             case 4:
                 if (_textOn == false)
                 {
-                    SetTutorialText("마우스 우클릭을 누르면 방어할 수 있어 3초간 방어를 해보자");
+                    SetTutorialText("3초간 방어해라. (마우스 우클릭)");
                     _textOn = true;
                 }
                 if (_player.stateMachine.GetCurrentState() == _player.stateMachine.DefenseState)
@@ -120,7 +120,7 @@ public class Tutorial : MonoBehaviour
             case 5:
                 if (_textOn == false)
                 {
-                    SetTutorialText("1, 2, 3 중 하나를 누르면 스킬을 사용할 수 있어 골라봐");
+                    SetTutorialText("스킬은 1,2,3번을 누르면 사용할 수 있다.");
                     _textOn = true;
                 }
                 if (_player.stateMachine.GetCurrentState() == _player.stateMachine.SkillState)
@@ -132,7 +132,7 @@ public class Tutorial : MonoBehaviour
             case 6:
                 if (_textOn == false)
                 {
-                    SetTutorialText("I키 누르면 인벤토리가 나오지 확인해봐");
+                    SetTutorialText("인벤토리는 I키를 누르면 열 수 있다.");
                     _textOn = true;
                 }
                 if (Input.GetKeyDown(KeyCode.I))
@@ -144,7 +144,7 @@ public class Tutorial : MonoBehaviour
             case 7:
                 if (_textOn == false)
                 {
-                    SetTutorialText("P키 누르면 장비창이 나와 확인해봐");
+                    SetTutorialText("장비창은 P키를 뉘르면 열 수 있다.");
                     _textOn = true;
                 }
                 if (Input.GetKeyDown(KeyCode.P))
@@ -156,7 +156,7 @@ public class Tutorial : MonoBehaviour
             case 8:
                 if (_textOn == false)
                 {
-                    SetTutorialText("길이 열렸어 앞으로 나아가자");
+                    SetTutorialText("길이 열렸으니, 앞으로 나아갈 수 있다.");
                     _textOn = true;
                 }
                 NextStageOpen();
@@ -166,7 +166,7 @@ public class Tutorial : MonoBehaviour
                 {
                     if (_textOn == false)
                     {
-                        SetTutorialText("함정이 있네 조심해");
+                        SetTutorialText("앞에 함정이 있으니 조심하자.");
                         _textOn = true;
                     }
                     if(_player.transform.position.x > 2)
@@ -179,7 +179,7 @@ public class Tutorial : MonoBehaviour
             case 10:
                 if (_textOn == false)
                 {
-                    SetTutorialText("상자 열어 뭐가 들었는지 확인해");
+                    SetTutorialText("앞에 있는 상자를 열어보자.");
                     _textOn = true;
                 }
                 if (_player.transform.position.x > 15)
@@ -191,10 +191,10 @@ public class Tutorial : MonoBehaviour
             case 11:
                 if (_textOn == false)
                 {
-                    SetTutorialText("몬스터 죽이고 아이템 주워");
+                    SetTutorialText("몬스터 죽이면 아이템을 얻을 수 있다.");
                     _textOn = true;
                 }
-                if (true)
+                if (enemyInteration[0]._isRoot || enemyInteration[1]._isRoot)
                 {
                     _questNum++;
                     _textOn = false;
@@ -203,7 +203,7 @@ public class Tutorial : MonoBehaviour
             case 12:
                 if (_textOn == false)
                 {
-                    SetTutorialText("포탈을 타고 탈출해");
+                    SetTutorialText("포탈을 타면 탈출할 수 있다.");
                     _textOn = true;
                 }
                 break;
