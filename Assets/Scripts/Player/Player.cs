@@ -64,7 +64,6 @@ public class Player : MonoBehaviour, IDamagable
 
         Stats.OnDie += OnDie;
         Stats.OnDie += OnDieCameraView;
-        Stats.OnDie += InformationManager.Instance.OnDieClear;
     }
 
     private void Update()
