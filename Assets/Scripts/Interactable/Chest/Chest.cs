@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
@@ -19,10 +20,19 @@ public class Chest : MonoBehaviour, IInteractable
     private bool _isOpen;
     private const string _openParameterName = "Open";
 
+    //상자의 드랍테이블 ID
+    [SerializeField] private int _dropId;
+
+    //튜토리얼에서 획득 아이템들
+    [SerializeField] private List<int> _tutorialGetItems;
+
     //상자에서 얻는 아이템들
     public List<int> _getItemsID;
     //아이템의 슬롯
     public List<int> _getItemsCount;
+
+    //현재 씬의 이름
+    private string currenSceneName;
 
     private void Awake()
     {
@@ -35,6 +45,8 @@ public class Chest : MonoBehaviour, IInteractable
         _interationPopup = _uiManager.GetPopup(nameof(interationPopup)).GetComponent<interationPopup>();
 
         _loadingBar = _interationPopup.LoadingBar;
+
+        currenSceneName = SceneManager.GetActiveScene().name;
     }
 
     string IInteractable.GetInteractPrompt()
@@ -55,20 +67,37 @@ public class Chest : MonoBehaviour, IInteractable
             _time += Time.deltaTime;
             _loadingBar.value = _time / 3;
 
+            
+
             //상호작용 완료
             if (_time >= 3)
             {
-                GameManager.Instance.CloseRewardPopupEvent += UpdateGetItemCountList;
-
                 //아이템루트 열기
                 Reward reward = UIManager.Instance.GetPopup(nameof(RewardPopup)).GetComponent<Reward>();
 
+                //튜토리얼 씬일 경우
+                #region 튜토리얼 전용
+                if (currenSceneName == "TutorialScene")
+                {
+                    //튜토리얼 아이템 풀세트 넣기
+                    for (int i = 0; i < _tutorialGetItems.Count; i++)
+                    {
+                        reward.AcquireItem(Database.Item.Get(_tutorialGetItems[i]));
+                        _getItemsID.Add(_tutorialGetItems[i]);
+                        _getItemsCount.Add(reward.GetItemCountInSlot(i));
+                    }
+
+                    _isOpen = true;
+                    return;
+                }
+                #endregion
+
+                GameManager.Instance.CloseRewardPopupEvent += UpdateGetItemCountList;
                 _animator.SetTrigger(_openParameterName);
 
                 //상호작용 UI 숨기기
                 HideInteractUI();
 
-                int chestId = 20000001;
                 //상자의 MaxRoot가 존재하지 않아서 5로 설정
                 int rand = Random.Range(1, 6);
 
@@ -80,7 +109,7 @@ public class Chest : MonoBehaviour, IInteractable
                 for (int i = 0; i < rand; i++)
                 {
                     //현재 탐색중인 슬롯
-                    ItemData getItem = Database.DropPer.GetItem(chestId);
+                    ItemData getItem = Database.DropPer.GetItem(_dropId);
                     //최초 1회 실행
                     reward.AcquireItem(getItem);
 
