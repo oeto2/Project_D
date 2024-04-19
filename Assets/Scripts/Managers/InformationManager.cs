@@ -112,22 +112,6 @@ public class InformationManager : SingletonBase<InformationManager>
             saveLoadData = JsonConvert.DeserializeObject<SaveLoadData>(jsonData);
         }
     }
-
-    public void OnDieClear()
-    {
-        foreach (var item in saveLoadData.equipmentItems)
-        {
-            saveLoadData.equipmentItems[item.Key] = 0;
-        }
-        
-        for (int i = 0; i < saveLoadData.itemID.Length; i++)
-        {
-            saveLoadData.itemID[i] = 0;
-            saveLoadData.itemStack[i] = 0;
-        }
-
-        saveLoadData.gold = 0;
-    }
 }
 
 [System.Serializable]

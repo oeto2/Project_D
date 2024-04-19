@@ -139,7 +139,7 @@ public class CharacterStats : MonoBehaviour
         if (item == null)
             return;
         attack += item.itemAtk;
-        curDefense += defense * item.itemDef;
+        curDefense += defense * item.itemDef / 100;
     }
 
     public void UnEquipItem(ItemData item)
@@ -147,6 +147,6 @@ public class CharacterStats : MonoBehaviour
         if (item == null)
             return;
         attack -= item.itemAtk;
-        curDefense -= defense * item.itemDef;
+        curDefense -= defense * item.itemDef / 100;
     }
 }

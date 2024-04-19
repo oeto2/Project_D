@@ -20,6 +20,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     private void Awake()
     {
         _player = GameManager.Instance.player;
+        _player.Stats.OnDie += ClearSlot;
     }
 
     // 이미지의 투명도 조절.
