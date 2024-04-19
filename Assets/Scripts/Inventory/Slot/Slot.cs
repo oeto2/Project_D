@@ -214,8 +214,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 //아이템 타입이 같은 경우에만 교환가능
                 if(DragSlot.instance.equipmentSlot.item.itemType == _tempItem.itemType)
                 {
-                    DragSlot.instance.equipmentSlot.AddItem(_tempItem);
                     AddItem(DragSlot.instance.equipmentSlot.item);
+                    DragSlot.instance.equipmentSlot.AddItem(_tempItem);
                 }
                 else
                 {
