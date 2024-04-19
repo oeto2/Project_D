@@ -2206,7 +2206,7 @@ GameObject:
   - component: {fileID: 2042159118901554891}
   - component: {fileID: 8767166647179540748}
   - component: {fileID: 6817326785032383097}
-  - component: {fileID: 6681037150666025875}
+  - component: {fileID: 5002883043862410824}
   m_Layer: 5
   m_Name: ShopSlot 1
   m_TagString: Untagged
@@ -2278,7 +2278,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6681037150666025875
+--- !u!114 &5002883043862410824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2287,7 +2287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6162780159658747145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ade521a745d2a489307390c9547436, type: 3}
+  m_Script: {fileID: 11500000, guid: f039f75982c6fd04fbbe995503469b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: {fileID: 742482130369479298}
