@@ -33,7 +33,8 @@ public class Storage : MonoBehaviour
         {
             instance = this;
         }
-        UpdateGold(0);
+        InformationManager.Instance.StorageGoldUpdate += UpdateGold;
+        InformationManager.Instance.StorageGoldChange(0);
     }
 
     private void Start()
@@ -109,10 +110,16 @@ public class Storage : MonoBehaviour
 
     public void UpdateGold(int itemPrice_)
     {
-        InformationManager.Instance.SaveInformation(itemPrice_);
-        goldText.text = InformationManager.Instance.saveLoadData.gold.ToString();
+        Debug.Log(InformationManager.Instance.saveLoadData.storage_Gold.ToString());
+        goldText.text = InformationManager.Instance.saveLoadData.storage_Gold.ToString();
     }
 
+    public void StorageToInven()
+    {
+        int gold = InformationManager.Instance.saveLoadData.storage_Gold;
+        InformationManager.Instance.StorageGoldChange(-gold);
+        InformationManager.Instance.InvenGoldChange(gold);
+    }
 
     private void OnDisable()
     {

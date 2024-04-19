@@ -26,7 +26,7 @@ public class InputPopup : UIBase
         if (sellSlot.itemCount - _sellItemCount >= 0)
         {
             Inventory inventory = UIManager.Instance.GetPopupObject(nameof(InventoryPopup)).GetComponent<Inventory>();
-            inventory.UpdateGold((int)(sellSlot.item.itemPrice * _sellItemCount * 0.8f));
+            InformationManager.Instance.InvenGoldChange((int)(sellSlot.item.itemPrice * _sellItemCount * 0.8f));
             sellSlot.AddItem(sellSlot.item, sellSlot.itemCount - _sellItemCount);
             this.gameObject.SetActive(false);
         }
