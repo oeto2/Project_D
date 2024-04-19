@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class OrkWarriorSkill : EnemySkillBase
 {
+    //오크 무기 머테이얼
+    [SerializeField] private Material _weaponMaterials;
+
+    //변경할 무기 색
+    [SerializeField] private Color32 _warringColor;
+    //기본 색
+    private Color32 _defaultColor = new Color32(255, 255, 255, 255);
+
+    private void OnDisable()
+    {
+        _weaponMaterials.color = new Color32(255, 255, 255, 255);
+    }
+
     public override void UseSkill(int skillNum_)
     {
         switch(skillNum_)
@@ -32,6 +45,9 @@ public class OrkWarriorSkill : EnemySkillBase
 
     private IEnumerator StartRotateAttack()
     {
+        //무기 색 변경
+        _weaponMaterials.color = _warringColor;
+
         //사용할 스킬 데이터
         EnemySkillData skillData = _skillData.skill01_Data;
         EnemyStateMachine enemySateMachine = _enemy.stateMachine;
@@ -64,6 +80,9 @@ public class OrkWarriorSkill : EnemySkillBase
             yield return skillDamageCycle;
             skillTime += skillData.SkillDamageCycle;
         }
+        //무기 색 변경
+        _weaponMaterials.color = _defaultColor;
+
         UsingSkill = false;
         //추적상태 진입
         enemySateMachine.ChangeState(enemySateMachine.ChasingState);
@@ -71,6 +90,9 @@ public class OrkWarriorSkill : EnemySkillBase
         //스킬 쿨타임 적용
         yield return new WaitForSeconds(skillData.SkillCollTime);
         Skill01Ready = true;
+
+        //무기 색 변경
+        _weaponMaterials.color = _warringColor;
     }
 
     private IEnumerator StartDubleAttack()
