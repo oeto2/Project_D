@@ -78,6 +78,10 @@ public class PlayerBaseState : IState
         input.playerActions.Skill1.performed += OnSkill1Performed;
         input.playerActions.Skill2.performed += OnSkill2Performed;
         input.playerActions.Skill3.performed += OnSkill3Performed;
+
+        input.playerActions.QuickSlot1.performed += OnQuickSlot1Performed;
+        input.playerActions.QuickSlot2.performed += OnQuickSlot2Performed;
+        input.playerActions.QuickSlot3.performed += OnQuickSlot3Performed;
     }
 
 
@@ -106,6 +110,10 @@ public class PlayerBaseState : IState
         input.playerActions.Skill1.performed -= OnSkill1Performed;
         input.playerActions.Skill2.performed -= OnSkill2Performed;
         input.playerActions.Skill3.performed -= OnSkill3Performed;
+
+        input.playerActions.QuickSlot1.performed -= OnQuickSlot1Performed;
+        input.playerActions.QuickSlot2.performed -= OnQuickSlot2Performed;
+        input.playerActions.QuickSlot3.performed -= OnQuickSlot3Performed;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -218,6 +226,22 @@ public class PlayerBaseState : IState
             stateMachine.SkillIndex = 3;
             stateMachine.ChangeState(stateMachine.SkillState);
         }
+    }
+
+    private void OnQuickSlot1Performed(InputAction.CallbackContext context)
+    {
+        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot1.slot != null)
+            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot1.UseItem();
+    }
+    private void OnQuickSlot2Performed(InputAction.CallbackContext context)
+    {
+        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot2.slot != null)
+            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot2.UseItem();
+    }
+    private void OnQuickSlot3Performed(InputAction.CallbackContext context)
+    {
+        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot3.slot != null)
+            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot3.UseItem();
     }
 
     private void ReadMovementInput()
