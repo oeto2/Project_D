@@ -29,8 +29,6 @@ public class EnemyInteration : MonoBehaviour, IInteractable
         //이벤트 구독
         GameManager.Instance.GetRewardItemEvent += UpdateGetItemList;
 
-        Debug.Log("상호작용 시작");
-
         //아이템루트 열기
         Reward reward = UIManager.Instance.GetPopup(nameof(RewardPopup)).GetComponent<Reward>();
 

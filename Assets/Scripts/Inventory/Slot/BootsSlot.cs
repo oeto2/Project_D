@@ -7,8 +7,9 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BootsSlot : EquipmentSlot
 {
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         var index = InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Boots];
         // 인포매니저에서 데이터가 비어있으면 초기화, 아니면 집어넣기
         if (index == 0)
@@ -17,7 +18,9 @@ public class BootsSlot : EquipmentSlot
         {
             AddItem(Database.Item.Get(index));
         }
-
+    }
+    private void Start()
+    {
         EquipStats += _player.Stats.EquipItem;
         UnEquipStats += _player.Stats.UnEquipItem;
     }

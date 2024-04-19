@@ -17,7 +17,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     protected event Action<ItemData> EquipStats;
     protected event Action<ItemData> UnEquipStats;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _player = GameManager.Instance.player;
         _player.Stats.OnDie += ClearSlot;

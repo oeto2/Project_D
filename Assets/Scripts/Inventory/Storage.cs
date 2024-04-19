@@ -110,7 +110,6 @@ public class Storage : MonoBehaviour
 
     public void UpdateGold(int itemPrice_)
     {
-        Debug.Log(InformationManager.Instance.saveLoadData.storage_Gold.ToString());
         goldText.text = InformationManager.Instance.saveLoadData.storage_Gold.ToString();
     }
 

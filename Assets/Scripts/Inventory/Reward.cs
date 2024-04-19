@@ -85,7 +85,6 @@ public class Reward : MonoBehaviour
     //보상 아이템 비우기
     public void CleanRewardItem()
     {
-        Debug.Log("아이템 비우기");
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].item != null)
@@ -107,6 +106,7 @@ public class Reward : MonoBehaviour
         if (!UIManager.Instance.ExistPopup(nameof(InventoryPopup)))
         {
             UIManager.Instance.ShowPopup(nameof(InventoryPopup));
+            return;
         }
         Inventory inventory = UIManager.Instance.GetPopupObject(nameof(InventoryPopup)).GetComponent<Inventory>();
         for (int i =0;i< slots.Length;i++)
