@@ -5,6 +5,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerSkills : MonoBehaviour
 {
+    SkillInfoData skillInfoData;
+
     [SerializeField] private List<GameObject> _skillEffect;
     public float[] coolDowns;
     private ParticleSystem _ps;
@@ -36,6 +38,11 @@ public class PlayerSkills : MonoBehaviour
         StopCoroutine(SkillOff(_skillEffect[index], index));
         _skillEffect[index].SetActive(true);
         _ps.Play();
+
+        skillInfoData = _player.Data.SkillData.GetSkillInfo(myEvent.intParameter);
+
+        _player.Stats.ChangeManaAction(-skillInfoData.ManaCost);
+        _player.PlayerSkills.coolDowns[index] = _player.Data.SkillData.GetSkillInfo(myEvent.intParameter).CoolDown;
         StartCoroutine(SkillOff(_skillEffect[index], index));
     }
 

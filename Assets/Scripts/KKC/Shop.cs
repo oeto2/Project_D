@@ -32,11 +32,6 @@ public class Shop : UIRecycleViewController<ItemData>
             tableData.Add(shopItem);
         }
 
-        foreach (var item in tableData)
-        {
-            Debug.Log(item.id);
-        }
-
         InitializeTableView();
     }
 }
