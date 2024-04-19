@@ -57,7 +57,7 @@ MonoBehaviour:
     _monsterRotationDamping: 15
   - _id: 11000004
     _monsterName: "\uC624\uD06C\uC804\uC0AC"
-    _monsterHp: 1000
+    _monsterHp: 1500
     _monsterAtk: 100
     _monsterAtkSpd: 0.1
     _monsterAtkRng: 3
