@@ -58,7 +58,9 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
             if (item != null)
             {
                 //장비장착해제
-
+                bool invenEmpty = UIManager.Instance.GetPopup(nameof(InventoryPopup)).GetComponent<Inventory>().AcquireItem(item);
+                if(invenEmpty)
+                    ClearSlot();
             }
         }
     }

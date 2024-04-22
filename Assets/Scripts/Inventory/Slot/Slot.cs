@@ -89,11 +89,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     public void UseItem()
     {
-        if (item.itemType == Constants.ItemType.Consume)
-        {
-            GameManager.Instance.UsePotion(item);
-            SetSlotCount(-1);
-        }
+        GameManager.Instance.UsePotion(item);
+        SetSlotCount(-1);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -101,16 +98,88 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             if (item != null)
+
             {
-                //if (item.itemType == Constants.ItemType.Weapon)
-                //{
-                //    //무기 장착
-                //}
-                //else if(item.itemType == Constants.ItemType.Equip)
-                //{
-                //    //장비장착
-                //}
-                UseItem();
+                if (item.itemType == Constants.ItemType.Consume)
+                    UseItem();
+                else if (item.itemType == Constants.ItemType.Weapon)
+                {
+                    WeaponSlot _weaponSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<WeaponSlot>();
+                    //교환할 아이템 저장
+                    ItemData _tempItem = _weaponSlot.item;
+                    _weaponSlot.AddItem(item);
+                    if (_tempItem != null)
+                        AddItem(_tempItem);
+                    else
+                        ClearSlot();
+
+                }
+                else if (item.itemType == Constants.ItemType.Helmet)
+                {
+                    HelmetSlot _helmetSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<HelmetSlot>();
+                    //교환할 아이템 저장
+                    ItemData _tempItem = _helmetSlot.item;
+                    _helmetSlot.AddItem(item);
+                    if (_tempItem != null)
+                        AddItem(_tempItem);
+                    else
+                        ClearSlot();
+                }
+                else if (item.itemType == Constants.ItemType.Chest)
+                {
+                    ChestSlot _chestSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<ChestSlot>();
+                    //교환할 아이템 저장
+                    ItemData _tempItem = _chestSlot.item;
+                    _chestSlot.AddItem(item);
+                    if (_tempItem != null)
+                        AddItem(_tempItem);
+                    else
+                        ClearSlot();
+                }
+                else if (item.itemType == Constants.ItemType.Pants)
+                {
+                    PantsSlot _pantsSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<PantsSlot>();
+                    //교환할 아이템 저장
+                    ItemData _tempItem = _pantsSlot.item;
+                    _pantsSlot.AddItem(item);
+                    if (_tempItem != null)
+                        AddItem(_tempItem);
+                    else
+                        ClearSlot();
+                }
+                else if (item.itemType == Constants.ItemType.Boots)
+                {
+                    BootsSlot _bootsSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<BootsSlot>();
+                    //교환할 아이템 저장
+                    ItemData _tempItem = _bootsSlot.item;
+                    _bootsSlot.AddItem(item);
+                    if (_tempItem != null)
+                        AddItem(_tempItem);
+                    else
+                        ClearSlot();
+                }
+                else if (item.itemType == Constants.ItemType.Necklace)
+                {
+                    NecklaceSlot _necklaceSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<NecklaceSlot>();
+                    //교환할 아이템 저장
+                    ItemData _tempItem = _necklaceSlot.item;
+                    _necklaceSlot.AddItem(item);
+                    if (_tempItem != null)
+                        AddItem(_tempItem);
+                    else
+                        ClearSlot();
+                }
+                else if (item.itemType == Constants.ItemType.Ring)
+                {
+                    RingSlot _ringSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<RingSlot>();
+                    //교환할 아이템 저장
+                    ItemData _tempItem = _ringSlot.item;
+                    _ringSlot.AddItem(item);
+                    if (_tempItem != null)
+                        AddItem(_tempItem);
+                    else
+                        ClearSlot();
+                }
             }
         }
     }
