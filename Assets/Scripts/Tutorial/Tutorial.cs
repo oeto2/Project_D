@@ -166,10 +166,10 @@ public class Tutorial : MonoBehaviour
                 {
                     if (_textOn == false)
                     {
-                        SetTutorialText("앞에 함정이 있으니 조심하자.");
+                        SetTutorialText("오른쪽과 앞에 함정이 있으니 조심하자.");
                         _textOn = true;
                     }
-                    if(_player.transform.position.x > 2)
+                    if(_player.transform.position.x > 1)
                     {
                         _questNum++;
                         _textOn = false;

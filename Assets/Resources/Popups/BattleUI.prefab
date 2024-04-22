@@ -2992,9 +2992,10 @@ MonoBehaviour:
   _playerDeadUIPanel: {fileID: 7424870559383764080}
   _gameEndUIPanel: {fileID: 0}
   _enterButton: {fileID: 0}
-  quickSlot1: {fileID: 588118435446604424}
-  quickSlot2: {fileID: 9181432524216046459}
-  quickSlot3: {fileID: 775594453146429424}
+  quickSlot:
+  - {fileID: 588118435446604424}
+  - {fileID: 9181432524216046459}
+  - {fileID: 775594453146429424}
 --- !u!114 &1897977310816162834
 MonoBehaviour:
   m_ObjectHideFlags: 0

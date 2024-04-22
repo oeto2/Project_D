@@ -44,14 +44,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            AcquireItem(Database.Item.Get(20000001));
-        }
-    }
-
     public void OnInventoryInput(InputAction.CallbackContext callbackcontext)
     {
         if (callbackcontext.phase == InputActionPhase.Started)
@@ -88,7 +80,7 @@ public class Inventory : MonoBehaviour
         _inventoryBase.SetActive(false);
     }
 
-    public void AcquireItem(ItemData item_, int count_ = 1)
+    public bool AcquireItem(ItemData item_, int count_ = 1)
     {
         if (item_.itemType == Constants.ItemType.Consume || item_.itemType == Constants.ItemType.Material)
         {
@@ -106,7 +98,7 @@ public class Inventory : MonoBehaviour
                             continue;
                         }
                         _slots[i].SetSlotCount(count_);
-                        return;
+                        return true;
                         //InformationManager.Instance.SaveInformation(i, _item.id, _count);
                     }
                 }
@@ -119,7 +111,7 @@ public class Inventory : MonoBehaviour
                         continue;
                     }
                     _slots[i].AddItem(item_, count_);
-                    return;
+                    return true;
                 }
             }
         }
@@ -130,11 +122,12 @@ public class Inventory : MonoBehaviour
             {
                 _slots[i].AddItem(item_, count_);
                 //InformationManager.Instance.SaveInformation(i, _item.id, _count);
-                return;
+                return true;
             }
         }
         var _warningPopup = UIManager.Instance.GetPopup(nameof(WarningPopup)).GetComponent<WarningPopup>();
         _warningPopup.SetWarningPopup("æ∆¿Ã≈€¿Ã ∞°µÊ√°Ω¿¥œ¥Ÿ.");
+        return false;
     }
 
     public void UpdateGold(int itemPrice_)

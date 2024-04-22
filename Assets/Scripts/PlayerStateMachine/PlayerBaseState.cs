@@ -230,18 +230,18 @@ public class PlayerBaseState : IState
 
     private void OnQuickSlot1Performed(InputAction.CallbackContext context)
     {
-        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot1.slot != null)
-            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot1.UseItem();
+        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[0].slot != null)
+            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[0].UseItem();
     }
     private void OnQuickSlot2Performed(InputAction.CallbackContext context)
     {
-        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot2.slot != null)
-            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot2.UseItem();
+        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[1].slot != null)
+            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[1].UseItem();
     }
     private void OnQuickSlot3Performed(InputAction.CallbackContext context)
     {
-        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot3.slot != null)
-            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot3.UseItem();
+        if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[2].slot != null)
+            UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[2].UseItem();
     }
 
     private void ReadMovementInput()

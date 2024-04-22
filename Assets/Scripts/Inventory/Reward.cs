@@ -135,9 +135,10 @@ public class Reward : MonoBehaviour
         {
             if (slots[i].item != null)
             {
-                inventory.AcquireItem(slots[i].item, slots[i].itemCount);
+                bool invenEmpty = inventory.AcquireItem(slots[i].item, slots[i].itemCount);
+                if(invenEmpty)
+                    slots[i].ClearSlot();
             }
         }
-        CleanRewardItem();
     }
 }
