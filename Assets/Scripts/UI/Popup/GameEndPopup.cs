@@ -19,7 +19,7 @@ public class GameEndPopup : UIBase
 
     private void EnterButtonClick()
     {
-        if (GameManager.Instance.sceneType == SceneType.TutorialScene)
+        if (!InformationManager.Instance.saveLoadData.isTutorialClear)
         {
             GameManager.Instance.ChangeScene(SceneType.TutorialScene);
             return;

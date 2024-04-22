@@ -88,7 +88,7 @@ public class Chest : MonoBehaviour, IInteractable
                 }
                 #endregion
 
-                GameManager.Instance.CloseRewardPopupEvent += UpdateGetItemCountList;
+                GameManager.Instance.UpdateRewardCountEvent += UpdateGetItemCountList;
                 _animator.SetTrigger(_openParameterName);
 
                 //상호작용 UI 숨기기
@@ -119,7 +119,7 @@ public class Chest : MonoBehaviour, IInteractable
         //상자에서 아이템 꺼내기
         else
         {
-            GameManager.Instance.CloseRewardPopupEvent += UpdateGetItemCountList;
+            GameManager.Instance.UpdateRewardCountEvent += UpdateGetItemCountList;
 
             //아이템루트 열기
             Reward reward = UIManager.Instance.GetPopup(nameof(RewardPopup)).GetComponent<Reward>();

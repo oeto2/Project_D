@@ -43,9 +43,7 @@ public class Portal : MonoBehaviour, IInteractable
         //상호작용 완료
         if (_time >= 3)
         {
-            if (SceneManager.GetActiveScene().name == _tutorialSceneName)
-                InformationManager.Instance.saveLoadData.isTutorialClear = true;
-
+            InformationManager.Instance.saveLoadData.isTutorialClear = true;
             UIManager.Instance.ShowPopup<GameEndPopup>();
         }
     }
