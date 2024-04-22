@@ -12,11 +12,13 @@ public class GameManager : SingletonBase<GameManager>
     public GameObject playerObject;
     public Player player;
 
-    public SceneType sceneType = SceneType.TutorialScene;
+    public SceneType sceneType = SceneType.LobbyScene;
 
     private const string _tutorialSceneName = "TutorialScene";
     private const string _dungeonSceneName = "DungeonScene";
     private const string _loadingSceneName = "LoadingScene";
+    private const string _OrkWarriorSceneName = "OrkWarriorScene";
+
 
     public event Action SceneLoadEvent;
 
@@ -24,12 +26,16 @@ public class GameManager : SingletonBase<GameManager>
     public event Action<List<int>> GetRewardItemEvent;
     //변경된 리워드 보상을 적용하는 이벤트
     public event Func<List<int>> SetRewardItemEvent;
-    //리워드 창을 닫을 때 호출되는 이벤트
-    public event Action CloseRewardPopupEvent;
+    //리워드 창 아이템 갯수 업데이트 이벤트
+    public event Action UpdateRewardCountEvent;
 
     private void Awake()
     {
         SceneManager.sceneLoaded += PlayerInit;
+
+        //튜토리얼을 진행하지 않았다면 씬전환
+        if (!InformationManager.Instance.saveLoadData.isTutorialClear)
+            ChangeScene(SceneType.TutorialScene);
     }
     private void Start()
     {
@@ -39,7 +45,8 @@ public class GameManager : SingletonBase<GameManager>
 
     private void PlayerInit(Scene scene, LoadSceneMode mode)
     {
-        if (playerObject == null && (SceneManager.GetActiveScene().name == _dungeonSceneName|| SceneManager.GetActiveScene().name == _tutorialSceneName))
+        if (playerObject == null && (SceneManager.GetActiveScene().name == _dungeonSceneName
+            || SceneManager.GetActiveScene().name == _tutorialSceneName || SceneManager.GetActiveScene().name == _OrkWarriorSceneName))
         {
             playerObject = ResourceManager.Instance.Instantiate("Player/Player");
             player = playerObject.GetComponent<Player>();
@@ -88,9 +95,14 @@ public class GameManager : SingletonBase<GameManager>
         player.Stats.UsePotion(potion);
     }
 
-    public void CallCloseRewardPopupEvent()
+    public void CallUpdateRewardCountEvent()
     {
-        CloseRewardPopupEvent?.Invoke();
-        CloseRewardPopupEvent = null;
+        UpdateRewardCountEvent?.Invoke();
+    }
+
+    //아이템 갯수 카운트 업데이트 이벤트 전부취소
+    public void CancelUpdateRewardCountEvent()
+    {
+        UpdateRewardCountEvent = null;
     }
 }

@@ -140,5 +140,7 @@ public class Reward : MonoBehaviour
                     slots[i].ClearSlot();
             }
         }
+        GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+        GameManager.Instance.CallUpdateRewardCountEvent();
     }
 }

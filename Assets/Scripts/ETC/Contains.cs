@@ -35,11 +35,10 @@ namespace Constants
         Mimic
     }
 
-   public enum DungeonLevel
+   public enum DungeonType
     {
-        Esay,
-        Normal,
-        Hard,
+        Farming,
+        OrkWarrior,
         Count
     }
 
@@ -47,7 +46,8 @@ namespace Constants
     {
         TutorialScene,
         LobbyScene,
-        DungeonScene
+        DungeonScene,
+        OrkWarriorScene
     }
 
     public enum LobbyType

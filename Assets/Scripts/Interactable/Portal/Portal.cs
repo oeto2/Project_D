@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Portal : MonoBehaviour, IInteractable
@@ -12,6 +13,7 @@ public class Portal : MonoBehaviour, IInteractable
     private interationPopup _interationPopup;
     private float _time;
     private Slider _loadingBar;
+    private const string _tutorialSceneName = "TutorialScene";
 
     private void Awake()
     {
@@ -37,10 +39,11 @@ public class Portal : MonoBehaviour, IInteractable
         _loadingBar.gameObject.SetActive(true);
         _time += Time.deltaTime;
         _loadingBar.value = _time / 3;
-        
+
         //상호작용 완료
         if (_time >= 3)
         {
+            InformationManager.Instance.saveLoadData.isTutorialClear = true;
             UIManager.Instance.ShowPopup<GameEndPopup>();
         }
     }

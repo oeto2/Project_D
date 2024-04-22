@@ -117,11 +117,6 @@ public class Enemy : MonoBehaviour, IDamagable
         stateMachine.HandleInput();
 
         stateMachine.Update();
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            TakePhysicalDamage(100);
-        }
     }
 
     private void FixedUpdate()

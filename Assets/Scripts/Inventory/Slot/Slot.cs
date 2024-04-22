@@ -272,6 +272,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             if(UIManager.Instance.ExistPopup(nameof(RewardPopup)))
             {
                 GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+                GameManager.Instance.CallUpdateRewardCountEvent();
             }
         }
             
@@ -302,6 +303,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             if (UIManager.Instance.ExistPopup(nameof(RewardPopup)))
             {
                 GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+                GameManager.Instance.CallUpdateRewardCountEvent();
             }
         }
     }

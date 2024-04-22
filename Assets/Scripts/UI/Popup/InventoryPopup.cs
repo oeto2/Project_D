@@ -21,7 +21,9 @@ public class InventoryPopup : UIBase
 
     private void OnEnable()
     {
-        UIManager.Instance.GetPopup(nameof(LobbyUpPopup)).gameObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name == _lobbySceneName)
+            UIManager.Instance.GetPopupObject(nameof(LobbyUpPopup)).gameObject?.SetActive(false);
+
         UIManager.Instance.BattleUICount++;
     }
 
@@ -36,10 +38,10 @@ public class InventoryPopup : UIBase
 
     protected override void CloseUI()
     {
-        if(_lobbySceneUI?.curLobbyType == LobbyType.Storage)
+        if (_lobbySceneUI?.curLobbyType == LobbyType.Storage)
         {
             gameObject.SetActive(false);
-        }    
+        }
 
         //로비 씬에서만 동작
         if (_currentSceneName == _lobbySceneName)

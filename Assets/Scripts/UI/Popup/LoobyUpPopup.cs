@@ -41,6 +41,9 @@ public class LobbyUpPopup : UIBase
         _uiManager.ShowPopup<ShopPopup>();
         _uiManager.ShowPopup<InventoryPopup>();
         _uiManager.ShowPopup<DragPopup>();
+
+        //버튼 텍스트 색 변경
+        _shopButton.GetComponent<ButtonOnMouse>().ChangeColor_Origin();
     }
 
     private void InventoryButtonClick()
@@ -49,6 +52,9 @@ public class LobbyUpPopup : UIBase
         _uiManager.ShowPopup<EquipmentPopup>();
         _uiManager.ShowPopup<InventoryPopup>();
         _uiManager.ShowPopup<DragPopup>();
+
+        //버튼 텍스트 색 변경
+        _inventroyButton.GetComponent<ButtonOnMouse>().ChangeColor_Origin();
     }
 
     private void StorageButtonClick()
@@ -57,6 +63,9 @@ public class LobbyUpPopup : UIBase
         _uiManager.ShowPopup<StoragePopup>();
         _uiManager.ShowPopup<InventoryPopup>();
         _uiManager.ShowPopup<DragPopup>();
+
+        //버튼 텍스트 색 변경
+        _storageButton.GetComponent<ButtonOnMouse>().ChangeColor_Origin();
     }
 
     private void ExitButtonClick()
@@ -69,11 +78,17 @@ public class LobbyUpPopup : UIBase
     {
         GetComponentInParent<LobbySceneUI>().curLobbyType = LobbyType.EnterDungeon;
         _uiManager.ShowPopup<EnterDungeonPopup>();
+
+        //버튼 텍스트 색 변경
+        _enterDungeonButton.GetComponent<ButtonOnMouse>().ChangeColor_Origin();
     }
 
     private void OptionButtonClick()
     {
         GetComponentInParent<LobbySceneUI>().curLobbyType = LobbyType.Option;
         _uiManager.ShowPopup<OptionPopup>();
+
+        //버튼 텍스트 색 변경
+        _optionButton.GetComponent<ButtonOnMouse>().ChangeColor_Origin();
     }
 }

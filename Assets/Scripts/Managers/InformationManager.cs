@@ -128,6 +128,9 @@ public class SaveLoadData
     public int[] storage_ItemStack = new int[Constant.StorageSize];
     public int storage_Gold;
 
+    //튜토리얼을 진행했는지
+    public bool isTutorialClear;
+
     // 장비창 관련 정보
     public Dictionary<ItemType, int> equipmentItems = new Dictionary<ItemType, int>()
     {
