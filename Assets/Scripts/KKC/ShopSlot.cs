@@ -32,21 +32,18 @@ public class ShopSlot : UIRecycleViewCell<ItemData>
         int itemCount; // æ∆¿Ã≈€ ∞πºˆ
         if (int.TryParse(ItemStack.text, out itemCount))
         {
-            if (InformationManager.Instance.saveLoadData.gold >= itemData.itemPrice * itemCount)
+            if (itemCount > 0 && InformationManager.Instance.saveLoadData.gold >= itemData.itemPrice * itemCount)
             {
                 Inventory inventory = UIManager.Instance.GetPopupObject(nameof(InventoryPopup)).GetComponent<Inventory>();
                 inventory.AcquireItem(itemData, itemCount);
                 InformationManager.Instance.InvenGoldChange(-itemData.itemPrice * itemCount);
-                //Debug.Log(ItemData.itemName + " " + itemCount);
 
             }
             else
             {
                 UIManager.Instance.ShowPopup<WarningPopup>();
-                //Debug.Log("∞ÒµÂ∫Œ¡∑");
             }
         }
         ItemStack.text = null;
-        //else if() // ∞ÒµÂ ∫Œ¡∑«“ ∂ß
     }
 }
