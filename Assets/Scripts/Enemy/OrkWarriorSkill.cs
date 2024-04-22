@@ -17,6 +17,7 @@ public class OrkWarriorSkill : EnemySkillBase
         _weaponMaterials.color = new Color32(255, 255, 255, 255);
     }
 
+
     public override void UseSkill(int skillNum_)
     {
         switch(skillNum_)

@@ -11,16 +11,16 @@ public class EnterDungeonPopup : UIBase
     [SerializeField] private Button _enterButton;
     [SerializeField] private Button _nextButton;
     [SerializeField] private Button _beforeButton;
-
-    [SerializeField] private TextMeshProUGUI _levelText;
+    
+    [SerializeField] private DungeonType _level = DungeonType.Farming;
+    [SerializeField] private Image _dungeonPopup_BG;
+    [SerializeField] private TextMeshProUGUI _titleText;
+    [SerializeField] private Sprite[] dungeonImages = new Sprite[2];
 
     private const string _esayLevelName = "쉬움";
     private const string _normalLevelName = "보통";
     private const string _hardLevelName = "어려움";
-
-
     private GameObject lobbyUpPopup_Object;
-    [SerializeField] private DungeonLevel _level = DungeonLevel.Esay;
 
     private void Awake()
     {
@@ -45,39 +45,47 @@ public class EnterDungeonPopup : UIBase
 
     private void NextButtonClick()
     {
-        if (_level < DungeonLevel.Count - 1)
+        if (_level < DungeonType.Count - 1)
             _level++;
 
-        else _level = DungeonLevel.Esay;
+        else _level = DungeonType.Farming;
 
-        RefreshLevelText();
+        RefreshDungeonUI();
     }
 
     private void BeforeButtonClick()
     {
-        if (_level >= DungeonLevel.Esay + 1)
+        if (_level >= DungeonType.Farming + 1)
             _level--;
 
-        else _level = DungeonLevel.Count - 1;
+        else _level = DungeonType.Count - 1;
 
-        RefreshLevelText();
+        RefreshDungeonUI();
     }
 
-    private void RefreshLevelText()
+    //던전 입장 UI 새로고침
+    private void RefreshDungeonUI()
     {
         switch(_level)
         {
-            case DungeonLevel.Esay:
-                _levelText.text = _esayLevelName;
+            case DungeonType.Farming:
+                _titleText.text = "잊혀진 이들의 쉼터";
+                _dungeonPopup_BG.sprite = dungeonImages[0];
+                SelectEnterDungeon(SceneType.DungeonScene);
                 break;
 
-            case DungeonLevel.Normal:
-                _levelText.text = _normalLevelName;
-                break;
-
-            case DungeonLevel.Hard:
-                _levelText.text = _hardLevelName;
+            case DungeonType.OrkWarrior:
+                _titleText.text = "오크 전사";
+                _dungeonPopup_BG.sprite = dungeonImages[1];
+                SelectEnterDungeon(SceneType.OrkWarriorScene);
                 break;
         }
+    }
+
+    //입장할 던전 선택
+    private void SelectEnterDungeon(SceneType sceneType_)
+    {
+        _enterButton.onClick.RemoveAllListeners();
+        _enterButton.onClick.AddListener(() => GameManager.Instance.ChangeScene(sceneType_));
     }
 }

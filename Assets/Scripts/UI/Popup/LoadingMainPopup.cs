@@ -47,6 +47,12 @@ public class LoadingMainPopup : UIBase
                 loadingText.text = "튜토리얼 불러오는중..";
                 tooltipText.text = "죽으면 아이템을 모두 잃습니다.";
                 break;
+
+            case SceneType.OrkWarriorScene:
+                tilteText.text = "오크 전사";
+                loadingText.text = "맵을 불러오는중..";
+                tooltipText.text = "오크전사의 무기를 주시하세요.";
+                break;
         }
     }
 }

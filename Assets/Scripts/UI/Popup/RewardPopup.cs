@@ -37,6 +37,6 @@ public class RewardPopup : UIBase
     protected override void CloseUI()
     {
         gameObject.SetActive(false);
-        GameManager.Instance.CallCloseRewardPopupEvent();
+        GameManager.Instance.CancelUpdateRewardCountEvent();
     }
 }

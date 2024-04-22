@@ -14,6 +14,7 @@ public class EnemySkillBase : MonoBehaviour, EnemySkillable
     //외부 컴포넌트
     protected NavMeshAgent _navMeshAgent;
     protected Enemy _enemy;
+    protected CharacterStats _characterStats;
 
     [field: Header("SkillState")]
     [SerializeField] protected EnemySkillSO _skillData;
@@ -25,10 +26,13 @@ public class EnemySkillBase : MonoBehaviour, EnemySkillable
     //현재 스킬을 사용중인지
     [field: SerializeField] public bool UsingSkill { get; set; } = false;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _enemy = GetComponent<Enemy>();
+        _characterStats = GetComponent<CharacterStats>();
+
+        _characterStats.OnDie += () => StopAllCoroutines();
     }
 
     public virtual void UseSkill(int skillNum_)
