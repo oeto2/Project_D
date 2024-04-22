@@ -17,10 +17,13 @@ public class PlayerHitUI : MonoBehaviour
 
     private void OnHitBloodOverlay(int amount)
     {
-        StopCoroutine(OffBloodScreen());
-        color.a = 1f;
-        _bloodScreen.color = color;
-        StartCoroutine(OffBloodScreen());
+        if(amount > 0)
+        {
+            StopCoroutine(OffBloodScreen());
+            color.a = 1f;
+            _bloodScreen.color = color;
+            StartCoroutine(OffBloodScreen());
+        }
     }
 
     IEnumerator OffBloodScreen()

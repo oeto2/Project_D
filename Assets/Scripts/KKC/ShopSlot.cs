@@ -18,6 +18,16 @@ public class ShopSlot : UIRecycleViewCell<ItemData>
 
     public override void UpdateContent(ItemData itemData_)
     {
+        if (!(itemData_.itemType == Constants.ItemType.Consume || itemData_.itemType == Constants.ItemType.Material))
+        {
+            ItemStack.gameObject.SetActive(false);
+            ItemStack.text = "1";
+        }
+        else
+        {
+            ItemStack.gameObject.SetActive(true);
+            ItemStack.text = "";
+        }
         itemData = itemData_;
         ItemName.text = itemData_.itemName;
         ItemPrice.text = itemData_.itemPrice.ToString();
