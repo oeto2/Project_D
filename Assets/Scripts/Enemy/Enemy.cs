@@ -127,6 +127,9 @@ public class Enemy : MonoBehaviour, IDamagable
     //데미지 받기
     public void TakePhysicalDamage(int damageAmount)
     {
+        if (this.enabled == false)
+            return;
+
         Health.TakePhysicalDamage(damageAmount);
         //Debug.Log(Health.health);
         
