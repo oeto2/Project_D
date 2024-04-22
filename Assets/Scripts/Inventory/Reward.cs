@@ -140,5 +140,6 @@ public class Reward : MonoBehaviour
         }
         CleanRewardItem();
         GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+        GameManager.Instance.CallUpdateRewardCountEvent();
     }
 }

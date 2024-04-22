@@ -35,7 +35,7 @@ public class EnemyInteration : MonoBehaviour, IInteractable
         //최초 1회 실행
         if (!_isRoot)
         {
-            GameManager.Instance.CloseRewardPopupEvent += UpdateGetItemCountList;
+            GameManager.Instance.UpdateRewardCountEvent += UpdateGetItemCountList;
             int monsterId = _enemy.Data.id;
             int rand = Random.Range(1, Database.Monster.Get(monsterId).monsterMaxRoot);
 
@@ -47,14 +47,15 @@ public class EnemyInteration : MonoBehaviour, IInteractable
                 ItemData getItem = Database.DropPer.GetItem(Database.Monster.Get(monsterId).dropId);
                 reward.AcquireItem(getItem);
                 _getItemsID.Add(getItem.id);
-                _getItemsCount.Add(reward.GetItemCountInSlot(i));
+                //_getItemsCount.Add(reward.GetItemCountInSlot(i));
             }
 
+            UpdateGetItemCountList();
             _isRoot = true;
         }
         else
         {
-            GameManager.Instance.CloseRewardPopupEvent += UpdateGetItemCountList;
+            GameManager.Instance.UpdateRewardCountEvent += UpdateGetItemCountList;
             //리워드 창에 있는 아이템 비우기
             reward.CleanRewardItem();
 

@@ -24,8 +24,8 @@ public class GameManager : SingletonBase<GameManager>
     public event Action<List<int>> GetRewardItemEvent;
     //변경된 리워드 보상을 적용하는 이벤트
     public event Func<List<int>> SetRewardItemEvent;
-    //리워드 창을 닫을 때 호출되는 이벤트
-    public event Action CloseRewardPopupEvent;
+    //리워드 창 아이템 갯수 업데이트 이벤트
+    public event Action UpdateRewardCountEvent;
 
     private void Awake()
     {
@@ -92,9 +92,14 @@ public class GameManager : SingletonBase<GameManager>
         player.Stats.UsePotion(potion);
     }
 
-    public void CallCloseRewardPopupEvent()
+    public void CallUpdateRewardCountEvent()
     {
-        CloseRewardPopupEvent?.Invoke();
-        CloseRewardPopupEvent = null;
+        UpdateRewardCountEvent?.Invoke();
+    }
+
+    //아이템 갯수 카운트 업데이트 이벤트 전부취소
+    public void CancelUpdateRewardCountEvent()
+    {
+        UpdateRewardCountEvent = null;
     }
 }
