@@ -69,3 +69,17 @@ MonoBehaviour:
     _dropId: 30000001
     _monsterChasingRng: 8
     _monsterRotationDamping: 15
+  - _id: 11000005
+    _monsterName: "\uB370\uC2A4\uB098\uC774\uD2B8"
+    _monsterHp: 5000
+    _monsterAtk: 300
+    _monsterAtkSpd: 0.1
+    _monsterAtkRng: 3
+    _monsterDef: 10
+    _monsterWalk: 2.5
+    _monsterRun: 7
+    _monsterStiff: 1
+    _monsterMaxRoot: 7
+    _dropId: 30000001
+    _monsterChasingRng: 8
+    _monsterRotationDamping: 15

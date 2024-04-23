@@ -53,6 +53,12 @@ public class LoadingMainPopup : UIBase
                 loadingText.text = "맵을 불러오는중..";
                 tooltipText.text = "오크전사의 무기를 주시하세요.";
                 break;
+
+            case SceneType.DeathKnightScene:
+                tilteText.text = "데스 나이트";
+                loadingText.text = "맵을 불러오는중..";
+                tooltipText.text = "살아서 나갈 수 없습니다.";
+                break;
         }
     }
 }

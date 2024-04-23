@@ -23,6 +23,5 @@ public class EnemySkillData
 [CreateAssetMenu(fileName = "EnemySkill", menuName = "Characters/Enemy/SkillSO")]
 public class EnemySkillSO : ScriptableObject
 {
-    public EnemySkillData skill01_Data;
-    public EnemySkillData skill02_Data;
+    public List<EnemySkillData> skill_Data;
 }

@@ -79,6 +79,12 @@ public class EnterDungeonPopup : UIBase
                 _dungeonPopup_BG.sprite = dungeonImages[1];
                 SelectEnterDungeon(SceneType.OrkWarriorScene);
                 break;
+
+            case DungeonType.DeathKnight:
+                _titleText.text = "데스나이트";
+                _dungeonPopup_BG.sprite = dungeonImages[2];
+                SelectEnterDungeon(SceneType.DeathKnightScene);
+                break;
         }
     }
 

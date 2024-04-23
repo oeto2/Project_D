@@ -324,6 +324,7 @@ MonoBehaviour:
   dungeonImages:
   - {fileID: 21300000, guid: fe70598621450a14ca7b3c9f6ffdc09f, type: 3}
   - {fileID: 21300000, guid: b38226f830bdfcb47bca38a903196b48, type: 3}
+  - {fileID: 21300000, guid: 96e2b31ea1ab9ca448cd036c9c514442, type: 3}
 --- !u!1 &2823189705673394671
 GameObject:
   m_ObjectHideFlags: 0

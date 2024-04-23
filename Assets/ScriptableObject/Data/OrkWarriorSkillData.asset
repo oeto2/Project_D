@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b046aac15c33d4e9a2040c17244ba2, type: 3}
   m_Name: OrkWarriorSkillData
   m_EditorClassIdentifier: 
-  skill01_Data:
-    SkillName: "\uD68C\uC804\uBCA0\uAE30"
+  skill_Data:
+  - SkillName: "\uD68C\uC804\uBCA0\uAE30"
     SkillDurationTime: 5
     SkillCollTime: 15
     SkillDamage: 100
     SkillRange: 1.5
     SkillDamageCycle: 0.3
-  skill02_Data:
-    SkillName: "\uB354\uBE14 \uC5B4\uD0DD"
+  - SkillName: "\uB354\uBE14 \uC5B4\uD0DD"
     SkillDurationTime: 3
     SkillCollTime: 8
     SkillDamage: 30
