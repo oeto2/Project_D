@@ -47,9 +47,9 @@ MonoBehaviour:
     _rewardType1: 0
     _dropPer1: 5
     _rewardType2: 1
-    _dropPer2: 25
+    _dropPer2: 20
     _rewardType3: 2
     _dropPer3: 40
     _rewardType4: 3
-    _dropPer4: 25
+    _dropPer4: 30
     _totalDropPer: 95
