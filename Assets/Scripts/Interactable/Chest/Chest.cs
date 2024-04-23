@@ -83,6 +83,7 @@ public class Chest : MonoBehaviour, IInteractable
                         _getItemsCount.Add(reward.GetItemCountInSlot(i));
                     }
 
+                    _animator.SetTrigger(_openParameterName);
                     _isOpen = true;
                     return;
                 }
