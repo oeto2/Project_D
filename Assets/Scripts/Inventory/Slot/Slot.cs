@@ -107,6 +107,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     WeaponSlot _weaponSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<WeaponSlot>();
                     //교환할 아이템 저장
                     ItemData _tempItem = _weaponSlot.item;
+                    _weaponSlot.ClearSlot();
                     _weaponSlot.AddItem(item);
                     if (_tempItem != null)
                         AddItem(_tempItem);
@@ -119,6 +120,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     HelmetSlot _helmetSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<HelmetSlot>();
                     //교환할 아이템 저장
                     ItemData _tempItem = _helmetSlot.item;
+                    _helmetSlot.ClearSlot();
                     _helmetSlot.AddItem(item);
                     if (_tempItem != null)
                         AddItem(_tempItem);
@@ -130,6 +132,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     ChestSlot _chestSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<ChestSlot>();
                     //교환할 아이템 저장
                     ItemData _tempItem = _chestSlot.item;
+                    _chestSlot.ClearSlot();
                     _chestSlot.AddItem(item);
                     if (_tempItem != null)
                         AddItem(_tempItem);
@@ -141,6 +144,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     PantsSlot _pantsSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<PantsSlot>();
                     //교환할 아이템 저장
                     ItemData _tempItem = _pantsSlot.item;
+                    _pantsSlot.ClearSlot();
                     _pantsSlot.AddItem(item);
                     if (_tempItem != null)
                         AddItem(_tempItem);
@@ -152,6 +156,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     BootsSlot _bootsSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<BootsSlot>();
                     //교환할 아이템 저장
                     ItemData _tempItem = _bootsSlot.item;
+                    _bootsSlot.ClearSlot();
                     _bootsSlot.AddItem(item);
                     if (_tempItem != null)
                         AddItem(_tempItem);
@@ -163,6 +168,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     NecklaceSlot _necklaceSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<NecklaceSlot>();
                     //교환할 아이템 저장
                     ItemData _tempItem = _necklaceSlot.item;
+                    _necklaceSlot.ClearSlot();
                     _necklaceSlot.AddItem(item);
                     if (_tempItem != null)
                         AddItem(_tempItem);
@@ -174,6 +180,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                     RingSlot _ringSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<RingSlot>();
                     //교환할 아이템 저장
                     ItemData _tempItem = _ringSlot.item;
+                    _ringSlot.ClearSlot();
                     _ringSlot.AddItem(item);
                     if (_tempItem != null)
                         AddItem(_tempItem);
