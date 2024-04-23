@@ -58,11 +58,11 @@ public class InteractionSystem : MonoBehaviour
 
         if (GameManager.Instance.sceneType == SceneType.LobbyScene)
             return;
-
         if (Time.time - lastCheckTime > checkRate)
         {
             lastCheckTime = Time.time;
-
+            if (_camera == null)
+                return;
             Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width *0.5f, Screen.height *0.5f, 0));
             RaycastHit hit;
 
