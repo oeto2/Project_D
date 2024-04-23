@@ -16,7 +16,7 @@ MonoBehaviour:
   - _id: 11000001
     _monsterName: "\uC2A4\uCF08\uB808\uD1A4 \uAC80\uC0AC"
     _monsterHp: 150
-    _monsterAtk: 40
+    _monsterAtk: 60
     _monsterAtkSpd: 0.1
     _monsterAtkRng: 3
     _monsterDef: 10

@@ -45,11 +45,11 @@ MonoBehaviour:
     _totalDropPer: 91
   - _id: 30000001
     _rewardType1: 0
-    _dropPer1: 30
+    _dropPer1: 5
     _rewardType2: 1
-    _dropPer2: 35
+    _dropPer2: 25
     _rewardType3: 2
-    _dropPer3: 25
+    _dropPer3: 40
     _rewardType4: 3
-    _dropPer4: 5
+    _dropPer4: 25
     _totalDropPer: 95
