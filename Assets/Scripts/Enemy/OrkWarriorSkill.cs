@@ -50,7 +50,7 @@ public class OrkWarriorSkill : EnemySkillBase
         _weaponMaterials.color = _warringColor;
 
         //사용할 스킬 데이터
-        EnemySkillData skillData = _skillData.skill01_Data;
+        EnemySkillData skillData = _skillData.skill_Data[0];
         EnemyStateMachine enemySateMachine = _enemy.stateMachine;
         //스킬 진행시간
         float skillTime = 0f;
@@ -99,7 +99,7 @@ public class OrkWarriorSkill : EnemySkillBase
     private IEnumerator StartDubleAttack()
     {
         //사용할 스킬 데이터
-        EnemySkillData skillData = _skillData.skill02_Data;
+        EnemySkillData skillData = _skillData.skill_Data[1];
         EnemyStateMachine enemySateMachine = _enemy.stateMachine;
 
         yield return new WaitForSeconds(skillData.SkillDurationTime);

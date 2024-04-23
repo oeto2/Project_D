@@ -16,6 +16,15 @@ public class GameEndPopup : UIBase
         //¾À ÀÌµ¿
         _enterButton.onClick.AddListener(() => EnterButtonClick());
     }
+    private void OnEnable()
+    {
+        UIManager.Instance.BattleUICount++;
+    }
+
+    private void OnDisable()
+    {
+        UIManager.Instance.BattleUICount--;
+    }
 
     private void EnterButtonClick()
     {
