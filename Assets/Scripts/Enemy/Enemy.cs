@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour, IDamagable
     //스턴 할수 있는지 
     [SerializeField] private bool enableStiff = true;
 
-    [field: Header("BossSkill")]
+    [field: Header("Boss")]
     public EnemySkillBase EnemySkill;
 
     #region 액션 이벤트

@@ -23,7 +23,7 @@ public class BossInteraction : MonoBehaviour
         _playerTransform = GameManager.Instance.playerObject.transform;
         _enemy = GetComponent<Enemy>();
 
-        _bossHpSctipt = UIManager.Instance.ShowPopup<BossHpPopup>();
+        _bossHpSctipt = UIManager.Instance.GetPopup(nameof(BossHpPopup)).GetComponent<BossHpPopup>();
         SetBossHpPopupInfo();
 
         _enemy.TakeDamageEvent += _bossHpSctipt.UpdateBossHpUI;
