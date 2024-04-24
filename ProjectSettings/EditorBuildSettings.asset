@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScenes/OrkWarriorScene.unity
     guid: 528f495cd423d4647af9f08566269cfc
   - enabled: 1
-    path: Assets/Scenes/MainScenes/DeathKnightScene.unity
+    path: Assets/Scenes/MainScenes/NecromancerScene.unity
     guid: b033f959f281ffc489837af997971512
   m_configObjects: {}

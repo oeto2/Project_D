@@ -11,7 +11,7 @@ public class LoadingSceneController : MonoBehaviour
     public const string dungeonScene = "DungeonScene";
     private const string _tutorialSceneName = "TutorialScene";
     private const string _orkWarriorScene = "OrkWarriorScene";
-    private const string _deathKnightScene = "DeathKnightScene";
+    private const string _necromancerScene = "NecromancerScene";
 
     public Slider LoadingBar;
 
@@ -38,8 +38,8 @@ public class LoadingSceneController : MonoBehaviour
             case SceneType.OrkWarriorScene:
                 scene = _orkWarriorScene;
                 break;
-            case SceneType.DeathKnightScene:
-                scene = _deathKnightScene;
+            case SceneType.NecromancerScene:
+                scene = _necromancerScene;
                 break;
         }
 

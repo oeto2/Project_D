@@ -18,7 +18,7 @@ public class GameManager : SingletonBase<GameManager>
     private const string _dungeonSceneName = "DungeonScene";
     private const string _loadingSceneName = "LoadingScene";
     private const string _OrkWarriorSceneName = "OrkWarriorScene";
-    private const string _deathKnightSceneName = "DeathKnightScene";
+    private const string _necromancerSceneName = "NecromancerScene";
 
 
     public event Action SceneLoadEvent;
@@ -49,7 +49,7 @@ public class GameManager : SingletonBase<GameManager>
         string sceneName = SceneManager.GetActiveScene().name;
 
         if (playerObject == null && (sceneName == _dungeonSceneName || sceneName == _tutorialSceneName 
-            || sceneName == _OrkWarriorSceneName|| sceneName == _deathKnightSceneName))
+            || sceneName == _OrkWarriorSceneName|| sceneName == _necromancerSceneName))
         {
             playerObject = ResourceManager.Instance.Instantiate("Player/Player");
             player = playerObject.GetComponent<Player>();

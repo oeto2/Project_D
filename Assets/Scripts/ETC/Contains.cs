@@ -39,7 +39,7 @@ namespace Constants
     {
         Farming,
         OrkWarrior,
-        DeathKnight,
+        Necromancer,
         Count
     }
 
@@ -49,7 +49,7 @@ namespace Constants
         LobbyScene,
         DungeonScene,
         OrkWarriorScene,
-        DeathKnightScene
+        NecromancerScene
     }
 
     public enum LobbyType

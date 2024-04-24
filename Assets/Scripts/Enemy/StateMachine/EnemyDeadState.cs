@@ -11,14 +11,18 @@ public class EnemyDeadState : EnemyBaseState
 
     public override void Enter()
     {
+        NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
+        if (navMeshAgent.isOnNavMesh)
+            navMeshAgent?.Stop();
+
         isMove = false;
         stateMachine.MovementSpeedModifier = 0f;
-        stateMachine.Enemy.NavMeshAgent?.Stop();
+        
 
         base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);
         SetTriggerAnimation(stateMachine.Enemy.AnimationData.DeadParameterHash);
 
-        stateMachine.Enemy.enemyInteration_Object.SetActive(true);
+        stateMachine.Enemy.enemyInteration_Object?.SetActive(true);
     }
 }
