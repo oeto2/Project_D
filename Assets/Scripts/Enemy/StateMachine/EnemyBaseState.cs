@@ -55,11 +55,6 @@ public class EnemyBaseState : IState
         Move(movementDirection);
     }
 
-    protected void ForceMove()
-    {
-        stateMachine.Enemy.Controller.Move(stateMachine.Enemy.ForceReceiver.Movement * Time.deltaTime);
-    }
-
     // 이동 방향 구하기 = 적 위치
     private Vector3 GetMovementDirection()
     {
@@ -70,7 +65,7 @@ public class EnemyBaseState : IState
     private void Move(Vector3 direction)
     {
         float movementSpeed = GetMovementSpeed();
-        stateMachine.Enemy.Controller.Move(((direction * movementSpeed) + stateMachine.Enemy.ForceReceiver.Movement) * Time.deltaTime);
+        stateMachine.Enemy.Controller.Move(direction * movementSpeed * Time.deltaTime);
     }
 
     //적 회전

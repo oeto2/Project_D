@@ -39238,7 +39238,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9222025420586204530}
   - component: {fileID: 3281680076822997199}
-  - component: {fileID: 8841349321635357451}
   - component: {fileID: 6660455829603688314}
   - component: {fileID: 991992798945494853}
   - component: {fileID: 424456946437465929}
@@ -39322,20 +39321,6 @@ MonoBehaviour:
   HitUIPos: {fileID: 5050228059127492715}
   enableStiff: 1
   EnemySkill: {fileID: 0}
---- !u!114 &8841349321635357451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138561558372901020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faff93c8b8d6bd14fbc088101a38d515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  drag: 0.3
 --- !u!114 &6660455829603688314
 MonoBehaviour:
   m_ObjectHideFlags: 0

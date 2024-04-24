@@ -10607,7 +10607,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3550425998560413712}
   - component: {fileID: 3974559103476848192}
-  - component: {fileID: 4731467328240907475}
   - component: {fileID: 6026015665010052111}
   - component: {fileID: 5314240573419437085}
   - component: {fileID: 3132864006968145655}
@@ -10690,20 +10689,6 @@ MonoBehaviour:
   HitUIPos: {fileID: 3604086867236132554}
   enableStiff: 1
   EnemySkill: {fileID: 0}
---- !u!114 &4731467328240907475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5014646188459995882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faff93c8b8d6bd14fbc088101a38d515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  drag: 0.3
 --- !u!114 &6026015665010052111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10724,6 +10709,7 @@ MonoBehaviour:
   stamina: 0
   attack: 0
   defense: 0
+  curDefense: 0
 --- !u!143 &5314240573419437085
 CharacterController:
   m_ObjectHideFlags: 0
