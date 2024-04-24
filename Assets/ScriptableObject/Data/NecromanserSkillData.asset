@@ -12,17 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b046aac15c33d4e9a2040c17244ba2, type: 3}
   m_Name: NecromanserSkillData
   m_EditorClassIdentifier: 
-  skill01_Data:
-    SkillName: "\uC2A4\uCF08\uB808\uD1A4 \uC18C\uD658"
-    SkillDurationTime: 2
-    SkillCollTime: 15
+  skill_Data:
+  - SkillName: "\uC2A4\uCF08\uB808\uD1A4 \uC18C\uD658"
+    SkillDurationTime: 5
+    SkillCollTime: 30
     SkillDamage: 0
     SkillRange: 5
     SkillDamageCycle: 0
-  skill02_Data:
-    SkillName: "\uD3ED\uBC1C"
-    SkillDurationTime: 6
-    SkillCollTime: 20
-    SkillDamage: 150
-    SkillRange: 20
-    SkillDamageCycle: 0.5
+  - SkillName: "\uAD11\uC5ED \uD3ED\uBC1C"
+    SkillDurationTime: 3.8
+    SkillCollTime: 10
+    SkillDamage: 1000
+    SkillRange: 0
+    SkillDamageCycle: 0
