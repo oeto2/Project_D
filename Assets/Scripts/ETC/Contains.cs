@@ -39,6 +39,7 @@ namespace Constants
     {
         Farming,
         OrkWarrior,
+        OrkAssasin,
         Necromancer,
         Count
     }
@@ -49,6 +50,7 @@ namespace Constants
         LobbyScene,
         DungeonScene,
         OrkWarriorScene,
+        OrkOrkAssasinScene,
         NecromancerScene
     }
 
