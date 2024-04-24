@@ -1,3 +1,5 @@
+using UnityEngine.AI;
+
 public class EnemyChasingState : EnemyBaseState
 {
     public EnemyChasingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
@@ -6,7 +8,10 @@ public class EnemyChasingState : EnemyBaseState
     
     public override void Enter()
     {
-        stateMachine.Enemy.NavMeshAgent.Stop();
+        NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
+        if (navMeshAgent.isOnNavMesh)
+            navMeshAgent?.Stop();
+
         //Debug.Log("추적상태 진입");
         stateMachine.MovementSpeedModifier = 1;
 

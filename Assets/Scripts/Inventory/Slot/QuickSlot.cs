@@ -57,14 +57,12 @@ public class QuickSlot : MonoBehaviour, IDropHandler
     }
     public void UseItem()
     {
-        UpdateQuickSlot();
+        if (slot.item == null)
+        {
+            ClearSlot();
+            return;
+        }
         slot.UseItem();
         SetSlotCount();
-    }
-
-    public void UpdateQuickSlot()
-    {
-        if (slot.item == null)
-            ClearSlot();
     }
 }

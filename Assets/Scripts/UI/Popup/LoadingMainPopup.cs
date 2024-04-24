@@ -54,8 +54,8 @@ public class LoadingMainPopup : UIBase
                 tooltipText.text = "오크전사의 무기를 주시하세요.";
                 break;
 
-            case SceneType.DeathKnightScene:
-                tilteText.text = "데스 나이트";
+            case SceneType.NecromancerScene:
+                tilteText.text = "네크로맨서";
                 loadingText.text = "맵을 불러오는중..";
                 tooltipText.text = "살아서 나갈 수 없습니다.";
                 break;

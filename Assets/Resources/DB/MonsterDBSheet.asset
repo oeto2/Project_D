@@ -70,11 +70,11 @@ MonoBehaviour:
     _monsterChasingRng: 8
     _monsterRotationDamping: 15
   - _id: 11000005
-    _monsterName: "\uB370\uC2A4\uB098\uC774\uD2B8"
+    _monsterName: "\uB124\uD06C\uB85C\uB9E8\uC11C"
     _monsterHp: 5000
     _monsterAtk: 300
     _monsterAtkSpd: 0.1
-    _monsterAtkRng: 3
+    _monsterAtkRng: 2
     _monsterDef: 10
     _monsterWalk: 2.5
     _monsterRun: 7
