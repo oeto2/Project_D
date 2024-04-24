@@ -21,6 +21,7 @@ public class CharacterStats : MonoBehaviour
     public event Action OnDie;
     public event Action<float> OnMana;
     public event Action<float> OnStamina;
+    public event Action<bool> OnBleed;
 
     private void Awake()
     {
@@ -68,9 +69,12 @@ public class CharacterStats : MonoBehaviour
         curDefense = defense;
     }
 
-    public void TakePhysicalDamage(int damageAmount)
+    public void TakePhysicalDamage(int damageAmount, bool trueDeal = false)
     {
-        OnDamage((int)MathF.Max((damageAmount - (int)curDefense), 1));
+        if (trueDeal)
+            OnDamage(damageAmount);
+        else
+            OnDamage((int)MathF.Max((damageAmount - (int)curDefense), 1));
     }
 
     private void TakeDamage(int damageAmount)
@@ -144,5 +148,10 @@ public class CharacterStats : MonoBehaviour
             return;
         attack -= item.itemAtk;
         curDefense -= defense * item.itemDef / 100;
+    }
+
+    public void OnBleeding(bool state)
+    {
+        OnBleed(state);
     }
 }
