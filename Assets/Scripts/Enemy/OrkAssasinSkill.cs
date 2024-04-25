@@ -49,9 +49,9 @@ public class OrkAssasinSkill : EnemySkillBase
     {
         EnemyStateMachine enemySateMachine = _enemy.stateMachine;
         if (accel)
-            yield return new WaitForSeconds(0.2f);
-        else
             yield return new WaitForSeconds(0.1f);
+        else
+            yield return new WaitForSeconds(0.05f);
         EnemySkillData skillData = _skillData.skill_Data[0];
 
         Vector3 targetVec = GameManager.Instance.player.transform.position;
@@ -95,9 +95,9 @@ public class OrkAssasinSkill : EnemySkillBase
     {
         EnemyStateMachine enemySateMachine = _enemy.stateMachine;
         if (accel)
-            yield return new WaitForSeconds(0.2f);
-        else
             yield return new WaitForSeconds(0.1f);
+        else
+            yield return new WaitForSeconds(0.05f);
         EnemySkillData skillData = _skillData.skill_Data[1];
 
         Vector3 targetVec = GameManager.Instance.player.transform.position;
