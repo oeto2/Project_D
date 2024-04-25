@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skill_Data:
   - SkillName: "\uB9C8\uB098\uB4DC\uB808\uC778"
-    SkillDurationTime: 10
+    SkillDurationTime: 5
     SkillCollTime: 30
     SkillDamage: 120
     SkillRange: 1.5
     SkillDamageCycle: 0
   - SkillName: "\uCD9C\uD608"
-    SkillDurationTime: 40
+    SkillDurationTime: 5
     SkillCollTime: 15
     SkillDamage: 110
     SkillRange: 1.7

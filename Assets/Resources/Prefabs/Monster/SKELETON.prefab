@@ -873,6 +873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isRoot: 0
   _getItemsID: 
+  _getItemsCount: 
 --- !u!65 &1454623272067989930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1309,7 +1310,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6750725954864246562}
   - component: {fileID: 507005864954431936}
-  - component: {fileID: 6734574209666049167}
   - component: {fileID: 5204801804691217164}
   - component: {fileID: 6926299337325238293}
   - component: {fileID: 8454578380842620898}
@@ -1378,7 +1378,10 @@ MonoBehaviour:
     baseAttackParameterName: BaseAttack
     deadParameterName: Dead
     stiffParameterName: Stiff
+    Skill01ParameterName: Skill01
+    Skill02ParameterName: Skill02
   EnemyPatrolLocation_number: 0
+  MonsterType: 0
   <MonsterMoveType>k__BackingField: 1
   MonsterWanderDestination: []
   enemyInteration_Object: {fileID: 3770708180680966607}
@@ -1386,20 +1389,7 @@ MonoBehaviour:
   _targetHealth: {fileID: 0}
   HitUIPos: {fileID: 4495668767246788098}
   enableStiff: 1
---- !u!114 &6734574209666049167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5803477382436822640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faff93c8b8d6bd14fbc088101a38d515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  drag: 0.3
+  EnemySkill: {fileID: 0}
 --- !u!143 &5204801804691217164
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1446,6 +1436,7 @@ MonoBehaviour:
   stamina: 0
   attack: 0
   defense: 0
+  curDefense: 0
 --- !u!195 &8454578380842620898
 NavMeshAgent:
   m_ObjectHideFlags: 0

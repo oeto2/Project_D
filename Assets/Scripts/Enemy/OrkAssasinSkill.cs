@@ -44,7 +44,8 @@ public class OrkAssasinSkill : EnemySkillBase
 
     IEnumerator AssasinBuffSkill()
     {
-        yield return new WaitForSeconds(0.2f);
+        EnemyStateMachine enemySateMachine = _enemy.stateMachine;
+        yield return new WaitForSeconds(1f);
         EnemySkillData skillData = _skillData.skill_Data[0];
 
         Vector3 targetVec = GameManager.Instance.player.transform.position;
@@ -65,6 +66,8 @@ public class OrkAssasinSkill : EnemySkillBase
                 StartCoroutine(AssasinOnBuff(skillData.SkillDurationTime));
             }
         }
+        //추적상태 진입
+        enemySateMachine.ChangeState(enemySateMachine.ChasingState);
         UsingSkill = false; 
 
         yield return new WaitForSeconds(skillData.SkillCollTime);
@@ -84,7 +87,8 @@ public class OrkAssasinSkill : EnemySkillBase
 
     IEnumerator AssasinBleedSkill()
     {
-        yield return new WaitForSeconds(0.2f);
+        EnemyStateMachine enemySateMachine = _enemy.stateMachine;
+        yield return new WaitForSeconds(1f);
         EnemySkillData skillData = _skillData.skill_Data[1];
 
         Vector3 targetVec = GameManager.Instance.player.transform.position;
@@ -106,6 +110,8 @@ public class OrkAssasinSkill : EnemySkillBase
                 StartCoroutine(OnBleed(player, skillData.SkillDurationTime));
             }
         }
+        //추적상태 진입
+        enemySateMachine.ChangeState(enemySateMachine.ChasingState);
         UsingSkill = false;
 
         yield return new WaitForSeconds(skillData.SkillCollTime);

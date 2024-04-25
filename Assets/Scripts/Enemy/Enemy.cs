@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour, IDamagable
     [field: SerializeField] public EnemyAnimationData AnimationData { get; private set; }
     public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
-    public EnemyForceReceiver ForceReceiver { get; private set; }
     public CharacterController Controller { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
 
@@ -88,7 +87,6 @@ public class Enemy : MonoBehaviour, IDamagable
         Rigidbody = GetComponent<Rigidbody>();
         Animator = GetComponentInChildren<Animator>();
         Controller = GetComponent<CharacterController>();
-        ForceReceiver = GetComponent<EnemyForceReceiver>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Health = GetComponent<CharacterStats>();
         //¼øÂû Àå¼Ò
@@ -167,7 +165,6 @@ public class Enemy : MonoBehaviour, IDamagable
         Animator.SetTrigger(stateMachine.Enemy.AnimationData.DeadParameterHash);
         Controller.enabled = false;
         NavMeshAgent.enabled = false;
-        ForceReceiver.enabled = false;
         enabled = false;
     }
 

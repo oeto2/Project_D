@@ -73,7 +73,6 @@ public class EnemyAttackState : EnemyBaseState
     {
         base.Update();
 
-        ForceMove();
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
         if (normalizedTime < 1f)
         {
