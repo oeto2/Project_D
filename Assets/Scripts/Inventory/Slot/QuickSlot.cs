@@ -63,6 +63,5 @@ public class QuickSlot : MonoBehaviour, IDropHandler
             return;
         }
         slot.UseItem();
-        SetSlotCount();
     }
 }
