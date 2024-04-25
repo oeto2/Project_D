@@ -15,6 +15,7 @@ public class OrkWarriorSkill : EnemySkillBase
     private void OnDisable()
     {
         _weaponMaterials.color = new Color32(255, 255, 255, 255);
+        _enemy.Health.OnDie += OnDie;
     }
 
 
@@ -108,5 +109,10 @@ public class OrkWarriorSkill : EnemySkillBase
         //스킬 쿨타임 적용
         yield return new WaitForSeconds(skillData.SkillCollTime);
         Skill02Ready = true;
+    }
+
+    private void OnDie()
+    {
+        StopCoroutine(StartRotateAttack());
     }
 }
