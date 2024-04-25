@@ -19,9 +19,9 @@ public class InformationManager : SingletonBase<InformationManager>
     private void Awake()
     {
         _path = Application.dataPath + "/";
-        LoadData();
         InvenGoldUpdate += SaveInvenGold;
         StorageGoldUpdate += SaveStorageGold;
+        LoadData();
     }
 
     public void SaveInformation(Slot[] slots_)

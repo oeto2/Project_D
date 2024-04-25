@@ -23,7 +23,7 @@ public class CharacterStatsUI : MonoBehaviour
 
     private void UpdateUI()
     {
-        _healthText.text = $"{(int)_player.Stats.health} / {(int)_player.Stats.maxHealth})";
+        _healthText.text = $"{(int)_player.Stats.health} / {(int)_player.Stats.maxHealth}";
         _manaText.text = $"{(int)_player.Stats.mana} / {(int)_player.Stats.maxMana}";
         _staminaText.text = $"{(int)_player.Stats.stamina} / {(int)_player.Stats.maxStamina}";
         _attackText.text = $"{(int)_player.Stats.attack}";
