@@ -81,12 +81,18 @@ public class CharacterStats : MonoBehaviour
     {
         if (damageAmount > 10)
             SoundManager.Instance.PlayHitSound(0);
-
-        health = Math.Max(health - damageAmount, 0);
-        if (health <= 0)
+        if(damageAmount < 0)
         {
-            OnDie?.Invoke();
-            IsDead = true;
+            health = Math.Min(health - damageAmount, maxHealth);
+        }
+        else
+        {
+            health = Math.Max(health - damageAmount, 0);
+            if (health <= 0)
+            {
+                OnDie?.Invoke();
+                IsDead = true;
+            }
         }
     }
 
