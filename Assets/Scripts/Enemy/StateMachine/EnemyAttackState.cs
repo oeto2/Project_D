@@ -39,7 +39,6 @@ public class EnemyAttackState : EnemyBaseState
                     stateMachine.MovementSpeedModifier = 0.5f;
                     bossSkill.UseSkill(1);
                     StartAnimation(stateMachine.Enemy.AnimationData.Skill01ParameterHash);
-                    return;
                 }
 
                 else if (bossSkill.Skill02Ready)
@@ -47,7 +46,6 @@ public class EnemyAttackState : EnemyBaseState
                     //스킬 사용
                     bossSkill.UseSkill(2);
                     StartAnimation(stateMachine.Enemy.AnimationData.Skill02ParameterHash);
-                    return;
                 }
 
                 //스킬 사용이 불가능하다면
@@ -74,24 +72,22 @@ public class EnemyAttackState : EnemyBaseState
         base.Update();
 
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
-        if (normalizedTime < 1f)
+        if (normalizedTime >= 1f)
         {
-            //밀치기 공격
-            //if (normalizedtime >= statemachine.enemy.data.forcetransitiontime)
-            //    tryapplyforce();
+            stateMachine.ChangeState(stateMachine.ChasingState);
         }
-        else
-        {
-            if (IsInChaseRange())
-            {
-                stateMachine.ChangeState(stateMachine.ChasingState);
-                return;
-            }
-            else
-            {
-                stateMachine.ChangeState(stateMachine.IdlingState);
-                return;
-            }
-        }
+        //else
+        //{
+        //    if (IsInChaseRange())
+        //    {
+                
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        stateMachine.ChangeState(stateMachine.IdlingState);
+        //        return;
+        //    }
+        //}
     }
 }

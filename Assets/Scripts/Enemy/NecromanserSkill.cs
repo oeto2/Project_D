@@ -70,9 +70,6 @@ public class NecromanserSkill : EnemySkillBase
             ResourceManager.Instance.Instantiate("Monster/SKELETON2").transform.position = spawnPos[i];
         }
         spawnPos.Clear();
-
-        //추적상태 진입
-        enemySateMachine.ChangeState(enemySateMachine.ChasingState);
         UsingSkill = false;
 
         //스킬 쿨타임 적용
@@ -101,9 +98,6 @@ public class NecromanserSkill : EnemySkillBase
                 col.GetComponent<IDamagable>().TakePhysicalDamage(skillData.SkillDamage);
             }
         }
-
-        //추적상태 진입
-        enemySateMachine.ChangeState(enemySateMachine.ChasingState);
         explosionparticle.SetActive(false);
         UsingSkill = false;
 

@@ -66,8 +66,6 @@ public class OrkAssasinSkill : EnemySkillBase
                 StartCoroutine(AssasinOnBuff(skillData.SkillDurationTime));
             }
         }
-        //추적상태 진입
-        enemySateMachine.ChangeState(enemySateMachine.ChasingState);
         UsingSkill = false; 
 
         yield return new WaitForSeconds(skillData.SkillCollTime);
@@ -110,8 +108,6 @@ public class OrkAssasinSkill : EnemySkillBase
                 StartCoroutine(OnBleed(player, skillData.SkillDurationTime));
             }
         }
-        //추적상태 진입
-        enemySateMachine.ChangeState(enemySateMachine.ChasingState);
         UsingSkill = false;
 
         yield return new WaitForSeconds(skillData.SkillCollTime);

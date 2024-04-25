@@ -103,9 +103,6 @@ public class OrkWarriorSkill : EnemySkillBase
         EnemyStateMachine enemySateMachine = _enemy.stateMachine;
 
         yield return new WaitForSeconds(skillData.SkillDurationTime);
-
-        //추적상태 진입
-        enemySateMachine.ChangeState(enemySateMachine.ChasingState);
         UsingSkill = false;
 
         //스킬 쿨타임 적용
