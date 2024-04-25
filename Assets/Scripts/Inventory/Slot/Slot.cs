@@ -66,11 +66,26 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         {
             itemCount = item.itemMax_Stack;
             _textCount.text = itemCount.ToString();
+            if (UIManager.Instance.ExistPopup(nameof(BattleUI)))
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (UIManager.Instance.GetPopup(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[j].slot != null)
+                        UIManager.Instance.GetPopup(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[j].SetSlotCount();
+                }
+            }
             return;
         }
         itemCount += count_;
         _textCount.text = itemCount.ToString();
-
+        if (UIManager.Instance.ExistPopup(nameof(BattleUI)))
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (UIManager.Instance.GetPopup(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[j].slot != null)
+                    UIManager.Instance.GetPopup(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[j].SetSlotCount();
+            }
+        }
         if (itemCount <= 0)
             ClearSlot();
     }
@@ -98,7 +113,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             if (item != null)
-
             {
                 if (item.itemType == Constants.ItemType.Consume)
                     UseItem();
