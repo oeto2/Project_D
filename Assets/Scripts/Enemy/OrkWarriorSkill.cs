@@ -67,10 +67,9 @@ public class OrkWarriorSkill : EnemySkillBase
         {
             //타겟의 위치
             Vector3 targetVec = GameManager.Instance.player.transform.position;
-            IDamagable idamagable = GameManager.Instance.player.GetComponent<IDamagable>();
 
             //레이캐스트 사용
-            Ray ray = new Ray(transform.position, (GameManager.Instance.player.transform.position - transform.position).normalized);
+            Ray ray = new Ray(transform.position, (targetVec - transform.position).normalized);
             RaycastHit hitData;
             Physics.Raycast(ray, out hitData, skillData.SkillRange);
 

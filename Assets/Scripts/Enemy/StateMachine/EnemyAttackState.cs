@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyBaseState
 {
-    private bool alreadyAppliedForce;
-
-    //해당 오브젝트가 보스인지
-    private bool isBoss;
-
     public EnemyAttackState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
 
@@ -27,7 +22,6 @@ public class EnemyAttackState : EnemyBaseState
                 break;
 
             case MonsterType.Boss:
-                isBoss = true;
                 EnemySkillBase bossSkill = stateMachine.Enemy.EnemySkill;
 
                 StartAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
@@ -76,18 +70,5 @@ public class EnemyAttackState : EnemyBaseState
         {
             stateMachine.ChangeState(stateMachine.ChasingState);
         }
-        //else
-        //{
-        //    if (IsInChaseRange())
-        //    {
-                
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        stateMachine.ChangeState(stateMachine.IdlingState);
-        //        return;
-        //    }
-        //}
     }
-}
+}    
