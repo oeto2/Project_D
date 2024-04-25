@@ -20,7 +20,7 @@ MonoBehaviour:
     SkillRange: 1.5
     SkillDamageCycle: 0
   - SkillName: "\uCD9C\uD608"
-    SkillDurationTime: 5
+    SkillDurationTime: 60
     SkillCollTime: 15
     SkillDamage: 110
     SkillRange: 1.7

@@ -9,6 +9,9 @@ public class OrkAssasinSkill : EnemySkillBase
     private Animator _animator;
 
     private int bleedStack;
+    private bool accel;
+
+    WaitForSeconds _waitForSeconds = new WaitForSeconds(1f);
 
     protected override void Awake()
     {
@@ -45,7 +48,10 @@ public class OrkAssasinSkill : EnemySkillBase
     IEnumerator AssasinBuffSkill()
     {
         EnemyStateMachine enemySateMachine = _enemy.stateMachine;
-        yield return new WaitForSeconds(1f);
+        if (accel)
+            yield return new WaitForSeconds(0.2f);
+        else
+            yield return new WaitForSeconds(0.1f);
         EnemySkillData skillData = _skillData.skill_Data[0];
 
         Vector3 targetVec = GameManager.Instance.player.transform.position;
@@ -66,7 +72,7 @@ public class OrkAssasinSkill : EnemySkillBase
                 StartCoroutine(AssasinOnBuff(skillData.SkillDurationTime));
             }
         }
-        UsingSkill = false; 
+        UsingSkill = false;
 
         yield return new WaitForSeconds(skillData.SkillCollTime);
         Skill01Ready = true;
@@ -75,18 +81,23 @@ public class OrkAssasinSkill : EnemySkillBase
     IEnumerator AssasinOnBuff(float duration)
     {
         _buffParticle.SetActive(true);
+        accel = true;
         _animator.speed += 0.5f;
 
         yield return new WaitForSeconds(duration);
 
         _buffParticle.SetActive(false);
         _animator.speed -= 0.5f;
+        accel = false;
     }
 
     IEnumerator AssasinBleedSkill()
     {
         EnemyStateMachine enemySateMachine = _enemy.stateMachine;
-        yield return new WaitForSeconds(1f);
+        if (accel)
+            yield return new WaitForSeconds(0.2f);
+        else
+            yield return new WaitForSeconds(0.1f);
         EnemySkillData skillData = _skillData.skill_Data[1];
 
         Vector3 targetVec = GameManager.Instance.player.transform.position;
@@ -118,16 +129,14 @@ public class OrkAssasinSkill : EnemySkillBase
     {
         player.OnBleeding(true);
         bleedStack += 9;
-        float time = 0;
 
         while (duration > 0)
         {
-            time += Time.deltaTime;
-            if (time > 1)
+            if (player.health > 0)
             {
                 player.TakePhysicalDamage(bleedStack, true);
                 duration -= 1;
-                time = 0;
+                yield return _waitForSeconds;
             }
         }
 
