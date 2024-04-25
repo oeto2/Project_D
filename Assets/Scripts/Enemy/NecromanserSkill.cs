@@ -15,9 +15,8 @@ public class NecromanserSkill : EnemySkillBase
     //임시로 좌표를 저장할 변수
     private Vector3 tempVec = Vector3.zero;
 
-    private void Awake()
+    private void Start()
     {
-        base.Awake();
         _enemy.Health.OnDie += OnDie;
     }
 

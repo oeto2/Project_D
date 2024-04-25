@@ -17,6 +17,10 @@ public class OrkAssasinSkill : EnemySkillBase
     {
         base.Awake();
         _animator = GetComponentInChildren<Animator>();
+    }
+
+    private void Start()
+    {
         _enemy.Health.OnDie += OnDie;
     }
 

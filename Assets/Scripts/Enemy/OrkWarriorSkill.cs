@@ -15,6 +15,10 @@ public class OrkWarriorSkill : EnemySkillBase
     private void OnDisable()
     {
         _weaponMaterials.color = new Color32(255, 255, 255, 255);
+    }
+
+    private void Start()
+    {
         _enemy.Health.OnDie += OnDie;
     }
 
