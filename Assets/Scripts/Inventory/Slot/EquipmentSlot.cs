@@ -21,6 +21,10 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     {
         _player = GameManager.Instance.player;
         _player.Stats.OnDie += ClearSlot;
+        EquipStats += _player.Stats.EquipItem;
+        UnEquipStats += _player.Stats.UnEquipItem;
+        if (GameManager.Instance.player.stateMachine.GetCurrentState() == GameManager.Instance.player.stateMachine.DieState)
+            ClearSlot();
     }
 
     // 이미지의 투명도 조절.
@@ -73,6 +77,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
             ItemDescription.instance.transform.position = eventData.position;
             ItemDescription.instance.itemName.text = item.itemName;
             ItemDescription.instance.itemDescription.text = item.itemDescription;
+            ItemDescription.instance.ShowStats(item);
         }
     }
 

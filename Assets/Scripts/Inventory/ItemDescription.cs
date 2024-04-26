@@ -1,3 +1,4 @@
+using Constants;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,7 @@ public class ItemDescription : MonoBehaviour
 
     public TextMeshProUGUI itemName;
     public TextMeshProUGUI itemDescription;
+    public TextMeshProUGUI itemStats;
 
     private Color _commonColor;
     private Color _uncommonColor;
@@ -53,5 +55,14 @@ public class ItemDescription : MonoBehaviour
             itemName.color = _uniqueColor;
             itemDescription.color = _uniqueColor;
         }
+    }
+    public void ShowStats(ItemData itemData_)
+    {
+        if(itemData_.itemType == Constants.ItemType.Consume)
+            itemStats.text = "Recovery : " + (itemData_.itemHpRecover+itemData_.itemMpRecover).ToString();
+        else if(itemData_.itemType == Constants.ItemType.Weapon)
+            itemStats.text = "Atk : "+itemData_.itemAtk.ToString();
+        else
+            itemStats.text = "Def : " +itemData_.itemDef.ToString()+ "%";
     }
 }

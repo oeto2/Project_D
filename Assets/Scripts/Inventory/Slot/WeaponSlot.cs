@@ -11,7 +11,6 @@ public class WeaponSlot : EquipmentSlot
 
     protected override void Awake()
     {
-        base.Awake();
         var index = InformationManager.Instance.saveLoadData.equipmentItems[ItemType.Weapon];
         // 인포매니저에서 데이터가 비어있으면 초기화, 아니면 집어넣기
         if (index == 0)
@@ -20,11 +19,7 @@ public class WeaponSlot : EquipmentSlot
         {
             AddItem(Database.Item.Get(index));
         }
-    }
-    private void Start()
-    {
-        EquipStats += _player.Stats.EquipItem;
-        UnEquipStats += _player.Stats.UnEquipItem;
+        base.Awake();
     }
 
     public override void OnDrop(PointerEventData eventData)

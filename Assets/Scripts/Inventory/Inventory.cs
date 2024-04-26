@@ -29,17 +29,17 @@ public class Inventory : MonoBehaviour
         InformationManager.Instance.InvenGoldUpdate += UpdateGold;
         InformationManager.Instance.InvenGoldChange(0);
         GameManager.Instance.player.Stats.OnDie += ClearInventory;
-    }
-
-    private void Start()
-    {
-         _slots = _slotsParent.GetComponentsInChildren<Slot>();
-        for (int i = 0; i < _slots.Length; i++)
+        _slots = _slotsParent.GetComponentsInChildren<Slot>();
+        ClearSlot();
+        if (GameManager.Instance.player.stateMachine.GetCurrentState() != GameManager.Instance.player.stateMachine.DieState)
         {
-            if (InformationManager.Instance.saveLoadData.itemID[i] != 0)
+            for (int i = 0; i < _slots.Length; i++)
             {
-                _slots[i].AddItem(Database.Item.Get(InformationManager.Instance.saveLoadData.itemID[i]),
-                    InformationManager.Instance.saveLoadData.itemStack[i]);
+                if (InformationManager.Instance.saveLoadData.itemID[i] != 0)
+                {
+                    _slots[i].AddItem(Database.Item.Get(InformationManager.Instance.saveLoadData.itemID[i]),
+                        InformationManager.Instance.saveLoadData.itemStack[i]);
+                }
             }
         }
     }
@@ -59,6 +59,14 @@ public class Inventory : MonoBehaviour
             item.ClearSlot();
         }
         InformationManager.Instance.InvenGoldChange(-InformationManager.Instance.saveLoadData.gold);
+    }
+
+    private void ClearSlot()
+    {
+        foreach (var item in _slots)
+        {
+            item.ClearSlot();
+        }
     }
 
     private void ToggleInventory()

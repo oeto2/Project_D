@@ -20,11 +20,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     [SerializeField]
     private GameObject _countImage;
 
-    private void Awake()
-    {
-        ClearSlot();
-    }
-
     // 이미지의 투명도 조절.
     private void SetColor(float alpha_)
     {
@@ -108,7 +103,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         SetSlotCount(-1);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
@@ -127,7 +122,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                         AddItem(_tempItem);
                     else
                         ClearSlot();
-
                 }
                 else if (item.itemType == Constants.ItemType.Helmet)
                 {
@@ -214,6 +208,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             ItemDescription.instance.transform.position = eventData.position;
             ItemDescription.instance.itemName.text = item.itemName;
             ItemDescription.instance.itemDescription.text = item.itemDescription;
+            ItemDescription.instance.ShowStats(item);
         }
     }
     public void OnPointerExit(PointerEventData eventData)
@@ -260,7 +255,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             ChangeSlot();
     }
 
-    private void ChangeSlot()
+    protected virtual void ChangeSlot()
     {
         ItemData _tempItem = item;
         int _tempItemCount = itemCount;
@@ -289,12 +284,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             }
             else
                 DragSlot.instance.dragSlot.ClearSlot();
-
-            if(UIManager.Instance.ExistPopup(nameof(RewardPopup)))
-            {
-                GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
-                GameManager.Instance.CallUpdateRewardCountEvent();
-            }
         }
             
         else
@@ -319,12 +308,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             {
                 AddItem(DragSlot.instance.equipmentSlot.item);
                 DragSlot.instance.equipmentSlot.ClearSlot();
-            }
-
-            if (UIManager.Instance.ExistPopup(nameof(RewardPopup)))
-            {
-                GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
-                GameManager.Instance.CallUpdateRewardCountEvent();
             }
         }
     }
