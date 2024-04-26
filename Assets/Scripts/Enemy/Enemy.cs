@@ -117,11 +117,6 @@ public class Enemy : MonoBehaviour, IDamagable
         stateMachine.Update();
     }
 
-    private void FixedUpdate()
-    {
-        stateMachine.PhysicsUpdate();
-    }
-
     //데미지 받기
     public void TakePhysicalDamage(int damageAmount)
     {

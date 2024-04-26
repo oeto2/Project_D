@@ -39,11 +39,6 @@ public class PlayerFallState : PlayerAirState
         }
     }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
-
     private void OnGround()
     {
         stateMachine.Player.PlayerController.gravity = 0f;

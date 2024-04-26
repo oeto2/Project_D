@@ -4,6 +4,4 @@ public interface IState
     public void Exit();
     public void HandleInput();
     public void Update();
-    public void PhysicsUpdate();
-
 }

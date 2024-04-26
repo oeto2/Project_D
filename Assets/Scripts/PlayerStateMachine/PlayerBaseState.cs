@@ -35,11 +35,6 @@ public class PlayerBaseState : IState
         ReadLookInput();
     }
 
-    public virtual void PhysicsUpdate()
-    {
-
-    }
-
     public virtual void Update()
     {
         if (Cursor.lockState != CursorLockMode.None)
@@ -202,47 +197,16 @@ public class PlayerBaseState : IState
     {
     }
 
-    private void OnSkill1Performed(InputAction.CallbackContext context)
+    protected virtual void OnSkill1Performed(InputAction.CallbackContext context)
     {
-        if (CanSkillActive(1))
-        {
-            stateMachine.SkillIndex = 1;
-            stateMachine.ChangeState(stateMachine.SkillState);
-        }
-        else
-        {
-            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(1).ManaCost);
-        }
     }
 
-    private void OnSkill2Performed(InputAction.CallbackContext context)
+    protected virtual void OnSkill2Performed(InputAction.CallbackContext context)
     {
-        if (CanSkillActive(2))
-        {
-            stateMachine.SkillIndex = 2;
-            stateMachine.ChangeState(stateMachine.SkillState);
-        }
-        else
-        {
-            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(2).ManaCost);
-        }
     }
 
-    private void OnSkill3Performed(InputAction.CallbackContext context)
+    protected virtual void OnSkill3Performed(InputAction.CallbackContext context)
     {
-        if (CanSkillActive(3))
-        {
-            stateMachine.SkillIndex = 3;
-            stateMachine.ChangeState(stateMachine.SkillState);
-        }
-        else if (stateMachine.Player.PlayerSkills.coolDowns[2] > 0)
-        {
-            stateMachine.Player.Stats.coolDownText(stateMachine.Player.PlayerSkills.coolDowns[2]);
-        }
-        else
-        {
-            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(3).ManaCost);
-        }
     }
 
     private void OnQuickSlot1Performed(InputAction.CallbackContext context)
@@ -326,14 +290,5 @@ public class PlayerBaseState : IState
         {
             return 0f;
         }
-    }
-
-    private bool CanSkillActive(int index)
-    {
-        if (stateMachine.Player.Stats.mana < stateMachine.Player.Data.SkillData.GetSkillInfo(index).ManaCost || stateMachine.Player.PlayerSkills.coolDowns[index - 1] > 0)
-        {
-            return false;
-        }
-        return true;
     }
 }

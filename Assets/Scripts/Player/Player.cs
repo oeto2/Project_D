@@ -72,11 +72,6 @@ public class Player : MonoBehaviour, IDamagable
         stateMachine.Update();
     }
 
-    private void FixedUpdate()
-    {
-        stateMachine.PhysicsUpdate();
-    }
-
     void OnDie()
     {
         stateMachine.ChangeState(stateMachine.DieState);

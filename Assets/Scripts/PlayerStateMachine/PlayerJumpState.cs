@@ -14,8 +14,6 @@ public class PlayerJumpState : PlayerAirState
     public override void Enter()
     {
         stateMachine.JumpForce = stateMachine.Player.Data.AirData.JumpForce;
-        //stateMachine.Player.ForceReceiver.Jump(stateMachine.JumpForce);
-        //Jump();
         base.Enter();
         StartAnimation(stateMachine.Player.AnimationData.JumpParameterHash);
     }
@@ -34,10 +32,5 @@ public class PlayerJumpState : PlayerAirState
         {
             stateMachine.ChangeState(stateMachine.FallState);
         }
-    }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
     }
 }

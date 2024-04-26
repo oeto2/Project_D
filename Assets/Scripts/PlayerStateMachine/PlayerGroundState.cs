@@ -38,11 +38,6 @@ public class PlayerGroundState : PlayerBaseState
         }
     }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-    }
-
     protected override void OnMoveCanceled(InputAction.CallbackContext context)
     {
         // 입력이 안 들어왔다면 리턴
@@ -75,5 +70,57 @@ public class PlayerGroundState : PlayerBaseState
     protected virtual void OnDefense()
     {
         stateMachine.ChangeState(stateMachine.DefenseState);
+    }
+
+    protected override void OnSkill1Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(1))
+        {
+            stateMachine.SkillIndex = 1;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
+        else
+        {
+            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(1).ManaCost);
+        }
+    }
+
+    protected override void OnSkill2Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(2))
+        {
+            stateMachine.SkillIndex = 2;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
+        else
+        {
+            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(2).ManaCost);
+        }
+    }
+
+    protected override void OnSkill3Performed(InputAction.CallbackContext context)
+    {
+        if (CanSkillActive(3))
+        {
+            stateMachine.SkillIndex = 3;
+            stateMachine.ChangeState(stateMachine.SkillState);
+        }
+        else if (stateMachine.Player.PlayerSkills.coolDowns[2] > 0)
+        {
+            stateMachine.Player.Stats.coolDownText(stateMachine.Player.PlayerSkills.coolDowns[2]);
+        }
+        else
+        {
+            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(3).ManaCost);
+        }
+    }
+
+    private bool CanSkillActive(int index)
+    {
+        if (stateMachine.Player.Stats.mana < stateMachine.Player.Data.SkillData.GetSkillInfo(index).ManaCost || stateMachine.Player.PlayerSkills.coolDowns[index - 1] > 0)
+        {
+            return false;
+        }
+        return true;
     }
 }
