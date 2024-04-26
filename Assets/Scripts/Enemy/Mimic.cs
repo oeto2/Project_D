@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class Mimic : MonoBehaviour, IInteractable
@@ -11,7 +12,6 @@ public class Mimic : MonoBehaviour, IInteractable
     [SerializeField] private Animator _animator;
 
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private EnemyForceReceiver _enemyForceReceiver;
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private BoxCollider _boxColider;
@@ -24,7 +24,6 @@ public class Mimic : MonoBehaviour, IInteractable
         _uiManager = UIManager.Instance;
         _animator = GetComponent<Animator>();
         _enemy = GetComponent<Enemy>();
-        _enemyForceReceiver = GetComponent<EnemyForceReceiver>();
         _characterController = GetComponent<CharacterController>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _boxColider = GetComponent<BoxCollider>();
@@ -33,7 +32,6 @@ public class Mimic : MonoBehaviour, IInteractable
     private void Start()
     {
         _interationPopup = _uiManager.GetPopup(nameof(interationPopup)).GetComponent<interationPopup>();
-
         _loadingBar = _interationPopup.LoadingBar;
     }
 
@@ -82,7 +80,6 @@ public class Mimic : MonoBehaviour, IInteractable
     private void ActiveMimic()
     {
         _enemy.enabled = true;
-        _enemyForceReceiver.enabled = true;
         _characterController.enabled = true;
         _navMeshAgent.enabled = true;
         _boxColider.enabled = false;

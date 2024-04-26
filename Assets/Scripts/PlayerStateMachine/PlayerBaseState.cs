@@ -78,6 +78,8 @@ public class PlayerBaseState : IState
         input.playerActions.QuickSlot1.performed += OnQuickSlot1Performed;
         input.playerActions.QuickSlot2.performed += OnQuickSlot2Performed;
         input.playerActions.QuickSlot3.performed += OnQuickSlot3Performed;
+
+        input.playerActions.CloseUI.performed += OnCloseUIPerformed;
     }
 
 
@@ -110,6 +112,8 @@ public class PlayerBaseState : IState
         input.playerActions.QuickSlot1.performed -= OnQuickSlot1Performed;
         input.playerActions.QuickSlot2.performed -= OnQuickSlot2Performed;
         input.playerActions.QuickSlot3.performed -= OnQuickSlot3Performed;
+
+        input.playerActions.CloseUI.performed -= OnCloseUIPerformed;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -223,6 +227,11 @@ public class PlayerBaseState : IState
     {
         if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[2].slot != null)
             UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[2].UseItem();
+    }
+
+    private void OnCloseUIPerformed(InputAction.CallbackContext context)
+    {
+        UIManager.Instance.CloseActiveUI();
     }
 
     private void ReadMovementInput()
