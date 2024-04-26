@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
@@ -208,6 +209,10 @@ public class PlayerBaseState : IState
             stateMachine.SkillIndex = 1;
             stateMachine.ChangeState(stateMachine.SkillState);
         }
+        else
+        {
+            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(1).ManaCost);
+        }
     }
 
     private void OnSkill2Performed(InputAction.CallbackContext context)
@@ -217,6 +222,10 @@ public class PlayerBaseState : IState
             stateMachine.SkillIndex = 2;
             stateMachine.ChangeState(stateMachine.SkillState);
         }
+        else
+        {
+            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(2).ManaCost);
+        }
     }
 
     private void OnSkill3Performed(InputAction.CallbackContext context)
@@ -225,6 +234,14 @@ public class PlayerBaseState : IState
         {
             stateMachine.SkillIndex = 3;
             stateMachine.ChangeState(stateMachine.SkillState);
+        }
+        else if (stateMachine.Player.PlayerSkills.coolDowns[2] > 0)
+        {
+            stateMachine.Player.Stats.coolDownText(stateMachine.Player.PlayerSkills.coolDowns[2]);
+        }
+        else
+        {
+            stateMachine.Player.Stats.noManaText(stateMachine.Player.Data.SkillData.GetSkillInfo(3).ManaCost);
         }
     }
 
