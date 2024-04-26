@@ -143,6 +143,8 @@ public class OrkAssasinSkill : EnemySkillBase
                 duration -= 1;
                 yield return _waitForSeconds;
             }
+            else
+                break;
         }
 
         yield return null;
