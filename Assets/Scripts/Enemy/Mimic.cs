@@ -29,8 +29,6 @@ public class Mimic : MonoBehaviour, IInteractable
         _boxColider = GetComponent<BoxCollider>();
     }
 
-  
-
     private void Start()
     {
         _interationPopup = _uiManager.GetPopup(nameof(interationPopup)).GetComponent<interationPopup>();
