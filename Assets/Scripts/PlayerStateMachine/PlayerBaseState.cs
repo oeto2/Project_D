@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
@@ -32,11 +33,6 @@ public class PlayerBaseState : IState
     {
         ReadMovementInput();
         ReadLookInput();
-    }
-
-    public virtual void PhysicsUpdate()
-    {
-
     }
 
     public virtual void Update()
@@ -82,6 +78,8 @@ public class PlayerBaseState : IState
         input.playerActions.QuickSlot1.performed += OnQuickSlot1Performed;
         input.playerActions.QuickSlot2.performed += OnQuickSlot2Performed;
         input.playerActions.QuickSlot3.performed += OnQuickSlot3Performed;
+
+        input.playerActions.CloseUI.performed += OnCloseUIPerformed;
     }
 
 
@@ -114,6 +112,8 @@ public class PlayerBaseState : IState
         input.playerActions.QuickSlot1.performed -= OnQuickSlot1Performed;
         input.playerActions.QuickSlot2.performed -= OnQuickSlot2Performed;
         input.playerActions.QuickSlot3.performed -= OnQuickSlot3Performed;
+
+        input.playerActions.CloseUI.performed -= OnCloseUIPerformed;
     }
 
     protected virtual void OnRunStarted(InputAction.CallbackContext context)
@@ -201,31 +201,16 @@ public class PlayerBaseState : IState
     {
     }
 
-    private void OnSkill1Performed(InputAction.CallbackContext context)
+    protected virtual void OnSkill1Performed(InputAction.CallbackContext context)
     {
-        if (CanSkillActive(1))
-        {
-            stateMachine.SkillIndex = 1;
-            stateMachine.ChangeState(stateMachine.SkillState);
-        }
     }
 
-    private void OnSkill2Performed(InputAction.CallbackContext context)
+    protected virtual void OnSkill2Performed(InputAction.CallbackContext context)
     {
-        if (CanSkillActive(2))
-        {
-            stateMachine.SkillIndex = 2;
-            stateMachine.ChangeState(stateMachine.SkillState);
-        }
     }
 
-    private void OnSkill3Performed(InputAction.CallbackContext context)
+    protected virtual void OnSkill3Performed(InputAction.CallbackContext context)
     {
-        if (CanSkillActive(3))
-        {
-            stateMachine.SkillIndex = 3;
-            stateMachine.ChangeState(stateMachine.SkillState);
-        }
     }
 
     private void OnQuickSlot1Performed(InputAction.CallbackContext context)
@@ -242,6 +227,11 @@ public class PlayerBaseState : IState
     {
         if (UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[2].slot != null)
             UIManager.Instance.GetPopupObject(nameof(BattleUI)).GetComponent<BattleUI>().quickSlot[2].UseItem();
+    }
+
+    private void OnCloseUIPerformed(InputAction.CallbackContext context)
+    {
+        UIManager.Instance.CloseActiveUI();
     }
 
     private void ReadMovementInput()
@@ -309,14 +299,5 @@ public class PlayerBaseState : IState
         {
             return 0f;
         }
-    }
-
-    private bool CanSkillActive(int index)
-    {
-        if (stateMachine.Player.Stats.mana < stateMachine.Player.Data.SkillData.GetSkillInfo(index).ManaCost || stateMachine.Player.PlayerSkills.coolDowns[index - 1] > 0)
-        {
-            return false;
-        }
-        return true;
     }
 }

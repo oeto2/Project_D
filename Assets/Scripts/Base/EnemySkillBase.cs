@@ -31,8 +31,6 @@ public class EnemySkillBase : MonoBehaviour, EnemySkillable
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _enemy = GetComponent<Enemy>();
         _characterStats = GetComponent<CharacterStats>();
-
-        _characterStats.OnDie += () => StopAllCoroutines();
     }
 
     public virtual void UseSkill(int skillNum_)

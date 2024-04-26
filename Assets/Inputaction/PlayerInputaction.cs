@@ -12,7 +12,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
@@ -162,6 +161,15 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""CloseUI"",
+                    ""type"": ""Button"",
+                    ""id"": ""2dc3f506-2797-432c-b80f-40901ece0cb7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -373,18 +381,23 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
                     ""action"": ""QuickSlot3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a05b818-12d2-4b26-941b-1f254452cc34"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
-
     ],
-
     ""controlSchemes"": []
-
 }");
-        var rebinds = PlayerPrefs.GetString("rebinds");
-        if (!string.IsNullOrEmpty(rebinds))
-            asset.LoadBindingOverridesFromJson(rebinds);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
@@ -402,6 +415,7 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
         m_Player_QuickSlot1 = m_Player.FindAction("QuickSlot1", throwIfNotFound: true);
         m_Player_QuickSlot2 = m_Player.FindAction("QuickSlot2", throwIfNotFound: true);
         m_Player_QuickSlot3 = m_Player.FindAction("QuickSlot3", throwIfNotFound: true);
+        m_Player_CloseUI = m_Player.FindAction("CloseUI", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -478,6 +492,7 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_QuickSlot1;
     private readonly InputAction m_Player_QuickSlot2;
     private readonly InputAction m_Player_QuickSlot3;
+    private readonly InputAction m_Player_CloseUI;
     public struct PlayerActions
     {
         private @PlayerInputaction m_Wrapper;
@@ -497,6 +512,7 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
         public InputAction @QuickSlot1 => m_Wrapper.m_Player_QuickSlot1;
         public InputAction @QuickSlot2 => m_Wrapper.m_Player_QuickSlot2;
         public InputAction @QuickSlot3 => m_Wrapper.m_Player_QuickSlot3;
+        public InputAction @CloseUI => m_Wrapper.m_Player_CloseUI;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -551,6 +567,9 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
             @QuickSlot3.started += instance.OnQuickSlot3;
             @QuickSlot3.performed += instance.OnQuickSlot3;
             @QuickSlot3.canceled += instance.OnQuickSlot3;
+            @CloseUI.started += instance.OnCloseUI;
+            @CloseUI.performed += instance.OnCloseUI;
+            @CloseUI.canceled += instance.OnCloseUI;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -600,6 +619,9 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
             @QuickSlot3.started -= instance.OnQuickSlot3;
             @QuickSlot3.performed -= instance.OnQuickSlot3;
             @QuickSlot3.canceled -= instance.OnQuickSlot3;
+            @CloseUI.started -= instance.OnCloseUI;
+            @CloseUI.performed -= instance.OnCloseUI;
+            @CloseUI.canceled -= instance.OnCloseUI;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -634,5 +656,6 @@ public partial class @PlayerInputaction: IInputActionCollection2, IDisposable
         void OnQuickSlot1(InputAction.CallbackContext context);
         void OnQuickSlot2(InputAction.CallbackContext context);
         void OnQuickSlot3(InputAction.CallbackContext context);
+        void OnCloseUI(InputAction.CallbackContext context);
     }
 }

@@ -17,6 +17,11 @@ public class OrkWarriorSkill : EnemySkillBase
         _weaponMaterials.color = new Color32(255, 255, 255, 255);
     }
 
+    private void Start()
+    {
+        _enemy.Health.OnDie += OnDie;
+    }
+
 
     public override void UseSkill(int skillNum_)
     {
@@ -62,10 +67,9 @@ public class OrkWarriorSkill : EnemySkillBase
         {
             //타겟의 위치
             Vector3 targetVec = GameManager.Instance.player.transform.position;
-            IDamagable idamagable = GameManager.Instance.player.GetComponent<IDamagable>();
 
             //레이캐스트 사용
-            Ray ray = new Ray(transform.position, (GameManager.Instance.player.transform.position - transform.position).normalized);
+            Ray ray = new Ray(transform.position, (targetVec - transform.position).normalized);
             RaycastHit hitData;
             Physics.Raycast(ray, out hitData, skillData.SkillRange);
 
@@ -108,5 +112,10 @@ public class OrkWarriorSkill : EnemySkillBase
         //스킬 쿨타임 적용
         yield return new WaitForSeconds(skillData.SkillCollTime);
         Skill02Ready = true;
+    }
+
+    private void OnDie()
+    {
+        StopCoroutine(StartRotateAttack());
     }
 }

@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class UIManager : SingletonBase<UIManager>
 {
@@ -15,6 +16,7 @@ public class UIManager : SingletonBase<UIManager>
     //부모 UI
     public Transform parentsUI = null;
     private Dictionary<string, UIBase> _popups = new Dictionary<string, UIBase>();
+    [SerializeField] private List<UIBase> _interactPopus = new List<UIBase>();
 
     public int BattleUICount;
 
@@ -22,8 +24,6 @@ public class UIManager : SingletonBase<UIManager>
     {
         GameManager.Instance.SceneLoadEvent += ResetUIMangerData;
     }
-
-    //private void Awake() => _isLoad = false;
 
     public GameObject GetPopup(string popupName)
     {
@@ -83,28 +83,8 @@ public class UIManager : SingletonBase<UIManager>
         var obj = Instantiate(prefab, parents);
         obj.name = name;
 
-        switch (obj.name)
-        {
-            case _battleUiPopupName:
-                obj.GetComponent<Canvas>().sortingOrder = 0;
-                break;
-
-            case _gameEndPopupName:
-                obj.GetComponent<Canvas>().sortingOrder = 2;
-                break;
-
-            case _dragPopupName:
-                obj.GetComponent<Canvas>().sortingOrder = 20;
-                break;
-
-            case _optionPopupName:
-                obj.GetComponent<Canvas>().sortingOrder = 100;
-                break;
-
-            default:
-                obj.GetComponent<Canvas>().sortingOrder = _popups.Count;
-                break;
-        }
+        //UI Popup SortOder 정리
+        ArrageUIpopup_Oder(popupName, obj);
 
         return ShowPopup(obj, popupName);
     }
@@ -113,8 +93,8 @@ public class UIManager : SingletonBase<UIManager>
     {
         var popup = obj.GetComponent<UIBase>();
         _popups.Add(popupname, popup);
-
         obj.SetActive(true);
+        CheckInteractPopup(popupname, obj);
         return popup;
     }
 
@@ -127,5 +107,67 @@ public class UIManager : SingletonBase<UIManager>
     public void ResetUIMangerData()
     {
         _popups.Clear();
+        _interactPopus.Clear();
+    }
+
+    //Ui 정렬하기 
+    private void ArrageUIpopup_Oder(string popupName_, GameObject popup_)
+    {
+        switch (popupName_)
+        {
+            case _battleUiPopupName:
+                popup_.GetComponent<Canvas>().sortingOrder = 0;
+                break;
+
+            case _gameEndPopupName:
+                popup_.GetComponent<Canvas>().sortingOrder = 2;
+                break;
+
+            case _dragPopupName:
+                popup_.GetComponent<Canvas>().sortingOrder = 20;
+                break;
+
+            case _optionPopupName:
+                popup_.GetComponent<Canvas>().sortingOrder = 100;
+                break;
+
+            default:
+                popup_.GetComponent<Canvas>().sortingOrder = _popups.Count;
+                break;
+        }
+    }
+
+    //상호작용 팝업 체크
+    public void CheckInteractPopup(string name_, GameObject popup_)
+    {
+        //상호작용 팝업 리스트 추가
+        switch (name_)
+        {
+            //상호작용 팝업 추가
+            case nameof(InventoryPopup):
+                _interactPopus.Add(popup_.GetComponent<InventoryPopup>());
+                break;
+
+            case nameof(EquipmentPopup):
+                _interactPopus.Add(popup_.GetComponent<EquipmentPopup>());
+                break;
+
+            case nameof(RewardPopup):
+                _interactPopus.Add(popup_.GetComponent<RewardPopup>());
+                break;
+        }
+    }
+
+    //활성화 되어있는 UIPopup 순서대로 닫기
+    public void CloseActiveUI()
+    {
+        for(int i = 0; i< _interactPopus.Count; i++)
+        {
+            if (_interactPopus[i].gameObject.active)
+            {
+                _interactPopus[i].gameObject.SetActive(false);
+                return;
+            }
+        }
     }
 }

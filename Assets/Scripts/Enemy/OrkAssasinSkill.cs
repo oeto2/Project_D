@@ -19,6 +19,11 @@ public class OrkAssasinSkill : EnemySkillBase
         _animator = GetComponentInChildren<Animator>();
     }
 
+    private void Start()
+    {
+        _enemy.Health.OnDie += OnDie;
+    }
+
     public override void UseSkill(int skillNum_)
     {
         switch (skillNum_)
@@ -143,5 +148,10 @@ public class OrkAssasinSkill : EnemySkillBase
         yield return null;
         bleedStack = 0;
         player.OnBleeding(false);
+    }
+
+    private void OnDie()
+    {
+        _buffParticle.SetActive(false);
     }
 }

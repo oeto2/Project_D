@@ -23,6 +23,11 @@ public class CharacterStats : MonoBehaviour
     public event Action<float> OnStamina;
     public event Action<bool> OnBleed;
 
+    public delegate void NoManaText(float cost);
+    public delegate void CoolDownText(float time);
+    public NoManaText noManaText;
+    public CoolDownText coolDownText;
+
     private void Awake()
     {
         OnDamage += TakeDamage;

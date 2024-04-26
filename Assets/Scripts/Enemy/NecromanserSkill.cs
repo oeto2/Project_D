@@ -15,6 +15,11 @@ public class NecromanserSkill : EnemySkillBase
     //임시로 좌표를 저장할 변수
     private Vector3 tempVec = Vector3.zero;
 
+    private void Start()
+    {
+        _enemy.Health.OnDie += OnDie;
+    }
+
     public override void UseSkill(int skillNum_)
     {
         switch (skillNum_)
@@ -121,5 +126,11 @@ public class NecromanserSkill : EnemySkillBase
 
         result = Vector3.zero;
         return false;
+    }
+
+    private void OnDie()
+    {
+        StopCoroutine(StartSummons());
+        StopCoroutine(StartExplosion());
     }
 }

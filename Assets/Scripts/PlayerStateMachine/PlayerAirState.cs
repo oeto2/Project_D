@@ -26,7 +26,6 @@ public class PlayerAirState : PlayerBaseState
 
     public override void Update()
     {
-        //base.Update();
         Look();
 
         stateMachine.Player.PlayerController.velocity.y += stateMachine.Player.PlayerController.gravity * Time.deltaTime;

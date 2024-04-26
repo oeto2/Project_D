@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class BattleUI : UIBase
@@ -12,6 +13,9 @@ public class BattleUI : UIBase
     [SerializeField] private GameObject _playerDeadUIPanel;
     [SerializeField] private GameObject _gameEndUIPanel;
     [SerializeField] private Button _enterButton;
+    [SerializeField] private TMP_Text _cannotSkillText;
+
+    private WaitForSeconds _waitForSeconds = new WaitForSeconds(1f);
 
     public QuickSlot[] quickSlot;
     
@@ -28,6 +32,9 @@ public class BattleUI : UIBase
         _PlayerHealth.OnDamage += RefreshPlayerHpUI;
         _PlayerHealth.OnMana += RefreshPlayerMpUI;
         _PlayerHealth.OnStamina += RefreshPlayerStaUI;
+
+        _PlayerHealth.noManaText = NoManaText;
+        _PlayerHealth.coolDownText = CoolDownText;
     }
 
     //체력 UI 새로고침
@@ -60,5 +67,27 @@ public class BattleUI : UIBase
     {
         yield return new WaitForSeconds(5f);
         UIManager.Instance.ShowPopup<GameEndPopup>();
+    }
+
+    private void NoManaText(float cost)
+    {
+        StopCoroutine(TextOff());
+        _cannotSkillText.enabled = true;
+        _cannotSkillText.text = $"마나가 부족합니다. (필요 마나 : {(int)cost})";
+        StartCoroutine(TextOff());
+    }
+
+    private void CoolDownText(float time)
+    {
+        StopCoroutine(TextOff());
+        _cannotSkillText.enabled = true;
+        _cannotSkillText.text = $"스킬이 쿨다운 중입니다. (남은 시간 : {(int)time}초)";
+        StartCoroutine(TextOff());
+    }
+
+    IEnumerator TextOff()
+    {
+        yield return _waitForSeconds;
+        _cannotSkillText.enabled = false;
     }
 }

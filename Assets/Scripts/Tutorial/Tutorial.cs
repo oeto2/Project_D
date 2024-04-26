@@ -143,7 +143,7 @@ public class Tutorial : MonoBehaviour
             case 7:
                 if (_textOn == false)
                 {
-                    SetTutorialText("장비창은 P키를 뉘르면 열 수 있다.");
+                    SetTutorialText("장비창은 P키를 누르면 열 수 있다.");
                     _textOn = true;
                 }
                 if (Input.GetKeyDown(KeyCode.P))
