@@ -355,8 +355,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: -5.06, y: -3.05, z: -6.64}
-  m_Center: {x: 0.08, y: 1.16, z: -2.68}
+  m_Size: {x: -1.38, y: -1.17, z: -1}
+  m_Center: {x: -0.04, y: 0.98, z: 0}
 --- !u!1 &3880417927570360640
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +655,7 @@ Transform:
   - {fileID: 4896598184062722815}
   - {fileID: 7596986464461936213}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &7239652343172497638
 MonoBehaviour:
@@ -792,7 +792,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
   _enemy: {fileID: 0}
-  _enemyForceReceiver: {fileID: 0}
   _characterController: {fileID: 0}
   _navMeshAgent: {fileID: 0}
   _boxColider: {fileID: 0}
