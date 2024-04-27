@@ -309,6 +309,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 AddItem(DragSlot.instance.equipmentSlot.item);
                 DragSlot.instance.equipmentSlot.ClearSlot();
             }
+            if (UIManager.Instance.ExistPopup(nameof(RewardPopup))) 
+            {
+                GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+                GameManager.Instance.CallUpdateRewardCountEvent();
+            }
         }
     }
 }

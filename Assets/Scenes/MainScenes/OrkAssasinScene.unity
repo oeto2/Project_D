@@ -49074,6 +49074,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrkAssasin
       objectReference: {fileID: 0}
+    - target: {fileID: 8477171100305923697, guid: 31971a11dd592b24faacb705fbecf428,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8944555738960626151, guid: 31971a11dd592b24faacb705fbecf428,
         type: 3}
       propertyPath: m_RootOrder

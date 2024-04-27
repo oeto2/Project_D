@@ -10,7 +10,10 @@ public class EnemyChasingState : EnemyBaseState
     {
         NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
         if (navMeshAgent.isOnNavMesh)
-            navMeshAgent?.Stop();
+        {
+            navMeshAgent.isStopped = false;
+            navMeshAgent.speed = stateMachine.Enemy.stateMachine.MovementSpeed;
+        }
 
         //Debug.Log("추적상태 진입");
         stateMachine.MovementSpeedModifier = 1;
@@ -37,17 +40,15 @@ public class EnemyChasingState : EnemyBaseState
             return;
         }
 
-        if (!IsInChaseRange())
-        {
-            stateMachine.ChangeState(stateMachine.IdlingState);
-            return;
-        }
-
-        //타겟이 죽었으면 공격하지 않음
-        else if (IsInAttackRange())
+        if (IsInAttackRange())
         {
             stateMachine.ChangeState(stateMachine.AttackState);
             return;
+        }
+
+        else if (!IsInChaseRange())
+        {
+            stateMachine.ChangeState(stateMachine.IdlingState);
         }
     }
 

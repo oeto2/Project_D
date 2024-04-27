@@ -2,6 +2,7 @@ using Constants;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAttackState : EnemyBaseState
 {
@@ -11,6 +12,11 @@ public class EnemyAttackState : EnemyBaseState
     }
     public override void Enter()
     {
+        NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
+        if (navMeshAgent.isOnNavMesh)
+            navMeshAgent?.Stop();
+
+
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
 
