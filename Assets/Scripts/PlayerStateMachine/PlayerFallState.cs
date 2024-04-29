@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class PlayerFallState : PlayerAirState
 {
+    private float fallTime;
+
     public PlayerFallState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
     }
@@ -24,17 +26,17 @@ public class PlayerFallState : PlayerAirState
     public override void Update()
     {
         base.Update();
+        fallTime = 10f * Time.deltaTime;
+        if (fallTime >= 30f)
+        {
+            stateMachine.Player.playerTransform.position = stateMachine.Player.beforeTrans;
+            OnGround();
+        }
 
         NavMeshHit hit;
         if (NavMesh.SamplePosition(stateMachine.Player.playerTransform.position, out hit, 0.1f, NavMesh.AllAreas) && stateMachine.Player.PlayerController.gravity <= 0)
         {
             stateMachine.Player.playerTransform.position = hit.position;
-            OnGround();
-        }
-
-        if (stateMachine.Player.PlayerController.gravity <= -40f)
-        {
-            stateMachine.Player.playerTransform.position = stateMachine.Player.beforeTrans;
             OnGround();
         }
     }

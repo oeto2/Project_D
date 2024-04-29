@@ -55,6 +55,8 @@ public class PlayerBaseState : IState
         PlayerInputs input = stateMachine.Player.Input;
         input.playerActions.Move.canceled += OnMoveCanceled;
         input.playerActions.Run.started += OnRunStarted;
+        input.playerActions.Run.canceled += OnRunCanceled;
+
         input.playerActions.Look.canceled += OnLookCanceled;
 
         input.playerActions.Jump.started += OnJumpStarted;
@@ -90,6 +92,7 @@ public class PlayerBaseState : IState
         PlayerInputs input = stateMachine.Player.Input;
         input.playerActions.Move.canceled -= OnMoveCanceled;
         input.playerActions.Run.started -= OnRunStarted;
+        input.playerActions.Run.canceled -= OnRunCanceled;
 
         input.playerActions.Jump.started -= OnJumpStarted;
 
@@ -116,9 +119,14 @@ public class PlayerBaseState : IState
         input.playerActions.CloseUI.performed -= OnCloseUIPerformed;
     }
 
-    protected virtual void OnRunStarted(InputAction.CallbackContext context)
+    private void OnRunStarted(InputAction.CallbackContext context)
     {
+        stateMachine.Player.IsRun = true;
+    }
 
+    private void OnRunCanceled(InputAction.CallbackContext context)
+    {
+        stateMachine.Player.IsRun = false;
     }
 
     protected virtual void OnMoveCanceled(InputAction.CallbackContext context)
@@ -252,7 +260,7 @@ public class PlayerBaseState : IState
 
     protected void Look()
     {
-        var controller = stateMachine.Player.Controller;
+        var controller = stateMachine.Player.PlayerController;
         controller.camCurXRot += stateMachine.LookInput.y * controller.lookSensitivity;
         controller.camCurXRot = Mathf.Clamp(controller.camCurXRot, controller.minXLook, controller.maxXLook);
         stateMachine.MainCameraTransform.localEulerAngles = new Vector3(-controller.camCurXRot, 0, 0);
