@@ -12,6 +12,8 @@ public class EnemyAttackState : EnemyBaseState
     }
     public override void Enter()
     {
+        stateMachine.Enemy.transform.LookAt(stateMachine.Enemy.Target.transform.position);
+
         isMove = false;
         NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
         navMeshAgent.SetDestination(stateMachine.Enemy.transform.position);
