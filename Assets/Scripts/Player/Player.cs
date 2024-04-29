@@ -62,6 +62,7 @@ public class Player : MonoBehaviour, IDamagable
             Cursor.lockState = CursorLockMode.Locked;
         stateMachine.ChangeState(stateMachine.IdleState);
 
+        PlayerController.lookSensitivity = InformationManager.Instance.mouseSensitivity;
         Stats.OnDie += OnDie;
         Stats.OnDie += OnDieCameraView;
     }

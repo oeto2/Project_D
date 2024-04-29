@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class RebindPopup : MonoBehaviour
 {
-    public InputActionReference moveRef, interactionRef, jumpRef, runRef, attackRef,inventoryRef;
+    public InputActionReference moveRef, interactionRef, jumpRef, runRef, attackRef,inventoryRef,equipRef,defenseRef;
 
     private void OnEnable()
     {
@@ -15,6 +15,8 @@ public class RebindPopup : MonoBehaviour
         runRef.action.Disable();
         attackRef.action.Disable();
         inventoryRef.action.Disable();
+        equipRef.action.Disable();
+        defenseRef.action.Disable();
     }
 
     private void OnDisable()
@@ -25,5 +27,7 @@ public class RebindPopup : MonoBehaviour
         runRef.action.Enable();
         attackRef.action.Enable();
         inventoryRef.action.Enable();
+        equipRef.action.Enable();
+        defenseRef.action.Enable();
     }
 }

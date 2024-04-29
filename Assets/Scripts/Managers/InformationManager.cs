@@ -13,6 +13,8 @@ public class InformationManager : SingletonBase<InformationManager>
     private string _path;
     private string _fileName = "SavePlayerData";
 
+    public float mouseSensitivity = 0.2f;
+
     public event Action<int> InvenGoldUpdate;
     public event Action<int> StorageGoldUpdate;
 
