@@ -30,9 +30,9 @@ public class PlayerRunState : PlayerGroundState
         stateMachine.Player.Stats.ChangeStaminaAction(-Time.deltaTime);
     }
 
-    protected override void OnRunStarted(InputAction.CallbackContext context)
-    {
-        base.OnRunStarted(context);
-        stateMachine.ChangeState(stateMachine.WalkState);
-    }
+    //protected override void OnRunStarted(InputAction.CallbackContext context)
+    //{
+    //    base.OnRunStarted(context);
+    //    stateMachine.ChangeState(stateMachine.WalkState);
+    //}
 }
