@@ -12,10 +12,9 @@ public class EnemyAttackState : EnemyBaseState
     }
     public override void Enter()
     {
+        isMove = false;
         NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
-        if (navMeshAgent.isOnNavMesh)
-            navMeshAgent?.Stop();
-
+        navMeshAgent.SetDestination(stateMachine.Enemy.transform.position);
 
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();
@@ -33,7 +32,7 @@ public class EnemyAttackState : EnemyBaseState
                 StartAnimation(stateMachine.Enemy.AnimationData.AttackParameterHash);
 
                 //스킬이 사용가능하다면
-                if(bossSkill.Skill01Ready)
+                if (bossSkill.Skill01Ready)
                 {
                     //스킬 사용
                     stateMachine.MovementSpeedModifier = 0.5f;
@@ -69,7 +68,7 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Update()
     {
-        base.Update();
+        Debug.Log("공격 상태");
 
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
         if (normalizedTime >= 1f)
@@ -77,4 +76,4 @@ public class EnemyAttackState : EnemyBaseState
             stateMachine.ChangeState(stateMachine.ChasingState);
         }
     }
-}    
+}

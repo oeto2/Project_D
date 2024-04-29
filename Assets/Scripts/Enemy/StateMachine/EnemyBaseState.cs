@@ -50,6 +50,7 @@ public class EnemyBaseState : IState
     //이동
     private void Move()
     {
+        Debug.Log("몬스터 이동하기");
         stateMachine.Enemy.NavMeshAgent.SetDestination(stateMachine.Enemy.Target.transform.position);
         Vector3 movementDirection = GetMovementDirection();
         Rotate(movementDirection);

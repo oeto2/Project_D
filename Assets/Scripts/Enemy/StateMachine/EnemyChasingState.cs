@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyChasingState : EnemyBaseState
@@ -5,15 +6,13 @@ public class EnemyChasingState : EnemyBaseState
     public EnemyChasingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
     }
-    
+
     public override void Enter()
     {
+        isMove = true;
         NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
-        if (navMeshAgent.isOnNavMesh)
-        {
-            navMeshAgent.isStopped = false;
-            navMeshAgent.speed = stateMachine.Enemy.stateMachine.MovementSpeed;
-        }
+        navMeshAgent.isStopped = false;
+        navMeshAgent.speed = stateMachine.Enemy.stateMachine.MovementSpeed;
 
         //Debug.Log("추적상태 진입");
         stateMachine.MovementSpeedModifier = 1;
@@ -42,20 +41,25 @@ public class EnemyChasingState : EnemyBaseState
 
         if (IsInAttackRange())
         {
+            Debug.Log("공격범위 안에 들어옴");
             stateMachine.ChangeState(stateMachine.AttackState);
             return;
         }
-
-        else if (!IsInChaseRange())
+        
+        else
         {
-            stateMachine.ChangeState(stateMachine.IdlingState);
+            if(!IsInChaseRange())
+            {
+                stateMachine.ChangeState(stateMachine.IdlingState);
+            }
         }
     }
 
     //공격 범위
     private bool IsInAttackRange()
     {
+        float monsterAtkRng = stateMachine.Enemy.Data.monsterAtkRng;
         float playerDistanceSqr = (stateMachine.Enemy.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
-        return playerDistanceSqr <= stateMachine.Enemy.Data.monsterAtkRng* stateMachine.Enemy.Data.monsterAtkRng;
+        return playerDistanceSqr <= monsterAtkRng * monsterAtkRng;
     }
 }
