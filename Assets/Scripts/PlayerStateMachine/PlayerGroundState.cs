@@ -25,6 +25,8 @@ public class PlayerGroundState : PlayerBaseState
     public override void Update()
     {
         base.Update();
+        if (stateMachine.GetCurrentState() == stateMachine.WalkState || stateMachine.GetCurrentState() == stateMachine.RunState)
+            OnMove();
 
         if (stateMachine.IsAttacking)
         {
@@ -59,8 +61,11 @@ public class PlayerGroundState : PlayerBaseState
 
     protected virtual void OnMove()
     {
-        stateMachine.ChangeState(stateMachine.WalkState);
-    }
+        if (!stateMachine.Player.IsRun)
+            stateMachine.ChangeState(stateMachine.WalkState);
+        else
+            stateMachine.ChangeState(stateMachine.RunState);
+    }   
 
     protected virtual void OnAttack()
     {

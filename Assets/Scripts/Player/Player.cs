@@ -16,10 +16,9 @@ public class Player : MonoBehaviour, IDamagable
     //public Rigidbody Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
     public PlayerInputs Input { get; private set; }
-    public PlayerController Controller { get; private set; }
+    public PlayerController PlayerController { get; private set; }
     //public ForceReceiver ForceReceiver { get; private set; }
     public NavMeshAgent NavMeshAgent { get; private set; }
-    public PlayerController PlayerController { get; private set; }
 
     [field: SerializeField] public GameObject DefenseObj { get; private set; }
 
@@ -32,6 +31,8 @@ public class Player : MonoBehaviour, IDamagable
     public Transform playerTransform;
     public InteractionSystem InteractionSystem;
 
+    public bool IsRun;
+
     public Vector3 beforeTrans;
     [SerializeField] private GameObject _cameraView;
 
@@ -40,11 +41,10 @@ public class Player : MonoBehaviour, IDamagable
         AnimationData.Initialize();
         Animator = GetComponentInChildren<Animator>();
         Input = GetComponent<PlayerInputs>();
-        Controller = GetComponent<PlayerController>();
+        PlayerController = GetComponent<PlayerController>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
         Stats = GetComponent<CharacterStats>();
         PlayerSkills = GetComponentInChildren<PlayerSkills>();
-        PlayerController = GetComponent<PlayerController>();
         playerTransform = GetComponent<Transform>();
 
         stateMachine = new PlayerStateMachine(this);

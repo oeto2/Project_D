@@ -36,7 +36,7 @@ public class PlayerAirState : PlayerBaseState
             stateMachine.Player.PlayerController.velocity += GetMovementDirection() * Time.deltaTime * 3.5f;
         }
         stateMachine.Player.playerTransform.position = stateMachine.Player.PlayerController.velocity;
-        stateMachine.Player.PlayerController.gravity -= 10f * Time.deltaTime;
+        stateMachine.Player.PlayerController.gravity = Mathf.Max(-15f, stateMachine.Player.PlayerController.gravity - 10f * Time.deltaTime) ;
 
         
     }
