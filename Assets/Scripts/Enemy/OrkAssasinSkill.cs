@@ -13,6 +13,10 @@ public class OrkAssasinSkill : EnemySkillBase
 
     WaitForSeconds _waitForSeconds = new WaitForSeconds(1f);
 
+    //스킬 코루틴
+    private Coroutine _assasinBuffSkill_Coroutine;
+    private Coroutine _assasinOnBuff_Coroutine;
+
     protected override void Awake()
     {
         base.Awake();
@@ -34,7 +38,7 @@ public class OrkAssasinSkill : EnemySkillBase
                     UsingSkill = true;
                     Skill01Ready = false;
 
-                    StartCoroutine(AssasinBuffSkill());
+                    _assasinBuffSkill_Coroutine = StartCoroutine(AssasinBuffSkill());
                 }
                 break;
 
@@ -44,7 +48,7 @@ public class OrkAssasinSkill : EnemySkillBase
                     UsingSkill = true;
                     Skill02Ready = false;
 
-                    StartCoroutine(AssasinBleedSkill());
+                    _assasinOnBuff_Coroutine = StartCoroutine(AssasinBleedSkill());
                 }
                 break;
         }

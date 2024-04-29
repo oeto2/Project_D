@@ -12,6 +12,10 @@ public class OrkWarriorSkill : EnemySkillBase
     //기본 색
     private Color32 _defaultColor = new Color32(255, 255, 255, 255);
 
+    //스킬공격 코루틴
+    private Coroutine _rotateAttack_Coroutine;
+    private Coroutine _dubleAttack_Coroutine;
+
     private void OnDisable()
     {
         _weaponMaterials.color = new Color32(255, 255, 255, 255);
@@ -33,7 +37,7 @@ public class OrkWarriorSkill : EnemySkillBase
                     UsingSkill = true;
                     Skill01Ready = false;
 
-                    StartCoroutine(StartRotateAttack());
+                    _rotateAttack_Coroutine = StartCoroutine(StartRotateAttack());
                 }
                 break;
 
@@ -43,7 +47,7 @@ public class OrkWarriorSkill : EnemySkillBase
                     UsingSkill = true;
                     Skill02Ready = false;
 
-                    StartCoroutine(StartDubleAttack());
+                    _dubleAttack_Coroutine = StartCoroutine(StartDubleAttack());
                 }
                 break;
         }
@@ -61,12 +65,17 @@ public class OrkWarriorSkill : EnemySkillBase
         float skillTime = 0f;
         //데미지 입히는 주기
         WaitForSeconds skillDamageCycle = new WaitForSeconds(skillData.SkillDamageCycle);
+        //몬스터 속도 50% 감소
+        _navMeshAgent.speed *= 0.5f;
 
         //회전베기 공격 로직
-        while(true)
+        while (true)
         {
             //타겟의 위치
             Vector3 targetVec = GameManager.Instance.player.transform.position;
+          
+            //타겟 추적하기
+            _navMeshAgent.SetDestination(targetVec);
 
             //레이캐스트 사용
             Ray ray = new Ray(transform.position, (targetVec - transform.position).normalized);
@@ -116,6 +125,7 @@ public class OrkWarriorSkill : EnemySkillBase
 
     private void OnDie()
     {
-        StopCoroutine(StartRotateAttack());
+        StopCoroutine(_rotateAttack_Coroutine);
+        StopCoroutine(_dubleAttack_Coroutine);
     }
 }

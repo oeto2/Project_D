@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace Constants
 {
+    public static class Enemy
+    {
+        public const int dada = 100;
+    }
+
     public enum ItemType
     {
         Weapon,

@@ -15,6 +15,10 @@ public class NecromanserSkill : EnemySkillBase
     //임시로 좌표를 저장할 변수
     private Vector3 tempVec = Vector3.zero;
 
+    //스킬 공격 코루틴
+    private Coroutine _startSummons_Coroutine;
+    private Coroutine _startExplosion_Coroutine;
+
     private void Start()
     {
         _enemy.Health.OnDie += OnDie;
@@ -30,7 +34,7 @@ public class NecromanserSkill : EnemySkillBase
                     UsingSkill = true;
                     Skill01Ready = false;
 
-                    StartCoroutine(StartSummons());
+                    _startSummons_Coroutine = StartCoroutine(StartSummons());
                 }
                 break;
             case 2:
@@ -39,7 +43,7 @@ public class NecromanserSkill : EnemySkillBase
                     UsingSkill = true;
                     Skill02Ready = false;
 
-                    StartCoroutine(StartExplosion());
+                    _startExplosion_Coroutine = StartCoroutine(StartExplosion());
                 }
                 break;
         }
@@ -130,7 +134,7 @@ public class NecromanserSkill : EnemySkillBase
 
     private void OnDie()
     {
-        StopCoroutine(StartSummons());
-        StopCoroutine(StartExplosion());
+        StopCoroutine(_startSummons_Coroutine);
+        StopCoroutine(_startExplosion_Coroutine);
     }
 }

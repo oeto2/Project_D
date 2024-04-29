@@ -63,7 +63,7 @@ MonoBehaviour:
     _monsterAtkRng: 2
     _monsterDef: 10
     _monsterWalk: 2.5
-    _monsterRun: 6
+    _monsterRun: 7
     _monsterStiff: 1
     _monsterMaxRoot: 7
     _dropId: 30000001

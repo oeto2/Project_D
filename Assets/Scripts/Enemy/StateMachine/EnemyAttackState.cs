@@ -10,6 +10,7 @@ public class EnemyAttackState : EnemyBaseState
     {
 
     }
+
     public override void Enter()
     {
         stateMachine.Enemy.transform.LookAt(stateMachine.Enemy.Target.transform.position);
