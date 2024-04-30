@@ -13,7 +13,7 @@ public class EnemyAttack : MonoBehaviour
     public void StartAttack()
     {
         Ray ray = new Ray(transform.position + Vector3.up, transform.forward * _enemy.Data.monsterAtkRng);
-        Debug.Log(ray.direction);
+        //Debug.Log(ray.direction);
         RaycastHit hitData;
 
         //레이캐스트 사용

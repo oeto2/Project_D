@@ -22,6 +22,7 @@ public class Reward : MonoBehaviour
     private void Awake()
     {
         slots = _slotsParent.GetComponentsInChildren<Slot>();
+        CleanRewardItem();
     }
 
     private void Start()
@@ -84,6 +85,7 @@ public class Reward : MonoBehaviour
                 return;
             }
         }
+
         var _warningPopup = UIManager.Instance.GetPopup(nameof(WarningPopup)).GetComponent<WarningPopup>();
         _warningPopup.SetWarningPopup("æ∆¿Ã≈€¿Ã ∞°µÊ√°Ω¿¥œ¥Ÿ.");
     }

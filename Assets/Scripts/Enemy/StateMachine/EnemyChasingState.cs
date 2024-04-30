@@ -38,7 +38,7 @@ public class EnemyChasingState : EnemyBaseState
 
         if (IsInAttackRange())
         {
-            Debug.Log("공격범위 안에 들어옴");
+            //Debug.Log("공격범위 안에 들어옴");
             stateMachine.ChangeState(stateMachine.AttackState);
             return;
         }
