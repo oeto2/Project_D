@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
+using Constants;
+using Unity.VisualScripting;
 
 public class NecromanserSkill : EnemySkillBase
 {
@@ -19,6 +19,8 @@ public class NecromanserSkill : EnemySkillBase
     private Coroutine _startSummons_Coroutine;
     private Coroutine _startExplosion_Coroutine;
 
+    //폭발 공격 콜라이더
+    Collider[] _explosionColider = new Collider[150];
     private void Start()
     {
         _enemy.Health.OnDie += OnDie;
@@ -78,6 +80,7 @@ public class NecromanserSkill : EnemySkillBase
             //랜덤 좌표값에 스켈레톤 소환
             ResourceManager.Instance.Instantiate("Monster/SKELETON2").transform.position = spawnPos[i];
         }
+
         spawnPos.Clear();
         UsingSkill = false;
 
@@ -96,17 +99,26 @@ public class NecromanserSkill : EnemySkillBase
         //몬스터 정지
         enemySateMachine.MovementSpeedModifier = 0f;
 
+        //폭발 이펙트 보이기
         explosionparticle.SetActive(true);
+
+        //스킬 시전시간 적용
         yield return new WaitForSeconds(skillData.SkillDurationTime);
 
-        Collider[] colider = Physics.OverlapSphere(transform.position, 10.5f);
-        foreach (Collider col in colider)
+        //충돌체크
+        int numColiders = Physics.OverlapSphereNonAlloc(transform.position, skillData.SkillRange, _explosionColider);
+        if (_explosionColider != null)
         {
-            if (col.gameObject.layer == 7)
+            IDamagable iDamagable;
+            for (int i=0; i< numColiders; i++)
             {
-                col.GetComponent<IDamagable>().TakePhysicalDamage(skillData.SkillDamage);
+                bool isHave = _explosionColider[i].TryGetComponent(out iDamagable);
+                if (isHave) { iDamagable.TakePhysicalDamage(skillData.SkillDamage); }
             }
         }
+        else Debug.LogError("네크로맨서 폭발 공격 오류 : 콜라이더 감지 안됨");
+
+        //스킬 이펙트 숨기기
         explosionparticle.SetActive(false);
         UsingSkill = false;
 

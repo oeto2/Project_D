@@ -5,6 +5,15 @@ using UnityEngine;
 
 namespace Constants
 {
+    static class Layer
+    {
+        public const int UI = 5;
+        public const int Monster = 6;
+        public const int Player = 7;
+        public const int Interatable = 8;
+        public const int Trap = 9;
+    }
+
     static class Constant
     {
         public const int InvenSize = 30;

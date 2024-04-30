@@ -23,5 +23,5 @@ MonoBehaviour:
     SkillDurationTime: 3.8
     SkillCollTime: 10
     SkillDamage: 1000
-    SkillRange: 0
+    SkillRange: 10.5
     SkillDamageCycle: 0
