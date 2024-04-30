@@ -78,7 +78,8 @@ public class NecromanserSkill : EnemySkillBase
         for (int i = 0; i < spawnPos.Count; i++)
         {
             //·£´ý ÁÂÇ¥°ª¿¡ ½ºÄÌ·¹Åæ ¼ÒÈ¯
-            ResourceManager.Instance.Instantiate("Monster/SKELETON2").transform.position = spawnPos[i];
+            GameObject skeleton = ResourceManager.Instance.Instantiate("Monster/SKELETON2");
+            skeleton.GetComponent<NavMeshAgent>().Warp(spawnPos[i]);
         }
 
         spawnPos.Clear();
