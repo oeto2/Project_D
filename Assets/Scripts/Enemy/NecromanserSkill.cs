@@ -114,7 +114,12 @@ public class NecromanserSkill : EnemySkillBase
             for (int i=0; i< numColiders; i++)
             {
                 bool isHave = _explosionColider[i].TryGetComponent(out iDamagable);
-                if (isHave) { iDamagable.TakePhysicalDamage(skillData.SkillDamage); }
+
+                //레이어가 플레이어일 경우에만 데미지 적용
+                if (isHave && _explosionColider[i].gameObject.layer == Layer.Player) 
+                { 
+                    iDamagable.TakePhysicalDamage(skillData.SkillDamage); 
+                }
             }
         }
         else Debug.LogError("네크로맨서 폭발 공격 오류 : 콜라이더 감지 안됨");
