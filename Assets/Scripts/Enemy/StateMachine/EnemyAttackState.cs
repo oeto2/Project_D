@@ -17,7 +17,9 @@ public class EnemyAttackState : EnemyBaseState
 
         isMove = false;
         NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
-        navMeshAgent.SetDestination(stateMachine.Enemy.transform.position);
+
+        if (navMeshAgent.isOnNavMesh)
+            navMeshAgent.SetDestination(stateMachine.Enemy.transform.position);
 
         stateMachine.MovementSpeedModifier = 0;
         base.Enter();

@@ -9,15 +9,12 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void Enter()
     {
+        base.Enter();
+
         isMove = true;
         NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
-        navMeshAgent.isStopped = false;
         navMeshAgent.speed = stateMachine.Enemy.stateMachine.MovementSpeed;
 
-        //Debug.Log("추적상태 진입");
-        stateMachine.MovementSpeedModifier = 1;
-
-        base.Enter();
         StartAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);
         StartAnimation(stateMachine.Enemy.AnimationData.RunParameterHash);
     }

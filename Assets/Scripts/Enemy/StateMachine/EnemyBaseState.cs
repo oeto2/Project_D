@@ -50,11 +50,12 @@ public class EnemyBaseState : IState
     //이동
     private void Move()
     {
-        Debug.Log("몬스터 이동하기");
-        stateMachine.Enemy.NavMeshAgent.SetDestination(stateMachine.Enemy.Target.transform.position);
+        if (stateMachine.Enemy.NavMeshAgent.isOnNavMesh)
+            stateMachine.Enemy.NavMeshAgent.SetDestination(stateMachine.Enemy.Target.transform.position);
+        else Debug.LogError("몬스터가 NavMesh 위에 존재하지 않습니다.");
+
         Vector3 movementDirection = GetMovementDirection();
         Rotate(movementDirection);
-        //Move(movementDirection);
     }
 
     // 이동 방향 구하기 = 적 위치

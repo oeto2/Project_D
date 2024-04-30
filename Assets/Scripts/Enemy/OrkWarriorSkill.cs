@@ -29,7 +29,7 @@ public class OrkWarriorSkill : EnemySkillBase
 
     public override void UseSkill(int skillNum_)
     {
-        switch(skillNum_)
+        switch (skillNum_)
         {
             case 1:
                 if (Skill01Ready)
@@ -73,7 +73,7 @@ public class OrkWarriorSkill : EnemySkillBase
         {
             //타겟의 위치
             Vector3 targetVec = GameManager.Instance.player.transform.position;
-          
+
             //타겟 추적하기
             _navMeshAgent.SetDestination(targetVec);
 
@@ -125,7 +125,10 @@ public class OrkWarriorSkill : EnemySkillBase
 
     private void OnDie()
     {
-        StopCoroutine(_rotateAttack_Coroutine);
-        StopCoroutine(_dubleAttack_Coroutine);
+        if (_rotateAttack_Coroutine != null)
+            StopCoroutine(_rotateAttack_Coroutine);
+
+        if (_dubleAttack_Coroutine != null)
+            StopCoroutine(_dubleAttack_Coroutine);
     }
 }
