@@ -18,7 +18,7 @@ MonoBehaviour:
     _monsterHp: 150
     _monsterAtk: 60
     _monsterAtkSpd: 0.1
-    _monsterAtkRng: 3
+    _monsterAtkRng: 2.5
     _monsterDef: 10
     _monsterWalk: 2.5
     _monsterRun: 5

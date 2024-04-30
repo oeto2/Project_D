@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyChasingState : EnemyBaseState
@@ -5,17 +6,15 @@ public class EnemyChasingState : EnemyBaseState
     public EnemyChasingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
     {
     }
-    
+
     public override void Enter()
     {
-        NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
-        if (navMeshAgent.isOnNavMesh)
-            navMeshAgent?.Stop();
-
-        //Debug.Log("추적상태 진입");
-        stateMachine.MovementSpeedModifier = 1;
-
         base.Enter();
+
+        isMove = true;
+        NavMeshAgent navMeshAgent = stateMachine.Enemy.NavMeshAgent;
+        navMeshAgent.speed = stateMachine.Enemy.stateMachine.MovementSpeed;
+
         StartAnimation(stateMachine.Enemy.AnimationData.GroundParameterHash);
         StartAnimation(stateMachine.Enemy.AnimationData.RunParameterHash);
     }
@@ -37,24 +36,27 @@ public class EnemyChasingState : EnemyBaseState
             return;
         }
 
-        if (!IsInChaseRange())
+        if (IsInAttackRange())
         {
-            stateMachine.ChangeState(stateMachine.IdlingState);
-            return;
-        }
-
-        //타겟이 죽었으면 공격하지 않음
-        else if (IsInAttackRange())
-        {
+            Debug.Log("공격범위 안에 들어옴");
             stateMachine.ChangeState(stateMachine.AttackState);
             return;
+        }
+        
+        else
+        {
+            if(!IsInChaseRange())
+            {
+                stateMachine.ChangeState(stateMachine.IdlingState);
+            }
         }
     }
 
     //공격 범위
     private bool IsInAttackRange()
     {
+        float monsterAtkRng = stateMachine.Enemy.Data.monsterAtkRng;
         float playerDistanceSqr = (stateMachine.Enemy.Target.transform.position - stateMachine.Enemy.transform.position).sqrMagnitude;
-        return playerDistanceSqr <= stateMachine.Enemy.Data.monsterAtkRng* stateMachine.Enemy.Data.monsterAtkRng;
+        return playerDistanceSqr <= monsterAtkRng * monsterAtkRng;
     }
 }

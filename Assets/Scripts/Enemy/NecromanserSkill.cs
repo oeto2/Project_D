@@ -11,9 +11,13 @@ public class NecromanserSkill : EnemySkillBase
 
     //몬스터를 생성시킬 좌표들
     [SerializeField] List<Vector3> spawnPos = new List<Vector3>();
-    
+
     //임시로 좌표를 저장할 변수
     private Vector3 tempVec = Vector3.zero;
+
+    //스킬 공격 코루틴
+    private Coroutine _startSummons_Coroutine;
+    private Coroutine _startExplosion_Coroutine;
 
     private void Start()
     {
@@ -30,7 +34,7 @@ public class NecromanserSkill : EnemySkillBase
                     UsingSkill = true;
                     Skill01Ready = false;
 
-                    StartCoroutine(StartSummons());
+                    _startSummons_Coroutine = StartCoroutine(StartSummons());
                 }
                 break;
             case 2:
@@ -39,7 +43,7 @@ public class NecromanserSkill : EnemySkillBase
                     UsingSkill = true;
                     Skill02Ready = false;
 
-                    StartCoroutine(StartExplosion());
+                    _startExplosion_Coroutine = StartCoroutine(StartExplosion());
                 }
                 break;
         }
@@ -96,9 +100,9 @@ public class NecromanserSkill : EnemySkillBase
         yield return new WaitForSeconds(skillData.SkillDurationTime);
 
         Collider[] colider = Physics.OverlapSphere(transform.position, 10.5f);
-        foreach(Collider col in colider)
+        foreach (Collider col in colider)
         {
-            if(col.gameObject.layer == 7)
+            if (col.gameObject.layer == 7)
             {
                 col.GetComponent<IDamagable>().TakePhysicalDamage(skillData.SkillDamage);
             }
@@ -130,7 +134,13 @@ public class NecromanserSkill : EnemySkillBase
 
     private void OnDie()
     {
-        StopCoroutine(StartSummons());
-        StopCoroutine(StartExplosion());
+        if (explosionparticle != null)
+            explosionparticle.SetActive(false);
+
+        if (_startExplosion_Coroutine != null)
+            StopCoroutine(_startSummons_Coroutine);
+
+        if (_startExplosion_Coroutine != null)
+            StopCoroutine(_startExplosion_Coroutine);
     }
 }
