@@ -51,7 +51,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             _countImage.SetActive(false);
         }
 
-        SetColor(1);
+        SetColor(alpha_:1);
     }
 
     // 아이템 개수 조정.
@@ -91,7 +91,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         item = null;
         itemCount = 0;
         itemImage.sprite = null;
-        SetColor(0);
+        SetColor(alpha_: 0);
 
         _textCount.text = "0";
         _countImage.SetActive(false);
@@ -221,7 +221,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         if (item != null)
         {
-            SetColor(0.5f);
+            SetColor(alpha_: 0.5f);
             DragSlot.instance.dragSlot = this;
             DragSlot.instance.DragSetImage(itemImage);
             DragSlot.instance.dragItem = item;
@@ -241,9 +241,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         if(item != null)
         {
-            SetColor(1);
+            SetColor(alpha_: 1);
         }
-        DragSlot.instance.SetColor(0);
+        DragSlot.instance.SetColor(alpha_: 0);
         DragSlot.instance.dragItem = null;
         DragSlot.instance.dragSlot = null;
         DragSlot.instance.equipmentSlot = null;

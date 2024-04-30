@@ -26,7 +26,7 @@ public class DragSlot : MonoBehaviour
     public void DragSetImage(Image itemImage_)
     {
         imageItem.sprite = itemImage_.sprite;
-        SetColor(1);
+        SetColor(alpha_: 1);
     }
 
     public void SetColor(float alpha_)

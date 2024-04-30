@@ -42,7 +42,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
         itemImage.sprite = item.Sprite;
         if (EquipStats != null)
             EquipStats(item);
-        SetColor(1);
+        SetColor(alpha_: 1);
     }
 
     // ΩΩ∑‘ √ ±‚»≠.
@@ -52,7 +52,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
             UnEquipStats(item);
         item = null;
         itemImage.sprite = null;
-        SetColor(0);
+        SetColor(alpha_: 0);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -91,7 +91,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     {
         if (item != null)
         {
-            SetColor(0.5f);
+            SetColor(alpha_: 0.5f);
             DragSlot.instance.equipmentSlot = this;
             DragSlot.instance.DragSetImage(itemImage);
             DragSlot.instance.dragItem = item;
@@ -111,9 +111,9 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     {
         if (item != null)
         {
-            SetColor(1);
+            SetColor(alpha_: 1);
         }
-        DragSlot.instance.SetColor(0);
+        DragSlot.instance.SetColor(alpha_: 0);
         DragSlot.instance.dragItem = null;
         DragSlot.instance.dragSlot = null;
         DragSlot.instance.equipmentSlot = null;

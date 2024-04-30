@@ -37,7 +37,7 @@ public class QuickSlot : MonoBehaviour, IDropHandler
         itemImage.sprite = slot.item.Sprite;
         _countImage.SetActive(true);
         _textCount.text = slot.itemCount.ToString();
-        SetColor(1);
+        SetColor(alpha_: 1);
     }
     public void SetSlotCount()
     {
@@ -50,7 +50,7 @@ public class QuickSlot : MonoBehaviour, IDropHandler
     {
         slot = null;
         itemImage.sprite = null;
-        SetColor(0);
+        SetColor(alpha_: 0);
 
         _textCount.text = "0";
         _countImage.SetActive(false);
