@@ -49074,6 +49074,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrkAssasin
       objectReference: {fileID: 0}
+    - target: {fileID: 6831894707173903862, guid: 31971a11dd592b24faacb705fbecf428,
+        type: 3}
+      propertyPath: m_Size.y
+      value: -1.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831894707173903862, guid: 31971a11dd592b24faacb705fbecf428,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -1.32
+      objectReference: {fileID: 0}
     - target: {fileID: 8477171100305923697, guid: 31971a11dd592b24faacb705fbecf428,
         type: 3}
       propertyPath: m_IsActive

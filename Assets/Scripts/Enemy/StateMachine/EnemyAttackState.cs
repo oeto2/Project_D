@@ -73,7 +73,7 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Update()
     {
-        Debug.Log("공격 상태");
+        //Debug.Log("공격 상태");
 
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
         if (normalizedTime >= 1f)

@@ -51,7 +51,7 @@ public class LoadingSceneController : MonoBehaviour
         loadScene.allowSceneActivation = false;
 
         float elapsedTime = 0f;
-        float targetTime = 4f;
+        float targetTime = 2f;
         while (!loadScene.isDone && !loadScene.allowSceneActivation)
         {
             elapsedTime += Time.unscaledDeltaTime;
