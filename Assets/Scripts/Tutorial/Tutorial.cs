@@ -19,7 +19,6 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         _player = GameManager.Instance.playerObject.GetComponent<Player>();
-        _questNum = 8;
     }
 
     // Update is called once per frame
