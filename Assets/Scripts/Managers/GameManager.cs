@@ -21,7 +21,6 @@ public class GameManager : SingletonBase<GameManager>
     private const string _OrkAssasinSceneName = "OrkAssasinScene";
     private const string _necromancerSceneName = "NecromancerScene";
 
-
     public event Action SceneLoadEvent;
 
     //리워드 보상을 가져갈때 호출되는 이벤트들
@@ -70,7 +69,6 @@ public class GameManager : SingletonBase<GameManager>
         sceneType = scene;
         SceneManager.LoadScene(_loadingSceneName);
     }
-
     private void CallSceneChangeEvent()
     {
         SceneLoadEvent?.Invoke();

@@ -65,7 +65,6 @@ public class UIManager : SingletonBase<UIManager>
             return null;
         }
 
-
         return ShowPopupWithPrefab(obj, popupname, parents);
     }
 

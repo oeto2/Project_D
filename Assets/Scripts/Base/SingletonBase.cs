@@ -7,9 +7,6 @@ public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
     private static T _instance;
     protected static bool _isLoad = true;
 
-    //고스트 객체 방지
-    private static bool _isDestroy = false;
-
     public static T Instance
     {
         get
@@ -33,10 +30,5 @@ public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
     public virtual void Init()
     {
         Debug.Log(transform.name + "is Init");
-    }
-
-    private void OnDestroy()
-    {
-        _isDestroy = true;
     }
 }

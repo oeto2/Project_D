@@ -17,6 +17,12 @@ public class RewardSlot : Slot
             Inventory inventory = UIManager.Instance.GetPopup(nameof(InventoryPopup)).GetComponent<Inventory>();
             if(inventory.AcquireItem(item, itemCount))
                 ClearSlot();
+
+            if (UIManager.Instance.ExistPopup(nameof(RewardPopup)))
+            {
+                GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+                GameManager.Instance.CallUpdateRewardCountEvent();
+            }
         }
     }
     protected override void ChangeSlot()
