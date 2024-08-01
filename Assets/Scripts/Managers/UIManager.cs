@@ -1,10 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class UIManager : SingletonBase<UIManager>
 {
@@ -82,8 +77,8 @@ public class UIManager : SingletonBase<UIManager>
         var obj = Instantiate(prefab, parents);
         obj.name = name;
 
-        //UI Popup SortOder 정리
-        ArrageUIpopup_Oder(popupName, obj);
+        // //UI Popup SortOder 정리
+        // ArrageUIpopup_Oder(popupName, obj);
 
         return ShowPopup(obj, popupName);
     }

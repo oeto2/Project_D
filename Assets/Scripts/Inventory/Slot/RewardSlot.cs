@@ -1,7 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
+public class RewardInfo
+{
+    //»πµÊ«œ∑¡¥¬ æ∆¿Ã≈€¿« ID∞™
+    public int GetItemId;
+    //»πµÊ«œ∑¡¥¬ æ∆¿Ã≈€¿« ∞πºˆ
+    public int GetItemCount;
+
+    public RewardInfo(int getItemId_, int getItemCount_)
+    {
+        GetItemId = getItemId_;
+        GetItemCount = getItemCount_;
+    }
+}
 
 public class RewardSlot : Slot
 {
@@ -9,11 +21,6 @@ public class RewardSlot : Slot
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            //if (!UIManager.Instance.ExistPopup(nameof(InventoryPopup)))
-            //{
-            //    UIManager.Instance.GetPopup(nameof(InventoryPopup));
-            //    return;
-            //}
             Inventory inventory = UIManager.Instance.GetPopup(nameof(InventoryPopup)).GetComponent<Inventory>();
             if(inventory.AcquireItem(item, itemCount))
                 ClearSlot();
