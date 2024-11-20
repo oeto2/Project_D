@@ -28,6 +28,5 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 
 ## 📌 핵심 기술
 #### FSM - <a href="https://github.com/oeto2/Project_D/wiki/FSM" >상세보기 - WIKI 이동</a>
-- 몬스터
-- ID찾기, PW찾기
-- 로그인 시 쿠키(Cookie) 및 세션(Session) 생성
+- FSM을 사용한 이유
+- 몬스터 FSM 관련 스크립트
