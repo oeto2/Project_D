@@ -31,3 +31,8 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 - FSM을 사용한 이유
 - FSM 스크립트 (몬스터)
 - FSM 구조
+
+#### UIManager - <a href="https://github.com/oeto2/Project_D/wiki/FSM" >상세보기 - WIKI 이동</a>
+- FSM을 사용한 이유
+- FSM 스크립트 (몬스터)
+- FSM 구조
