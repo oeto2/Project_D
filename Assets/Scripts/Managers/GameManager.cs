@@ -1,10 +1,7 @@
 using Constants;
-using JetBrains.Annotations;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonBase<GameManager>
@@ -20,7 +17,6 @@ public class GameManager : SingletonBase<GameManager>
     private const string _OrkWarriorSceneName = "OrkWarriorScene";
     private const string _OrkAssasinSceneName = "OrkAssasinScene";
     private const string _necromancerSceneName = "NecromancerScene";
-
 
     public event Action SceneLoadEvent;
 
@@ -70,7 +66,6 @@ public class GameManager : SingletonBase<GameManager>
         sceneType = scene;
         SceneManager.LoadScene(_loadingSceneName);
     }
-
     private void CallSceneChangeEvent()
     {
         SceneLoadEvent?.Invoke();

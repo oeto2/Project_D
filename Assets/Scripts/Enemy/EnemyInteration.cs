@@ -7,8 +7,10 @@ public class EnemyInteration : MonoBehaviour, IInteractable
 {
     private Enemy _enemy;
     [SerializeField] public bool _isRoot;
-    public List<int> _getItemsID;
-    public List<int> _getItemsCount;
+    public List<RewardInfo> rewardInfo;
+    public List<int> getItemsID;
+    public List<int> getItemsCount;
+
     private void Awake()
     {
         _enemy = GetComponentInParent<Enemy>();
@@ -46,8 +48,7 @@ public class EnemyInteration : MonoBehaviour, IInteractable
             {
                 ItemData getItem = Database.DropPer.GetItem(Database.Monster.Get(monsterId).dropId);
                 reward.AcquireItem(getItem);
-                _getItemsID.Add(getItem.id);
-                //_getItemsCount.Add(reward.GetItemCountInSlot(i));
+                getItemsID.Add(getItem.id);
             }
 
             UpdateGetItemCountList();
@@ -60,34 +61,34 @@ public class EnemyInteration : MonoBehaviour, IInteractable
             reward.CleanRewardItem();
 
             //리스트에 담겨있는 아이템 보여주기
-            for (int i = 0; i < _getItemsID.Count; i++)
+            for (int i = 0; i < getItemsID.Count; i++)
             {
-                if (_getItemsCount == null)
-                    reward.AcquireItem(Database.Item.Get(_getItemsID[i]));
+                if (getItemsCount == null)
+                    reward.AcquireItem(Database.Item.Get(getItemsID[i]));
 
-                else reward.AcquireItem(Database.Item.Get(_getItemsID[i]), _getItemsCount[i]);
+                else reward.AcquireItem(Database.Item.Get(getItemsID[i]), getItemsCount[i]);
             }
         }
     }
 
     public void UpdateGetItemList(List<int> itemsId_)
     {
-        _getItemsID = itemsId_;
+        getItemsID = itemsId_;
     }
 
     //아이템 갯수 리스트 업데이트
     private void UpdateGetItemCountList()
     {
-        _getItemsCount.Clear();
-        _getItemsID.Clear();
+        getItemsCount.Clear();
+        getItemsID.Clear();
         Reward reward = UIManager.Instance.GetPopupObject(nameof(RewardPopup)).GetComponent<Reward>();
 
         for (int i = 0; i < reward.slots.Length; i++)
         {
             if (reward.slots[i].itemCount != 0)
             {
-                _getItemsCount.Add(reward.slots[i].itemCount);
-                _getItemsID.Add(reward.slots[i].item.id);
+                getItemsCount.Add(reward.slots[i].itemCount);
+                getItemsID.Add(reward.slots[i].item.id);
             }
         }
     }

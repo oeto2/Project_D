@@ -1,9 +1,8 @@
-using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyChasingState : EnemyBaseState
 {
-    public EnemyChasingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
+    public EnemyChasingState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
     }
 

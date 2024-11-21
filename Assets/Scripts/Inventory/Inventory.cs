@@ -90,6 +90,12 @@ public class Inventory : MonoBehaviour
 
     public bool AcquireItem(ItemData item_, int count_ = 1)
     {
+        if(item_ == null)
+        {
+            Debug.LogError("획득할 아이템 데이터가 없습니다");
+            return false;
+        }
+
         if (item_.itemType == Constants.ItemType.Consume || item_.itemType == Constants.ItemType.Material)
         {
             for (int i = 0; i < _slots.Length; i++)

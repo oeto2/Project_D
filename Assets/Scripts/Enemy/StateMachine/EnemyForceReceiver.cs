@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyForceReceiver : MonoBehaviour
@@ -36,15 +34,5 @@ public class EnemyForceReceiver : MonoBehaviour
     {
         impact = Vector3.zero;
         verticalVelocity = 0f;
-    }
-
-    public void AddForce(Vector3 force)
-    {
-        impact += force;
-    }
-
-    public void Jump(float jumpForce)
-    {
-        verticalVelocity += jumpForce;
     }
 }

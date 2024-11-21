@@ -5,9 +5,9 @@ public class EnemyBaseState : IState
     protected EnemyStateMachine stateMachine;
     protected bool isMove = true;
 
-    public EnemyBaseState(EnemyStateMachine ememyStateMachine)
+    public EnemyBaseState(EnemyStateMachine enemyStateMachine)
     {
-        stateMachine = ememyStateMachine;
+        stateMachine = enemyStateMachine;
     }
 
     public virtual void Enter()
@@ -81,8 +81,6 @@ public class EnemyBaseState : IState
 
             stateMachine.Enemy.transform.rotation = Quaternion.Slerp(stateMachine.Enemy.transform.rotation, targetRotation, stateMachine.RotationDamping * Time.deltaTime);
         }
-
-        //Debug.Log($"Àû È¸Àü {stateMachine.Enemy.transform.rotation}");
     }
 
     protected float GetMovementSpeed()
