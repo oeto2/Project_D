@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public abstract class StateMachine
 {
     protected IState currentState;
@@ -28,3 +24,10 @@ public abstract class StateMachine
         return currentState;
     }
 }
+
+
+
+
+
+
+

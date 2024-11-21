@@ -1,12 +1,9 @@
 using Constants;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAttackState : EnemyBaseState
 {
-    public EnemyAttackState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
+    public EnemyAttackState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
 
     }
@@ -73,8 +70,6 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Update()
     {
-        //Debug.Log("공격 상태");
-
         float normalizedTime = GetNormalizedTime(stateMachine.Enemy.Animator, "Attack");
         if (normalizedTime >= 1f)
         {

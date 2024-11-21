@@ -1,28 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Constants;
 
 public class EnemyIdleState : EnemyBaseState
 {
     //현재 대기상태인지
-    private bool isWaiting;
+    private bool _isWaiting;
 
     //현재 시간 값
-    private float elapsedTime;
+    private float _elapsedTime;
 
     //설정된 시간
-    private float WaitTime = 3f;
+    private float _waitTime = 3f;
 
-    public EnemyIdleState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
+    public EnemyIdleState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
     }
 
     public override void Enter()
     {
         //기다리는 시간 설정값 초기화
-        isWaiting = true;
-        elapsedTime = 0f;
+        _isWaiting = true;
+        _elapsedTime = 0f;
 
         stateMachine.MovementSpeedModifier = 0f;
         base.Enter();
@@ -39,14 +37,12 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Update()
     {
-        elapsedTime += Time.deltaTime;
+        _elapsedTime += Time.deltaTime;
 
-        //Debug.Log("기본상태 중");
-
-        //설정된 시간이 지났다면,
-        if (elapsedTime >= WaitTime)
+        //waitTime 
+        if (_elapsedTime >= _waitTime)
         {
-            isWaiting = false;
+            _isWaiting = false;
         }
 
         //일정 범위내로 들어왔으면 플레이어 추적 하기
@@ -56,14 +52,14 @@ public class EnemyIdleState : EnemyBaseState
             return;
         }
 
-        else
+        //정찰 타입이면 일정 구역 순찰하기
+        if (!_isWaiting && stateMachine.Enemy.MonsterMoveType == MonsterMoveType.Scout)
         {
-            //정찰 타입이면 일정 구역 순찰하기
-            if (!isWaiting && stateMachine.Enemy.MonsterMoveType == MonsterMoveType.Scout)
-            {
-                stateMachine.ChangeState(stateMachine.WanderingState);
-                return;
-            }
+            stateMachine.ChangeState(stateMachine.WanderingState);
+            return;
         }
     }
 }
+
+
+

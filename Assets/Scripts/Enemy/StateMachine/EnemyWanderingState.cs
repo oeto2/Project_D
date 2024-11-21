@@ -1,20 +1,15 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyWanderingState : EnemyBaseState
 {
-    public EnemyWanderingState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
+    public EnemyWanderingState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
     }
 
     public override void Enter()
     {
-        //Debug.Log("방황 상태 진입");
         stateMachine.Enemy.NavMeshAgent.Resume();
-        //Debug.Log("새로운 좌표로 이동시작");
         stateMachine.MovementSpeedModifier = 1f;
 
         base.Enter();
@@ -80,7 +75,6 @@ public class EnemyWanderingState : EnemyBaseState
         //목적지에 가까워 졌으면 기본 상태로 돌아가기
         if (HasArrived())
         {
-            //Debug.Log("목적지 도착");
             stateMachine.ChangeState(stateMachine.IdlingState);
         }
     }

@@ -1,19 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : SingletonBase<UIManager>
 {
-    private const string _dragPopupName = "DragPopup";
-    private const string _optionPopupName = "OptionPopup";
-    private const string _gameEndPopupName = "GameEndPopup";
-    private const string _battleUiPopupName = "BattleUI";
-
     //부모 UI
     public Transform parentsUI = null;
     private Dictionary<string, UIBase> _popups = new Dictionary<string, UIBase>();
-    [SerializeField] private List<UIBase> _interactPopus = new List<UIBase>();
 
-    public int BattleUICount;
+    //ESC키로 닫을 수 있는 팝업 모음
+    public Stack<UIBase> interactPopups = new Stack<UIBase>();
 
     private void Awake()
     {
@@ -70,15 +66,9 @@ public class UIManager : SingletonBase<UIManager>
 
     public UIBase ShowPopupWithPrefab(GameObject prefab, string popupName, Transform parents = null)
     {
-        if (parentsUI != null)
-            parents = parentsUI;
-
         string name = popupName;
         var obj = Instantiate(prefab, parents);
         obj.name = name;
-
-        // //UI Popup SortOder 정리
-        // ArrageUIpopup_Oder(popupName, obj);
 
         return ShowPopup(obj, popupName);
     }
@@ -88,12 +78,13 @@ public class UIManager : SingletonBase<UIManager>
         var popup = obj.GetComponent<UIBase>();
         _popups.Add(popupname, popup);
         obj.SetActive(true);
-        CheckInteractPopup(popupname, obj);
+        CheckPopupType(popup); //팝업 타입 체크
         return popup;
     }
 
     public void ShowPopup(GameObject obj)
     {
+        CheckPopupType(obj.GetComponent<UIBase>()); //팝업 타입 체크
         obj.SetActive(true);
     }
 
@@ -101,53 +92,17 @@ public class UIManager : SingletonBase<UIManager>
     public void ResetUIMangerData()
     {
         _popups.Clear();
-        _interactPopus.Clear();
+        interactPopups.Clear();
     }
 
-    //Ui 정렬하기 
-    private void ArrageUIpopup_Oder(string popupName_, GameObject popup_)
+    //PopupType 체크
+    public void CheckPopupType(UIBase popup_)
     {
-        switch (popupName_)
+        switch (popup_.uiPopupType)
         {
-            case _battleUiPopupName:
-                popup_.GetComponent<Canvas>().sortingOrder = 0;
-                break;
-
-            case _gameEndPopupName:
-                popup_.GetComponent<Canvas>().sortingOrder = 2;
-                break;
-
-            case _dragPopupName:
-                popup_.GetComponent<Canvas>().sortingOrder = 20;
-                break;
-
-            case _optionPopupName:
-                popup_.GetComponent<Canvas>().sortingOrder = 100;
-                break;
-
-            default:
-                popup_.GetComponent<Canvas>().sortingOrder = _popups.Count;
-                break;
-        }
-    }
-
-    //상호작용 팝업 체크
-    public void CheckInteractPopup(string name_, GameObject popup_)
-    {
-        //상호작용 팝업 리스트 추가
-        switch (name_)
-        {
-            //상호작용 팝업 추가
-            case nameof(InventoryPopup):
-                _interactPopus.Add(popup_.GetComponent<InventoryPopup>());
-                break;
-
-            case nameof(EquipmentPopup):
-                _interactPopus.Add(popup_.GetComponent<EquipmentPopup>());
-                break;
-
-            case nameof(RewardPopup):
-                _interactPopus.Add(popup_.GetComponent<RewardPopup>());
+            //상호 작용 팝업이라면 따로 보관
+            case UIPopupType.Interact:
+                interactPopups.Push(popup_);
                 break;
         }
     }
@@ -155,13 +110,11 @@ public class UIManager : SingletonBase<UIManager>
     //활성화 되어있는 UIPopup 순서대로 닫기
     public void CloseActiveUI()
     {
-        for(int i = 0; i< _interactPopus.Count; i++)
-        {
-            if (_interactPopus[i].gameObject.active)
-            {
-                _interactPopus[i].gameObject.SetActive(false);
-                return;
-            }
-        }
+        if (interactPopups.Count > 0)
+            interactPopups.Pop().gameObject.SetActive(false);
+
+        //열려있는 팝업이 존재하지 않으면, 커서 잠금
+        if (interactPopups.Count <= 0)
+            Cursor.lockState = CursorLockMode.Locked;
     }
 }

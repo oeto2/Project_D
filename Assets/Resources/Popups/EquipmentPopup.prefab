@@ -2482,6 +2482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465127ebe20c5af4ca431e225b3c74b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiPopupType: 1
   btnClose: {fileID: 6683567317799865618}
 --- !u!114 &6133338152722316789
 MonoBehaviour:

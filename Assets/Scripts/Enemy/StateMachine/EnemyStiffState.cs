@@ -7,20 +7,15 @@ public class EnemyStiffState : EnemyBaseState
 
     //경직 경과 시간
     private float elapsedTime = 0f;
-
-    //플레이어 체력
-    private float playerHp = 0f;
-
-    public EnemyStiffState(EnemyStateMachine ememyStateMachine) : base(ememyStateMachine)
+    
+    public EnemyStiffState(EnemyStateMachine enemyStateMachine) : base(enemyStateMachine)
     {
     }
 
     public override void Enter()
     {
-        playerHp = stateMachine.Enemy.Health.health;
         //경직 상태 시간 초기화
         stiffTime = stateMachine.Enemy.Data.monsterStiff;
-        //Debug.Log($"몬스터 경직상태, 경직{stiffTime}초");
 
         elapsedTime = 0f;
         stateMachine.MovementSpeedModifier = 0f;
