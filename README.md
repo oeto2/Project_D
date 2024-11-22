@@ -33,10 +33,9 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 - FSM 구조
 
 #### UIManager - <a href="https://github.com/oeto2/Project_D/wiki/UIManager" >상세보기 - WIKI 이동</a>
-- FSM을 사용한 이유
-- FSM 스크립트 (몬스터)
-- FSM 구조
-
+- 동적로딩 방식 적용
+- 싱글톤패턴 적용
+- Stack을 활용한 팝업관리
 ## 🛠️ 트러블 슈팅
 #### UI 팝업 관리 문제 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85" >상세보기 - WIKI 이동</a>
 - UI들을 용도에 따라 Type을 분류하여 관리함으로써, UI 관리를 기존보다 용이하게함
