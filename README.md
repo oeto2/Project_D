@@ -27,7 +27,7 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 - Visual Studio 2022
 
 ## 📌 핵심 기술
-#### FSM(유한상태머신) - <a href="https://github.com/oeto2/Project_D/wiki/FSM-(%EC%9C%A0%ED%95%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0" >상세보기 - WIKI 이동</a>
+#### FSM(유한상태머신) - <a href="https://github.com/oeto2/Project_D/wiki/FSM-(%EC%9C%A0%ED%95%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0)" >상세보기 - WIKI 이동</a>
 - FSM을 사용한 이유
 - FSM 스크립트 (몬스터)
 - FSM 구조
