@@ -1,4 +1,4 @@
-# FATE
+# FATE (유한상태머신)
 ![image](https://github.com/user-attachments/assets/1f29b387-c7f1-46af-8f22-7d1d85fc7ce7)
 
 
