@@ -9,7 +9,7 @@ public class Tutorial : MonoBehaviour
     private Player _player;
     public TextMeshProUGUI tutorialText;
     public GameObject NextStage;
-    public EnemyInteration[] enemyInteration;
+    public EnemyInteraction[] enemyInteration;
 
     private int _questNum = 0;
     private bool _textOn;

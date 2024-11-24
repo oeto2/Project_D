@@ -157,6 +157,7 @@ public class PlayerBaseState : IState
         stateMachine.Player.InteractionSystem.curInteractable?.CancelInteract();
     }
 
+    //인벤토리 단축키 입력시
     private void OnInventoryStarted(InputAction.CallbackContext context)
     {
         GameObject inventoryPopup = UIManager.Instance.GetPopupObject(nameof(InventoryPopup));
@@ -171,7 +172,7 @@ public class PlayerBaseState : IState
         }
 
         Cursor.lockState = CursorLockMode.None;
-        UIManager.Instance.ShowPopup<InventoryPopup>();
+        UIManager.Instance.ShowPopup<InventoryPopup>(); //인벤토리 팝업 띄우기
     }
 
     private void OnEquipStarted(InputAction.CallbackContext context)

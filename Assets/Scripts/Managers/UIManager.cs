@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,7 +28,6 @@ public class UIManager : SingletonBase<UIManager>
         {
             return null;
         }
-
         return _popups[popupName].gameObject;
     }
 
@@ -39,6 +37,11 @@ public class UIManager : SingletonBase<UIManager>
         return _popups.ContainsKey(_key);
     }
 
+    public T ShowPopup<T>(Transform parents = null) where T : UIBase
+    {
+        return ShowPopup(typeof(T).Name, parents) as T;
+    }
+    
     //팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
     {
@@ -57,11 +60,6 @@ public class UIManager : SingletonBase<UIManager>
         }
 
         return ShowPopupWithPrefab(obj, popupname, parents);
-    }
-
-    public T ShowPopup<T>(Transform parents = null) where T : UIBase
-    {
-        return ShowPopup(typeof(T).Name, parents) as T;
     }
 
     public UIBase ShowPopupWithPrefab(GameObject prefab, string popupName, Transform parents = null)
