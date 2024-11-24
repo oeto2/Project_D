@@ -37,7 +37,7 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 - 싱글톤패턴
 - Stack을 활용한 팝업관리
 
-#### 아이템 루팅 - <a href="https://github.com/oeto2/Project_D/wiki/%EC%95%84%EC%9D%B4%ED%85%9C-%EB%A3%A8%ED%8C%85" >상세보기 - WIKI 이동</a>
+#### 아이템 파밍 - <a href="https://github.com/oeto2/Project_D/wiki/%EC%95%84%EC%9D%B4%ED%85%9C-%EB%A3%A8%ED%8C%85" >상세보기 - WIKI 이동</a>
 - 이벤트를 활용한 아이템 루팅
 - 루팅 시스템
   
