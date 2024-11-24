@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
-public class EnemyInteration : MonoBehaviour, IInteractable
+public class EnemyInteraction : MonoBehaviour, IInteractable
 {
     private Enemy _enemy;
     [SerializeField] public bool _isRoot;

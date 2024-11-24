@@ -32,3 +32,4 @@ public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
         Debug.Log(transform.name + "is Init");
     }
 }
+
