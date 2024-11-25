@@ -1,9 +1,5 @@
-using DarkPixelRPGUI.Scripts.UI.Equipment;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Reward : MonoBehaviour
 {
@@ -40,6 +36,7 @@ public class Reward : MonoBehaviour
         _rewardBase.SetActive(false);
     }
 
+    //æ∆¿Ã≈€ »πµÊ
     public void AcquireItem(ItemData item_, int count_ = 1)
     {
         if (item_.itemType == Constants.ItemType.Consume || item_.itemType == Constants.ItemType.Material)
@@ -124,7 +121,7 @@ public class Reward : MonoBehaviour
         return slots[slotNum_].itemCount;
     }
 
-
+    //æ∆¿Ã≈€ ∏µŒ »πµÊ
     public void Getitall()
     {
         if (!UIManager.Instance.ExistPopup(nameof(InventoryPopup)))

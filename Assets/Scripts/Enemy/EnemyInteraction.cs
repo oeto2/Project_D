@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyInteraction : MonoBehaviour, IInteractable
 {
@@ -14,6 +16,12 @@ public class EnemyInteraction : MonoBehaviour, IInteractable
         _enemy = GetComponentInParent<Enemy>();
     }
 
+    private void Start()
+    {
+        //현재 보유중인 아이템 갯수를 이벤트에 등록
+        GameManager.Instance.UpdateRewardCountEvent += UpdateGetItemCountList;
+    }
+
     public void CancelInteract()
     {
     }
@@ -24,6 +32,8 @@ public class EnemyInteraction : MonoBehaviour, IInteractable
         return string.Format(_enemy.Data.monsterName);
     }
 
+    
+    //처치한 몬스터와 상호작용 시 호출되는 함수
     public void OnInteract()
     {
         //이벤트 구독
@@ -35,13 +45,15 @@ public class EnemyInteraction : MonoBehaviour, IInteractable
         //최초 1회 실행
         if (!_isRoot)
         {
-            GameManager.Instance.UpdateRewardCountEvent += UpdateGetItemCountList;
-            int monsterId = _enemy.Data.id;
-            int rand = Random.Range(1, Database.Monster.Get(monsterId).monsterMaxRoot);
+            int monsterId = _enemy.Data.id; //처치한 몬스터 ID
+            
+            //Item 몇개 획득할 지 (랜덤)
+            int rand = Random.Range(1, Database.Monster.Get(monsterId).monsterMaxRoot); 
 
             //리워드 창에 있는 아이템 비우기
             reward.CleanRewardItem();
 
+            //드랍테이블을 근거로 획득할 아이템 ID 얻어와서 리스트에 추가
             for (int i = 0; i < rand; i++)
             {
                 ItemData getItem = Database.DropPer.GetItem(Database.Monster.Get(monsterId).dropId);
@@ -49,12 +61,11 @@ public class EnemyInteraction : MonoBehaviour, IInteractable
                 getItemsID.Add(getItem.id);
             }
 
-            UpdateGetItemCountList();
+            UpdateGetItemCountList(); //획득한 아이템 갯수 
             _isRoot = true;
         }
         else
         {
-            GameManager.Instance.UpdateRewardCountEvent += UpdateGetItemCountList;
             //리워드 창에 있는 아이템 비우기
             reward.CleanRewardItem();
 

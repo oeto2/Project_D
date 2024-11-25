@@ -68,13 +68,14 @@ public class InteractionSystem : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
             {
-                //부딪힌 오브젝트가 현재 상호작용중인 오브젝트가 아니라면
+                //부딪힌 오브젝트가 현재 상호작용중인 오브젝트가 아니라면 (중복실행 방지)
                 if (hit.collider.gameObject != _curInteractGameObject)
                 {
                     _curInteractGameObject = hit.collider.gameObject;
+                    
+                    //레이케스트로 해당 오브젝트의 IInteractable 컴포넌트를 가져옴
                     curInteractable = hit.collider.GetComponent<IInteractable>();
                     SetPromptText();
-                    //Debug.Log("레이캐스트 포탈 발견");
                 }
             }
             else
@@ -86,9 +87,10 @@ public class InteractionSystem : MonoBehaviour
                 promptText.gameObject.SetActive(false);
             }
         }
+        
         if (isInteract && curInteractable != null)
         {
-            curInteractable.OnInteract();
+            curInteractable.OnInteract(); //상호작용 시작
             //isInteract = false;
         }
     }

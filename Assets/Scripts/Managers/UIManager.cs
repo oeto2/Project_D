@@ -28,6 +28,7 @@ public class UIManager : SingletonBase<UIManager>
         {
             return null;
         }
+
         return _popups[popupName].gameObject;
     }
 
@@ -41,7 +42,7 @@ public class UIManager : SingletonBase<UIManager>
     {
         return ShowPopup(typeof(T).Name, parents) as T;
     }
-    
+
     //팝업 불러오기
     public UIBase ShowPopup(string popupname, Transform parents = null)
     {
@@ -109,10 +110,51 @@ public class UIManager : SingletonBase<UIManager>
     public void CloseActiveUI()
     {
         if (interactPopups.Count > 0)
-            interactPopups.Pop().gameObject.SetActive(false);
+        {
+            UIBase popup = interactPopups.Pop();
+            
+            //해당 팝업이 활성화 중이라면
+            if (popup.gameObject.activeSelf)
+            {
+                //해당 팝업을 닫음
+                popup.gameObject.SetActive(false);
+            }
+            //해당 팝업이 비활성화 중이였다면
+            else
+            {
+                CloseActiveUI();
+            }
+        }
 
         //열려있는 팝업이 존재하지 않으면, 커서 잠금
         if (interactPopups.Count <= 0)
             Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    //팝업이 전부 닫혔는지 확인하기
+    public void CheckCloseAllPopup()
+    {
+        foreach (var popup in _popups)
+        {
+            if (popup.Value != null)
+            {
+                //팝업이 한개라도 활성화 중이면 return
+                if (popup.Value.gameObject.activeSelf)
+                {
+                    //예외처리 : 배틀, 상호작용 UI는 활성화 중이여도 문제 x
+                    if (popup.Value.gameObject.name is nameof(BattleUI) or nameof(interationPopup)
+                        or nameof(DragPopup))
+                    {
+                        continue;
+                    }
+                    return;
+                }
+            }
+        }
+
+        //Queue 비워주기
+        interactPopups.Clear();
+        //커서 잠금
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
