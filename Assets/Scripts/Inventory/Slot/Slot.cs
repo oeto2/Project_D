@@ -8,19 +8,19 @@ using TMPro;
 public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
-    public ItemData item; // È¹µæÇÑ ¾ÆÀÌÅÛ.
-    public int itemCount; // È¹µæÇÑ ¾ÆÀÌÅÛÀÇ °³¼ö.
-    public Image itemImage; // ¾ÆÀÌÅÛÀÇ ÀÌ¹ÌÁö.
+    public ItemData item; // íšë“í•œ ì•„ì´í…œ.
+    public int itemCount; // íšë“í•œ ì•„ì´í…œì˜ ê°œìˆ˜.
+    public Image itemImage; // ì•„ì´í…œì˜ ì´ë¯¸ì§€.
     //public int itemOriginPosX;
     //public int itemOriginPosY;
 
-    // ÇÊ¿äÇÑ ÄÄÆ÷³ÍÆ®.
+    // í•„ìš”í•œ ì»´í¬ë„ŒíŠ¸.
     [SerializeField]
     private TextMeshProUGUI _textCount;
     [SerializeField]
     private GameObject _countImage;
 
-    // ÀÌ¹ÌÁöÀÇ Åõ¸íµµ Á¶Àı.
+    // ì´ë¯¸ì§€ì˜ íˆ¬ëª…ë„ ì¡°ì ˆ.
     private void SetColor(float alpha_)
     {
         Color color = itemImage.color;
@@ -28,7 +28,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         itemImage.color = color;
     }
 
-    // ¾ÆÀÌÅÛ È¹µæ
+    // ì•„ì´í…œ íšë“
     public void AddItem(ItemData item_, int count_ = 1)
     {
         item = item_;
@@ -54,7 +54,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         SetColor(alpha_:1);
     }
 
-    // ¾ÆÀÌÅÛ °³¼ö Á¶Á¤.
+    // ì•„ì´í…œ ê°œìˆ˜ ì¡°ì •.
     public void SetSlotCount(int count_)
     {
         if(itemCount + count_ > item.itemMax_Stack)
@@ -85,7 +85,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             ClearSlot();
     }
 
-    // ½½·Ô ÃÊ±âÈ­.
+    // ìŠ¬ë¡¯ ì´ˆê¸°í™”.
     public void ClearSlot()
     {
         item = null;
@@ -105,6 +105,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
     public virtual void OnPointerClick(PointerEventData eventData)
     {
+        //ì•„ì´í…œ ì‚¬ìš©í•˜ê¸° (ìš°í´ë¦­)
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             if (item != null)
@@ -114,7 +115,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 else if (item.itemType == Constants.ItemType.Weapon)
                 {
                     WeaponSlot _weaponSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<WeaponSlot>();
-                    //±³È¯ÇÒ ¾ÆÀÌÅÛ ÀúÀå
+                    //êµí™˜í•  ì•„ì´í…œ ì €ì¥
                     ItemData _tempItem = _weaponSlot.item;
                     _weaponSlot.ClearSlot();
                     _weaponSlot.AddItem(item);
@@ -126,7 +127,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 else if (item.itemType == Constants.ItemType.Helmet)
                 {
                     HelmetSlot _helmetSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<HelmetSlot>();
-                    //±³È¯ÇÒ ¾ÆÀÌÅÛ ÀúÀå
+                    //êµí™˜í•  ì•„ì´í…œ ì €ì¥
                     ItemData _tempItem = _helmetSlot.item;
                     _helmetSlot.ClearSlot();
                     _helmetSlot.AddItem(item);
@@ -138,7 +139,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 else if (item.itemType == Constants.ItemType.Chest)
                 {
                     ChestSlot _chestSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<ChestSlot>();
-                    //±³È¯ÇÒ ¾ÆÀÌÅÛ ÀúÀå
+                    //êµí™˜í•  ì•„ì´í…œ ì €ì¥
                     ItemData _tempItem = _chestSlot.item;
                     _chestSlot.ClearSlot();
                     _chestSlot.AddItem(item);
@@ -150,7 +151,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 else if (item.itemType == Constants.ItemType.Pants)
                 {
                     PantsSlot _pantsSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<PantsSlot>();
-                    //±³È¯ÇÒ ¾ÆÀÌÅÛ ÀúÀå
+                    //êµí™˜í•  ì•„ì´í…œ ì €ì¥
                     ItemData _tempItem = _pantsSlot.item;
                     _pantsSlot.ClearSlot();
                     _pantsSlot.AddItem(item);
@@ -162,7 +163,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 else if (item.itemType == Constants.ItemType.Boots)
                 {
                     BootsSlot _bootsSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<BootsSlot>();
-                    //±³È¯ÇÒ ¾ÆÀÌÅÛ ÀúÀå
+                    //êµí™˜í•  ì•„ì´í…œ ì €ì¥
                     ItemData _tempItem = _bootsSlot.item;
                     _bootsSlot.ClearSlot();
                     _bootsSlot.AddItem(item);
@@ -174,7 +175,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 else if (item.itemType == Constants.ItemType.Necklace)
                 {
                     NecklaceSlot _necklaceSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<NecklaceSlot>();
-                    //±³È¯ÇÒ ¾ÆÀÌÅÛ ÀúÀå
+                    //êµí™˜í•  ì•„ì´í…œ ì €ì¥
                     ItemData _tempItem = _necklaceSlot.item;
                     _necklaceSlot.ClearSlot();
                     _necklaceSlot.AddItem(item);
@@ -186,7 +187,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 else if (item.itemType == Constants.ItemType.Ring)
                 {
                     RingSlot _ringSlot = UIManager.Instance.GetPopup(nameof(EquipmentPopup)).GetComponentInChildren<RingSlot>();
-                    //±³È¯ÇÒ ¾ÆÀÌÅÛ ÀúÀå
+                    //êµí™˜í•  ì•„ì´í…œ ì €ì¥
                     ItemData _tempItem = _ringSlot.item;
                     _ringSlot.ClearSlot();
                     _ringSlot.AddItem(item);
@@ -249,6 +250,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         DragSlot.instance.equipmentSlot = null;
     }
 
+    //ì•„ì´í…œì„ ë“œë˜ê·¸ í›„ ë†“ì•˜ì„ ê²½ìš°
     public void OnDrop(PointerEventData eventData)
     {
         if (DragSlot.instance.dragSlot != null|| DragSlot.instance.equipmentSlot != null)
@@ -261,8 +263,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         int _tempItemCount = itemCount;
         if (DragSlot.instance.dragSlot == this)
         {
-            return;  // º¯°æ ¾øÀÌ ¸Ş¼­µå Á¾·á
+            return;  // ë³€ê²½ ì—†ì´ ë©”ì„œë“œ ì¢…ë£Œ
         }
+        
+        //ë“œë˜ê·¸ ìŠ¬ë¡¯ì´ ì¡´ì¬í•œë‹¤ë©´
         if (DragSlot.instance.dragSlot != null)
         {
             if (item == DragSlot.instance.dragSlot.item && (item.itemType == Constants.ItemType.Material||item.itemType==Constants.ItemType.Consume))
@@ -291,7 +295,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             
             if (_tempItem != null)
             {
-                //¾ÆÀÌÅÛ Å¸ÀÔÀÌ °°Àº °æ¿ì¿¡¸¸ ±³È¯°¡´É
+                //ì•„ì´í…œ íƒ€ì…ì´ ê°™ì€ ê²½ìš°ì—ë§Œ êµí™˜ê°€ëŠ¥
                 if(DragSlot.instance.equipmentSlot.item.itemType == _tempItem.itemType)
                 {
                     AddItem(DragSlot.instance.equipmentSlot.item);
@@ -299,8 +303,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 }
                 else
                 {
-                    //Âø¿ëÇÒ¼ö¾øÀ½
-                    Debug.Log("¹Ù²Ü¼ö¾ø½À´Ï´Ù.");
+                    //ì°©ìš©í• ìˆ˜ì—†ìŒ
+                    Debug.Log("ë°”ê¿€ìˆ˜ì—†ìŠµë‹ˆë‹¤.");
                     return;
                 }
             }
@@ -309,8 +313,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 AddItem(DragSlot.instance.equipmentSlot.item);
                 DragSlot.instance.equipmentSlot.ClearSlot();
             }
+            
+            //ë¦¬ì›Œë“œ íŒì—…ì´ ì¡´ì¬í•  ê²½ìš°
             if (UIManager.Instance.ExistPopup(nameof(RewardPopup))) 
             {
+                //ë¦¬ì›Œë“œ ì´ë²¤íŠ¸ë¡œ
                 GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
                 GameManager.Instance.CallUpdateRewardCountEvent();
             }

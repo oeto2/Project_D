@@ -167,6 +167,7 @@ public class PlayerBaseState : IState
             if (inventoryPopup.activeSelf)
             {
                 inventoryPopup.SetActive(false);
+                UIManager.Instance.CheckCloseAllPopup();
                 return;
             }
         }
@@ -185,6 +186,7 @@ public class PlayerBaseState : IState
             if (equipmentPopup.activeSelf)
             {
                 equipmentPopup.SetActive(false);
+                UIManager.Instance.CheckCloseAllPopup();
                 return;
             }
         }
