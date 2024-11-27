@@ -41,6 +41,5 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 #### UI 팝업 관리 문제 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85" >상세보기 - WIKI 이동</a>
 - UI들을 용도에 따라 Type을 분류하여 관리함으로써, UI 관리를 기존보다 용이하게함
 
-#### 아이템 파밍 - <a href= "https://github.com/oeto2/Project_D/wiki/%EC%95%84%EC%9D%B4%ED%85%9C-%ED%8C%8C%EB%B0%8D" >상세보기 - WIKI 이동</a>
-- 이벤트를 활용한 아이템 루팅
-- 루팅 시스템
+#### 아이템 일괄 획득 - <a href= "https://github.com/oeto2/Project_D/wiki/%EC%95%84%EC%9D%B4%ED%85%9C-%ED%8C%8C%EB%B0%8D" >상세보기 - WIKI 이동</a>
+- 이벤트를 활용하여 리스트에 구독된 아이템들을 모두 획득하도록 구현함.
