@@ -1,10 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    //리스트 : 몬스터 스폰 위치 
     [SerializeField] private List<Transform> _monsterSpawnPoints;
+    
+    //리스트 : 몬스터 정찰 위치
     [SerializeField] private List<Transform> _EnemyPatrolLocations;
 
     //생성된 몬스터 리스트
@@ -12,8 +14,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnMonsters();
-        SettingMonsters();
+        // SpawnMonsters(); //몬스터 생성
+        // SettingMonsters(); //몬스터 세팅 
     }
 
     //몬스터 생성

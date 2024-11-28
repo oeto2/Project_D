@@ -130,16 +130,18 @@ public class Reward : MonoBehaviour
             return;
         }
         Inventory inventory = UIManager.Instance.GetPopupObject(nameof(InventoryPopup)).GetComponent<Inventory>();
-        for (int i =0;i< slots.Length;i++)
-        {
-            if (slots[i].item != null)
-            {
-                bool invenEmpty = inventory.AcquireItem(slots[i].item, slots[i].itemCount);
-                if(invenEmpty)
-                    slots[i].ClearSlot();
-            }
-        }
+        // for (int i =0;i< slots.Length;i++)
+        // {
+        //     if (slots[i].item != null)
+        //     {
+        //         bool invenEmpty = inventory.AcquireItem(slots[i].item, slots[i].itemCount);
+        //         if(invenEmpty)
+        //             slots[i].ClearSlot();
+        //     }
+        // }
         GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
         GameManager.Instance.CallUpdateRewardCountEvent();
+        
+        Debug.Log("¾ÆÀÌÅÛ ¸ðµÎ È¹µæ");
     }
 }

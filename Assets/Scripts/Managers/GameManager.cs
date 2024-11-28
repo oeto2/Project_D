@@ -71,13 +71,13 @@ public class GameManager : SingletonBase<GameManager>
         SceneLoadEvent?.Invoke();
     }
 
-    //보상 목록 이벤트 호출
+    //리워드 아이템 획득 이벤트 호출
     public void CallGetRewardItemEvent(List<int> itemsId)
     {
         GetRewardItemEvent?.Invoke(itemsId);
     }
 
-    // 변경된 보상 목록 적용 이벤트 호출 
+    //리워드 아이템을 넘겨주는 이벤트 호출
     public List<int> CallSetRewardItemEvent()
     {
         return SetRewardItemEvent?.Invoke();

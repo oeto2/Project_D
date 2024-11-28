@@ -18,7 +18,10 @@ public class EnemyInteraction : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        //현재 보유중인 아이템 갯수를 이벤트에 등록
+        //이벤트 호출 시 : 획득할 아이템 리스트를 받아옴
+        GameManager.Instance.GetRewardItemEvent += UpdateGetItemList;
+
+        //이벤트 호출 시 :현재 보유중인 아이템 갯수를 이벤트에 등록 (모두 획득)
         GameManager.Instance.UpdateRewardCountEvent += UpdateGetItemCountList;
     }
 
@@ -36,9 +39,6 @@ public class EnemyInteraction : MonoBehaviour, IInteractable
     //처치한 몬스터와 상호작용 시 호출되는 함수
     public void OnInteract()
     {
-        //이벤트 구독
-        GameManager.Instance.GetRewardItemEvent += UpdateGetItemList;
-
         //아이템루트 열기
         Reward reward = UIManager.Instance.GetPopup(nameof(RewardPopup)).GetComponent<Reward>();
 
@@ -80,6 +80,7 @@ public class EnemyInteraction : MonoBehaviour, IInteractable
         }
     }
 
+    //획득할 아이템 리스트 업데이트
     public void UpdateGetItemList(List<int> itemsId_)
     {
         getItemsID = itemsId_;
