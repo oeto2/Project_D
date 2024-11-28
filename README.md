@@ -37,7 +37,15 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 - 싱글톤패턴
 - Stack을 활용한 팝업관리
 
+#### 몬스터 스폰 - <a href="https://github.com/oeto2/Project_D/wiki/UIManager" >상세보기 - WIKI 이동</a>
+- 몬스터 스폰 시스템 구조
+
+
 ## 🛠️ 트러블 슈팅
 
 #### UI 팝업 관리 문제 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85#ui-%ED%8C%9D%EC%97%85-%EA%B4%80%EB%A6%AC-%EB%AC%B8%EC%A0%9C">상세보기 - WIKI 이동</a>
 - UI들을 용도에 따라 Type을 분류하여 관리함으로써, UI 관리를 기존보다 용이하게함
+
+#### 몬스터 스폰 최적화 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85#ui-%ED%8C%9D%EC%97%85-%EA%B4%80%EB%A6%AC-%EB%AC%B8%EC%A0%9C">상세보기 - WIKI 이동</a>
+- 몬스터를 한번에 소환하는 것이 아닌, 플레이어의 위치에 근거해 소환하는 방식으로 수정함
+
