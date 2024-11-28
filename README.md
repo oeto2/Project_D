@@ -1,40 +1,52 @@
-## UI 팝업 관리 문제
-### **핵심 요약**
-UI들을 용도에 따라 Type을 분류하여 관리함으로써, UI 관리를 기존보다 용이하게함.
+# FATE 
+![image](https://github.com/user-attachments/assets/1f29b387-c7f1-46af-8f22-7d1d85fc7ce7)
 
 
 
-### 해결 과정
-ESC키를 눌렀을 경우, 순차적으로 종료해야하는 UI들을 이름으로 판단하여 관리했는데, 이는 추후에 팝업의 이름이 바뀌거나 추가될 경우 매번 수정이 필요하기 때문에 코드가 유연하지 않고 비효율적이라고 생각했습니다.  
 
-![image](https://github.com/user-attachments/assets/2905cc0a-55d6-4730-acd1-aa8bb7b111f7)\
-(UIManager.cs 수정 전)
-
-
-
-따라서, 팝업의 종류를 구분할 수 있는 Enum 값을 통해 모든 UI들이 각자의 UI TYPE을 갖고 있게하여, ESC키를 눌렀을 때 종료되어야하는 팝업들만 따로 분류를 했습니다. 
-
-
-![UipopupType](https://github.com/user-attachments/assets/54a8ad29-f296-4174-85dc-bf9a5c6882b5)\
-(인벤토리 팝업)
-
-![image](https://github.com/user-attachments/assets/8c53efce-001d-4885-a9d6-6c8562179eaa)\
-(UIManager.cs 수정 후)
-
-<br><br><br><br>
-
-## 플레이어의 위치에 따른 몬스터 스폰 시스템
-### **핵심 요약**
-프레임 드랍 및 성능 개선을 위해 몬스터를 전부 소환하는 방식이 아닌, 플레이어의 위치를 감지해 필요한 몬스터만 소환하는 방식으로 스폰 시스템을 변경했습니다.
-
-### 해결 과정
-기존에는 스폰 포인트에 몬스터 종류만 선택하면, 던전 진입시 몬스터가 소환되었습니다.
-이 방식은 구현은 간단하다는 장점이 존재했지만, 3D 소울라이크 게임 특성상 많은 몬스터를 소환하고, 소환된
-몬스터의 비용이 크기 때문에 문제가 되었습니다. 
-
-![image](https://github.com/user-attachments/assets/e4463da2-96c0-467b-a791-9ca92134d8a6)
-![스폰시스템 종류](https://github.com/user-attachments/assets/3703844b-425c-4919-bdb6-6c879efa8d6b)
-
-
+## 🖥️ 프로젝트 소개
+Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스터를 처치하는 것이 목적인 게임입니다.
+몬스터를 처치한 후 몬스터의 시체를 탐색해 아이템을 획득 및 장착할 수 있으며, 상점에서 아이템을 구매하거나
+판매를 통해 플레이어를 성장시킬 수 있습니다.
 <br>
+
+## 📜 기획의도
+유니티 3D를 활용한 소울라이크 게임 개발
+
+## 🕰️ 개발 기간
+* 2024.03 ~ 2024.04
+
+### 🧑‍🤝‍🧑 맴버구성
+ - 팀장  : 최철환 - 게임매니저, 사운드, 플레이어
+ - 부팀장 : 이상민 - 몬스터, UI, 맵, 아이템 루팅
+ - 팀원1 : 박지훈 - 포탈, 함정, 인벤토리
+ - 팀원2 : 김관철 - 데이터 테이블, 상점
+
+### ⚙️ 개발 환경
+- Unity 2022.3.2f1
+- Visual Studio 2022
+
+## 📌 핵심 기술
+#### FSM(유한상태머신) - <a href="https://github.com/oeto2/Project_D/wiki/FSM-(%EC%9C%A0%ED%95%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0)" >상세보기 - WIKI 이동</a>
+- FSM을 사용한 이유
+- FSM 스크립트 (몬스터)
+- FSM 구조
+
+#### UIManager - <a href="https://github.com/oeto2/Project_D/wiki/UIManager" >상세보기 - WIKI 이동</a>
+- 동적로딩
+- 싱글톤패턴
+- Stack을 활용한 팝업관리
+
+#### 몬스터 스폰 - <a href="https://github.com/oeto2/Project_D/wiki/%EB%AA%AC%EC%8A%A4%ED%84%B0-%EC%8A%A4%ED%8F%B0">상세보기 - WIKI 이동</a>
+
+- 몬스터 스폰 시스템 구조
+
+
+## 🛠️ 트러블 슈팅
+
+#### UI 팝업 관리 문제 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85#ui-%ED%8C%9D%EC%97%85-%EA%B4%80%EB%A6%AC-%EB%AC%B8%EC%A0%9C">상세보기 - WIKI 이동</a>
+- UI들을 용도에 따라 Type을 분류하여 관리함으로써, UI 관리를 기존보다 용이하게함
+
+#### 몬스터 스폰 최적화 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85#%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4%EC%9D%98-%EC%9C%84%EC%B9%98%EC%97%90-%EB%94%B0%EB%A5%B8-%EB%AA%AC%EC%8A%A4%ED%84%B0-%EC%8A%A4%ED%8F%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C">상세보기 - WIKI 이동</a>
+- 몬스터를 한번에 소환하는 것이 아닌, 플레이어의 위치에 근거해 소환하는 방식으로 수정함
 
