@@ -47,6 +47,6 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 #### UI 팝업 관리 문제 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85#ui-%ED%8C%9D%EC%97%85-%EA%B4%80%EB%A6%AC-%EB%AC%B8%EC%A0%9C">상세보기 - WIKI 이동</a>
 - UI들을 용도에 따라 Type을 분류하여 관리함으로써, UI 관리를 기존보다 용이하게함
 
-#### 몬스터 스폰 최적화 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85#ui-%ED%8C%9D%EC%97%85-%EA%B4%80%EB%A6%AC-%EB%AC%B8%EC%A0%9C">상세보기 - WIKI 이동</a>
+#### 몬스터 스폰 최적화 - <a href="https://github.com/oeto2/Project_D/wiki/%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85#%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4%EC%9D%98-%EC%9C%84%EC%B9%98%EC%97%90-%EB%94%B0%EB%A5%B8-%EB%AA%AC%EC%8A%A4%ED%84%B0-%EC%8A%A4%ED%8F%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C")>상세보기 - WIKI 이동</a>
 - 몬스터를 한번에 소환하는 것이 아닌, 플레이어의 위치에 근거해 소환하는 방식으로 수정함
 
