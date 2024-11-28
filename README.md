@@ -37,7 +37,8 @@ Fate는 1인칭 소울라이크 RPG 게임으로 던전에 있는 보스 몬스
 - 싱글톤패턴
 - Stack을 활용한 팝업관리
 
-#### 몬스터 스폰 - <a href="https://github.com/oeto2/Project_D/wiki/UIManager" >상세보기 - WIKI 이동</a>
+#### 몬스터 스폰 - <a href="https://github.com/oeto2/Project_D/wiki/%EB%AA%AC%EC%8A%A4%ED%84%B0-%EC%8A%A4%ED%8F%B0">상세보기 - WIKI 이동</a>
+
 - 몬스터 스폰 시스템 구조
 
 
