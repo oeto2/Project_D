@@ -23,7 +23,6 @@ public class Inventory : MonoBehaviour
 
     // Use this for initialization
 
-
     private void Awake()
     {
         InformationManager.Instance.InvenGoldUpdate += UpdateGold;
@@ -96,6 +95,7 @@ public class Inventory : MonoBehaviour
             return false;
         }
 
+        //사용 및 재료 아이템은 갯수를 늘림.
         if (item_.itemType == Constants.ItemType.Consume || item_.itemType == Constants.ItemType.Material)
         {
             for (int i = 0; i < _slots.Length; i++)
@@ -135,10 +135,11 @@ public class Inventory : MonoBehaviour
             if (_slots[i].item == null)
             {
                 _slots[i].AddItem(item_, count_);
-                //InformationManager.Instance.SaveInformation(i, _item.id, _count);
                 return true;
             }
         }
+        
+        //인벤 창이 가득 찼을 경우
         var _warningPopup = UIManager.Instance.GetPopup(nameof(WarningPopup)).GetComponent<WarningPopup>();
         _warningPopup.SetWarningPopup("아이템이 가득찼습니다.");
         return false;

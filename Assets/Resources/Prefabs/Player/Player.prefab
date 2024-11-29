@@ -9884,6 +9884,7 @@ GameObject:
   - component: {fileID: 3762349560147412955}
   - component: {fileID: 1601241418627150647}
   - component: {fileID: 2864799598463747573}
+  - component: {fileID: 6041516675802034061}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -9942,6 +9943,7 @@ MonoBehaviour:
   <DefenseObj>k__BackingField: {fileID: 784195439773250391}
   playerTransform: {fileID: 0}
   InteractionSystem: {fileID: 0}
+  IsRun: 0
   beforeTrans: {x: 0, y: 0, z: 0}
   _cameraView: {fileID: 1632378422577173210}
 --- !u!114 &9171299046693303827
@@ -10063,6 +10065,34 @@ MonoBehaviour:
   stamina: 0
   attack: 0
   defense: 0
+  curDefense: 0
+--- !u!54 &6041516675802034061
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5659017553536869922}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6490943239589496992
 GameObject:
   m_ObjectHideFlags: 0

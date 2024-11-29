@@ -19,19 +19,28 @@ public class RewardSlot : Slot
 {
     public override void OnPointerClick(PointerEventData eventData)
     {
+        //리워드 아이템 우클릭 시
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             Inventory inventory = UIManager.Instance.GetPopup(nameof(InventoryPopup)).GetComponent<Inventory>();
-            if(inventory.AcquireItem(item, itemCount))
-                ClearSlot();
+            
+            //획득하려는 아이템이 존재하면 해당 슬롯 비우기 
+             if(inventory.AcquireItem(item, itemCount))
+                 ClearSlot();
 
-            if (UIManager.Instance.ExistPopup(nameof(RewardPopup)))
-            {
-                GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
-                GameManager.Instance.CallUpdateRewardCountEvent();
-            }
+             //리워드 팝업이 존재한다면
+             if (UIManager.Instance.ExistPopup(nameof(RewardPopup)))
+             {
+                 GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+                 GameManager.Instance.CallUpdateRewardCountEvent();
+             }
+            
+            Debug.Log("리워드 아이템 획득");
         }
     }
+    
+    
+    //아이템 위치 변경 : 인벤토리 -> 리워드 팝업
     protected override void ChangeSlot()
     {
         ItemData _tempItem = item;
@@ -40,6 +49,8 @@ public class RewardSlot : Slot
         {
             return;  // 변경 없이 메서드 종료
         }
+        
+        //아이템 획득
         if (DragSlot.instance.dragSlot != null)
         {
             if (item == DragSlot.instance.dragSlot.item && (item.itemType == Constants.ItemType.Material||item.itemType==Constants.ItemType.Consume))
@@ -62,13 +73,17 @@ public class RewardSlot : Slot
             else
                 DragSlot.instance.dragSlot.ClearSlot();
 
+            //리워드 팝업이 존재한다면, 아이템 획득 이벤트 호출
             if(UIManager.Instance.ExistPopup(nameof(RewardPopup)))
             {
+                //이벤트에 등록되어있는 아이템 리스트 획득
                 GameManager.Instance.CallGetRewardItemEvent(GameManager.Instance.CallSetRewardItemEvent());
+                //모두 획득 관련 : 몬스터의 남은 아이템 갯수 업데이트
                 GameManager.Instance.CallUpdateRewardCountEvent();
             }
         }
-            
+         
+        //아이템 교체
         else
         {
             
